@@ -1,0 +1,39 @@
+---
+description: Command router — CODE lane (prototype / api / gen / e2e / wire). Spec·legacy·grill → base-docs.
+alwaysApply: false
+---
+
+# Team AI Flow (router) — code repo
+
+Opt-in: **một** command → **một** skill. State: `.harness/progress.md`.
+
+**Design docs lane (spec / legacy / grill / journey)** → mở **`base-docs`** workspace · skills trên docs hub.
+
+Hub handoff: `base-docs/platform/toolchain/FEATURE-ARTIFACT-FLOWS.md`
+
+## Code lane (this repo)
+
+| Command | Skill | Phase |
+|---------|-------|-------|
+| `/prototype` | `prototype/SKILL.md` | Design → UI mock |
+| `/grill-prototype` | `grill-prototype/SKILL.md` | After prototype |
+| `/api` | `api/SKILL.md` | Backend API |
+| `/grill-api` | `grill-api/SKILL.md` | API audit |
+| `/wire` | `wire/SKILL.md` | Mock → real API |
+| `/test` (`/e2e`) | `test/SKILL.md` | E2E plans → FE |
+| `/grill-test` | `grill-test/SKILL.md` | E2E grill |
+| `/unit` | `unit/SKILL.md` | Unit gen |
+| `/grill-unit` | `grill-unit/SKILL.md` | Unit grill |
+| `/model` | `model/SKILL.md` | Gen models (optional) |
+| `/platform-base` | `platform-base/SKILL.md` | Platform DNA |
+| `/platform-mark` | `platform-mark/SKILL.md` | Mark / registry |
+| `/artifactgraph` | `artifactgraph/SKILL.md` | MCP graph |
+| `/platform-ai` | `platform-ai/SKILL.md` | Overview |
+
+Order (after docs hub grill): **prototype → [api] → gen/unit → test → wire** (wire may parallel test).
+
+## Not on code repos
+
+`/spec` · `/legacy-spec` · `/bqa-grill-docs` · `/dev-grill-docs` · `/grill-with-docs` · `/update-spec*` · **`/architecture`** (router: overview/surfaces/module/flow) · **`/journey`** (`/dynamics` alias) · `/context` · `/containers` · `/component` · `/deployment` · `/cross-cutting` · `/decision` · **`/hubdocs`** · `/flow-trace` → **base-docs** only.
+
+People: `base-docs/platform/guide/start-now.md` · Structure: `SYSTEM-DOC-STRUCTURE.md`

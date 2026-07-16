@@ -1,0 +1,227 @@
+# Lexicon only — NOT SSOT of registries (product registries/*.json).
+# MCP indexes locally for draftTags / grill suggest; do NOT dump full file into cloud.
+# SSOT registries = product repos; this file = EN keyword suggestions (R2.1).
+#
+# Path: base-docs/platform/toolchain/lexicon/registry-tags.en.txt
+# Former name: registry_tag_vocabulary.txt (portal root pointer).
+#
+================================================================================
+PREFIXES (keep few; expand IDs)
+================================================================================
+#shell:       page / screen templates
+#widget: #ui: field & composite controls
+#pattern:     product or page flows (above widgets)
+#behavior:    interaction / feedback
+#style: #token: visual density / theme
+#region:      layout regions (optional; or shell slots)
+#api:         HTTP/resource contract
+#logic:       business rules, jobs, events
+#data:        field empty/PII policies
+#auth: #authz: #tenancy:
+#common:      shared composable/service already promoted
+#needs-*      missing mẫu (existing platform tags)
+
+================================================================================
+A. UI — shells / page types
+================================================================================
+List / Index / Directory
+Detail / Show / Read-only view
+Create / New
+Edit / Update
+Dashboard / Overview
+Wizard / Stepper / Multi-step
+Settings / Preferences
+Empty state
+Error state / Not found / Forbidden
+Split view / Master–detail
+Workspace / Canvas
+Onboarding / Empty tour
+
+Canonical shell IDs (examples — align with design.registry when promote):
+DataListPage · DataDetailPage · DataFormPage · DashboardPage · WizardPage · SettingsPage · WorkspacePage
+
+================================================================================
+B. UI — layout regions
+================================================================================
+App bar / Top bar / Header
+Sidebar / Navigation rail
+Breadcrumb
+Toolbar / Action bar
+Filters / Facets / Advanced search
+Content / Main
+Footer / Sticky footer
+Drawer / Sheet / Side panel
+Modal / Dialog / Alert dialog
+Popover / Menu / Context menu
+Toast / Snackbar / Notification
+Banner / Alert / Inline alert
+Tabs / Segmented control
+Accordion / Disclosure
+
+================================================================================
+C. UI — widgets / controls (primitives)
+================================================================================
+Text field / Textarea / Rich text / Markdown
+Number / Currency / Percent
+Date / Time / DateTime / Date range
+Select / Combobox / Autocomplete / Typeahead
+Multi-select / Tag input / Chip input
+Checkbox / Checkbox group
+Radio / Radio group
+Switch / Toggle
+Slider / Range
+File upload / Dropzone / Attachment
+Image upload / Avatar upload
+Color picker
+Password / OTP / PIN
+Search field
+Hidden field
+
+Composites / molecules:
+Data table / Grid
+Tree table / Nested list
+Kanban board
+Calendar / Timeline
+Chart / Sparkline
+KPI card / Stat card
+Status chip / Badge / Pill
+Avatar / User chip
+Pagination / Infinite scroll / Load more
+Sort control
+Bulk actions / Row actions
+Repeater / Field array
+Address block / Money block
+
+================================================================================
+D. UI — behavior / interaction
+================================================================================
+Loading / Skeleton / Spinner
+Optimistic update
+Debounce / Throttle search
+Confirm destructive
+Soft delete / Archive
+Undo / Toast undo
+Autosave / Dirty guard
+Inline edit
+Drag and drop / Reorder
+Keyboard shortcut / Hotkey
+Progressive disclosure
+Responsive / Compact / Dense
+Accessibility / Focus trap
+Permission-aware / RBAC-gated
+
+================================================================================
+E. UI — navigation / IA
+================================================================================
+Information architecture (IA)
+Primary nav / Secondary nav
+Deep link
+Redirect / Return URL
+Tab deep-link
+Breadcrumb hierarchy
+Cross-link / Related records
+
+================================================================================
+F. Product patterns (above widgets)
+================================================================================
+CRUD
+Search → select → act
+Import / Export / Bulk upload
+Approval / Workflow / Review queue
+Audit log / Activity feed
+Comment / Thread
+Assignment / Ownership
+Notification center
+Feature flag / Beta
+Multi-tenant / Org switcher
+Impersonation / Login-as
+Preview / Draft / Publish
+Master–detail
+Empty state
+Wizard
+
+Often missing if only copying Design System primitive libs:
+Wizard · MasterDetail · Dashboard · Settings
+Approval · Import/Export · Impersonation · DraftPublish · AuditTrail
+dirty-guard · rbac-gate · optimistic · debounce-search
+
+================================================================================
+G. API — resource & contract
+================================================================================
+Resource / Collection / Item
+Endpoint / Operation / Action
+Idempotent
+Upsert
+Batch / Bulk
+Partial update / PATCH
+Soft delete / Restore
+Pagination (offset / cursor)
+Filter / Sort / Search
+Include / Expand / Eager load
+Sparse fieldset
+ETag / Conditional request
+Rate limit
+Versioned API
+Public / Internal / Partner audience
+Webhook / Callback
+Long-running / Job / Async
+SSE / WebSocket / Realtime
+
+Reuse ref (docs hub IDs):
+#api: use:API-AD-AUTH-001
+
+Op examples:
+#api: op:list|create|update|delete|show
+#api: pagination:cursor
+#api: async-job
+#api: webhook
+
+================================================================================
+H. API — AuthN / AuthZ / tenancy
+================================================================================
+Authentication (AuthN)
+Authorization (AuthZ)
+Session / JWT / Refresh token
+OAuth / SSO / SAML
+API key / Service account
+Scope / Permission / Role / Policy
+Tenant / Workspace / Org
+Owner / Member / Guest
+Row-level security (RLS)
+
+================================================================================
+I. Logic — domain & consistency
+================================================================================
+Business rule / Invariant
+Validation (sync / async)
+Uniqueness / Conflict (409)
+State machine / Status transition
+Side effect
+Saga / Compensation
+Transaction / Unit of work
+Event / Domain event
+Projection / Read model
+Aggregate / Bounded context
+Dual-write / Outbox
+Idempotency key
+Retry / Backoff / Dead letter
+Circuit breaker
+
+================================================================================
+J. Data field policies (parity-related)
+================================================================================
+Nullable / Optional / Required
+Empty string vs null vs omit
+Default value
+Computed / Derived
+Immutable after create
+PII / Sensitive / Masked
+Audit fields (createdAt · updatedBy · …)
+
+Examples:
+#data: empty:null|empty-string|omit|empty-array
+#data: pii
+#data: immutable
+
+================================================================================
+END

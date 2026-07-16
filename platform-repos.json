@@ -1,0 +1,149 @@
+{
+  "defaultGroup": "platform-bases",
+  "groups": {
+    "platform-bases": {
+      "description": "Workspace base templates — FE / BE / fullstack / docs / tests / MCP",
+      "primary": "base-docs",
+      "projects": [
+        "portal",
+        "nextjs",
+        "nuxt-nest",
+        "next-nest",
+        "fast-api-base",
+        "api",
+        "integration",
+        "line",
+        "base-docs",
+        "base-tests",
+        "artifactgraph",
+        "hubdocs"
+      ]
+    }
+  },
+  "projects": {
+    "portal": {
+      "root": "../portal",
+      "role": "frontend",
+      "stack": "nuxt4",
+      "repo": "portal",
+      "skill": "platform-base",
+      "description": "Base Nuxt 4 (FE)",
+      "write": true
+    },
+    "nextjs": {
+      "root": "../nextjs",
+      "role": "frontend",
+      "stack": "nextjs",
+      "repo": "nextjs",
+      "skill": "platform-base",
+      "description": "Base Next.js (FE)",
+      "write": true
+    },
+    "nuxt-nest": {
+      "root": "../nuxt_nest",
+      "role": "fullstack",
+      "stack": "nuxt4-nest",
+      "repo": "nuxt_nest",
+      "skill": "platform-base",
+      "description": "Base Nuxt 4 + NestJS monorepo",
+      "write": true
+    },
+    "next-nest": {
+      "root": "../next_nest",
+      "role": "fullstack",
+      "stack": "nextjs-nest",
+      "repo": "next_nest",
+      "skill": "platform-base",
+      "description": "Base Next.js + NestJS monorepo",
+      "write": true
+    },
+    "fast-api-base": {
+      "root": "../fast-api-base",
+      "role": "backend",
+      "stack": "fastapi",
+      "repo": "fast-api-base",
+      "skill": "platform-base",
+      "description": "Base FastAPI (BE)",
+      "write": true
+    },
+    "api": {
+      "root": "../api",
+      "role": "backend",
+      "stack": "laravel",
+      "repo": "api",
+      "skill": "api-base",
+      "description": "Base Laravel 12 (BE)",
+      "write": true
+    },
+    "integration": {
+      "root": "../integration",
+      "role": "backend",
+      "stack": "dotnet-integration",
+      "repo": "integration",
+      "skill": "platform-base",
+      "description": "Base .NET (BE)",
+      "write": true
+    },
+    "line": {
+      "root": "../line",
+      "role": "client",
+      "stack": "dotnet-line",
+      "repo": "line",
+      "skill": "platform-base",
+      "description": "Base WinForms — override in platform-repos.local.json for D:/workspace/line",
+      "write": true
+    },
+    "base-docs": {
+      "root": ".",
+      "role": "docs",
+      "stack": "docs-c4",
+      "repo": "base-docs",
+      "skill": "platform-ai",
+      "description": "Base docs hub (R2) — C4 + product Code/common",
+      "write": true,
+      "specRoots": {
+        "architecture": "architecture",
+        "components": "product/components",
+        "common": "product/common/code",
+        "shared": "product/shared"
+      },
+      "docsSite": {
+        "dev": "pnpm docs:dev",
+        "root": "."
+      }
+    },
+    "base-tests": {
+      "root": "../base-tests",
+      "role": "tests",
+      "stack": "e2e-plans",
+      "repo": "base-tests",
+      "skill": "platform-ai",
+      "description": "Base tests hub (R3) — E2E yaml/md plans only",
+      "write": true,
+      "testRoots": {
+        "landscape": "landscape",
+        "scenarios": "scenarios",
+        "cases": "cases",
+        "suites": "suites"
+      }
+    },
+    "artifactgraph": {
+      "root": "../artifactgraph",
+      "role": "tooling",
+      "stack": "mcp",
+      "repo": "artifactgraph",
+      "skill": "platform-ai",
+      "description": "Local MCP artifactgraph — gaps/tags/gen allowlist (raintr91/artifactgraph)",
+      "write": true
+    },
+    "hubdocs": {
+      "root": "../hubdocs",
+      "role": "tooling",
+      "stack": "mcp",
+      "repo": "hubdocs",
+      "skill": "platform-ai",
+      "description": "Local MCP hubdocs — arc42/C4 ID index, orphans, link validate, chapter route",
+      "write": true
+    }
+  }
+}

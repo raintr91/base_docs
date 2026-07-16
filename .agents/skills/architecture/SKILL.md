@@ -1,0 +1,55 @@
+---
+name: architecture
+description: /architecture — business-layer router (overview/surfaces/module/flow) then C4/arc42 child skills.
+disable-model-invocation: true
+extractBundle: architecture-core
+---
+
+# /architecture — router (business layers → skills)
+
+Ask which **business layer** (or infer). Then load the child skill — do **not** write every arc42 chapter in one pass.
+
+People map: [`platform/guide/start-now.md`](../../../platform/guide/start-now.md)  
+Tree + standards: [`platform/guide/SYSTEM-DOC-STRUCTURE.md`](../../../platform/guide/SYSTEM-DOC-STRUCTURE.md)
+
+## Content standards (all child skills)
+
+| Layer | Prose (text) | Diagrams / DB / sequence |
+|-------|--------------|---------------------------|
+| Overview · Common · **Module+** | **arc42** spirit (short — not full 01–12) | **C4** |
+| **Function** | **C4** only | **C4** only |
+
+No **dynamics** on new trees — use **flow** / `FLOW-*` / **`/journey`**.
+
+Architecture folder: prefer **§01 intro** + **§07 deploy** for team; other chapters stub OK.
+
+## Route map (business → skill)
+
+| Ask / topic | Business layer | Next skill |
+|-------------|----------------|------------|
+| System purpose / overview / landscape / CTX | Overview | **`/context`** (+ short §01 if needed) |
+| Surfaces: web · client · api / CTR | Surfaces | **`/containers`** |
+| Module / CMP box | Module | **`/component`** |
+| Screen / API detail / CRUD | Function | **`/spec`** (grill as needed) — C4 only |
+| `*_flow` / sequence / journey | Flow | **`/journey`** |
+| Where it runs | Deploy | **`/deployment`** (stub-first) |
+| ADR / decision | — | **`/decision`** |
+| Cross-cutting | — | **`/cross-cutting`** |
+| Constraints / strategy / quality… | — | Stub chapter only — no waffle |
+
+Legacy arc42 chapter numbers still map the same paths under `architecture/01`…`12`.
+
+## Rules
+
+- Format under `architecture/`: MD + Mermaid (`flowchart` / `sequenceDiagram`; avoid Mermaid `C4Context`)
+- Product Code (`W-*`/`API-*`) stays in `product/components/…/code/` — never under `05/CODE`
+- Prefer `/journey` over `/dynamics`
+- One concern per edit
+
+## After route
+
+Load the child skill + extract bundle `architecture-core`.
+
+## MCP (optional)
+
+If **hubdocs** MCP is connected, call `hubdocs_route` then `hubdocs_list_ids` / `hubdocs_validate_links` / `hubdocs_journeys` before large edits. Package: `../hubdocs`.

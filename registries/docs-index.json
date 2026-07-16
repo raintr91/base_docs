@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "description": "Docs-side indexes — NOT FE design.registry codegen SSOT",
+  "components": [
+    {
+      "id": "CMP-01",
+      "slug": "auth",
+      "path": "product/components/CMP-01-auth",
+      "screens": ["W-AD-AUTH-001"],
+      "apis": ["API-AD-AUTH-001"]
+    }
+  ],
+  "containers": {
+    "CTR-admin-web": {
+      "screens": ["W-AD-AUTH-001"],
+      "feProject": "portal"
+    },
+    "CTR-admin-api": {
+      "apis": ["API-AD-AUTH-001"]
+    }
+  },
+  "codeIds": {
+    "W-AD-AUTH-001": "product/components/CMP-01-auth/code/W-AD-AUTH-001",
+    "API-AD-AUTH-001": "product/components/CMP-01-auth/code/API-AD-AUTH-001",
+    "UI-CMN-EMPTY-001": "product/common/code/UI-CMN-EMPTY-001",
+    "API-CMN-HEALTH-001": "product/common/code/API-CMN-HEALTH-001"
+  }
+}

@@ -1,0 +1,34 @@
+---
+description: /spec, /legacy-spec, /bqa-grill-docs, /dev-grill-docs, /grill-with-docs, /update-spec — base-docs (+ base-tests)
+globs: `docs/features/` stub · hubs
+alwaysApply: false
+---
+
+# Team Flow — Spec
+
+Active commands: `/spec`, `/legacy-spec`, `/bqa-grill-docs`, `/dev-grill-docs`, `/grill-with-docs`, `/update-spec`, `/update-spec-legacy` — one per session.
+
+| Command | Skill |
+|---------|-------|
+| `/spec` | `.cursor/skills/spec/SKILL.md` |
+| `/legacy-spec` | `.cursor/skills/legacy-spec/SKILL.md` |
+| `/bqa-grill-docs` | `.cursor/skills/bqa-grill-docs/SKILL.md` |
+| `/dev-grill-docs` | `.cursor/skills/dev-grill-docs/SKILL.md` |
+| `/grill-with-docs` | `.cursor/skills/grill-with-docs/SKILL.md` |
+| `/update-spec` | `.cursor/skills/update-spec/SKILL.md` |
+| `/update-spec-legacy` | `.cursor/skills/update-spec-legacy/SKILL.md` |
+| Grill metadata rules | `.cursor/rules/team-flow-grill.mdc` |
+
+Shared: resolve skill `extractBundle` → `.cursor/extracts/extract-registry.json` (e.g. `bqa-grill`, `dev-grill`, `grill-with-docs`).
+
+## Pipeline
+
+1. **`/legacy-spec` or `/spec`** — `*.bundle.yaml` design v1 + testcase round 1. No `gen` / `codegen`.
+2. **`/bqa-grill-docs`** — UI, acceptance, breadcrumb, delete rules.
+3. **`/dev-grill-docs`** — portal-gen-ready spec (`base-docs/templates/spec.yaml`) + `tags`. Gate: `pnpm portal:gen:dry --spec <file>`.
+4. **`/grill-with-docs`** — optional reconcile when BQA↔Dev contradict.
+5. **`/update-spec`** / **`/update-spec-legacy`** — controlled delta + `#update:*` (not full rewrite).
+6. **`/prototype`** — only after dev grill dry-run passes.
+
+- Render: `pnpm docs:render`
+- **Không** prototype UI, backend, real API, full E2E/unit trong phase spec/grill.

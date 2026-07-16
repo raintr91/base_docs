@@ -1,0 +1,11 @@
+---
+description: Docs-hub harness bias — one lane; do not load FE/Plans/BE rules here
+alwaysApply: true
+---
+
+# Platform AI (docs hub)
+
+- Harness SSOT: `.cursor/` **this repo** (spec/grill/dynamics).
+- **Lanes:** Docs here · Plans=`base-tests` · FE/BE on code — không alwaysApply Nuxt/E2E/Plans vào chat docs.
+- Product Code IR: `product/` · scripts: `scripts/spec|docs` (design MD only; plan MD = tests hub `cases:render`).
+- Chi tiết: `/platform-ai`.

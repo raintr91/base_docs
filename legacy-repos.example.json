@@ -1,0 +1,5 @@
+{
+  "description": "Optional legacy checkouts for /legacy-spec — empty for base/greenfield",
+  "defaultProject": null,
+  "projects": {}
+}

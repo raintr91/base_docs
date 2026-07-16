@@ -1,0 +1,29 @@
+/* Mermaid — fill content column (don’t leave half-width empty) */
+.vp-doc .mermaid,
+.vp-doc div[class*='mermaid'],
+.vp-doc .vitepress-mermaid-renderer,
+.vp-doc .mermaid-diagram,
+.vp-doc [class*='MermaidDiagram'] {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.vp-doc .mermaid svg,
+.vp-doc .vitepress-mermaid-renderer svg,
+.vp-doc .mermaid-diagram svg,
+.vp-doc pre.mermaid svg {
+  display: block;
+  width: 100% !important;
+  max-width: 100%;
+  height: auto !important;
+  margin-inline: auto;
+}
+
+/* Viewport around zoomable diagrams — use content width */
+.vp-doc .vitepress-mermaid-renderer .diagram-container,
+.vp-doc .vitepress-mermaid-renderer .mermaid-container {
+  width: 100%;
+  min-height: 280px;
+}

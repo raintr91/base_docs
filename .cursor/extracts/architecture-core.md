@@ -1,0 +1,57 @@
+# Architecture core (arc42 × C4 × Product)
+
+SSOT entry: [`start-now`](../../../platform/guide/start-now.md) · [`SYSTEM-DOC-STRUCTURE`](../../../platform/guide/SYSTEM-DOC-STRUCTURE.md).  
+People / tree: [`platform/guide/start-now.md`](../../../platform/guide/start-now.md) · [`SYSTEM-DOC-STRUCTURE.md`](../../../platform/guide/SYSTEM-DOC-STRUCTURE.md)
+
+## Business layers (nav)
+
+`overview` → `surfaces` (web/client/api) → `[role?]` → `module` → `function` · optional `*_flow` · thin `architecture` (intro + deploy).
+
+## Content standards
+
+| Layer | Prose | Diagrams / DB / sequence |
+|-------|-------|---------------------------|
+| Overview · Common · Module+ | **arc42** spirit | **C4** |
+| Function | **C4** | **C4** |
+
+No **dynamics** wording on new trees — use **flow** / `FLOW-*` / `/journey`.
+
+## Technical layers
+
+1. **arc42** — TOC under `architecture/01`…`12` (*why*) — team: prefer §01 + §07 active; rest stub OK
+2. **C4 views** — IDs inside chapters (*what*)
+3. **Product** — `CMP-*` / `W-*` / `API-*` under `product/` (*detail*)
+
+## ID rules
+
+| Prefix | Path | Notes |
+|--------|------|-------|
+| `LND-*` `CTX-*` | `architecture/03-context/` | Overview / landscape + context |
+| `CTR-*` | `architecture/05-building-blocks/` | Surfaces; index CMP → `product/components/` |
+| `FLOW-*` | `architecture/06-runtime/journeys/` | Curated flows (~10–20%) |
+| `DEP-*` | `architecture/07-deployment/` | Optional stub |
+| `ADR-*` | `architecture/09-decisions/` | Not `product/shared/adr` (redirect) |
+| `CMP-*` `W-*` `API-*` | `product/` | **Do not rename for arc42** |
+
+Not product journeys: `_legacy.dynamics*` · `SC-*`/`TC-*` · `/flow-trace` (legacy skill alias).
+
+## Format
+
+- Architecture chapters + CMP README: **MD + Mermaid only**
+- YAML only under `product/**/code/`
+- Prefer `sequenceDiagram` (flows) / `flowchart` (CTX/CTR) — **avoid Mermaid `C4Context`**
+- Deployment: stub unless placement matters
+- Reader UX: `vitepress-mermaid-renderer` (zoom/pan) + `vitepress-plugin-mermaid`
+- **No** Mermaid MCP required
+
+## Journey criteria (write when ≥1)
+
+Cross ≥2 systems · hard to understand / regress · slow onboard · core domain.  
+Not every agile story.
+
+## Forbidden
+
+- API schemas / UI DSL in `architecture/`
+- Duplicating Code under `05`
+- AI inventing full prod DEP topology
+- IcePanel/Lucid as SSOT

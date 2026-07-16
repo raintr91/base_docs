@@ -1,0 +1,20 @@
+node_modules/
+.vitepress/dist/
+.vitepress/cache/
+.harness/progress.md
+.harness/feature_list.json
+platform-repos.local.json
+legacy-repos.local.json
+.cursor/legacy-projects.local.json
+.cursor/team-projects.local.json
+.cursor/platform-repos.local.json
+.cursor/legacy-repos.local.json
+
+# Optional Kilo export (SSOT: .cursor/skills|rules|extracts — ./scripts/cursor-export-kilo)
+.kilo/skills/
+.kilo/instructions/
+.kilo/extracts/
+.kilo/command/
+
+.codegraph/
+.codegraph-*/

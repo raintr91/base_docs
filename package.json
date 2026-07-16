@@ -1,0 +1,33 @@
+{
+  "name": "base-docs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev . --host 0.0.0.0",
+    "docs:build": "vitepress build .",
+    "docs:preview": "vitepress preview . --host 0.0.0.0",
+    "docs:render": "node scripts/docs/render-docs.mjs --yaml-root product --md-root product --legacy-root product --no-index",
+    "docs:render:common": "node scripts/docs/render-docs.mjs --yaml-root product/common/yaml --md-root product/common/md --legacy-root product/common --no-index",
+    "spec:normalize-gen": "node scripts/spec/normalize-bundle-gen.mjs",
+    "spec:split": "node scripts/spec/split-bundle.mjs",
+    "spec:merge": "node scripts/spec/merge-bundle.mjs",
+    "spec:split:check": "node scripts/spec/split-bundle.mjs --check",
+    "spec:split:all": "node scripts/spec/split-all.mjs",
+    "spec:split:common": "node scripts/spec/split-all.mjs --root product/common/yaml",
+    "legacy-dynamics:validate": "node scripts/spec/legacy-dynamics-validate.mjs",
+    "platform:workspace": "node scripts/platform-workspace-from-repos.mjs",
+    "platform:workspace:sync": "node scripts/platform-workspace-from-repos.mjs --sync-bases"
+  },
+  "devDependencies": {
+    "@braintree/sanitize-url": "^7.1.2",
+    "cytoscape": "^3.34.0",
+    "cytoscape-cose-bilkent": "^4.1.0",
+    "dayjs": "^1.11.21",
+    "debug": "^4.4.3",
+    "mermaid": "^11.16.0",
+    "vitepress": "^1.6.4",
+    "vitepress-mermaid-renderer": "^1.1.28",
+    "vitepress-plugin-mermaid": "^2.0.17",
+    "yaml": "^2.9.0"
+  }
+}
