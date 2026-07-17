@@ -13,7 +13,7 @@
 | Phase 1B — Processkit | **Released (0.3.1)** | Process/impact tools, lifecycle, CodeGraph metric fixture and namespaced fallback schema |
 | Phase 2 — ArtifactGraph cleanup | **Complete; v2.0.1 tagged** | `main@6dc3810` · tag `v2.0.1` · 24 package tests pass · install-manifest compatibility |
 | Phase 3 — Hubdocs audit | **Complete (1.0.2)** | Architecture ownership, safe lifecycle and namespaced ArtifactGraph fallback contract |
-| Phase 4 — Codegenkit | **Complete (0.3.4)** | FE+BE+fullstack engines, managed harness ownership, common-registry validation, adapter-neutral FE rules and hash-safe FastAPI multi-entity generation |
+| Phase 4 — Codegenkit | **Complete (0.4.0)** | FE+BE+fullstack engines including `dotnet-line` / `dotnet-integration` init choices; managed harness; FastAPI multi-entity ownership |
 | Phase 5 — Testkit | **Complete (0.2.4)** | Tests/FE profiles, lifecycle, containment, schema-driven checks, optional docs fallback and deterministic goldens |
 | Phase 6 — independence matrix | **Complete** | `T6.1–T6.8` closed with install, portability, lifecycle, compatibility and measured fallback fixtures |
 
@@ -501,6 +501,9 @@ Original sequence (all package phases complete except Phase 6 verify):
 |------|----------|
 | Docs hub | Branch `1.0.0`/`main` @ `df67a35`; machine MCP configs untracked; `.bundlekit/`/`.processkit/` ignored; `pnpm docs:build` OK |
 | ArtifactGraph | `main@6dc3810` · annotated tag `v2.0.1` pushed · `npm test` 24/24 · CLI `artifactgraph 2.0.1` |
+| Codegenkit | `main@fe8d1c5` · tag `v0.4.0` · 35/35 tests · adapters `dotnet-line` (FE) + `dotnet-integration` (BE) selectable at init |
+| Integration | Local `v3` cutover: shim `./codegen/runners/generate` → Codegenkit; engines quarantined under `codegen/legacy/` |
+| Line | Local `v3` cutover: shim `./codegen/runners/generate` → Codegenkit; engines quarantined under `codegen/legacy/` |
 | Nuxt FE | Local `nuxt_v_3@af16656` clean; Codegenkit status healthy/`compat:ok`; design/unit/e2e registries OK |
 | Next FE | Local `nextjs_v3@231a57b` clean (discarded sibling `hubdocs` example-map leftover); Codegenkit healthy; registries OK |
 | Tests hub | `cases:check` / `cases:coverage` OK via Testkit 0.2.4 binary; vitepress build OK |
