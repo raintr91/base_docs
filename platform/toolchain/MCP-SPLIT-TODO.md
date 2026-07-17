@@ -1,6 +1,6 @@
 # MCP split TODO — independent packages
 
-> **Status:** Phases 0–6 shipped/verified; residual hardening closed; release cutover in progress.  
+> **Status:** Phases 0–6 shipped/verified; residual hardening closed; release cutover complete (2026-07-18).  
 > **Goal:** mỗi MCP cài độc lập; skill + script thuộc package owner; MCP phụ chỉ là accelerator (có thì gọi, không thì fallback model/local).  
 > Related: [ARTIFACTGRAPH](./ARTIFACTGRAPH.md) · [HUBDOCS](./HUBDOCS.md) · [BUNDLEKIT](./BUNDLEKIT.md) · [PROCESSKIT](./PROCESSKIT.md) · [CODEGENKIT](./CODEGENKIT.md) · [TESTKIT](./TESTKIT.md) · [MCP-OWNERSHIP](./MCP-OWNERSHIP.md) · [MCP-INSTALL-PROFILES](./MCP-INSTALL-PROFILES.md) · [FEATURE-ARTIFACT-FLOWS](./FEATURE-ARTIFACT-FLOWS.md) · `/platform-ai`
 
@@ -11,7 +11,7 @@
 | Phase 0 — contracts/bootstrap | **Complete; Platform DNA 0.1.5 released** | `TI.1–TI.7`, `TC.1–TC.6`, `TG.1` closed. Resolver, portable maps, profile isolation, lifecycle and DNA-owned lane rules published. |
 | Phase 1 — Bundlekit | **Released (0.1.3)** | Independent docs engines, lifecycle, compatibility and measured optional fallback contract |
 | Phase 1B — Processkit | **Released (0.3.1)** | Process/impact tools, lifecycle, CodeGraph metric fixture and namespaced fallback schema |
-| Phase 2 — ArtifactGraph cleanup | **Complete (2.0.1 release branch)** | Recommend/check boundary, safe lifecycle and contract-aligned legacy manifest migration |
+| Phase 2 — ArtifactGraph cleanup | **Complete; v2.0.1 tagged** | `main@6dc3810` · tag `v2.0.1` · 24 package tests pass · install-manifest compatibility |
 | Phase 3 — Hubdocs audit | **Complete (1.0.2)** | Architecture ownership, safe lifecycle and namespaced ArtifactGraph fallback contract |
 | Phase 4 — Codegenkit | **Complete (0.3.4)** | FE+BE+fullstack engines, managed harness ownership, common-registry validation, adapter-neutral FE rules and hash-safe FastAPI multi-entity generation |
 | Phase 5 — Testkit | **Complete (0.2.4)** | Tests/FE profiles, lifecycle, containment, schema-driven checks, optional docs fallback and deterministic goldens |
@@ -491,10 +491,26 @@ Original sequence (all package phases complete except Phase 6 verify):
 | Platform DNA | Resolver/maps/meta harness released; lifecycle compatibility is verified in Phase 6 | — |
 | Codegenkit harden | All residual source-audit items released/cut over | — |
 | Testkit harden | All residual source-audit items released/cut over | — |
-| Release cutover | Docs hub migration + ArtifactGraph `v2.0.1` tag/merge + FE local freeze | In progress (P0–P3) |
+| Release cutover | Docs hub migration + ArtifactGraph `v2.0.1` + FE local freeze | **Closed** — see cutover evidence below |
 
-**Next recommended order:** none for package hardening — remaining work is release
-cutover hygiene only (docs `main`, ArtifactGraph tag, FE local freeze).
+**Next recommended order:** none — MCP split, residual hardening, and release cutover are closed.
+
+### Cutover evidence (2026-07-18)
+
+| Lane | Evidence |
+|------|----------|
+| Docs hub | Branch `1.0.0`/`main` @ `df67a35`; machine MCP configs untracked; `.bundlekit/`/`.processkit/` ignored; `pnpm docs:build` OK |
+| ArtifactGraph | `main@6dc3810` · annotated tag `v2.0.1` pushed · `npm test` 24/24 · CLI `artifactgraph 2.0.1` |
+| Nuxt FE | Local `nuxt_v_3@af16656` clean; Codegenkit status healthy/`compat:ok`; design/unit/e2e registries OK |
+| Next FE | Local `nextjs_v3@231a57b` clean (discarded sibling `hubdocs` example-map leftover); Codegenkit healthy; registries OK |
+| Tests hub | `cases:check` / `cases:coverage` OK via Testkit 0.2.4 binary; vitepress build OK |
+
+**Known non-blocking follow-ups (env / pre-existing, not cutover blockers):**
+
+- Installer CLIs (`codegenkit` / `testkit`) not on shell PATH — invoke via package `bin/*.mjs` until installers are on PATH.
+- Docs hub ArtifactGraph install manifest still reports legacy `2.0.0` (compatible; migrate with `artifactgraph init` when ready).
+- Bundlekit/Processkit manifests report older installed package versions vs current CLI (compat warn; refresh with package `init`).
+- FE `extracts:validate` / some Nuxt unit failures are product-owned debt outside this cutover.
 
 When an item is implemented, check it here and note package version / PR when
 published. Local-only completion must be labelled explicitly; it is not a
