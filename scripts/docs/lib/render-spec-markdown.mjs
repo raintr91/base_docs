@@ -34,8 +34,8 @@ function renderHeader(spec, { testcases, output, devAppBaseUrl, projectRoot }) {
 
 function renderTestcaseLine(testcases, _output) {
   if (!testcases?.length) {
-    // R3: plans SSOT on base-tests — design render does not emit case MD
-    return '- **Testcase plans:** sibling `base-tests/` (`pnpm cases:render`) — see [TESTS-HUB](/platform/toolchain/TESTS-HUB)'
+    // R3: plans SSOT on tests hub — design render does not emit case MD
+    return '- **Testcase plans:** [base_test](https://github.com/raintr91/base_test) (`pnpm cases:render` on tests hub) — see docs-hub TESTS-HUB'
   }
 
   const links = testcases.map(({ file, data }) => {
@@ -43,7 +43,7 @@ function renderTestcaseLine(testcases, _output) {
     return `\`${label}\``
   })
 
-  return `- **Testcase plans:** ${links.join(' · ')} (hub: \`base-tests\`)`
+  return `- **Testcase plans:** ${links.join(' · ')} (hub: [base_test](https://github.com/raintr91/base_test))`
 }
 
 function renderScreenLine(spec, devAppBaseUrl, projectRoot) {

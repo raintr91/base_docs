@@ -4,12 +4,12 @@ feature:
   status: draft
   version: 0.1.0
   source:
-    portalSpec: ../portal/docs/features/feature-slug/spec.yaml
-    portalTestcases: ../portal/docs/features/feature-slug/testcases
+    portalSpec: product/components/CMP-*/code/W-*/ir/spec.yaml
+    portalTestcases: https://github.com/raintr91/base_test/tree/main/cases
     updatedAt: YYYY-MM-DD
     portalRefs: []
     # - id: feature-list
-    #   path: ../portal/docs/features/feature-slug/feature-list.spec.yaml
+    #   path: product/components/CMP-*/code/W-*/ir/spec.yaml
     #   syncedAt: YYYY-MM-DD
     #   status: synced   # synced | stale | pending
     portalTestcaseRefs: []
@@ -169,8 +169,8 @@ responses:
 implementationPlan:
   deprecated: Use codegen.commands — populated by pnpm api:gen:dry --write-spec
   notes:
-    - Read src/make_help.md before running generators.
-    - See .cursor/extracts/api-codegen-tags.md
+    - Generators run in the BE checkout, not this docs hub.
+    - Codegen tags: .cursor/extracts/codegen/tags.md
 
 openQuestions:
   - Confirm Platform vs Tenant ownership.

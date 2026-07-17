@@ -16,7 +16,7 @@ feature:
         status: pending
       # - id: legacy-handler
       #   type: legacy-code
-      #   path: ../legacy/app/Http/Controllers/WebhookController.php
+      #   path: <legacy-checkout>/app/Http/Controllers/WebhookController.php
       #   syncedAt: null
       #   status: pending
     portalRefs: []

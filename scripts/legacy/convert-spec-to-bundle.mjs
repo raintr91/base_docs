@@ -1,13 +1,16 @@
 #!/usr/bin/env node
 /**
+ * ARCHIVED / UNSUPPORTED — historical converter for obsolete docs/features.
+ * It is intentionally not exposed through package.json or Bundlekit. Keep for
+ * migration archaeology only; do not run on product/components.
+ *
  * Convert legacy *.spec.yaml → yaml/{role}/{domain}/{function}/*.bundle.yaml
- * Usage: pnpm spec:convert -- docs/features/admin/hotel/hotel-create.spec.yaml [more...]
  */
 import { readFile, writeFile, mkdir, copyFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parse, stringify } from 'yaml'
-import { hasGenContent, partitionSpecSection } from './lib/bundle-schema.mjs'
+import { hasGenContent, partitionSpecSection } from '../spec/lib/bundle-schema.mjs'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const META = ['id', 'title', 'status', 'owner', 'summary', 'openQuestions', 'notes']

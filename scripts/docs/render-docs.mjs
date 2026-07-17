@@ -67,7 +67,7 @@ async function main() {
 
   const elapsed = ((Date.now() - started) / 1000).toFixed(1)
   console.log(
-    `docs:render: ${specs.length} legacy spec(s), ${bundles.length} bundle(s) [${elapsed}s] (testcase MD → base-tests pnpm cases:render)`
+    `docs:render: ${specs.length} legacy spec(s), ${bundles.length} bundle(s) [${elapsed}s] (testcase MD → tests hub cases:render)`
   )
 }
 
@@ -82,7 +82,7 @@ async function renderLegacySpec(specFile) {
   await rm(path.join(generatedDir, output.specFile), { force: true })
   await rm(path.join(generatedDir, `${slug}.spec.md`), { force: true })
   await rm(path.join(generatedDir, `${slug}.README.md`), { force: true })
-  // R3: do not emit testcase MD here — use base-tests `pnpm cases:render`
+  // R3: do not emit testcase MD here — use tests hub `pnpm cases:render`
   await rm(generatedTestcasesDir, { recursive: true, force: true })
   await mkdir(generatedDir, { recursive: true })
 

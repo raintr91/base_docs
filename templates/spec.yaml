@@ -1,6 +1,6 @@
 # Portal-gen-ready spec — output of /grill-with-docs (not round-1 /legacy-spec or /spec).
 # Design v1 template: docs/templates/design-spec.yaml
-# Enrichment rules: .cursor/extracts/portal-codegen-readiness.md
+# Enrichment rules: .cursor/extracts/codegen/readiness.md
 
 id: feature-slug
 title: Feature Title
@@ -9,7 +9,7 @@ owner: portal-team
 summary: Short business summary for BA, QA, dev, and AI.
 
 # pnpm portal:gen:dry --spec <this-file>  (must pass before /prototype)
-# Tags: .cursor/extracts/portal-codegen-tags.md
+# Tags: .cursor/extracts/codegen/tags.md
 codegen:
   profile: list # list | create | edit | detail
   entity: entitySingular # hotel

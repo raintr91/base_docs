@@ -8,7 +8,7 @@ behaviors: []
 fields: []
 ui: []
 evidence:
-  - file: /home/vutv/workspace/mairy-backend/resources/views/admin/hotel/index.blade.php
-  - file: /home/vutv/workspace/mairy-backend/resources/views/admin/chain/index.blade.php
-  - file: /home/vutv/workspace/mairy-backend/resources/views/admin/review_performance/index.blade.php
+  - file: mairy-backend/resources/views/admin/hotel/index.blade.php
+  - file: mairy-backend/resources/views/admin/chain/index.blade.php
+  - file: mairy-backend/resources/views/admin/review_performance/index.blade.php
 refs: {}

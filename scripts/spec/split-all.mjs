@@ -5,7 +5,7 @@ import { splitBundleFile, checkSplitBundle } from './lib/bundle-ir.mjs'
 
 const ROOT = path.resolve(process.argv.includes('--root')
   ? process.argv[process.argv.indexOf('--root') + 1]
-  : 'docs/features/yaml')
+  : 'product')
 
 async function globBundles(dir) {
   const files = []
@@ -26,7 +26,7 @@ async function globBundles(dir) {
 async function main() {
   const bundles = await globBundles(ROOT)
   if (!bundles.length) {
-    console.log('spec:split:all: no *.bundle.yaml found under docs/features/yaml')
+    console.log(`spec:split:all: no *.bundle.yaml found under ${path.relative(process.cwd(), ROOT) || ROOT}`)
     return
   }
 

@@ -15,7 +15,7 @@ grillStatus:
   full: not_required
 
 contractRef:
-  fastClient: ~/workspace/fast-api-base/src/app/clients/mes_client.py
+  fastClient: null # Set an online Git URL when the source repository is published.
 
 spec:
   feature:

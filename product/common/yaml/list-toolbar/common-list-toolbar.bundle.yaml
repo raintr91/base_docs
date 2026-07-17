@@ -64,7 +64,7 @@ legacy:
   fields: []
   ui: []
   evidence:
-    - file: /home/vutv/workspace/mairy-backend/resources/views/common/show_perpage.blade.php
+    - file: mairy-backend/resources/views/common/show_perpage.blade.php
   refs: {}
 design:
   inherits: admin-crud

@@ -1,5 +1,5 @@
-# SSOT — portal-feature-bundle/v1 · Split: ./scripts/spec-split <path>
-# Authoring: ~/workspace/portal/docs/templates/bundle-authoring.md
+# SSOT — portal-feature-bundle/v1 · Split: pnpm spec:split -- <path>
+# Authoring: templates/bundle-authoring.md
 
 schema: portal-feature-bundle/v1
 id: role-domain-function
@@ -16,7 +16,7 @@ grillStatus:
   full: not_required
 
 contractRef:
-  portalIrSpec: ~/workspace/base-docs/…/code/W-*/ir/spec.yaml (or --id)
+  portalIrSpec: product/components/…/code/W-*/ir/spec.yaml (or --id)
 
 spec:
   clients:

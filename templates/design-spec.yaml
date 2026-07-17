@@ -88,4 +88,4 @@ openQuestions: []
 
 notes:
   - YAML is source of truth. Render with pnpm docs:render.
-  - Portal-gen blocks added in /grill-with-docs — see .cursor/extracts/portal-codegen-readiness.md
+  - Portal-gen blocks added in /grill-with-docs — see .cursor/extracts/codegen/readiness.md

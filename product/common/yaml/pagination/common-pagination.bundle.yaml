@@ -61,8 +61,8 @@ legacy:
   fields: []
   ui: []
   evidence:
-    - file: /home/vutv/workspace/mairy-backend/resources/views/paginate/custom_paginate.blade.php
-    - file: /home/vutv/workspace/mairy-backend/app/Helpers/helpers.php
+    - file: mairy-backend/resources/views/paginate/custom_paginate.blade.php
+    - file: mairy-backend/app/Helpers/helpers.php
   refs: {}
 design:
   inherits: admin-crud
