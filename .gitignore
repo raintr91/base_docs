@@ -8,6 +8,18 @@ legacy-repos.local.json
 .cursor/platform-repos.local.json
 .cursor/legacy-repos.local.json
 
+# Generated per machine by `artifactgraph init` / `hubdocs init` / `bundlekit init`.
+# These files contain local executable and workspace paths.
+.cursor/mcp.json
+.mcp.json
+.kilocode/mcp.json
+.gemini/settings.json
+.claude.json
+
+# Package install-state (machine/local; recreated by init/status).
+.bundlekit/
+.processkit/
+
 .codegraph/
 .codegraph-*/
 
