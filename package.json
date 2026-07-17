@@ -16,6 +16,9 @@
     "spec:split:common": "node scripts/spec/split-all.mjs --root product/common/yaml",
     "legacy-dynamics:validate": "node scripts/spec/legacy-dynamics-validate.mjs"
   },
+  "dependencies": {
+    "yaml": "^2.9.0"
+  },
   "devDependencies": {
     "@braintree/sanitize-url": "^7.1.2",
     "cytoscape": "^3.34.0",
@@ -25,7 +28,6 @@
     "mermaid": "^11.16.0",
     "vitepress": "^1.6.4",
     "vitepress-mermaid-renderer": "^1.1.28",
-    "vitepress-plugin-mermaid": "^2.0.17",
-    "yaml": "^2.9.0"
+    "vitepress-plugin-mermaid": "^2.0.17"
   }
 }

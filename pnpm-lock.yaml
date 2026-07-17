@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      yaml:
+        specifier: ^2.9.0
+        version: 2.9.0
     devDependencies:
       '@braintree/sanitize-url':
         specifier: ^7.1.2
@@ -35,9 +39,6 @@ importers:
       vitepress-plugin-mermaid:
         specifier: ^2.0.17
         version: 2.0.17(mermaid@11.16.0)(vitepress@1.6.4(@algolia/client-search@5.55.2)(postcss@8.5.19)(search-insights@2.17.3))
-      yaml:
-        specifier: ^2.9.0
-        version: 2.9.0
 
 packages:
 
