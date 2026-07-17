@@ -16,7 +16,7 @@ extractBundle: architecture-core
 - Format: **MD + Mermaid only** — `sequenceDiagram` preferred
 - May reference Code IDs (`W-*`, `API-*`, `CTR-*`) on steps/diagram only
 - Apply curated criteria (extract `tpl-journey.md` / `architecture-core.md`)
-- Place at system (cross-surface) or document under a surface when app-local — still one `FLOW-*` file
+- Keep one `FLOW-*` file; state whether it crosses operational areas, modules, or runtime containers
 
 ## Do not
 

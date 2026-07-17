@@ -1,6 +1,6 @@
 # Guide
 
-**Bắt đầu tại:** [Start now](./start-now.md) — ghế · cây overview→surfaces→module→function · chuẩn chữ/hình.
+**Bắt đầu tại:** [Start now](./start-now.md) — Operating Model · C4 Architecture · responsibility matrix · quy trình vận hành.
 
 **Cấu trúc hệ:** [System doc structure](./SYSTEM-DOC-STRUCTURE.md)
 

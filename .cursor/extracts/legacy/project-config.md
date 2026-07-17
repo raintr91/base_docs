@@ -1,6 +1,6 @@
 # Platform & Legacy repo config (token-tight)
 
-Hub: `base-docs/platform/toolchain/PROJECT-MAPS.md` · IDE multi-root: `platform-bases.code-workspace` (R1) — **not** a substitute for this map.
+Hub: `base-docs/platform/toolchain/PROJECT-MAPS.md` — path map for agents; **not** an IDE workspace file.
 
 ## When to touch maps
 

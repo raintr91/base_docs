@@ -14,9 +14,7 @@
     "spec:split:check": "node scripts/spec/split-bundle.mjs --check",
     "spec:split:all": "node scripts/spec/split-all.mjs",
     "spec:split:common": "node scripts/spec/split-all.mjs --root product/common/yaml",
-    "legacy-dynamics:validate": "node scripts/spec/legacy-dynamics-validate.mjs",
-    "platform:workspace": "node scripts/platform-workspace-from-repos.mjs",
-    "platform:workspace:sync": "node scripts/platform-workspace-from-repos.mjs --sync-bases"
+    "legacy-dynamics:validate": "node scripts/spec/legacy-dynamics-validate.mjs"
   },
   "devDependencies": {
     "@braintree/sanitize-url": "^7.1.2",

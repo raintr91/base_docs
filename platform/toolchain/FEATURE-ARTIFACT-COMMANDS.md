@@ -115,11 +115,8 @@ Member marks common UI + logic — grill hỏi trước khi gắn tag. Hub: [PLA
 
 | Lệnh | Mục đích |
 |------|----------|
-| `./scripts/cursor-export-kilo` | Optional: mirror `.cursor/` SSOT → `.kilo/` (sau sửa skill nếu dùng Kilo) |
 | `pnpm portal:gen --id <W-\|CMP-\|CTR-…>` | FE codegen from **base-docs** Code (`ir/spec.yaml` required) |
 | `pnpm testcase:gen --id <W-\|TC-\|SC-\|suite\|CMP-…>` | E2E gen from **base-tests** plans → `tests/e2e/` |
-| `python3 scripts/sync-cursor-ssot-bases.py` | Sync portal `.cursor` (full / shared / docs / tests) → siblings `platform-bases` |
-| `python3 scripts/sync-platform-repos-bases.py` | Sync `platform-repos.json` (+ example) lên mọi base incl. `base-docs` / `base-tests` |
 | Root `platform-repos.json` | Cross-repo map — [PROJECT-MAPS](./PROJECT-MAPS.md) |
 | `pnpm extracts:validate` | Skill `extractBundle` ⊆ registry |
 

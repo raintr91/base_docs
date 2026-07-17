@@ -20,4 +20,4 @@ pnpm docs:dev
 
 Pilot: **CMP-01 Auth** · `W-AD-AUTH-001` · `API-AD-AUTH-001` · `FLOW-login`.
 
-Maps: `platform-repos.json` (`role: docs`, `specRoots`). Sync AI from portal: `python3 ../portal/scripts/sync-cursor-ssot-bases.py`.
+Maps: `platform-repos.json` (`role: docs`, `specRoots`).

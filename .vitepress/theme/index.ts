@@ -30,7 +30,7 @@ export default {
           boxMargin: 12,
         },
         themeVariables: {
-          fontSize: '16px',
+          fontSize: '18px',
         },
       })
     }

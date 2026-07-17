@@ -1,129 +1,179 @@
-# System doc structure — business tree + standards
+# System doc structure — Operating Model và Architecture
 
-How we **present** docs for one **system** (many surfaces: web, client, API) — not a single website sitemap.
+Cấu trúc tài liệu biểu diễn một hệ thống theo hai góc nhìn bổ trợ:
+
+- **Business Operating Model:** actor nào vận hành hệ thống, thuộc operational area nào và sử dụng capability nào.
+- **Technical Architecture:** runtime container nào triển khai capability và chúng giao tiếp với nhau như thế nào.
+
+`Web`, `Client` và `API` là technical channel/container, không phải business operational area.
 
 **People entry:** [Start now](./start-now.md)  
-**IDs / codegen stay:** `CMP-*` · `W-*` · `API-*` · `CTR-*` · `FLOW-*` (skills keep `/journey`, `/spec`, …)
+**IDs / codegen stay:** `CMP-*` · `W-*` · `API-*` · `CTR-*` · `FLOW-*`
 
 ---
 
-## 1. Business tree (nav / mental model)
+## 1. Business operating model
 
 ```text
-overview/                         # hệ thống
-surfaces/                         # kênh chạy (≠ tenant)
-  flows/                          # optional — xuyên nhiều surface (*_flow / FLOW-*)
-  web/
-    flows/                        # optional — trong một app
-    [role/…]                      # optional — chỉ khi dự án phân persona/role
-      module-…/                   # năng lực = CMP
-        functions/                # màn / API chi tiết
-          …/
-  client/
-    …
-  api/                            # nên có ngang web/client
-    …
-common/                           # UI chung · DB/DA wrapper — chỉ khi cần
+overview/                         # purpose, scope, actors, external systems
+operational-areas/                # logical grouping; not required folders
+  admin-operations/               # admin, supervisor → Web Portal
+  workforce-operations/           # employee → Web / Line Client
+  shop-floor-operations/          # worker, technician → HMI / Line Client
+  plant-integration/              # PLC, MES, devices → Gateway
+modules/                          # business capabilities = CMP-*
+  functions/                      # screen W-* / API contract API-*
+flows/                            # optional FLOW-* across areas/modules/containers
+common/                           # shared UI · DB/DA wrapper when needed
 architecture/
-  01-introduction/                # sống
-  07-deployment/                  # sống (stub-first topology)
-  02…06, 08…12/                   # stub — team ít đụng
+  context/                        # actors + system boundary
+  containers/                     # Portal, Client, API service, Gateway
+  runtime/                        # curated FLOW-*
+  deployment/                     # placement/topology
 ```
 
-### Optional levels
+Đây là **logical navigation model**, không phải yêu cầu tạo các thư mục vật lý tương ứng. Module giữ một SSOT dưới `product/components/`; operational area liên kết tới Module thay vì sao chép Module.
 
-| Tầng | Bắt buộc? | Khi nào có |
-|------|-----------|------------|
-| **role** | Không | Overview/dự án mô tả phân cấp persona → xen giữa surface và module; không thì surface → module |
-| **flows** (`*_flow`) | Không | Chỉ chỗ cần (hệ hoặc trong một surface) |
-| **common / DB** | Không | Shared UI hoặc data wrapper thật sự dùng chung |
+```mermaid
+flowchart LR
+  A["Actor / Persona"] --> O["Operational area"]
+  O --> C["Interaction channel"]
+  O --> M["Module · CMP-*"]
+  M --> F["Function"]
+  F --> W["Screen · W-*"]
+  F --> API["API contract · API-*"]
+
+  classDef business fill:#DBEAFE,stroke:#1D4ED8,color:#1E3A8A
+  classDef product fill:#D1FAE5,stroke:#047857,color:#064E3B
+  classDef detail fill:#FEF3C7,stroke:#B45309,color:#78350F
+  class A,O,C business
+  class M product
+  class F,W,API detail
+```
+
+Các quan hệ trong Operating Model là many-to-many:
+
+- One persona may use several channels.
+- One channel may serve several operational areas.
+- One module may support Admin, Workforce, and Shop-floor without being duplicated.
+- A Function may expose a screen, an API contract, or both.
 
 ### Vocabulary
 
-| Từ | Nghĩa | Không nhầm với |
-|----|--------|----------------|
-| **Surface** | Kênh runtime: Admin web, Line client, API… | **Tenant** (đa thuê bao) — chỉ chú thích nếu team quen gọi tenant |
-| **Module** | Năng lực nghiệp vụ (`CMP-*`) | Một folder Next.js |
-| **Function** | Màn (`W-*`) hoặc API (`API-*`) trong module | Journey xuyên hệ |
-| **Flow** | Câu chuyện curated (`FLOW-*` / `*_flow`) | Legacy `dynamics` (không dùng trên cây mới) |
+| Term | Meaning | Do not confuse with |
+|------|---------|---------------------|
+| **Operational area** | Nhóm hoạt động nghiệp vụ: Admin, Workforce, Shop-floor, Plant Integration | Runtime container |
+| **Persona / actor** | Người hoặc hệ thống thực hiện hoạt động: admin, worker, PLC… | Channel |
+| **Interaction channel** | Điểm tương tác: Web Portal, Line Client, HMI, Gateway | Operational area |
+| **Module** | Năng lực nghiệp vụ (`CMP-*`) | Một folder framework |
+| **Function** | Hành vi chi tiết; có màn (`W-*`), API contract (`API-*`), hoặc cả hai | API runtime service |
+| **Container** | Runtime deployable/process: Portal, Line Client, Backend API, Integration Gateway | Operational area |
+| **Flow** | Câu chuyện curated (`FLOW-*` / `*_flow`) | Legacy `dynamics` |
 
 ---
 
-## 2. Content standards by layer
+## 2. Quan hệ giữa Operating Model và C4 Architecture
+
+```mermaid
+flowchart TB
+  subgraph Business["Business operating model"]
+    OA["Operational areas<br/>Admin · Workforce · Shop-floor · Plant"]
+    MOD["Modules · CMP-*"]
+    FUN["Functions<br/>Screen W-* · API contract API-*"]
+    OA --> MOD --> FUN
+  end
+
+  subgraph C4["Technical architecture"]
+    CTX["System Context<br/>actors · external systems"]
+    CTR["Containers<br/>Portal · Client · API service · Gateway"]
+    CMP["Components<br/>runtime responsibilities"]
+    CTX --> CTR --> CMP
+  end
+
+  OA -. "implemented by" .-> CTR
+  MOD -. "allocated to" .-> CMP
+  FUN -. "served through" .-> CTR
+```
+
+Thuật ngữ “API” xuất hiện ở hai cấp độ với ý nghĩa khác nhau:
+
+- **Backend API service** là C4 Container (`CTR-*`).
+- **API endpoint/contract** là Function detail (`API-*`), thường đi cùng màn hình nhưng cũng có thể phục vụ job, webhook, device và integration.
+
+---
+
+## 3. Content standards by layer
 
 | Layer | Pure text (why, scope, constraints) | Diagrams / DB / sequence |
 |-------|--------------------------------------|---------------------------|
-| **Overview · Common · Module trở lên** | **arc42** spirit (short sections — not all chapters 01–12) | **C4** (context, container, relations, ER, journey sequence) |
-| **Function** (inside module) | **C4** code-level (screen/API behaviour) | **C4** only |
+| **Overview · Operational area · Common · Module+** | **arc42** spirit (short sections, not all chapters) | **C4** |
+| **Function** | C4 code-level screen/API behaviour | **C4** only |
 
-One line for the team:
-
-> *Above module: words = arc42, pictures/DB/seq = C4. Inside a function: everything = C4.*
+> Above Function: concise arc42 prose and C4 views. At Function detail: screen/API contracts and C4-level behaviour.
 
 Prefer `flowchart` / `sequenceDiagram`. Avoid Mermaid `C4Context` in VitePress.
 
 ---
 
-## 3. Map → technical SSOT (do not rename IDs)
+## 4. Map → technical SSOT
 
-| Business node | Technical home (today) | Skill |
-|---------------|------------------------|-------|
-| Overview | `architecture/03-context/` (`LND-*` `CTX-*`) + short §01 | `/architecture` → `/context` |
-| Surfaces (web/client/api) | `architecture/05-building-blocks/` (`CTR-*`) | `/containers` |
+| Business/technical node | Technical home | Skill |
+|-------------------------|----------------|-------|
+| Overview | `architecture/03-context/` (`LND-*`, `CTX-*`) + short §01 | `/context` |
+| Operational areas / personas | Context narrative + links to modules | `/context` |
+| Runtime containers | `architecture/05-building-blocks/` (`CTR-*`) | `/containers` |
 | Module | `product/components/CMP-*/` | `/component` |
-| Function (screen) | `CMP-*/code/W-*/` | `/spec` · grill |
-| Function (API) | `CMP-*/code/API-*/` | `/spec` · grill |
-| Flow | `architecture/06-runtime/journeys/FLOW-*.md` | **`/journey`** (not `/dynamics`) |
+| Function screen | `CMP-*/code/W-*/` | `/spec` · grill |
+| Function API contract | `CMP-*/code/API-*/` | `/spec` · grill |
+| Flow | `architecture/06-runtime/journeys/FLOW-*.md` | `/journey` |
 | Common / DB | `product/common/` · `product/shared/data-model/` | as needed |
-| Intro | `architecture/01-introduction/` | `/architecture` |
-| Deploy | `architecture/07-deployment/` | `/deployment` (stub-first) |
+| Deployment | `architecture/07-deployment/` | `/deployment` |
 
-Nav uses business labels (VitePress **System** sidebar); **git paths and IDs stay** for codegen / grill / hubdocs. No physical `overview/` / `surfaces/` folders unless lead says nav is still confusing.
+Nav uses business labels; **git paths and IDs stay** for codegen, grill, and hubdocs. Do not create physical `operational-areas/` folders unless the product needs dedicated area pages.
 
 ---
 
-## 4. Architecture folder policy (thin for the team)
+## 5. Architecture folder policy
 
 | Chapter | Status |
 |---------|--------|
-| `01` Introduction | **Active** — purpose / scope of this system docs |
-| `07` Deployment | **Active** — stub unless placement matters |
-| `02`–`06`, `08`–`12` | **Stub OK** — fill when lead needs; do not force every member |
-
-C4 views that matter day-to-day still live under §03 / §05 / journeys — linked from **Start now** and module indexes, not by forcing the arc42 TOC on everyone.
-
----
-
-## 5. Skills compliance (Layer rules)
-
-Every architecture/product skill above **function** must:
-
-1. Write **prose** in arc42 tone (intent, constraints, decisions) — no fake full 01–12 dump.  
-2. Write **diagrams / DB / sequences** as C4 views.  
-3. Never label new trees **dynamics**; use **flow** / `FLOW-*` / `/journey`.
-
-**Function** skills (`/spec`, grill): C4 detail only — no new arc42 chapters for one screen.
-
-Router: **`/architecture`** maps business ask → overview / surfaces / module / flow / deploy (see skill).
+| `01` Introduction | Active — purpose and scope |
+| `03` Context | Active — actors, operational areas, system boundary |
+| `05` Building blocks | Active — C4 runtime containers + CMP index |
+| `06` Runtime | Curated `FLOW-*` only |
+| `07` Deployment | Active, stub-first unless placement matters |
+| Other chapters | Stub OK; fill only when a real concern requires them |
 
 ---
 
-## 6. Pilot shape (Auth)
+## 6. Skills compliance
 
-Business view:
+1. `/context` owns system scope, actors, personas, and operational areas.
+2. `/containers` owns runtime Portal/Client/API/Gateway views, not business-area classification.
+3. `/component` owns each module once and maps it to relevant areas and containers.
+4. `/spec` owns Function detail: `W-*` and `API-*`.
+5. `/journey` owns curated cross-area/module/container flows.
+6. New docs use **flow**, never `dynamics`.
+
+Router: `/architecture` maps an ask to context/operational area, containers, module, function, flow, or deployment.
+
+---
+
+## 7. Pilot shape — Auth
 
 ```text
-overview          → CTX-admin / LND-base
-surfaces/web      → CTR-admin-web
-surfaces/api      → CTR-admin-api
-module Auth       → CMP-01-auth
-  function login  → W-AD-AUTH-001 · API-AD-AUTH-001
-flow (system)     → FLOW-login
+overview                 → CTX-admin / LND-base
+operational area         → Admin operations
+persona + channel        → Admin operator + Web Portal
+runtime containers       → CTR-admin-web · CTR-admin-api
+module Auth              → CMP-01-auth
+  function login         → W-AD-AUTH-001 · API-AD-AUTH-001
+flow                     → FLOW-login
 ```
 
 ---
 
-## 7. Related
+## 8. Related
 
-- [Start now](./start-now.md) — people entry by seat  
+- [Start now](./start-now.md) — onboarding and responsibility matrix
 - Skills: `.cursor/skills/{architecture,context,containers,component,journey,spec,deployment}/`

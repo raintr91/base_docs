@@ -5,9 +5,9 @@ disable-model-invocation: true
 extractBundle: architecture-core
 ---
 
-# /context — Overview / landscape (§03)
+# /context — Overview / operating context (§03)
 
-**Business layer:** Overview  
+**Business layer:** Overview, actors/personas, operational areas, interaction channels
 **Standards:** prose → **arc42**; diagrams → **C4** (`flowchart`, avoid Mermaid `C4Context`)
 
 ## Write
@@ -16,7 +16,8 @@ extractBundle: architecture-core
 - IDs: `LND-*`, `CTX-*` (D3: landscape lives here)
 - Format: MD + Mermaid; prefer `flowchart`
 - Template: `tpl-arc42-chapter.md` + pilot sections in `03-context/index.md`
-- Keep text short (purpose, actors, boundary) — arc42 spirit, not every chapter
+- Keep text concise: purpose, actors, operational areas, interaction channels, boundary, and constraints
+- Keep Portal/Client/API/Gateway runtime decomposition in `/containers`
 
 ## Do not
 

@@ -34,6 +34,27 @@ flowchart LR
   FE -->|codegen from Code| Docs
 ```
 
+## Operating context
+
+Operational areas classify business activity independently from runtime technology. The following baseline supports factory-oriented products and can be narrowed for each implementation.
+
+```mermaid
+flowchart LR
+  Admin["Admin operations"] --> AdminActor["Admin / Supervisor"]
+  AdminActor --> Portal["Web Portal"]
+
+  Workforce["Workforce operations"] --> Employee["Employee"]
+  Employee --> WorkforceChannel["Web / Line Client"]
+
+  Shopfloor["Shop-floor operations"] --> Operator["Worker / Technician"]
+  Operator --> HMI["HMI / Line Client"]
+
+  Plant["Plant integration"] --> Machine["PLC / MES / Device"]
+  Machine --> Gateway["Integration Gateway"]
+```
+
+Operational areas and interaction channels are part of the business context. Runtime Portal, Client, API service, and Gateway decomposition belongs to [§05 Building blocks](/architecture/05-building-blocks/).
+
 ## CTX-admin
 
 Admin product boundary: authenticated operators manage tenant/platform data via Admin Web; Admin API is the system of record behind the FE.

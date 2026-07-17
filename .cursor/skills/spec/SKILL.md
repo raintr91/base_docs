@@ -23,7 +23,7 @@ Tree: [`platform/guide/SYSTEM-DOC-STRUCTURE.md`](../../../platform/guide/SYSTEM-
 
 ## Workflow
 
-1. Confirm **module (`CMP-*`) exists** and surface/CTR is known — else stop for lead/owner.
+1. Confirm **module (`CMP-*`) exists**, its operational-area mapping is known, and the implementing `CTR-*` is identified — otherwise stop for lead/owner.
 2. If bundle exists, verify gaps: actors, fields, validations, routes, actions, API contracts, edge cases, acceptance.
 3. If new, draft from user bullets — `*.bundle.yaml` with `specOrigin: requirement` under `code/W-*` or `code/API-*`.
 4. Incremental blocks per extracts when needed.

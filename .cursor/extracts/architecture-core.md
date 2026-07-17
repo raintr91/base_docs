@@ -3,15 +3,17 @@
 SSOT entry: [`start-now`](../../../platform/guide/start-now.md) · [`SYSTEM-DOC-STRUCTURE`](../../../platform/guide/SYSTEM-DOC-STRUCTURE.md).  
 People / tree: [`platform/guide/start-now.md`](../../../platform/guide/start-now.md) · [`SYSTEM-DOC-STRUCTURE.md`](../../../platform/guide/SYSTEM-DOC-STRUCTURE.md)
 
-## Business layers (nav)
+## Operating model (business view)
 
-`overview` → `surfaces` (web/client/api) → `[role?]` → `module` → `function` · optional `*_flow` · thin `architecture` (intro + deploy).
+`overview` → `operational areas` (Admin/Workforce/Shop-floor/Plant) → `module` → `function` · optional `FLOW-*`.
+
+Personas/actors and interaction channels are mapped to operational areas. Runtime Portal/Client/API/Gateway remain C4 Containers.
 
 ## Content standards
 
 | Layer | Prose | Diagrams / DB / sequence |
 |-------|-------|---------------------------|
-| Overview · Common · Module+ | **arc42** spirit | **C4** |
+| Overview · Operational area · Common · Module+ | **arc42** spirit | **C4** |
 | Function | **C4** | **C4** |
 
 No **dynamics** wording on new trees — use **flow** / `FLOW-*` / `/journey`.
@@ -27,7 +29,7 @@ No **dynamics** wording on new trees — use **flow** / `FLOW-*` / `/journey`.
 | Prefix | Path | Notes |
 |--------|------|-------|
 | `LND-*` `CTX-*` | `architecture/03-context/` | Overview / landscape + context |
-| `CTR-*` | `architecture/05-building-blocks/` | Surfaces; index CMP → `product/components/` |
+| `CTR-*` | `architecture/05-building-blocks/` | Runtime containers; index CMP → `product/components/` |
 | `FLOW-*` | `architecture/06-runtime/journeys/` | Curated flows (~10–20%) |
 | `DEP-*` | `architecture/07-deployment/` | Optional stub |
 | `ADR-*` | `architecture/09-decisions/` | Not `product/shared/adr` (redirect) |

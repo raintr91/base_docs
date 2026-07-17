@@ -8,7 +8,7 @@ extractBundle: architecture-core
 # /component — Module (CMP)
 
 **Business layer:** Module  
-**Standards:** README prose → **arc42** (why this box, which surface); relation diagrams → **C4**. Function detail → `/spec` (**C4 only**).
+**Standards:** README prose → **arc42** (why this capability exists, which operational areas it supports); relation diagrams → **C4**. Function detail → `/spec` (**C4 only**).
 
 ## Write
 
@@ -17,7 +17,7 @@ extractBundle: architecture-core
 - Update `architecture/05-building-blocks/` Components index when adding CMP
 - Template: `.cursor/extracts/tpl-component.md` (column **Journey**, not Dynamics)
 - Format: **MD only** on README; yaml only under `code/W-*` / `code/API-*`
-- State which surface/CTR this module belongs to
+- Map the module to relevant operational areas/personas and runtime `CTR-*`; do not duplicate the module per area
 
 ## Do not
 

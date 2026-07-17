@@ -19,7 +19,6 @@
 | `./codegen/runners/generate write --spec …` | Write `src/app/modules/...` |
 | `./codegen/runners/generate openapi --spec …` | Export `backend/02-openapi.yaml` |
 | `./unitgen/runners/generate write --spec …` | pytest scaffold |
-| `./scripts/platform-ai-link` | Mirror `platform-ai/` SSOT → `.cursor/` + `.kilo/` |
 | `./registries/validate-common validate` | Validate `registries/common.registry.json` |
 | `./registries/validate-common show` | Print common registry |
 | `make test` / `.venv/bin/pytest` | API + yaml contract — **không Playwright** |

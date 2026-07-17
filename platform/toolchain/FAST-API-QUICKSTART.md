@@ -11,11 +11,10 @@
 cd ~/workspace/fast-api-base
 cp .env.example .env
 uv sync
-./scripts/platform-ai-link   # mirror platform-ai/ → .cursor + .kilo (sau clone / khi sửa SSOT)
 uv run uvicorn app.main:app --reload --port 4000 --app-dir src
 ```
 
-> **AI layer:** Chỉ sửa `platform-ai/` (skills, rules, extracts). `.cursor/` và `.kilo/` là mirror — gitignore, tạo lại bằng `./scripts/platform-ai-link`. Chi tiết: [`platform-ai/README.md`](../platform-ai/README.md).
+> **AI layer:** SSOT là `.cursor/{skills,rules,extracts}` trên từng repo.
 
 ## Verify
 

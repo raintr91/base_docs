@@ -1,6 +1,6 @@
 ---
 name: architecture
-description: /architecture — business-layer router (overview/surfaces/module/flow) then C4/arc42 child skills.
+description: /architecture — route context/operations, containers, modules, functions, flows, and deployment.
 disable-model-invocation: true
 extractBundle: architecture-core
 ---
@@ -28,7 +28,8 @@ Architecture folder: prefer **§01 intro** + **§07 deploy** for team; other cha
 | Ask / topic | Business layer | Next skill |
 |-------------|----------------|------------|
 | System purpose / overview / landscape / CTX | Overview | **`/context`** (+ short §01 if needed) |
-| Surfaces: web · client · api / CTR | Surfaces | **`/containers`** |
+| Operational area / persona / interaction channel | Context / operating model | **`/context`** |
+| Portal · Client · API service · Gateway / CTR | C4 Containers | **`/containers`** |
 | Module / CMP box | Module | **`/component`** |
 | Screen / API detail / CRUD | Function | **`/spec`** (grill as needed) — C4 only |
 | `*_flow` / sequence / journey | Flow | **`/journey`** |
@@ -43,6 +44,7 @@ Legacy arc42 chapter numbers still map the same paths under `architecture/01`…
 
 - Format under `architecture/`: MD + Mermaid (`flowchart` / `sequenceDiagram`; avoid Mermaid `C4Context`)
 - Product Code (`W-*`/`API-*`) stays in `product/components/…/code/` — never under `05/CODE`
+- API service belongs to C4 Containers; API endpoint/contract belongs to Function detail
 - Prefer `/journey` over `/dynamics`
 - One concern per edit
 

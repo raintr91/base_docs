@@ -5,16 +5,17 @@ disable-model-invocation: true
 extractBundle: architecture-core
 ---
 
-# /containers — Surfaces / building blocks (§05)
+# /containers — C4 Containers / building blocks (§05)
 
-**Business layer:** Surfaces (web · client · api)  
+**Architecture layer:** Runtime containers (Portal · Client/HMI · API service · Gateway)
 **Standards:** prose → **arc42**-lite; diagrams → **C4** `CTR-*`
 
 ## Write
 
 - Path: `architecture/05-building-blocks/`
 - IDs: `CTR-*` (description + flowchart + Code refs table)
-- Prefer naming surfaces: `*-web`, `*-api`, client equivalents — not “tenant” unless multi-tenant is the topic
+- Name runtime ownership explicitly: `*-web`, `*-api`, `*-client`, `*-gateway`
+- Keep operational areas/personas in `/context`; do not classify Admin/Worker as C4 Containers
 - CMP: **index/link only** → `product/components/CMP-*` (use `/component` for README)
 - Format: MD + Mermaid only
 

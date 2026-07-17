@@ -8,11 +8,8 @@ legacy-repos.local.json
 .cursor/platform-repos.local.json
 .cursor/legacy-repos.local.json
 
-# Optional Kilo export (SSOT: .cursor/skills|rules|extracts — ./scripts/cursor-export-kilo)
-.kilo/skills/
-.kilo/instructions/
-.kilo/extracts/
-.kilo/command/
-
 .codegraph/
 .codegraph-*/
+
+# Local/private architecture notes (not part of base-docs)
+docs/factory-ai-stack.md

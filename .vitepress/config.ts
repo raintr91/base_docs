@@ -15,10 +15,29 @@ export default withMermaid(
       '**/package.json',
       '**/platform-repos*.json',
       '**/legacy-repos*.json',
-      '**/*.code-workspace',
       '**/product/**/code/**/*.yaml',
       '**/product/**/code/**/ir/**',
     ],
+    // Node sizes are computed from this font size — keep in sync with the CSS pin in theme/custom.css
+    mermaid: {
+      themeVariables: {
+        fontSize: '18px',
+      },
+      flowchart: {
+        useMaxWidth: true,
+        htmlLabels: true,
+        padding: 16,
+        nodeSpacing: 50,
+        rankSpacing: 60,
+      },
+      sequence: {
+        useMaxWidth: true,
+        diagramMarginX: 40,
+        diagramMarginY: 20,
+        actorMargin: 50,
+        boxMargin: 12,
+      },
+    },
     vite: {
       // vitepress-plugin-mermaid forces these into optimizeDeps; pnpm needs them as direct deps
       // (see .npmrc public-hoist-pattern). Do NOT alias dayjs → 'dayjs/' (breaks absolute resolve).
@@ -57,7 +76,7 @@ export default withMermaid(
           collapsed: false,
           items: [
             { text: 'Overview (context)', link: '/architecture/03-context/' },
-            { text: 'Surfaces (containers)', link: '/architecture/05-building-blocks/' },
+            { text: 'Runtime containers', link: '/architecture/05-building-blocks/' },
             {
               text: 'Modules',
               collapsed: true,

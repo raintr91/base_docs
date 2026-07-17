@@ -8,8 +8,8 @@ Tree + standards: [`platform/guide/SYSTEM-DOC-STRUCTURE.md`](./platform/guide/SY
 | Command | Skill |
 |---------|-------|
 | `/architecture` | arc42 router → chapter / business layer |
-| `/context` | §03 LND/CTX (overview) |
-| `/containers` | §05 CTR (surfaces) + CMP index |
+| `/context` | §03 LND/CTX (overview, actors, operational areas) |
+| `/containers` | §05 C4 runtime containers (`CTR-*`) + CMP index |
 | `/component` | `product/components/CMP-*` (module) |
 | `/journey` | §06 `FLOW-*` (`/dynamics` = deprecated alias) |
 | `/deployment` | §07 stub-first DEP |

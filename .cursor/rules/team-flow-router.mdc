@@ -34,6 +34,6 @@ Order (after docs hub grill): **prototype → [api] → gen/unit → test → wi
 
 ## Not on code repos
 
-`/spec` · `/legacy-spec` · `/bqa-grill-docs` · `/dev-grill-docs` · `/grill-with-docs` · `/update-spec*` · **`/architecture`** (router: overview/surfaces/module/flow) · **`/journey`** (`/dynamics` alias) · `/context` · `/containers` · `/component` · `/deployment` · `/cross-cutting` · `/decision` · **`/hubdocs`** · `/flow-trace` → **base-docs** only.
+`/spec` · `/legacy-spec` · `/bqa-grill-docs` · `/dev-grill-docs` · `/grill-with-docs` · `/update-spec*` · **`/architecture`** (router: context/operations/containers/module/function/flow) · **`/journey`** (`/dynamics` alias) · `/context` · `/containers` · `/component` · `/deployment` · `/cross-cutting` · `/decision` · **`/hubdocs`** · `/flow-trace` → **base-docs** only.
 
 People: `base-docs/platform/guide/start-now.md` · Structure: `SYSTEM-DOC-STRUCTURE.md`

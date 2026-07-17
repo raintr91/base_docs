@@ -46,4 +46,4 @@ Do **not** share one `.codegraph/` across Win + WSL for the same tree (`CODEGRAP
 
 ## Sync
 
-Rule lives in `.cursor/rules/codegraph.mdc` · optional `./scripts/cursor-export-kilo` (per-repo; no cross-factory sync).
+Rule lives in `.cursor/rules/codegraph.mdc` (per-repo; no cross-factory sync).

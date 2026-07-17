@@ -13,7 +13,7 @@ Chỉ sửa `.cursor/` / handbook pointers trên **base-docs**. Không nhồi FE
 
 | Lane | Repo | Skills |
 |------|------|--------|
-| **Docs** | **this** (`base-docs`) | `/architecture` (overview/surfaces/module/flow) `/context` `/containers` `/component` **`/journey`** `/deployment` `/cross-cutting` `/decision` **`/hubdocs`** · `/spec` `/legacy-spec` grill `/update-spec*` |
+| **Docs** | **this** (`base-docs`) | `/architecture` (context/operations/containers/module/function/flow) `/context` `/containers` `/component` **`/journey`** `/deployment` `/cross-cutting` `/decision` **`/hubdocs`** · `/spec` `/legacy-spec` grill `/update-spec*` |
 
 People entry: `platform/guide/start-now.md` · Doc tree: `platform/guide/SYSTEM-DOC-STRUCTURE.md`
 | **Plans** | `base-tests` | `/testcase` `/grill-testcase` |
@@ -27,4 +27,4 @@ Flow: `platform/toolchain/FEATURE-ARTIFACT-FLOWS.md` · `TESTS-HUB.md` · router
 ## Done
 
 - [ ] Docs skills/extracts đúng hub paths
-- [ ] Sync DNA từ portal không xóa docs-tier skills
+- [ ] Docs-tier skills không bị lẫn FE/Plans/BE skills

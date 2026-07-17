@@ -1,6 +1,6 @@
-# Shared project maps (Cursor + Kilo)
+# Shared project maps
 
-**SSOT at repo root** — không nhét riêng trong `.cursor/` hay `.kilo/config/`.
+**SSOT at repo root** — không nhét riêng trong `.cursor/`.
 
 | File | Mục đích |
 |------|----------|
@@ -10,36 +10,10 @@
 | [`legacy-repos.json`](../../legacy-repos.json) | Legacy roots for `/legacy-spec` — **rỗng** trên cụm base |
 | `platform-repos.local.json` | Machine override (gitignored) |
 | `legacy-repos.local.json` | Machine override (gitignored) |
-| [`platform-bases.code-workspace`](../../platform-bases.code-workspace) | **Multi-root Cursor/VS Code** — folders = `defaultGroup` (**R1**) |
 
-## Multi-root workspace (R1 — agent edit cross-repo)
+## Base cluster
 
-Cursor **không** đọc `platform-repos.json` như ACL ghi. Edit sibling `../api` khi chỉ mở folder `portal/` → External File Protection (Accept từng lần).
-
-**Cách đúng:** mở workspace sinh từ map:
-
-```bash
-pnpm platform:workspace
-# → platform-bases.code-workspace
-
-pnpm platform:workspace:sync
-# copy script + regenerate trên mọi sibling platform-bases
-```
-
-Cursor: **File → Open Workspace from File…** → `platform-bases.code-workspace` (không “Open Folder” một repo lẻ).
-
-| Flag | Việc |
-|------|------|
-| `--group=<id>` | Group trong `groups` (mặc định `defaultGroup`) |
-| `--out=<file>` | Tên file workspace |
-| `--include-readonly` | Giữ project `write: false` |
-| `--sync-bases` | Copy script + regenerate từng sibling |
-
-Sau `python3 scripts/sync-platform-repos-bases.py`, chạy lại `pnpm platform:workspace:sync` nếu roots đổi. **Không** tắt External File Protection global — multi-root từ map mới là R1.
-
-## Base cluster (workspace)
-
-Mỗi product base + MCP giữ **cùng catalog** `platform-bases` (9 keys). Root relative tới repo đang mở (từ portal: siblings `../…`). Field `stack` dùng cho artifactgraph MCP (`nuxt4`, `nextjs`, `fastapi`, …).
+Mỗi product base + MCP giữ **cùng catalog** `platform-bases`. Root relative tới repo đang mở (từ portal: siblings `../…`). Field `stack` dùng cho artifactgraph MCP (`nuxt4`, `nextjs`, `fastapi`, …).
 
 | Key | Path (từ portal) | Role | stack |
 |-----|------------------|------|-------|
@@ -55,15 +29,9 @@ Mỗi product base + MCP giữ **cùng catalog** `platform-bases` (9 keys). Root
 | `base-tests` | `../base-tests` | Tests hub (R3 E2E plans) | `e2e-plans` |
 | `artifactgraph` | `../artifactgraph` | MCP tooling (gaps/tags/gen) | `mcp` |
 
-**Đồng bộ map:** `python3 scripts/sync-platform-repos-bases.py` (portal) — ghi `platform-repos.json` lên mọi sibling base + MCP (`workspaceRoot: ".."` trong artifactgraph).
+**Đồng bộ map:** mỗi repo giữ `platform-repos.json` riêng; chỉnh tại chỗ hoặc theo quy trình team, không dùng script sync cross-base trong hub này.
 
-Mỗi base giữ `.cursor/{skills,rules,extracts}` (SSOT). Đồng bộ shared **platform + legacy** (và full FE / docs / tests profile) từ portal:
-
-```bash
-python3 scripts/sync-cursor-ssot-bases.py
-```
-
-Optional Kilo trên từng repo: `./scripts/cursor-export-kilo`.
+Mỗi base giữ `.cursor/{skills,rules,extracts}` (SSOT).
 
 ## Resolve order (agents)
 

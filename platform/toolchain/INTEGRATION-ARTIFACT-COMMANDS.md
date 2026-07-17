@@ -18,7 +18,6 @@
 | `./codegen/runners/generate registry` | Validate registry |
 | `./codegen/runners/generate dry --spec …/01-integration-spec.yaml` | Plan Scriban |
 | `./codegen/runners/generate write --spec …/01-integration-spec.yaml` | Write `src/Integration.*/Generated/` |
-| `./scripts/platform-ai-link` | Mirror `platform-ai/` SSOT → `.cursor/` + `.kilo/` |
 | `dotnet test` | xUnit only (thay vitest) |
 
 ## Pilot
