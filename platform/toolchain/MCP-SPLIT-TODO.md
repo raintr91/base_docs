@@ -436,7 +436,7 @@ Captured from [Discover Codegenkit sources](0cee841e-f7ae-4c62-aa02-a0467269bc42
 - [x] **TKC.1** Installers pin immutable tag `v0.3.3` and enforce lockfiles (`pnpm --frozen-lockfile` / `npm ci`); override only via `CODEGENKIT_REF` / `-Ref`.
 - [x] **TKC.2** Codegenkit 0.3.1 adds manifest-aware `status` and dry-run-by-default `prune --yes`; adapter/profile stale assets are tracked and locally modified files are preserved.
 - [x] **TKC.3** Nuxt `nuxt_v_3@185377e` and Next `nextjs_v3@a346b7d` route `portal:gen*`, registry, unitgen and `gen:id` shims through Codegenkit; legacy hardcoded `portal:*:common` sibling paths were removed.
-- [ ] **TKC.4** Seed FE `artifactgraph.json` allowlists so AG recommend/check can work.
+- [x] **TKC.4** Nuxt `nuxt_v_3@42e788c` and Next `nextjs_v3@142b6c2` own portable `artifactgraph.json` allowlists for Codegenkit/Testkit commands; ArtifactGraph 2.0.1 `allowlist-check` and `recommend-command` smokes resolve the correct executable owner without execution.
 - [x] **TKC.5** Codegenkit 0.3.3: Nuxt/Next `preferGenSpec()` / `--id` resolution require `ir/spec.yaml`; bundle YAML is refused with an actionable docs-hub IR error.
 - [x] **TKC.6** Codegenkit 0.3.3 ships `schemas/common-registry.schema.json` plus CLI/MCP `common-registry` validation (Zod + alias integrity).
 - [x] **TKC.7** Codegenkit 0.3.3 covers Nuxt+Next dry-run non-writing, adapter detect, `ir/spec.yaml` requirement, and common-registry validate happy/fail fixtures.
@@ -489,13 +489,13 @@ Original sequence (all package phases complete except Phase 6 verify):
 | Track | Why it matters | Open items |
 |-------|----------------|------------|
 | Platform DNA | Resolver/maps/meta harness released; lifecycle compatibility is verified in Phase 6 | — |
-| Codegenkit harden | AG allowlists, contested FE rules, FastAPI multi-entity/`--force` hash | `TKC.4`, `TKC.8`, `TKC.12` |
+| Codegenkit harden | Contested FE rules and FastAPI multi-entity/`--force` hash | `TKC.8`, `TKC.12` |
 | Testkit harden | All residual source-audit items released/cut over | — |
 
 **Next recommended order:**
 
-1. Seed FE ArtifactGraph allowlists (`TKC.4`).  
-2. Contested FE rules (`TKC.8`) and FastAPI multi-entity/`--force` hash (`TKC.12`).
+1. Resolve contested FE rules (`TKC.8`).  
+2. Finish FastAPI multi-entity/`--force` hash ownership (`TKC.12`).
 
 When an item is implemented, check it here and note package version / PR when
 published. Local-only completion must be labelled explicitly; it is not a
