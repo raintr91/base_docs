@@ -1,35 +1,33 @@
 ---
 name: artifactgraph
-extractBundle: artifactgraph
-description: /artifactgraph — local-first MCP gen/grill; setup on hub.
+description: Local-first ArtifactGraph MCP: index, analyze gaps, suggest tags, remember decisions, and run allowlisted generation.
 disable-model-invocation: true
 ---
 
 # /artifactgraph
 
-Package: [raintr91/artifactgraph](https://github.com/raintr91/artifactgraph)
+The current product repository owns `artifactgraph.json`, `registries/*.json`,
+templates, and `artifactgraph/lexicon/*.txt`. ArtifactGraph only indexes those
+files and runs commands explicitly allowlisted by that repository.
 
-**Setup / bootstrap:** `base-docs/platform/toolchain/ARTIFACTGRAPH.md` · INTERNALS · package `docs/INIT.md`  
-**Rule:** `artifactgraph.mdc` (opt-in) · hooks: `artifactgraph-phase-hooks.md`
+## Protocol
 
-## Local-first
+1. Run `artifactgraph_status`; use `artifactgraph_rebuild` when the index is stale.
+2. Prefer `artifactgraph_analyze`, `artifactgraph_grill_check`, or
+   `artifactgraph_parity_check` before loading large registries into context.
+3. Show local A/B/C questions to the member and persist confirmed choices with
+   `artifactgraph_remember`.
+4. Run generation only through `artifactgraph_gen` command keys.
+5. Send only `cloudPromptSlice` for unresolved work.
+6. Promote accepted registry/template changes in the product repo, then rebuild.
 
-```text
-rebuild(index) → analyze|grill|parity (LOCAL A/B/C)
-  → artifactgraph_gen allowlist (docs/fe/unit/e2e)
-  → cloudPromptSlice ONLY if #needs-* still missing
-  → promote registry in product repo → rebuild + remember
+## Setup
+
+From the target repository:
+
+```bash
+artifactgraph init
+artifactgraph rebuild
 ```
 
-| Local | Không cloud |
-|-------|-------------|
-| Match shell/common/unit/e2e từ index | “Common hay feature-only?” |
-| `specSplit` / `docsRender` / `gen` / `unitGen` / `testcaseGen` | Dump full registry |
-| Confirm / parity-drift A/B/C | Gen cả page vì thiếu 1 slot |
-| Wire Mo* đã có registry | Viết registry từ cloud |
-
-## Tools
-
-`analyze` · `gaps` · `grill_check` · `parity_check` · `gen` · `remember` · `rebuild` · `status`
-
-Gen = MCP allowlist hoặc `pnpm portal:gen` / `unit-gen` / `testcase:gen` — **không** bịa argv.
+No central workspace map or sibling docs/tests hub is required.

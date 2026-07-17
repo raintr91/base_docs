@@ -111,16 +111,34 @@ flowchart TB
 
 ```text
 Overview
-├─ Operational areas
-│  ├─ Admin operations
-│  ├─ Workforce operations
-│  ├─ Shop-floor operations
-│  └─ Plant integration
-├─ Modules · CMP-*
-│  └─ Functions
-│     ├─ Screen · W-*
-│     └─ API contract · API-*
-└─ Business flows · FLOW-* (optional)
+└─ Operational areas
+   ├─ Admin operations
+   ├─ Workforce operations
+   ├─ Shop-floor operations
+   └─ Plant integration
+
+Surfaces
+├─ Common?                         # scope toàn hệ thống — chỉ hiện khi có
+│  ├─ Business processes · FLOW-*
+│  ├─ Data model / Database
+│  └─ Cross-service flows · Integrations
+│
+├─ Admin Web
+│  ├─ Common?                      # scope surface
+│  │  ├─ Business processes · FLOW-*
+│  │  ├─ Data model / Database
+│  │  └─ Cross-service flows
+│  └─ Modules · CMP-*
+│     ├─ Common?                   # scope module
+│     │  ├─ Business processes · FLOW-*
+│     │  ├─ Data model / Database
+│     │  └─ Cross-service flows
+│     └─ Functions
+│        ├─ Screen · W-*
+│        └─ API contract · API-*
+│
+├─ Line Client / HMI               # cùng cấu trúc: Common? → Modules → Functions
+└─ Integration / Gateway           # …
 
 Architecture
 ├─ System Context · CTX-* / LND-*
@@ -129,6 +147,8 @@ Architecture
 └─ Deployment · DEP-*
 ```
 
+`Common?` là node **động**: xuất hiện ở scope nào có artifact dùng chung (toàn hệ thống, surface hoặc module) và ẩn khi không có.
+
 </div>
 <div class="tree-overview-grid__diagram">
 
@@ -136,37 +156,43 @@ Architecture
 flowchart TB
   O["Overview"]
   OA["Operational areas<br/>actor · persona · channel"]
+  S["Surfaces<br/>Admin Web · Line/HMI · Gateway"]
   M["Modules · CMP-*"]
   F["Functions"]
   W["Screen · W-*"]
   A["API contract · API-*"]
-  FL["Flow optional · FLOW-*"]
+  CO["Common? · dynamic<br/>FLOW-* · Data · Cross-service"]
   C4["C4 Architecture<br/>CTX · CTR · runtime · deploy"]
 
   O --> OA
-  OA --> M
+  OA --> S
+  S --> M
   M --> F
   F --> W
   F --> A
-  OA -. "cross-area" .-> FL
-  M -. "cross-module" .-> FL
+  S -. "scope: system / surface / module" .-> CO
+  M -. "scope: module" .-> CO
   O -. "implemented by" .-> C4
   F -. "served by containers" .-> C4
 
   classDef context fill:#DBEAFE,stroke:#1D4ED8,color:#1E3A8A
+  classDef surface fill:#CFFAFE,stroke:#0E7490,color:#164E63
   classDef product fill:#D1FAE5,stroke:#047857,color:#064E3B
   classDef detail fill:#FEF3C7,stroke:#B45309,color:#78350F
   classDef flow fill:#EDE9FE,stroke:#6D28D9,color:#4C1D95
   class O,OA context
+  class S surface
   class M product
   class F,W,A detail
-  class FL,C4 flow
+  class CO,C4 flow
 ```
 
 </div>
 </div>
 
-Một Module chỉ có **một SSOT** dưới `product/components/CMP-*`. Operational area chỉ map/link tới Module; không copy Module cho từng persona. Một Module có thể phục vụ đồng thời Admin, Workforce và Shop-floor.
+`Surface` là bề mặt tương tác (Admin Web, Line Client/HMI, Integration Gateway) — không đồng nghĩa với Operational area hay C4 Container. Mỗi surface lặp lại cùng cấu trúc `Common? → Modules → Functions`.
+
+Một Module chỉ có **một SSOT** dưới `product/components/CMP-*`; nếu xuất hiện ở nhiều surface thì các surface chỉ map/link tới cùng Module, không sao chép. `FLOW-*` cũng giữ một SSOT — node `Common?` theo scope chỉ tạo điều hướng, không nhân bản tài liệu. Operational area map/link tới Module; một Module có thể phục vụ đồng thời Admin, Workforce và Shop-floor.
 
 ---
 

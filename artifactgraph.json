@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "stack": "generic",
+  "mode": "brownfield",
+  "projectId": "base-docs",
+  "commands": {},
+  "registries": [],
+  "gapSources": [],
+  "specRoots": [],
+  "vocabularies": {
+    "registryTags": "artifactgraph/lexicon/registry-tags.en.txt"
+  }
+}

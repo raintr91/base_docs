@@ -15,7 +15,7 @@ Tree + standards: [`platform/guide/SYSTEM-DOC-STRUCTURE.md`](./platform/guide/SY
 | `/deployment` | §07 stub-first DEP |
 | `/cross-cutting` | §08 |
 | `/decision` | §09 ADR |
-| `/hubdocs` | Local MCP arc42/C4 ID index (`../hubdocs`) |
+| `/hubdocs` | Optional local arc42/C4 Markdown index |
 | `/spec` · grill · `/legacy-spec` · `/update-spec*` | Feature Code lane |
 | `/flow-trace` | Legacy brownfield alias only |
 

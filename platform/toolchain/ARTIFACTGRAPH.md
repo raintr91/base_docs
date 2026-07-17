@@ -1,8 +1,9 @@
-# Artifactgraph MCP (portal pointer)
+# ArtifactGraph MCP (docs-hub guide)
 
 Package / GitHub: **[raintr91/artifactgraph](https://github.com/raintr91/artifactgraph)**
 
-**Chi tiết lệnh:** sibling package [`docs/INIT.md`](../../../artifactgraph/docs/INIT.md) (hoặc GitHub `docs/INIT.md`).
+**Chi tiết lệnh:** [ArtifactGraph `docs/INIT.md`](https://github.com/raintr91/artifactgraph/blob/main/docs/INIT.md).  
+**Internals:** [ArtifactGraph `docs/INTERNALS.md`](https://github.com/raintr91/artifactgraph/blob/main/docs/INTERNALS.md).
 
 ## Bootstrap
 
@@ -14,23 +15,23 @@ Package / GitHub: **[raintr91/artifactgraph](https://github.com/raintr91/artifac
 
 ```bash
 artifactgraph version
-# Prefer project MCP (token): only loads when this workspace is open
-cd ~/workspace/portal
-artifactgraph init --location=local --target=cursor --yes
-artifactgraph init-project && artifactgraph rebuild
+# Run from this docs hub; init installs common + docs assets and local MCP wiring.
+cd ~/workspace/base-docs
+artifactgraph init --target=cursor --type=docs --yes
+artifactgraph rebuild
 ```
 
 | Lệnh | Việc |
 |------|------|
-| `init --location=local` | Wire MCP vào **`.cursor/mcp.json` của repo** (khuyến nghị) |
-| `init` (global) | Mọi project — **tránh**: MCP tool schema vào mọi chat |
-| `init-project` | `artifactgraph.json` trong **từng** product base |
+| `init` | Wire MCP + đồng bộ config, local lexicon và AG harness theo type |
+| `init --type=docs --yes` | Cài `common` + `docs` không cần interactive selector |
+| `init-project` | Alias tương thích đã deprecated; không dùng cho setup mới |
 | `install` | Alias deprecated → `init` |
 
 ### Token / MCP
 
-- **Project:** `portal/.cursor/mcp.json` — ArtifactGraph chỉ khi mở portal.
-- **Global Win:** `%USERPROFILE%\.cursor\mcp.json` — giữ CodeGraph (nếu cần); **không** để `artifactgraph` / `qa-git` ở đây.
+- **Project:** `.cursor/mcp.json` trong từng repo đích — ArtifactGraph chỉ load khi mở repo đó.
+- **Global Win:** `%USERPROFILE%\.cursor\mcp.json` — giữ CodeGraph (nếu cần); **không** để `artifactgraph` ở đây.
 - Skill/grill mới cần tools; ad-hoc dùng CLI: `artifactgraph parity|gaps|status|gen …`.
 - Rule `artifactgraph.mdc` = **opt-in** (`alwaysApply: false`), không inject mọi chat.
 
@@ -43,13 +44,13 @@ artifactgraph init-project && artifactgraph rebuild
 | **Parity-drift** create≠edit / empty / FE≠BE | Cùng turn: trả `parityFindings[]` (schema) |
 | gen allowlist + wire Mo* đã có registry | Chỉ `cloudPromptSlice` đã nén |
 
-Detail: [ARTIFACTGRAPH-INTERNALS](./ARTIFACTGRAPH-INTERNALS.md) · extract `legacy/parity.md` · package `docs/PARITY.md` · hooks: `.cursor/extracts/artifactgraph-phase-hooks.md`
+Detail: [ArtifactGraph `docs/INTERNALS.md`](https://github.com/raintr91/artifactgraph/blob/main/docs/INTERNALS.md) · extract `legacy/parity.md` · [ArtifactGraph `docs/PARITY.md`](https://github.com/raintr91/artifactgraph/blob/main/docs/PARITY.md)
 
 ## In this repo
 
-- Rule: `.cursor/rules/artifactgraph.mdc` (opt-in)
-- Skill: `/artifactgraph`
-- MCP: `.cursor/mcp.json` (project) · Win host → `wsl.exe` + `artifactgraph-mcp`
-- **DSL config:** `artifactgraph.json` (`commands` + `dsl.lanes`) — registries path list only; payloads in `registries/`
-- Map: `platform-repos.json` → project **`artifactgraph`**
-- Detail: [ARTIFACTGRAPH-INTERNALS](./ARTIFACTGRAPH-INTERNALS.md) · hooks extract
+- Harness installed from ArtifactGraph `2.0.0` with types `common` + `docs`
+- MCP: `.cursor/mcp.json` (project-local) pinned to this docs hub
+- Config: `artifactgraph.json`; local index: `.artifactgraph/`
+- `platform-repos.json` is tooling inventory only; runtime resolves this repo directly.
+- Lexicon local copy: `artifactgraph/lexicon/registry-tags.en.txt` (from package baseline)
+- Detail: [ArtifactGraph `docs/INTERNALS.md`](https://github.com/raintr91/artifactgraph/blob/main/docs/INTERNALS.md)

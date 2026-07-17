@@ -41,7 +41,7 @@ Doc hub: `base-docs/platform/toolchain/PORTAL-CODEGEN.md`
 
 ## Artifactgraph
 
-See `.cursor/extracts/artifactgraph-phase-hooks.md` · `/artifactgraph`.
+Use the installed project-local ArtifactGraph MCP gates when applicable.
 
 ## Out of scope
 

@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "packageVersion": "2.0.0",
+  "types": [
+    "common",
+    "docs"
+  ],
+  "files": {
+    ".cursor/skills/artifactgraph/SKILL.md": {
+      "source": "harness/common/skills/artifactgraph/SKILL.md",
+      "hash": "4a68ba0c153e4c5d8aab9fd62bec776b07f6a2092e59157e2e1195f9d4a28d9e"
+    },
+    ".cursor/rules/artifactgraph.mdc": {
+      "source": "harness/common/rules/artifactgraph.mdc",
+      "hash": "98072c4a09d5c2c27d3449aa2b426d0e5feb64d69c2c26d06e4f8a42920032c1"
+    },
+    ".cursor/extracts/artifactgraph-hooks-core.md": {
+      "source": "harness/common/extracts/artifactgraph-hooks-core.md",
+      "hash": "71ffe7c856ea2cbc61e7392e9a9acfca03d53388b3fa3d1dbab1163bd7c51f00"
+    },
+    "artifactgraph/lexicon/registry-tags.en.txt": {
+      "source": "lexicon/registry-tags.en.txt",
+      "hash": "20c0fffa7a191aeaa1ffc7ff9e65d39e23746929f856ce520ae18b1d331f2561"
+    },
+    ".cursor/extracts/artifactgraph-hooks-docs.md": {
+      "source": "harness/docs/extracts/artifactgraph-hooks-docs.md",
+      "hash": "1b4fc491cf666d744888ac33ff6d5a0d0535baf7297cef4697eaac74c2d81d7c"
+    },
+    ".cursor/extracts/artifactgraph-parity.md": {
+      "source": "harness/docs/extracts/artifactgraph-parity.md",
+      "hash": "4057981b5cb7f1048f520fc5f72a4385ac2438d2071b84aac01ef961e5ecd1da"
+    }
+  }
+}

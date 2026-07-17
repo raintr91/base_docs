@@ -27,7 +27,6 @@ Hub handoff: `base-docs/platform/toolchain/FEATURE-ARTIFACT-FLOWS.md`
 | `/model` | `model/SKILL.md` | Gen models (optional) |
 | `/platform-base` | `platform-base/SKILL.md` | Platform DNA |
 | `/platform-mark` | `platform-mark/SKILL.md` | Mark / registry |
-| `/artifactgraph` | `artifactgraph/SKILL.md` | MCP graph |
 | `/platform-ai` | `platform-ai/SKILL.md` | Overview |
 
 Order (after docs hub grill): **prototype → [api] → gen/unit → test → wire** (wire may parallel test).

@@ -24,7 +24,7 @@ status: active
 | Journey | Curated product runtime flow `FLOW-*` under §06 |
 | flow-trace | Legacy archaeology skill/path — **not** product journey |
 | `_legacy.dynamics*` | Extract/artifact name for old dynamics — keep filename; wording → FLOW/journey |
-| Hubdocs | Local MCP index over hub MD IDs (sibling of artifactgraph) |
+| Hubdocs | Optional local index over architecture and product Markdown IDs |
 | Docs hub layers | arc42 (why) → C4 views (what) → Product Spec (detail) |
 
 Product/domain vocabulary — TBD with MES/IoT owners.

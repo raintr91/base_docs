@@ -54,4 +54,4 @@ Load the child skill + extract bundle `architecture-core`.
 
 ## MCP (optional)
 
-If **hubdocs** MCP is connected, call `hubdocs_route` then `hubdocs_list_ids` / `hubdocs_validate_links` / `hubdocs_journeys` before large edits. Package: `../hubdocs`.
+If **hubdocs** MCP is connected, call `hubdocs_route` then `hubdocs_list_ids` / `hubdocs_validate_links` / `hubdocs_journeys` before large edits.

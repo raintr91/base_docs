@@ -1,44 +1,29 @@
 ---
 name: hubdocs
-description: /hubdocs — local MCP for arc42/C4 docs hub ID index.
+description: /hubdocs — optional local index for arc42/C4 Markdown relationships.
 disable-model-invocation: true
 extractBundle: architecture-core
 ---
 
-# /hubdocs — Docs hub MCP
+# /hubdocs — local adapter
 
-Package: [raintr91/hubdocs](https://github.com/raintr91/hubdocs) · handbook: [`HUBDOCS.md`](../../../platform/toolchain/HUBDOCS.md)
+Markdown in this repository owns architecture and product truth. Hubdocs is an
+optional read/index aid; it does not own or generate the documentation.
 
-SSOT = MD trong repo này. MCP chỉ index / validate / route.
+Usage and setup guidance: [`platform/toolchain/HUBDOCS.md`](../../../platform/toolchain/HUBDOCS.md).
 
-## When to use
+## Local relationships and routing
 
-| Need | Tool |
-|------|------|
-| Layout / ID homes | `hubdocs_layout` |
-| List IDs | `hubdocs_list_ids` |
-| Open one ID | `hubdocs_get_element` |
-| Refs from ID | `hubdocs_deps_of` |
-| Who mentions ID | `hubdocs_dependents_of` |
-| Missing FLOW/ADR/CMP file | `hubdocs_orphans` |
-| Broken MD links | `hubdocs_validate_links` |
-| Topic → chapter/skill | `hubdocs_route` |
-| List journeys | `hubdocs_journeys` |
+- `LND-*` / `CTX-*` → `/context`
+- `CTR-*` → `/containers`
+- `CMP-*` → `/component`
+- `FLOW-*` → `/journey`
+- `DEP-*` → `/deployment`
+- `ADR-*` → `/decision`
 
-Prefer these **before** dumping whole `architecture/**` into context.
+When the MCP is already connected, prefer `hubdocs_route`, ID lookup,
+dependency/dependent queries, journey/orphan checks, and link validation before
+loading broad Markdown trees.
 
-## Wire
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/raintr91/hubdocs/main/install.sh | bash
-cd /path/to/this/repo    # docs hub (có architecture/)
-hubdocs init --yes
-```
-
-Update: chạy lại cùng lệnh `install.sh`. Restart agent sau `init`.
-
-## Related skills
-
-`/architecture` · `/journey` · `/context` · `/containers` · `/component` · `/decision` · `/deployment`
-
-Plan / entry: [`start-now`](../../../platform/guide/start-now.md) · [`SYSTEM-DOC-STRUCTURE`](../../../platform/guide/SYSTEM-DOC-STRUCTURE.md)
+If Hubdocs is unavailable, use repository search and the architecture skills.
+Do not install, wire, or treat Hubdocs as required from this adapter.

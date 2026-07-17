@@ -86,7 +86,7 @@ export default withMermaid(
               ],
             },
             {
-              text: 'Flows',
+              text: 'Business processes',
               collapsed: true,
               items: [
                 { text: 'Catalog', link: '/architecture/06-runtime/' },
@@ -133,7 +133,6 @@ export default withMermaid(
                 { text: '12 Glossary', link: '/architecture/12-glossary/' },
               ],
             },
-            { text: 'Doc structure', link: '/platform/guide/SYSTEM-DOC-STRUCTURE' },
             { text: 'Legacy dynamics', link: '/product/legacy-dynamics/' },
           ],
         },
