@@ -12,7 +12,7 @@ disable-model-invocation: true
 
 **Extracts:** `extractBundle: spec-requirement` → `.cursor/extracts/extract-registry.json`
 
-Template: `base-docs/templates/feature.bundle.yaml` · rules: `base-docs/templates/bundle-authoring.md`  
+Template: `templates/feature.bundle.yaml` · rules: `templates/bundle-authoring.md`  
 Tree: [`platform/guide/SYSTEM-DOC-STRUCTURE.md`](../../../platform/guide/SYSTEM-DOC-STRUCTURE.md) · [Start now](../../../platform/guide/start-now.md)
 
 ## Scope
@@ -43,6 +43,26 @@ Tree: [`platform/guide/SYSTEM-DOC-STRUCTURE.md`](../../../platform/guide/SYSTEM-
 - Do not run `portal:gen` / `testcase:gen`.
 - Vague spec → `/bqa-grill-docs` before `/prototype`.
 - No arc42 chapter prose for a single function — stay C4/code-level.
+
+## Tools (required after bundlekit init)
+
+Prefer MCP/CLI when Bundlekit is installed:
+
+- `bundle_split` / `bundlekit split -- <bundle>`
+- `docs_render` / `bundlekit render …`
+- Local fallback only if package not installed: `pnpm spec:split` · `pnpm docs:render`
+
+## Accelerators (optional)
+
+```text
+if Hubdocs available: resolve CMP/CTR/FLOW IDs → paths
+else: repository conventions / search
+
+if ArtifactGraph available: tags/parity slice for touched contracts
+else: model review from scoped bundle evidence
+```
+
+Missing accelerators never block `/spec`.
 
 ## Done
 

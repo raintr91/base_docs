@@ -1,13 +1,13 @@
 ---
 name: dev-grill-docs
 extractBundle: dev-grill
-description: /dev-grill-docs — Dev grill codegen tags + bundle.gen.
+description: /dev-grill-docs — Docs-side dev grill for codegen tags + bundle.gen; execution hands off to FE.
 disable-model-invocation: true
 ---
 
 # /dev-grill-docs — Dev / codegen grill
 
-Doc hub: `base-docs/platform/toolchain/PORTAL-CODEGEN.md`
+Doc hub: `platform/toolchain/PORTAL-CODEGEN.md`
 
 **Extracts:** `extractBundle: dev-grill` → `codegen/readiness.md`, `platform-mark-detect.md`
 
@@ -27,21 +27,32 @@ Doc hub: `base-docs/platform/toolchain/PORTAL-CODEGEN.md`
    - `api.endpoints[].action`
 3. Giữ `#needs-component`, `#manual-composable`, `#skip-codegen`, `#wire-only`, `#phase-api`.
 4. List: `#gen:test-schema`, `#gen:test-service` · Create: `#gen:test-validation`
-5. **Common candidates** — scan columns, toolbar, filters, composables (**local MCP, not cloud**):
-   - Prefer `artifactgraph_grill_check` / `analyze` on `ir/spec.yaml` when MCP wired
+5. **Common candidates** — scan columns, toolbar, filters, composables:
+   - Prefer `artifactgraph_grill_check` / `artifactgraph_analyze` on `ir/spec.yaml` when MCP wired
    - Mỗi `render: custom` → `#needs-component: cell-{key}:MoXxx` **hoặc** Mo* trong design registry
    - Widget lạ → `lookupAlias()` → `#ui:` / `#needs-ui:`
    - Logic lặp (export, auth) → hỏi member `#common:` / `#needs-common:` (`platform-mark-detect.md`)
-   - In bảng **Common candidates** (Vietnamese) — member chọn A/B/C **trong chat local**; `artifactgraph_remember` khi chọn B
-   - **Không** gửi câu hỏi A/B/C lên cloud model
+   - In bảng **Common candidates** (Vietnamese) — member chọn A/B/C; `artifactgraph_remember` when available
 6. Optional `marks[]` on spec for confirmed B choices
 7. Set `grillStatus.dev: done`.
-8. **Gate:** `artifactgraph_gen` `genDry` khi có MCP — else `pnpm portal:gen:dry --spec base-docs Code / `--id`` exit 0.
-9. `pnpm spec:split` if edited bundle; user runs `pnpm docs:render`.
+8. **Recommendation gate:** if ArtifactGraph is available, call
+   `artifactgraph_allowlist_check(commandKey=genDry)` then
+   `artifactgraph_recommend_command`. Do **not** execute gen in docs hub.
+9. `bundle_split` if edited bundle; user runs `docs_render`.
+10. Handoff the spec ID/path + recommendation to FE Codegenkit. Missing
+    Codegenkit means “pending FE dry-run”, not a docs failure.
 
-## Artifactgraph
+## Accelerators (optional)
 
-Use the installed project-local ArtifactGraph MCP gates when applicable.
+```text
+if ArtifactGraph available: analyze/grill/tag hints + recommend genDry
+else: model review from scoped bundle/design/legacy evidence
+
+if Hubdocs available: resolve CMP/CTR IDs
+else: repository path conventions
+```
+
+ArtifactGraph and Hubdocs never block this docs-side grill.
 
 ## Out of scope
 
@@ -49,7 +60,7 @@ UX prose, acceptance rewrite, implement UI, full E2E.
 
 ## Handoff
 
-- Dry pass → `/prototype`
+- FE Codegenkit dry pass → `/prototype`
 - BQA↔Dev conflict → `/grill-with-docs`
 - Legacy fact gap → `/update-spec-legacy`
 - Member chose promote common → `/platform-mark` same session or before `/prototype`

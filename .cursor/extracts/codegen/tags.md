@@ -1,6 +1,6 @@
 # Portal Codegen Tags
 
-Hub: `base-docs/platform/toolchain/PORTAL-CODEGEN.md` · registry: `registries/design.registry.json`
+Hub: `platform/toolchain/PORTAL-CODEGEN.md` · registry: `registries/design.registry.json`
 
 ## Who adds what
 
@@ -26,7 +26,7 @@ Hub: `base-docs/platform/toolchain/PORTAL-CODEGEN.md` · registry: `registries/d
 | `#common:{id}` | Shared hook/service — `platform-common.registry.json` |
 | `#needs-common:{id}` | Planned logic — HANDOFF |
 | `#wire-only:` | Defer to `/wire` |
-| `#gen:test-*` | Unit gen — see `portal-unit-test-tags.md` |
+| `#gen:test-*` | Unit gen — FE checkout only |
 | `#tech-debt:` | See `grill-tech-debt.md` |
 | `#update:*` | `/update-spec` delta — cleared at `/wire` |
 
@@ -34,11 +34,13 @@ List grill default tags if missing: `#shell: DataListPage`, `#pattern: CRUD`, `#
 
 ## Commands
 
+These run in the **FE checkout**, not this docs hub:
+
 ```bash
 pnpm portal:registry
-pnpm portal:gen:dry --spec base-docs Code / `--id`
-pnpm portal:gen --spec ...
-pnpm portal:unit-gen --spec ...
+pnpm portal:gen:dry --id <W-|CMP-|CTR-…>
+pnpm portal:gen --id …
+pnpm portal:unit-gen --id …
 ```
 
-Detail tables: `platform-design-registry.md` · `platform-mark.md` · `portal-unit-test-tags.md` · rule `platform-design-vocabulary.mdc`
+Detail tables: `platform-mark.md`. FE unit/design registries live in the code repo, not this docs hub.

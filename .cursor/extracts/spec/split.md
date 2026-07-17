@@ -5,14 +5,14 @@ One bundle / `ir/spec.yaml` = **one child function** (list, create, update, …)
 ## Path layout (feature artifact)
 
 ```text
-base-docs Code / `--id`
+product/components/CMP-*/code/{W-*|API-*}/
   {id}.bundle.yaml
   ir/spec.yaml
   ir/legacy.yaml
   ir/design.yaml
-  {id}.test.yaml
 
-base-docs Code / `--id`
+# Plans (E2E) live on tests hub — not beside the bundle in docs hub
+# https://github.com/raintr91/base_test
 ```
 
 ## Rules

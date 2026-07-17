@@ -27,7 +27,7 @@ disable-model-invocation: true
 
 0. Tech debt: `#tech-debt:*` where `deferTo: bqa-grill-docs` (`grill-tech-debt.md`).
 1. Compare `design.zones/behavior/actions` vs `legacy.ui` vs common UI.
-2. Patch **bundle** (`design`, `review`, `spec` requirements) → `pnpm spec:split`.
+2. Patch **bundle** (`design`, `review`, `spec` requirements) → `bundle_split` / `bundlekit split` (fallback `pnpm spec:split`).
 3. Set `grillStatus.bqaFacts: done`.
 4. **Rule:** chưa `bqaFacts: done` → không thêm `openQuestions` mới.
 
@@ -36,7 +36,17 @@ disable-model-invocation: true
 5. Ask ≤5 focused batches: copy, layout, breadcrumb, delete dialogs, testId intent.
 6. Record decisions in `openQuestions` + tags.
 7. Set `grillStatus.bqaOpen: done`.
-8. User: `pnpm docs:render`.
+8. User: `docs_render` / `bundlekit render` (fallback `pnpm docs:render`).
+
+## Accelerators (optional)
+
+```text
+if ArtifactGraph available: grill/parity hints
+else: model review from design+legacy slices
+
+if Hubdocs available: ID → doc path for referenced CMP/FLOW
+else: search docs tree
+```
 
 ## specOrigin branches
 

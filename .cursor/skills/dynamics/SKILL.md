@@ -13,3 +13,5 @@ extractBundle: architecture-core
 - Old: `DYN-*` / `architecture/dynamics/` — redirect stubs only
 
 Pilot: `FLOW-login` (was `DYN-login`).
+
+Hubdocs ownership note: this redirect ships with Hubdocs; prefer `/journey`.

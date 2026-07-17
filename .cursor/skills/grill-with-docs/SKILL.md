@@ -1,7 +1,7 @@
 ---
 name: grill-with-docs
 extractBundle: grill-with-docs
-description: /grill-with-docs — reconcile BQA↔Dev + portal:gen dry.
+description: /grill-with-docs — reconcile BQA↔Dev; FE dry-gen remains a handoff.
 disable-model-invocation: true
 ---
 
@@ -9,7 +9,7 @@ disable-model-invocation: true
 
 **Mindset:** Spec Validation + Decision Resolution — **not** Interview / archaeology.
 
-Doc hub: `base-docs/platform/toolchain/PORTAL-CODEGEN.md`
+Doc hub: `platform/toolchain/PORTAL-CODEGEN.md`
 
 **Extracts:** `extractBundle: grill-with-docs` → `.cursor/extracts/grill/validation.md`
 
@@ -31,13 +31,22 @@ Doc hub: `base-docs/platform/toolchain/PORTAL-CODEGEN.md`
 
 0. Tech debt step 0 (`grill-tech-debt.md`).
 1. Resolve spec ↔ legacyEvidence ↔ design conflicts in **bundle**.
-2. Write/fix `bundle.gen` → `pnpm spec:split`.
-3. **Gate:** `artifactgraph_gen` `genDry` khi MCP wired — else `pnpm portal:gen:dry --spec .../ir/spec.yaml` exit 0.
-4. `pnpm docs:render`.
+2. Write/fix `bundle.gen` → `bundle_split` (fallback: `bundlekit split`).
+3. If ArtifactGraph is available, use `artifactgraph_allowlist_check` +
+   `artifactgraph_recommend_command` for `genDry`; never execute FE gen here.
+4. `docs_render` (fallback: `bundlekit render`).
+5. Handoff ID/path + recommendation to FE Codegenkit. Missing Codegenkit is a
+   pending handoff, not a reason to invent a local shell fallback.
 
-## Artifactgraph
+## Accelerators (optional)
 
-Local reconcile + dry gen; **không** cloud cho confirm block. Conflicts dài hiếm → `cloudPromptSlice`.
+```text
+if ArtifactGraph available: reconcile/parity/tag hints + command recommendation
+else: model reconcile from scoped bundle slices
+
+if Hubdocs available: resolve referenced CMP/FLOW IDs
+else: repository path conventions
+```
 
 ## Do not
 
@@ -46,4 +55,4 @@ Local reconcile + dry gen; **không** cloud cho confirm block. Conflicts dài hi
 
 ## Handoff
 
-→ `/prototype` when dry passes
+→ `/prototype` after FE Codegenkit dry-run passes

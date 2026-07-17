@@ -18,7 +18,7 @@
 
 - `requirements` vs `legacy.behaviors[id]` conflict — which wins?
 - Missing API field vs `legacy.fields` — add or tag?
-- Codegen constraint from `portal:gen:dry` failure?
+- Codegen constraint from a reported FE Codegenkit dry-run failure?
 
 ## Do not
 

@@ -1,38 +1,46 @@
 ---
-description: Command router — CODE lane (prototype / api / gen / e2e / wire). Spec·legacy·grill → base-docs.
+description: Command router — DOCS lane on base-docs. FE/BE/Plans handoff only.
 alwaysApply: false
 ---
 
-# Team AI Flow (router) — code repo
+# Team AI Flow (router) — docs hub
 
 Opt-in: **một** command → **một** skill. State: `.harness/progress.md`.
 
-**Design docs lane (spec / legacy / grill / journey)** → mở **`base-docs`** workspace · skills trên docs hub.
+This repository is the **docs lane**. Do not load FE/BE implementation skills here.
 
-Hub handoff: `base-docs/platform/toolchain/FEATURE-ARTIFACT-FLOWS.md`
+Hub handoff: `platform/toolchain/FEATURE-ARTIFACT-FLOWS.md`
 
-## Code lane (this repo)
+## Docs lane (this repo)
 
 | Command | Skill | Phase |
 |---------|-------|-------|
-| `/prototype` | `prototype/SKILL.md` | Design → UI mock |
-| `/grill-prototype` | `grill-prototype/SKILL.md` | After prototype |
-| `/api` | `api/SKILL.md` | Backend API |
-| `/grill-api` | `grill-api/SKILL.md` | API audit |
-| `/wire` | `wire/SKILL.md` | Mock → real API |
-| `/test` (`/e2e`) | `test/SKILL.md` | E2E plans → FE |
-| `/grill-test` | `grill-test/SKILL.md` | E2E grill |
-| `/unit` | `unit/SKILL.md` | Unit gen |
-| `/grill-unit` | `grill-unit/SKILL.md` | Unit grill |
-| `/model` | `model/SKILL.md` | Gen models (optional) |
-| `/platform-base` | `platform-base/SKILL.md` | Platform DNA |
-| `/platform-mark` | `platform-mark/SKILL.md` | Mark / registry |
-| `/platform-ai` | `platform-ai/SKILL.md` | Overview |
+| `/architecture` | `architecture/SKILL.md` | Route to context / containers / module / function / flow |
+| `/context` | `context/SKILL.md` | Overview · actors · operational areas |
+| `/containers` | `containers/SKILL.md` | Runtime containers `CTR-*` |
+| `/component` | `component/SKILL.md` | Module `CMP-*` |
+| `/journey` | `journey/SKILL.md` | Curated `FLOW-*` |
+| `/deployment` | `deployment/SKILL.md` | Placement stubs `DEP-*` |
+| `/cross-cutting` | `cross-cutting/SKILL.md` | Cross-cutting concerns |
+| `/decision` | `decision/SKILL.md` | ADR |
+| `/hubdocs` | `hubdocs/SKILL.md` | Optional docs MCP index |
+| `/spec` | `spec/SKILL.md` | Function design `W-*` / `API-*` |
+| `/legacy-spec` | `legacy-spec/SKILL.md` | Legacy archaeology |
+| `/bqa-grill-docs` · `/dev-grill-docs` · `/grill-with-docs` | grill skills | Design grill |
+| `/update-spec*` | update-spec skills | Spec delta |
+| `/business-process-trace` | `business-process-trace/SKILL.md` | Brownfield process trace |
+| `/flow-trace` | `flow-trace/SKILL.md` | Deprecated alias → `/business-process-trace` |
+| `/platform-ai` | `platform-ai/SKILL.md` | Harness meta |
+| `/platform-mark` | `platform-mark/SKILL.md` | Mark / registry notes |
 
-Order (after docs hub grill): **prototype → [api] → gen/unit → test → wire** (wire may parallel test).
+## Handoff outside this repo
 
-## Not on code repos
+| Lane | Where | Notes |
+|------|-------|-------|
+| Plans | [raintr91/base_test](https://github.com/raintr91/base_test) | `/testcase` · `/grill-testcase` |
+| FE | [raintr91/nuxt_4](https://github.com/raintr91/nuxt_4) and sibling FE bases | `/prototype` · `/wire` · `/test` · `/unit` |
+| BE | [raintr91/lara12](https://github.com/raintr91/lara12) and sibling BE bases | `/api` |
 
-`/spec` · `/legacy-spec` · `/bqa-grill-docs` · `/dev-grill-docs` · `/grill-with-docs` · `/update-spec*` · **`/architecture`** (router: context/operations/containers/module/function/flow) · **`/journey`** (`/dynamics` alias) · `/context` · `/containers` · `/component` · `/deployment` · `/cross-cutting` · `/decision` · **`/hubdocs`** · `/flow-trace` → **base-docs** only.
+Do not assume sibling checkout paths. Point members to the published Git repository, then open that workspace.
 
-People: `base-docs/platform/guide/start-now.md` · Structure: `SYSTEM-DOC-STRUCTURE.md`
+People: `platform/guide/start-now.md` · Structure: `platform/guide/SYSTEM-DOC-STRUCTURE.md`

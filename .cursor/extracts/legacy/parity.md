@@ -47,4 +47,4 @@ contextOrphans:
 ## MCP
 
 - Tool: `artifactgraph_parity_check`
-- Package: `docs/PARITY.md` · sample `examples/parity/sample-findings.yaml`
+- Package docs: [PARITY.md](https://github.com/raintr91/artifactgraph/blob/main/docs/PARITY.md) · sample [sample-findings.yaml](https://github.com/raintr91/artifactgraph/blob/main/examples/parity/sample-findings.yaml)

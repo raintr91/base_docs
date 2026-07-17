@@ -23,16 +23,26 @@ extractBundle: architecture-core
 - Endpoint contracts → `product/components/.../code/API-*` or `shared/api-catalog`
 - UI DSL → `code/W-*`
 - Full backlog of every story — only ~10–20% core/hard/cross-system
-- Confuse with `product/legacy-dynamics/` or `/flow-trace` (legacy)
+- Confuse with `product/legacy-dynamics/` or `/business-process-trace` (brownfield)
 - Name folders/nav **dynamics** for new work
 
 ## Aliases
 
 - `/dynamics` → thin redirect to this skill (deprecated wording)
-- `/flow-trace` → legacy extract path only — **not** product `FLOW-*`
+- `/flow-trace` → deprecated redirect to `/business-process-trace` — **not** product `FLOW-*`
+- `/business-process-trace` → observed process through code/evidence
 
-## MCP (optional)
+## Accelerators (optional)
 
-If **hubdocs** connected: `hubdocs_journeys`, `hubdocs_deps_of`, `hubdocs_orphans` before adding a journey.
+Prefer `hubdocs_journeys`, `hubdocs_deps_of`, `hubdocs_orphans` before adding a journey.
 
-Pilot: [`FLOW-login`](architecture/06-runtime/journeys/FLOW-login.md) · [Start now](../../../platform/guide/start-now.md)
+```text
+if Hubdocs available: targeted hubdocs_* tools for IDs / deps / journeys / links
+else: Glob/search under architecture/ and product/, then Read scoped Markdown
+
+Missing Hubdocs never blocks authoring.
+Missing ArtifactGraph never blocks Hubdocs or architecture skills.
+```
+
+
+Pilot: [`FLOW-login`](../../../architecture/06-runtime/journeys/FLOW-login.md) · [Start now](../../../platform/guide/start-now.md)

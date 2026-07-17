@@ -17,7 +17,7 @@
 
 | Signal | Suspected kind | Ask member |
 |--------|----------------|------------|
-| Column `render: custom` / `component:` set | `#needs-component: cell-{key}:MoXxx` | A) Mo local B) common `base-docs/product/common/yaml/...` C) defer |
+| Column `render: custom` / `component:` set | `#needs-component: cell-{key}:MoXxx` | A) Mo local B) common `product/common/yaml/...` C) defer |
 | Fuzzy widget (drawer vs sheet, chip vs badge) | `#ui:` / `#widget:` / `#needs-ui:` | Member chọn canonical — `lookupAlias()` |
 | `#needs-component` but Mo* exists in another feature | promote common-ui | A) copy local B) design registry `implemented` C) defer |
 | `#needs-ui` → design registry `planned` | HANDOFF | Implement `/prototype` or defer |
@@ -38,7 +38,7 @@
 
 ## Dev-grill — Common candidates table (required output)
 
-Before `pnpm portal:gen:dry`, list in handoff notes (Vietnamese):
+Before FE Codegenkit dry-run handoff, list in handoff notes (Vietnamese):
 
 | Vị trí | Phát hiện | Gợi ý tag | Member chọn |
 |--------|-----------|-----------|-------------|

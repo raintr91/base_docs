@@ -1,7 +1,7 @@
 # Architecture core (arc42 × C4 × Product)
 
-SSOT entry: [`start-now`](../../../platform/guide/start-now.md) · [`SYSTEM-DOC-STRUCTURE`](../../../platform/guide/SYSTEM-DOC-STRUCTURE.md).  
-People / tree: [`platform/guide/start-now.md`](../../../platform/guide/start-now.md) · [`SYSTEM-DOC-STRUCTURE.md`](../../../platform/guide/SYSTEM-DOC-STRUCTURE.md)
+SSOT entry: [`start-now`](../../platform/guide/start-now.md) · [`SYSTEM-DOC-STRUCTURE`](../../platform/guide/SYSTEM-DOC-STRUCTURE.md).
+People / tree: [`platform/guide/start-now.md`](../../platform/guide/start-now.md) · [`SYSTEM-DOC-STRUCTURE.md`](../../platform/guide/SYSTEM-DOC-STRUCTURE.md)
 
 ## Operating model (business view)
 
@@ -35,7 +35,7 @@ No **dynamics** wording on new trees — use **flow** / `FLOW-*` / `/journey`.
 | `ADR-*` | `architecture/09-decisions/` | Not `product/shared/adr` (redirect) |
 | `CMP-*` `W-*` `API-*` | `product/` | **Do not rename for arc42** |
 
-Not product journeys: `_legacy.dynamics*` · `SC-*`/`TC-*` · `/flow-trace` (legacy skill alias).
+Not product journeys: `_legacy.dynamics*` · `SC-*`/`TC-*` · `/business-process-trace` (brownfield; `/flow-trace` deprecated alias).
 
 ## Format
 
@@ -48,7 +48,7 @@ Not product journeys: `_legacy.dynamics*` · `SC-*`/`TC-*` · `/flow-trace` (leg
 
 ## Journey criteria (write when ≥1)
 
-Cross ≥2 systems · hard to understand / regress · slow onboard · core domain.  
+Cross ≥2 systems · hard to understand / regress · slow onboard · core domain.
 Not every agile story.
 
 ## Forbidden

@@ -1,8 +1,9 @@
 # Portal Codegen Readiness
 
-Hub: `PORTAL-CODEGEN.md` · **Who adds:** `/grill-with-docs` only.
+Hub: docs-hub `platform/toolchain/PORTAL-CODEGEN.md` when present · **Who adds:** `/dev-grill-docs` or `/grill-with-docs`.
 
-Gate: `pnpm portal:gen:dry --spec .../ir/spec.yaml` exit 0.
+Docs gate: bundle is structurally gen-ready. Executable
+`portal:gen:dry` belongs to FE Codegenkit and is a handoff.
 
 ## Enrich design v1 → gen-ready
 
@@ -29,15 +30,15 @@ Before gate, for each feature:
 2. List toolbar/filter widgets not in `#ui:` → `#needs-ui:` or common yaml ref
 3. List repeated composable/service patterns → `#common:` / `#needs-common:` + `marks[]`
 4. Output **Common candidates** table — member A/B/C
-5. Confirmed B → update `tags:` / `marks[]` before `portal:gen:dry`
+5. Confirmed B → update `tags:` / `marks[]` before FE dry-run handoff
 
 ## Exit checklist
 
 1. Contradictions resolved or `openQuestions` + `#tech-debt:`
 2. `codegen` + structured `ui.*` present
 3. Testcase testIds mirror spec
-4. `portal:gen:dry` pass · `docs:render`
+4. `docs_render` passes · FE dry-run handoff recorded
 
-Handoff → `/prototype` only after dry passes.
+Handoff → FE Codegenkit; `/prototype` only after its dry-run passes.
 
-Templates: `base-docs/templates/design-spec.yaml` (v1) · `spec.yaml` (post-grill)
+Templates: docs-hub `templates/design-spec.yaml` (v1) · `templates/spec.yaml` (post-grill), when present.

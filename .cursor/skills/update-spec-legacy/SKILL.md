@@ -22,8 +22,18 @@ disable-model-invocation: true
 1. Receive delta from `/update-spec` or grill gap.
 2. Patch trace slice + `bundle.legacy` (behaviors, fields, ui) with confidence.
 3. **Micro-read** legacy file/symbol only when tagged `#legacy-recheck`.
-4. `pnpm spec:split` + `pnpm legacy-dynamics:validate -- ../base-docs/product/legacy-dynamics/…/_legacy.dynamics.yaml` if trace changed.
+4. `bundle_split` + `legacy_dynamics_validate` if trace changed (CLI: `bundlekit split` / `bundlekit legacy-validate`; fallback pnpm scripts).
 5. Handoff → `/bqa-grill-docs` or `/dev-grill-docs` per section touched.
+
+## Accelerators (optional)
+
+```text
+if CodeGraph available: micro-read symbol evidence for #legacy-recheck
+else: targeted file read only
+
+if ArtifactGraph available: parity slice
+else: model review from patched legacy evidence
+```
 
 ## Done
 

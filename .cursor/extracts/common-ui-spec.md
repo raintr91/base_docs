@@ -1,8 +1,8 @@
 # Common UI Spec (Portal)
 
-Follow `base-docs Code / `--id`` before copying legacy UI ad hoc.
+Follow the target function under `product/components/CMP-*/code/{W-*|API-*}/` before copying legacy UI ad hoc.
 
-- **Design registry:** `registries/design.registry.json` — shadcn canonical; list default `#shell: DataListPage`. `.cursor/extracts/platform-design-registry.md`. Promotion: `base-docs/platform/toolchain/DESIGN-REGISTRY-PROMOTION.md`.
+- **Design registry:** `registries/design.registry.json` when present in the FE checkout; list default `#shell: DataListPage`. Promotion: `platform/toolchain/DESIGN-REGISTRY-PROMOTION.md`.
 - If legacy violates project common UI, design to common global and note `#legacy-global-ui-violation` with legacy evidence.
 - Patterns: list page, search filter, toolbar, pagination, data table, table action column, buttons, status chip, form validation, feedback/alert, confirm dialog, CSV import, navigation, flat design.
 - Business buttons outside table actions: icon + text. Table row actions: icon-only per `common-table-action-column`. Paginator: page numbers/ellipsis; prev/next icon + Japanese text.

@@ -8,7 +8,7 @@ extractBundle: architecture-core
 # /component — Module (CMP)
 
 **Business layer:** Module  
-**Standards:** README prose → **arc42** (why this capability exists, which operational areas it supports); relation diagrams → **C4**. Function detail → `/spec` (**C4 only**).
+**Standards:** README prose → **arc42** (why this capability exists, which operational areas it supports); relation diagrams → **C4**. Function detail → `/spec` (**C4 only**, Bundlekit). If `/spec` is unavailable: keep Function off the README and record an explicit Bundlekit handoff.
 
 ## Write
 
@@ -28,10 +28,19 @@ extractBundle: architecture-core
 
 ## Pilot
 
-[`CMP-01-auth`](product/components/CMP-01-auth/) · Journey [`FLOW-login`](architecture/06-runtime/journeys/FLOW-login.md)
+[`CMP-01-auth`](../../../product/components/CMP-01-auth/) · Journey [`FLOW-login`](../../../architecture/06-runtime/journeys/FLOW-login.md)
 
 Parent: `/architecture` · sequences → `/journey` · [Start now](../../../platform/guide/start-now.md) · [Structure](../../../platform/guide/SYSTEM-DOC-STRUCTURE.md)
 
-## MCP (optional)
+## Accelerators (optional)
 
-If **hubdocs** connected: `hubdocs_get_element` / `hubdocs_deps_of` for `CMP-*` before editing README.
+Prefer `hubdocs_get_element` / `hubdocs_deps_of` for `CMP-*` before editing README.
+
+```text
+if Hubdocs available: targeted hubdocs_* tools for IDs / deps / journeys / links
+else: Glob/search under architecture/ and product/, then Read scoped Markdown
+
+Missing Hubdocs never blocks authoring.
+Missing ArtifactGraph never blocks Hubdocs or architecture skills.
+```
+

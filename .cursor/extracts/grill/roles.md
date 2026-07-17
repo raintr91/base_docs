@@ -13,7 +13,7 @@ design v1 (legacy-spec | spec) → bqa-grill-docs → dev-grill-docs → [grill-
 | 1 | `/bqa-grill-docs` | Never on new feature |
 | 2 | `/dev-grill-docs` | Never before prototype |
 | 3 | `/grill-with-docs` | BQA+Dev done, no contradiction |
-| Gate | `pnpm portal:gen:dry` | After dev (or full) |
+| Gate | FE Codegenkit `genDry` handoff | After dev (or full); never execute in docs hub |
 
 ## Section ownership
 

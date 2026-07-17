@@ -31,7 +31,7 @@ Architecture folder: prefer **§01 intro** + **§07 deploy** for team; other cha
 | Operational area / persona / interaction channel | Context / operating model | **`/context`** |
 | Portal · Client · API service · Gateway / CTR | C4 Containers | **`/containers`** |
 | Module / CMP box | Module | **`/component`** |
-| Screen / API detail / CRUD | Function | **`/spec`** (grill as needed) — C4 only |
+| Screen / API detail / CRUD | Function | **`/spec`** (Bundlekit; grill as needed) — C4 only. If `/spec` unavailable: leave Function as CMP README stub + handoff note |
 | `*_flow` / sequence / journey | Flow | **`/journey`** |
 | Where it runs | Deploy | **`/deployment`** (stub-first) |
 | ADR / decision | — | **`/decision`** |
@@ -52,6 +52,15 @@ Legacy arc42 chapter numbers still map the same paths under `architecture/01`…
 
 Load the child skill + extract bundle `architecture-core`.
 
-## MCP (optional)
+## Accelerators (optional)
 
-If **hubdocs** MCP is connected, call `hubdocs_route` then `hubdocs_list_ids` / `hubdocs_validate_links` / `hubdocs_journeys` before large edits.
+Prefer `hubdocs_route` then `hubdocs_list_ids` / `hubdocs_validate_links` / `hubdocs_journeys` before large edits.
+
+```text
+if Hubdocs available: targeted hubdocs_* tools for IDs / deps / journeys / links
+else: Glob/search under architecture/ and product/, then Read scoped Markdown
+
+Missing Hubdocs never blocks authoring.
+Missing ArtifactGraph never blocks Hubdocs or architecture skills.
+```
+

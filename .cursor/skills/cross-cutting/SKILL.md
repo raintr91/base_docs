@@ -22,8 +22,17 @@ Security · Logging · Observability · Caching · Messaging · Configuration ·
 - Full OpenAPI / UI DSL / E2E plans
 - Duplicate business journeys (those are `/journey`)
 
-## MCP (optional)
+## Accelerators (optional)
 
-If **hubdocs** connected: `hubdocs_route` for §08 topics · `hubdocs_validate_links` after new section.
+Prefer `hubdocs_route` for §08 topics and `hubdocs_validate_links` after a new section.
+
+```text
+if Hubdocs available: targeted hubdocs_* tools for IDs / deps / journeys / links
+else: Glob/search under architecture/ and product/, then Read scoped Markdown
+
+Missing Hubdocs never blocks authoring.
+Missing ArtifactGraph never blocks Hubdocs or architecture skills.
+```
+
 
 Parent: `/architecture`

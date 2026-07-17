@@ -27,10 +27,19 @@ extractBundle: architecture-core
 
 ## Pilot
 
-[`architecture/03-context/`](architecture/03-context/) · `LND-base` · `CTX-admin`
+[`architecture/03-context/`](../../../architecture/03-context/) · `LND-base` · `CTX-admin`
 
 Parent router: `/architecture` · People: [Start now](../../../platform/guide/start-now.md)
 
-## MCP (optional)
+## Accelerators (optional)
 
-If **hubdocs** connected: `hubdocs_list_ids` kind `CTX`|`LND` · `hubdocs_route`.
+Prefer `hubdocs_list_ids` kind `CTX`|`LND` and `hubdocs_route`.
+
+```text
+if Hubdocs available: targeted hubdocs_* tools for IDs / deps / journeys / links
+else: Glob/search under architecture/ and product/, then Read scoped Markdown
+
+Missing Hubdocs never blocks authoring.
+Missing ArtifactGraph never blocks Hubdocs or architecture skills.
+```
+

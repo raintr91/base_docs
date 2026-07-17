@@ -46,7 +46,7 @@ ui:
 
 - Do **not** add `codegen`, `ui.filters`, `ui.columns`, or portal-gen `tags` in `/spec`.
 - Merge blocks into one `*.bundle.yaml` per child function (`spec/split.md`).
-- When all blocks `done` → normalize into `design.zones[]` before `/bqa-grill-docs` (zones SSOT; see `base-docs/platform/toolchain/DESIGN-PHASE-DIAGRAM.md`); handoff `/bqa-grill-docs` not `/grill-with-docs` first.
+- When all blocks `done` → normalize into `design.zones[]` before `/bqa-grill-docs` (zones SSOT; see `platform/toolchain/DESIGN-PHASE-DIAGRAM.md`); handoff `/bqa-grill-docs` not `/grill-with-docs` first.
 - `pnpm docs:render` after YAML edits (user or agent).
 
 ## Grill mapping

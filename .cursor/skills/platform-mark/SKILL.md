@@ -9,7 +9,7 @@ disable-model-invocation: true
 
 Member annotation sau grill A/B/C — **không** bulk `/spec` / `/dev-grill-docs`.
 
-**Hub policy:** `base-docs/platform/toolchain/PLATFORM-MARK.md`  
+**Hub policy:** `platform/toolchain/PLATFORM-MARK.md`
 Technical marks SSOT: `product/shared/integrations/*`, `product/shared/data-model/derived-data.md`
 
 ## Registries (code)
@@ -19,9 +19,15 @@ Technical marks SSOT: `product/shared/integrations/*`, `product/shared/data-mode
 | UI | `registries/design.registry.json` | `#needs-component:` `#needs-ui:` `#shell:` |
 | Logic | `registries/common.registry.json` | `#common:*` `#needs-common:*` |
 
-```bash
-pnpm portal:registry && pnpm platform-common:registry
-# or artifactgraph_gen registryValidate / commonRegistry
+Executable registry validation is **FE Codegenkit** (or product scripts on the
+FE checkout). On docs hub:
+
+```text
+if ArtifactGraph available:
+  artifactgraph_allowlist_check(registryValidate|commonRegistry)
+  artifactgraph_recommend_command → hand off to FE
+else:
+  note pending FE registry validate; do not invent local shell fallbacks
 ```
 
 ## Workflow (ngắn)
@@ -36,5 +42,9 @@ pnpm portal:registry && pnpm platform-common:registry
 - Auto-tag không hỏi member  
 - Mo* vào `common.registry` (chỉ design registry)  
 - Full contract rewrite  
+- Treat `artifactgraph_gen` as required (deprecated shim)
 
-Handoff: `portal:gen:dry --id …` sau khi đổi marks.
+## Handoff
+
+FE Codegenkit / product: `portal:gen:dry --id …` after marks change, when that
+lane is available. Missing Codegenkit is a pending handoff, not a docs failure.

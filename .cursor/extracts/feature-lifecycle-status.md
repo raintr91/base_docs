@@ -2,6 +2,9 @@
 
 Forward-only status on each `*.spec.yaml`. Integer `specRevision` + `#update:*` tags track delta; status tracks **phase gate** for the team.
 
+`portal:gen` / `testcase:gen` below are lifecycle events reported from FE/tests
+lanes. Bundlekit never executes them in the docs hub.
+
 ## featureStatus values
 
 | Status | Meaning |

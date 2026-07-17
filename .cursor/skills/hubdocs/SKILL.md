@@ -1,29 +1,56 @@
 ---
 name: hubdocs
-description: /hubdocs — optional local index for arc42/C4 Markdown relationships.
+extractBundle: hubdocs
+description: /hubdocs — MCP index for a conforming arc42 × C4 documentation hub.
 disable-model-invocation: true
-extractBundle: architecture-core
 ---
 
-# /hubdocs — local adapter
+# /hubdocs
 
-Markdown in this repository owns architecture and product truth. Hubdocs is an
-optional read/index aid; it does not own or generate the documentation.
+Package: [raintr91/hubdocs](https://github.com/raintr91/hubdocs)
 
-Usage and setup guidance: [`platform/toolchain/HUBDOCS.md`](../../../platform/toolchain/HUBDOCS.md).
+The target repository owns its Markdown. Hubdocs only indexes, validates, and
+routes content from the configured docs root.
 
-## Local relationships and routing
+## Protocol
 
-- `LND-*` / `CTX-*` → `/context`
-- `CTR-*` → `/containers`
-- `CMP-*` → `/component`
-- `FLOW-*` → `/journey`
-- `DEP-*` → `/deployment`
-- `ADR-*` → `/decision`
+```text
+hubdocs_layout / hubdocs_route / hubdocs_list_ids
+  → hubdocs_get_element
+  → hubdocs_deps_of / hubdocs_dependents_of
+  → hubdocs_orphans / hubdocs_validate_links
+```
 
-When the MCP is already connected, prefer `hubdocs_route`, ID lookup,
-dependency/dependent queries, journey/orphan checks, and link validation before
-loading broad Markdown trees.
+Use `hubdocs_journeys` before reading every journey file. Prefer targeted tool
+results over dumping `architecture/**`.
 
-If Hubdocs is unavailable, use repository search and the architecture skills.
-Do not install, wire, or treat Hubdocs as required from this adapter.
+## Root and setup
+
+Project-local MCP wiring should set `HUBDOCS_ROOT` to this docs hub:
+
+```bash
+cd /path/to/docs-hub
+hubdocs init --location=local --yes
+hubdocs harness install
+```
+
+Every tool also accepts `docsRoot`, which is required for a rootless global MCP
+entry. The selected hub must contain `architecture/`.
+
+## Owned architecture family
+
+`harness install` also syncs `/architecture` `/context` `/containers`
+`/component` `/journey` `/deployment` `/decision` `/cross-cutting` and the
+deprecated `/dynamics` redirect, plus the `architecture-core` extract bundle.
+
+## Accelerators (optional)
+
+```text
+ArtifactGraph: optional registry/tag/parity hints only
+else: continue with Hubdocs tools + direct Markdown inspection
+
+Hubdocs never requires ArtifactGraph.
+ArtifactGraph must not index or own architecture Markdown.
+If this MCP is not connected: Glob/search under architecture/ and product/,
+then Read scoped Markdown. Authoring is never blocked.
+```

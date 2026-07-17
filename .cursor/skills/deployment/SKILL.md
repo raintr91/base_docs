@@ -28,10 +28,19 @@ If the user did **not** confirm placement matters → write/keep a **short stub*
 
 ## Pilot
 
-[`architecture/07-deployment/`](architecture/07-deployment/) · `DEP-local` (minimal)
+[`architecture/07-deployment/`](../../../architecture/07-deployment/) · `DEP-local` (minimal)
 
-## MCP (optional)
+## Accelerators (optional)
 
-If **hubdocs** connected: `hubdocs_list_ids` kind `DEP` · refuse inventing nodes not already in MD.
+Prefer `hubdocs_list_ids` kind `DEP`; refuse inventing nodes not already in MD.
+
+```text
+if Hubdocs available: targeted hubdocs_* tools for IDs / deps / journeys / links
+else: Glob/search under architecture/ and product/, then Read scoped Markdown
+
+Missing Hubdocs never blocks authoring.
+Missing ArtifactGraph never blocks Hubdocs or architecture skills.
+```
+
 
 Parent: `/architecture` · [Start now](../../../platform/guide/start-now.md)

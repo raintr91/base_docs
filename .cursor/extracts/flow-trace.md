@@ -1,44 +1,4 @@
-# Flow trace — step template
+# Flow trace — DEPRECATED extract name
 
-Output: `base-docs/architecture/06-runtime/journeys/` · prefer skill **`/journey`** (`FLOW-*`)
-
-## Sections only
-
-`# title` · `## Steps` · `## Diagram` (one mermaid) · `## Gaps` (optional)
-
-
-## Step types
-
-```
-page [{system}] {route}
-api [{system}] {METHOD} {path}
-call [{from} → {to}] {METHOD} {path} — note
-persist [{system}] {table/model}
-job [{system}] dispatch({ClassName})
-mail [{system}] template: {relative/path}
-```
-
-Systems: `portal` | `api` | `mairy-backend` | `mairy-fullsco` | `mairy-scenario` | `customer`
-
-Resolve roots: `legacy/project-config.md` (progressive — needed ids only, no full JSON dump)
-
-## Example shape (verify in code)
-
-```markdown
-# Survey notification
-
-## Steps
-1. page [mairy-fullsco] `/admin/surveys/create`
-2. api [mairy-backend] `POST /api/admin/surveys`
-3. call [mairy-backend → mairy-scenario] `POST /api/sync/survey`
-4. job [mairy-backend] `dispatch(SendSurveyThankYouMail)`
-5. mail [mairy-backend] `template: resources/views/emails/survey/thank-you.blade.php`
-
-## Diagram
-\`\`\`mermaid
-sequenceDiagram
-  ...
-\`\`\`
-```
-
-No UI colors/layout. After publish: link in `base-docs/architecture/dynamics/`.
+Canonical extract: [`business-process-trace.md`](./business-process-trace.md)  
+Canonical skill: `/business-process-trace` · alias `/flow-trace` (deprecated).

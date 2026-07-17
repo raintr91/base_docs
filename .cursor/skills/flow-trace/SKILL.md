@@ -1,21 +1,13 @@
 ---
 name: flow-trace
-extractBundle: flow-trace
-description: /flow-trace — legacy brownfield alias; product sequences use /journey (FLOW-*).
+extractBundle: business-process-trace
+description: /flow-trace — DEPRECATED alias; use /business-process-trace for brownfield process tracing.
 disable-model-invocation: true
 ---
 
-# /flow-trace (legacy alias)
+# /flow-trace — Deprecated alias
 
-**Product sequences:** use **`/journey`** → `architecture/06-runtime/journeys/` (`FLOW-*`).
+**Use [`/business-process-trace`](../business-process-trace/SKILL.md)** instead.
 
-Do **not** write product sequences under code-repo `docs/`. Extract `flow-trace` remains for brownfield cross-system vocabulary only.
-
-`/dynamics` is a deprecated alias for `/journey`.
-
-## Load
-
-| Load | Skip |
-|------|------|
-| `legacy/project-config.md` progressive | Treating FE docs as architecture SSOT |
-| Cross-repo route/job evidence | Writing new `DYN-*` (use `FLOW-*`) |
+Product sequences (`FLOW-*`): **`/journey`**.
+`/dynamics` remains a deprecated alias for `/journey` only — not this skill.

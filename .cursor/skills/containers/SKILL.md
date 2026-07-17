@@ -27,10 +27,19 @@ extractBundle: architecture-core
 
 ## Pilot
 
-[`architecture/05-building-blocks/`](architecture/05-building-blocks/) · `CTR-admin-web` · `CTR-admin-api`
+[`architecture/05-building-blocks/`](../../../architecture/05-building-blocks/) · `CTR-admin-web` · `CTR-admin-api`
 
 Parent router: `/architecture` · CMP skill: `/component` · [Start now](../../../platform/guide/start-now.md)
 
-## MCP (optional)
+## Accelerators (optional)
 
-If **hubdocs** connected: `hubdocs_list_ids` kind `CTR` · `hubdocs_dependents_of`.
+Prefer `hubdocs_list_ids` kind `CTR` and `hubdocs_dependents_of`.
+
+```text
+if Hubdocs available: targeted hubdocs_* tools for IDs / deps / journeys / links
+else: Glob/search under architecture/ and product/, then Read scoped Markdown
+
+Missing Hubdocs never blocks authoring.
+Missing ArtifactGraph never blocks Hubdocs or architecture skills.
+```
+

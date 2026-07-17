@@ -1,9 +1,9 @@
 # Legacy dynamics module file
 
-**Path (SSOT):** `base-docs/product/legacy-dynamics/{module}/_legacy.dynamics.yaml`
+**Path (SSOT):** `product/legacy-dynamics/{module}/_legacy.dynamics.yaml`
 
-Template: `base-docs/product/legacy-dynamics/_template/_legacy.dynamics.yaml`  
-How-to: `base-docs/platform/toolchain/legacy-dynamics.md`
+Template: `product/legacy-dynamics/_template/_legacy.dynamics.yaml`
+How-to: `platform/toolchain/legacy-dynamics.md`
 
 Schema: `portal-legacy-dynamics/v1`
 

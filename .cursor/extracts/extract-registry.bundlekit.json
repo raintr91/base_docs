@@ -1,15 +1,7 @@
 {
   "version": 1,
+  "package": "@platform/bundlekit",
   "bundles": {
-    "core": [
-      ".cursor/extracts/core/agent-discipline.md"
-    ],
-    "business-process-trace": [
-      ".cursor/extracts/business-process-trace.md"
-    ],
-    "flow-trace": [
-      ".cursor/extracts/business-process-trace.md"
-    ],
     "legacy-spec": [
       ".cursor/extracts/core/agent-discipline.md",
       ".cursor/extracts/legacy/project-config.md",
@@ -69,35 +61,6 @@
       ".cursor/extracts/legacy/evidence.md",
       ".cursor/extracts/legacy-dynamics.md",
       ".cursor/extracts/spec-update-delta.md"
-    ],
-    "architecture-core": [
-      ".cursor/extracts/architecture-core.md",
-      ".cursor/extracts/tpl-arc42-chapter.md",
-      ".cursor/extracts/tpl-component.md",
-      ".cursor/extracts/tpl-journey.md",
-      ".cursor/extracts/tpl-deployment.md",
-      ".cursor/extracts/tpl-adr.md",
-      ".cursor/extracts/tpl-cross-cutting.md"
-    ],
-    "platform-ai": [
-      ".cursor/extracts/feature-artifact.md",
-      ".cursor/extracts/artifact-graph.md",
-      ".cursor/extracts/architecture-core.md",
-      ".cursor/extracts/extract-registry.json"
-    ],
-    "artifactgraph": [
-      ".cursor/extracts/artifactgraph-hooks-core.md",
-      ".cursor/extracts/artifactgraph-hooks-docs.md",
-      ".cursor/extracts/artifactgraph-parity.md"
-    ],
-    "platform-mark": [
-      ".cursor/extracts/core/agent-discipline.md",
-      ".cursor/extracts/platform-mark.md",
-      ".cursor/extracts/platform-mark-detect.md",
-      ".cursor/extracts/codegen/tags.md"
-    ],
-    "hubdocs": [
-      ".cursor/extracts/hubdocs-phase-hooks.md"
     ]
   }
 }

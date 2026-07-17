@@ -26,7 +26,7 @@ Grill lanes ask first; member confirms → apply mark in same session.
 | needs-ui | `#needs-ui: {Widget}` | `tags:` — widget `planned` in design registry |
 | common-ui | Mo* in design registry `implemented` | promote after `/prototype`; re-run `portal:gen` |
 
-Common UI SSOT: `base-docs/product/common/yaml/` · promotion: `DESIGN-REGISTRY-PROMOTION.md`
+Common UI SSOT: `product/common/yaml/` · promotion: `DESIGN-REGISTRY-PROMOTION.md`
 
 ## Spec block — `marks[]` (portal `ir/spec.yaml`)
 

@@ -21,10 +21,19 @@ extractBundle: architecture-core
 
 ## Pilot
 
-[ADR-001](architecture/09-decisions/ADR-001-arc42-toc.md)
+[ADR-001](../../../architecture/09-decisions/ADR-001-arc42-toc.md)
 
 Parent: `/architecture`
 
-## MCP (optional)
+## Accelerators (optional)
 
-If **hubdocs** connected: `hubdocs_list_ids` kind `ADR` · `hubdocs_validate_links` after new ADR.
+Prefer `hubdocs_list_ids` kind `ADR` and `hubdocs_validate_links` after a new ADR.
+
+```text
+if Hubdocs available: targeted hubdocs_* tools for IDs / deps / journeys / links
+else: Glob/search under architecture/ and product/, then Read scoped Markdown
+
+Missing Hubdocs never blocks authoring.
+Missing ArtifactGraph never blocks Hubdocs or architecture skills.
+```
+
