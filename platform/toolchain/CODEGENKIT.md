@@ -48,6 +48,15 @@ codegenkit prune --project-root=/path/to/code       # dry-run
 codegenkit prune --project-root=/path/to/code --yes # unmodified stale only
 ```
 
-Codegenkit 0.3.3 pins installers to immutable tag `v0.3.3`, requires docs-hub
+Codegenkit 0.3.4 pins installers to immutable tag `v0.3.4`, requires docs-hub
 `ir/spec.yaml` for FE `--id` generation (no bundle YAML fallback), and ships
 `codegenkit common-registry` plus `schemas/common-registry.schema.json`.
+
+FastAPI codegen/unitgen generates every selected entity and writes schema-v2
+manifests with SHA-256 ownership. Existing unmanaged or locally modified files
+block the batch unless `--force` is explicit; dry-run and unsafe
+traversal/symlink paths perform zero writes. Ambiguous multi-entity endpoints
+warn and receive isolated CRUD defaults rather than cross-wiring.
+
+FE package rules are adapter-neutral and manifest-managed. Stack-specific
+invariants, component splitting and import aliases remain product-owned.

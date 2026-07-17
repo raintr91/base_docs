@@ -8,13 +8,13 @@
 
 | Phase | Status | Evidence / next gate |
 |-------|--------|----------------------|
-| Phase 0 — contracts/bootstrap | **Complete; Platform DNA 0.1.4 released** | `TI.1–TI.7`, `TC.1–TC.6`, `TG.1` closed. Resolver, portable maps, profile isolation, lifecycle and final meta checklist published. |
+| Phase 0 — contracts/bootstrap | **Complete; Platform DNA 0.1.5 released** | `TI.1–TI.7`, `TC.1–TC.6`, `TG.1` closed. Resolver, portable maps, profile isolation, lifecycle and DNA-owned lane rules published. |
 | Phase 1 — Bundlekit | **Released (0.1.3)** | Independent docs engines, lifecycle, compatibility and measured optional fallback contract |
 | Phase 1B — Processkit | **Released (0.3.1)** | Process/impact tools, lifecycle, CodeGraph metric fixture and namespaced fallback schema |
 | Phase 2 — ArtifactGraph cleanup | **Complete (2.0.1 release branch)** | Recommend/check boundary, safe lifecycle and contract-aligned legacy manifest migration |
 | Phase 3 — Hubdocs audit | **Complete (1.0.2)** | Architecture ownership, safe lifecycle and namespaced ArtifactGraph fallback contract |
-| Phase 4 — Codegenkit | **Released (0.3.2)** | FE+BE+fullstack engines, lifecycle and profile-safe optional fallback contract; residual `TKC.1`, `TKC.3–8`, `TKC.12` |
-| Phase 5 — Testkit | **Released (0.2.1)** | Tests/FE profiles, lifecycle and shared namespaced optional fallback contract; residual `TKT.1`, `TKT.3–8` |
+| Phase 4 — Codegenkit | **Complete (0.3.4)** | FE+BE+fullstack engines, managed harness ownership, common-registry validation, adapter-neutral FE rules and hash-safe FastAPI multi-entity generation |
+| Phase 5 — Testkit | **Complete (0.2.4)** | Tests/FE profiles, lifecycle, containment, schema-driven checks, optional docs fallback and deterministic goldens |
 | Phase 6 — independence matrix | **Complete** | `T6.1–T6.8` closed with install, portability, lifecycle, compatibility and measured fallback fixtures |
 
 **Bundlekit verification:** TypeScript build pass · CLI/engine/init smoke pass ·
@@ -397,10 +397,10 @@ to <https://github.com/raintr91/Testkit>; hardening debt tracked as `TKT.*`.
 ## Phase 6 — Verify independence
 
 - [x] **T6.1** Matrix installs: Hubdocs-only · Bundlekit-only · **Processkit-only** · AG-only · Hubdocs+Bundlekit · Processkit+CodeGraph · Hubdocs+Bundlekit+AG · full FE set. Seven clean temp-root installs pass; Processkit's offline CodeGraph configuration-preservation fixture proves the eighth without requiring a live server.
-- [x] **T6.2** Each matrix: skill smoke does not require optional MCPs. Hubdocs 1.0.2, Bundlekit 0.1.3, Processkit 0.3.1, Codegenkit 0.3.3 and Testkit 0.2.4 ship package-owned namespaced event schemas/rules; fallback completes first, then emits once per run+optional with retry dedup and measured reads/bytes.
+- [x] **T6.2** Each matrix: skill smoke does not require optional MCPs. Hubdocs 1.0.2, Bundlekit 0.1.3, Processkit 0.3.1, Codegenkit 0.3.4 and Testkit 0.2.4 ship package-owned namespaced event schemas/rules; fallback completes first, then emits once per run+optional with retry dedup and measured reads/bytes.
 - [x] **T6.3** Measured context smoke: fixed Processkit CodeGraph fixture reads `2 files / 162 bytes` with accelerator vs `6 / 638` full fallback (74.61% fewer bytes); targeted fallback is `2 / 377` (57.03% fewer bytes). No estimated token claims.
 - [x] **T6.4** Portability: committed maps contain current repo/lane only; sibling topology is member-local and ignored. `api@db925e6` and `base-tests@3f733d8` pass Platform DNA validation; Platform DNA 0.1.2 removes `tooling` from the map schema.
-- [x] **T6.5** Platform DNA 0.1.4 and docs-hub `/platform-ai` Done checklists record ownership, lane isolation, portable maps, safe lifecycle and namespaced measured fallback contracts.
+- [x] **T6.5** Platform DNA 0.1.5 and docs-hub `/platform-ai` Done checklists record ownership, lane isolation, portable maps, safe lifecycle and namespaced measured fallback contracts.
 - [x] **T6.6** Lifecycle matrix: all owning packages now track managed hashes/stale assets and expose status + dry-run-by-default prune; `--yes` removes only unmodified stale assets. Shared maps/registries, product state, unmanaged files and local modifications are preserved. Covered by package lifecycle tests across Bundlekit, Hubdocs 1.0.1, Processkit 0.2.0, ArtifactGraph 2.0.0, Codegenkit 0.3.1, Testkit 0.2.0 and Platform DNA 0.1.3.
 - [x] **T6.7** Compatibility tests cover every managed package manifest: supported `toolApi`/`harnessApi` pass; version drift warns; incompatible APIs fail before writes/deletes with actionable upgrade/re-init guidance. ArtifactGraph 2.0.1 also migrates its 2.0.0 legacy manifest; Bundlekit 0.1.2 adds fail-safe status/init/prune regression coverage.
 - [x] **T6.8** Processkit 0.3.0 ships `missing-optional-event.schema.json`, run/optional dedup, exact `fileReads`/`contextBytes` measurement and a deterministic CodeGraph accelerator/fallback fixture.
@@ -440,11 +440,11 @@ Captured from [Discover Codegenkit sources](0cee841e-f7ae-4c62-aa02-a0467269bc42
 - [x] **TKC.5** Codegenkit 0.3.3: Nuxt/Next `preferGenSpec()` / `--id` resolution require `ir/spec.yaml`; bundle YAML is refused with an actionable docs-hub IR error.
 - [x] **TKC.6** Codegenkit 0.3.3 ships `schemas/common-registry.schema.json` plus CLI/MCP `common-registry` validation (Zod + alias integrity).
 - [x] **TKC.7** Codegenkit 0.3.3 covers Nuxt+Next dry-run non-writing, adapter detect, `ir/spec.yaml` requirement, and common-registry validate happy/fail fixtures.
-- [ ] **TKC.8** Resolve contested FE rules (`platform-invariants`, component-split, import-alias, …).
+- [x] **TKC.8** Ownership frozen and installed: Platform DNA 0.1.5 owns lane/router/common rules; Codegenkit 0.3.4 owns adapter-neutral design/code-size/prototype/unit rules; `platform-invariants`, component-split and import-alias remain product-owned. Nuxt/Next manifests are healthy at `af16656` / `231a57b`; Next rules are App-Router-specific and docs hub no longer carries `platform-code-size`.
 - [x] **TKC.9** Replace Laravel stub `apigen` with recovered module-first engine from `api@4bb1366` (`codegen/` + registries + unitgen); profile `modules-v1` only. Defer `api_v2` app-layer as later profile. Shipped in Codegenkit 0.3.0. ([Inventory Laravel adapter](521d527b-4929-4bb6-b970-82137beaa020))
 - [x] **TKC.10** Laravel preflight: locate `artisan`/`composer.json` (root or `src/`), verify Laravel 12 + `nwidart/laravel-modules`, required Artisan commands, refuse unsupported layouts. Shipped in Codegenkit 0.3.0. ([Inventory Laravel adapter](521d527b-4929-4bb6-b970-82137beaa020))
 - [x] **TKC.11** FastAPI: package `unitgen` + real registry validate entrypoints; seed target `registries/`; document Python runtime (`CODEGENKIT_PYTHON` → `.venv` → `python3` → `python`). Shipped in Codegenkit 0.3.0. ([Inventory FastAPI adapter](aa5385bf-4fe2-4263-b0f4-c63f6f80a972))
-- [ ] **TKC.12** FastAPI remaining hardening: multi-entity generation and managed-hash ownership before `--force`. Identifier validation, field-typed schemas, CRUD store decoupling, route normalization and target containment shipped in 0.3.0. ([Inventory FastAPI adapter](aa5385bf-4fe2-4263-b0f4-c63f6f80a972))
+- [x] **TKC.12** Codegenkit 0.3.4 generates all selected FastAPI entities and unit tests, filters explicit `codegen.module/entity`, records schema-v2 SHA-256 ownership, blocks unmanaged/modified files before `--force`, and preflights traversal/symlink containment all-or-nothing. Ambiguous multi-entity endpoints warn and use isolated CRUD defaults. ([Inventory FastAPI adapter](aa5385bf-4fe2-4263-b0f4-c63f6f80a972))
 
 ---
 
@@ -489,13 +489,11 @@ Original sequence (all package phases complete except Phase 6 verify):
 | Track | Why it matters | Open items |
 |-------|----------------|------------|
 | Platform DNA | Resolver/maps/meta harness released; lifecycle compatibility is verified in Phase 6 | — |
-| Codegenkit harden | Contested FE rules and FastAPI multi-entity/`--force` hash | `TKC.8`, `TKC.12` |
+| Codegenkit harden | All residual source-audit items released/cut over | — |
 | Testkit harden | All residual source-audit items released/cut over | — |
 
-**Next recommended order:**
-
-1. Resolve contested FE rules (`TKC.8`).  
-2. Finish FastAPI multi-entity/`--force` hash ownership (`TKC.12`).
+**Next recommended order:** none — all tracked MCP split and residual hardening
+items are closed.
 
 When an item is implemented, check it here and note package version / PR when
 published. Local-only completion must be labelled explicitly; it is not a

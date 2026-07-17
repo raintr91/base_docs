@@ -1,11 +1,15 @@
 ---
-description: Docs-hub harness bias — one lane; do not load FE/Plans/BE rules here
+description: Platform AI — docs lane boundary and portability
 alwaysApply: true
 ---
 
-# Platform AI (docs hub)
+# Platform AI — docs
 
-- Harness SSOT: `.cursor/` **this repo** (spec/grill/dynamics).
-- **Lanes:** Docs here · Plans=`base-tests` · FE/BE on code — không alwaysApply Nuxt/E2E/Plans vào chat docs.
-- Product Code IR: `product/` · scripts: `scripts/spec|docs` (design MD only; plan MD = tests hub `cases:render`).
-- Chi tiết: `/platform-ai`.
+- Current repository is the docs lane.
+- Harness SSOT is `.cursor/` in this repository; architecture/spec/process
+  documentation skills only.
+- Product Code IR lives under `product/`; docs renderers never emit tests-hub
+  plans.
+- FE/BE/tests work is a handoff to its published repository; never infer siblings.
+- Repository files use portable root-relative paths or canonical online links.
+- `/platform-ai` owns harness maintenance for this lane.

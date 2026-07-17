@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "package": "@platform/platform-dna",
+  "packageVersion": "0.1.5",
+  "type": "docs",
+  "harnessApi": 1,
+  "files": {
+    ".cursor/extracts/core/agent-discipline.md": {
+      "source": "harness/common/extracts/core/agent-discipline.md",
+      "sha256": "95f2cb53e536de15ae85e8c7432bec608ad2451e7b9112a10dec8fc9fa8a0674",
+      "state": "active"
+    },
+    ".cursor/rules/platform-contract-naming.mdc": {
+      "source": "harness/common/rules/platform-contract-naming.mdc",
+      "sha256": "eb9527ca93b8852312f5a432a1259dbab4bba58ea123ef5902d6f3cb59c71edc",
+      "state": "active"
+    },
+    ".cursor/rules/team-flow-harness-state.mdc": {
+      "source": "harness/common/rules/team-flow-harness-state.mdc",
+      "sha256": "d54dbdc4c0730331c7bf15e8be7a63d87308629c12408b13effcbc986e7d79d7",
+      "state": "active"
+    },
+    ".cursor/rules/platform-ai.mdc": {
+      "source": "harness/docs/rules/platform-ai.mdc",
+      "sha256": "74f628449d74f720f67e2a38a1146dd999903250d656c8d40bfdcb8647e22517",
+      "state": "active"
+    },
+    ".cursor/rules/team-flow-router.mdc": {
+      "source": "harness/docs/rules/team-flow-router.mdc",
+      "sha256": "07310425ffbba7ca64447467ba4f715e6c0f6b624897d5f58429efab4da742c5",
+      "state": "active"
+    },
+    ".cursor/skills/platform-ai/SKILL.md": {
+      "source": "harness/docs/skills/platform-ai/SKILL.md",
+      "sha256": "5186186cc76b31298689686afaee0ea90a88cdeb5924ab87c90c8cdf888df9cb",
+      "state": "active"
+    }
+  }
+}
