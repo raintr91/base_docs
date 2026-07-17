@@ -536,7 +536,7 @@ public sealed class WorkforceService(IFastApiClient api)
 
 Mỗi repo: `docs/operational/*-STRUCTURE.md`, `.cursor/skills/*-base`, `.harness/progress.md`.
 
-`team-projects.json` (repo root): group **`factory-ai-stack`** — `portal` · `fast-api-base` · `line` · `integration` (4 repo). [REPO-SPLIT-MAP](./REPO-SPLIT-MAP.md) · [PROJECT-MAPS](./PROJECT-MAPS.md).
+`platform-repos.json` (repo root): group **`factory-ai-stack`** — `portal` · `fast-api-base` · `line` · `integration` (4 repo). [REPO-SPLIT-MAP](./REPO-SPLIT-MAP.md) · [PROJECT-MAPS](./PROJECT-MAPS.md).
 
 ---
 

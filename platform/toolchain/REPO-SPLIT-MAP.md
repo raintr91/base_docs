@@ -18,7 +18,7 @@
 | **line** | `~/workspace/line` | .NET 8 · DocFX | — | Line client · `./codegen/runners/generate` · xUnit |
 | **integration** | `~/workspace/integration` | .NET 8 · DocFX | `:4100` | OT gateway · `./codegen/runners/generate` · xUnit |
 
-Config: root [`team-projects.json`](../../team-projects.json) → group `factory-ai-stack`. Templates: `team-projects.example.json`. Hub: [PROJECT-MAPS](./PROJECT-MAPS.md).
+Config: root [`platform-repos.json`](../../platform-repos.json) → group `factory-ai-stack`. Templates: `platform-repos.example.json`. Hub: [PROJECT-MAPS](./PROJECT-MAPS.md).
 
 ---
 

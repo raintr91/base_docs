@@ -5,8 +5,6 @@ node_modules/
 .harness/feature_list.json
 platform-repos.local.json
 legacy-repos.local.json
-.cursor/legacy-projects.local.json
-.cursor/team-projects.local.json
 .cursor/platform-repos.local.json
 .cursor/legacy-repos.local.json
 
