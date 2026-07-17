@@ -22,7 +22,8 @@ status: active
 | Term | Meaning |
 |------|---------|
 | Journey | Curated product runtime flow `FLOW-*` under §06 |
-| flow-trace | Legacy archaeology skill/path — **not** product journey |
+| business-process-trace | Brownfield process-through-code skill — **not** product journey `FLOW-*` |
+| flow-trace | Deprecated alias of business-process-trace |
 | `_legacy.dynamics*` | Extract/artifact name for old dynamics — keep filename; wording → FLOW/journey |
 | Hubdocs | Optional local index over architecture and product Markdown IDs |
 | Docs hub layers | arc42 (why) → C4 views (what) → Product Spec (detail) |

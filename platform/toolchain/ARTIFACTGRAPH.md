@@ -16,7 +16,7 @@ Package / GitHub: **[raintr91/artifactgraph](https://github.com/raintr91/artifac
 ```bash
 artifactgraph version
 # Run from this docs hub; init installs common + docs assets and local MCP wiring.
-cd ~/workspace/base-docs
+cd <base-docs-checkout>
 artifactgraph init --target=cursor --type=docs --yes
 artifactgraph rebuild
 ```
@@ -30,9 +30,14 @@ artifactgraph rebuild
 
 ### Token / MCP
 
-- **Project:** `.cursor/mcp.json` trong từng repo đích — ArtifactGraph chỉ load khi mở repo đó.
+- **Project:** chạy `artifactgraph init` trên từng máy để sinh `.cursor/mcp.json` theo checkout hiện tại.
+- MCP config là machine-local và bị gitignore; không commit executable path hoặc workspace path do installer sinh.
 - **Global Win:** `%USERPROFILE%\.cursor\mcp.json` — giữ CodeGraph (nếu cần); **không** để `artifactgraph` ở đây.
-- Skill/grill mới cần tools; ad-hoc dùng CLI: `artifactgraph parity|gaps|status|gen …`.
+- Skill/grill mới cần tools; ad-hoc dùng CLI:
+  `artifactgraph parity|gaps|status|recommend-command|allowlist-check …`.
+- ArtifactGraph chỉ recommend/check product-owned command. `artifactgraph gen`
+  là compatibility shim deprecated trong 2.x; Bundlekit/Codegenkit/Testkit là
+  executable owner.
 - Rule `artifactgraph.mdc` = **opt-in** (`alwaysApply: false`), không inject mọi chat.
 
 ## Local-first (important)
@@ -49,8 +54,11 @@ Detail: [ArtifactGraph `docs/INTERNALS.md`](https://github.com/raintr91/artifact
 ## In this repo
 
 - Harness installed from ArtifactGraph `2.0.0` with types `common` + `docs`
-- MCP: `.cursor/mcp.json` (project-local) pinned to this docs hub
-- Config: `artifactgraph.json`; local index: `.artifactgraph/`
+- MCP: member chạy `artifactgraph init --target=cursor --type=docs --yes` để wire checkout của mình
+- Config: `artifactgraph.json` — product-owned allowlist SSOT (`commands`); docs hub typically keeps `commands: {}` until FE/kits wire keys
+- Local index: `.artifactgraph/` (registries + lexicon only — **not** architecture MD)
+- Architecture IDs / chapter graph → [HUBDOCS](./HUBDOCS.md)
+- Command boundary → [ARTIFACTGRAPH-API-CONTRACT](./ARTIFACTGRAPH-API-CONTRACT.md)
 - `platform-repos.json` is tooling inventory only; runtime resolves this repo directly.
 - Lexicon local copy: `artifactgraph/lexicon/registry-tags.en.txt` (from package baseline)
 - Detail: [ArtifactGraph `docs/INTERNALS.md`](https://github.com/raintr91/artifactgraph/blob/main/docs/INTERNALS.md)

@@ -71,7 +71,7 @@ Khi API **không** có Portal `*.spec.yaml` (webhook, partner export, public API
 | Audit + codegen | `/grill-integration-spec {slug}` | `/grill-int-spec {slug}` |
 | Implement | `/api-code {slug}` | — |
 
-- Common ref: [integration spec](../features/common/generated/common-integration-spec)
+- Common ref: [INTEGRATION-API-SPEC](./INTEGRATION-API-SPEC.md)
 - Template: `docs/templates/backend-api-integration.yaml`
 - Extract: `.cursor/extracts/api-integration-spec.md`
 - `feature.source.base: none`, `integrationRefs[]` thay `portalRefs`

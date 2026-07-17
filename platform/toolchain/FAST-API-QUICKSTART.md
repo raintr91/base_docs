@@ -8,7 +8,7 @@
 ## Local dev
 
 ```bash
-cd ~/workspace/fast-api-base
+cd <fast-api-base-checkout>
 cp .env.example .env
 uv sync
 uv run uvicorn app.main:app --reload --port 4000 --app-dir src

@@ -1,10 +1,10 @@
 # Portal codegen — `portal:gen` + `portal:unit-gen`
 
-> **R2/R3:** Product Code + architecture → [`base-docs`](../../base-docs/) · E2E plans → [`base-tests`](../../base-tests/) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
+> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
 
 
-> **Doc chính (đọc file này trước).** Layout: [CODEGEN-LAYOUT](./CODEGEN-LAYOUT.md) · Lệnh: [FEATURE-ARTIFACT-COMMANDS](./FEATURE-ARTIFACT-COMMANDS.md) · Flow: [FEATURE-ARTIFACT-FLOWS](./FEATURE-ARTIFACT-FLOWS.md).  
-> Chi tiết tag: `.cursor/extracts/codegen/tags.md`, `.cursor/extracts/portal-unit-test-tags.md`, …  
+> **Doc chính (đọc file này trước).** Layout: [CODEGEN-LAYOUT](./CODEGEN-LAYOUT.md) · Lệnh: [FEATURE-ARTIFACT-COMMANDS](./FEATURE-ARTIFACT-COMMANDS.md) · Flow: [FEATURE-ARTIFACT-FLOWS](./FEATURE-ARTIFACT-FLOWS.md).
+> Chi tiết tag: `.cursor/extracts/codegen/tags.md` (docs hub) · unit/design tag tables live in the FE checkout.
 > **Dev lane Vitest:** [UNIT-PHASE-DIAGRAM](./UNIT-PHASE-DIAGRAM.md) · **E2E lane:** [TEST-PHASE-DIAGRAM](./TEST-PHASE-DIAGRAM.md)
 
 Hai pipeline app + unit **tách script**, **tách registry** — E2E `testcase:gen` pipeline thứ ba (Playwright only):
@@ -186,7 +186,7 @@ Patterns **planned** (chưa gen): validation, composable, export — xem registr
 | `#e2e:a11y-wcag` | Axe WCAG scan scoped `rootTestId` |
 | `#skip-e2e-assert:{matcher}` | Bỏ một matcher khỏi union |
 
-Chi tiết: `.cursor/extracts/platform-e2e-semantic-tags.md` · tag đầy đủ: [bảng tag tham chiếu](#tag-tham-chieu) · `.cursor/extracts/codegen/tags.md`, `.cursor/extracts/portal-unit-test-tags.md`
+Chi tiết: `.cursor/extracts/codegen/tags.md` · FE unit tags live in the FE checkout.
 
 ---
 

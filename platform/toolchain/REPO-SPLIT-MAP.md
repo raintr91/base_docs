@@ -1,6 +1,6 @@
 # Repo split map — Factory AI (4 repo)
 
-> **R2/R3:** Product Code + architecture → [`base-docs`](../../base-docs/) · E2E plans → [`base-tests`](../../base-tests/) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
+> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
 
 
 > Mỗi runtime repo **sở hữu** spec bundle + ir + codegen + test của mình. Portal chỉ giữ **FE contract** (`ir/spec.yaml` entities) + app layers + E2E.
@@ -13,12 +13,12 @@
 
 | Repo | Path | Tech | Port | Vai trò |
 |------|------|------|------|---------|
-| **portal** | `~/workspace/portal` | Next.js · pnpm · VitePress | `:3000` | FE `src/` · `contract:gen` · `portal:gen` · E2E |
-| **fast-api-base** | `~/workspace/fast-api-base` | FastAPI · Python + shell · MkDocs | `:4000` | API · `./codegen/runners/generate` · pytest (không E2E) |
-| **line** | `~/workspace/line` | .NET 8 · DocFX | — | Line client · `./codegen/runners/generate` · xUnit |
-| **integration** | `~/workspace/integration` | .NET 8 · DocFX | `:4100` | OT gateway · `./codegen/runners/generate` · xUnit |
+| **portal** | `<portal-checkout>` | Next.js · pnpm · VitePress | `:3000` | FE `src/` · `contract:gen` · `portal:gen` · E2E |
+| **fast-api-base** | `<fast-api-base-checkout>` | FastAPI · Python + shell · MkDocs | `:4000` | API · `./codegen/runners/generate` · pytest (không E2E) |
+| **line** | `<line-checkout>` | .NET 8 · DocFX | — | Line client · `./codegen/runners/generate` · xUnit |
+| **integration** | `<integration-checkout>` | .NET 8 · DocFX | `:4100` | OT gateway · `./codegen/runners/generate` · xUnit |
 
-Config: root [`platform-repos.json`](../../platform-repos.json) → group `factory-ai-stack`. Templates: `platform-repos.example.json`. Hub: [PROJECT-MAPS](./PROJECT-MAPS.md).
+Các repo runtime được checkout độc lập; docs hub không resolve chúng bằng sibling path. Repo URLs và policy: [PROJECT-MAPS](./PROJECT-MAPS.md).
 
 ---
 
@@ -40,7 +40,7 @@ Config: root [`platform-repos.json`](../../platform-repos.json) → group `facto
 
 **Không đặt trên portal:** `backend/`, `integration/`, line/integration manifests, OpenAPI export.
 
-**Contract keys:** Cùng tên field trên portal `entities` ↔ fast `requests/responses` ↔ line `Line.Contracts` ↔ integration presenter — [portal-contract-naming](../../.cursor/rules/portal-contract-naming.mdc).
+**Contract keys:** Cùng tên field trên portal `entities` ↔ fast `requests/responses` ↔ line `Line.Contracts` ↔ integration presenter — [CONTRACT-FIELD-REGISTRY](./CONTRACT-FIELD-REGISTRY.md).
 
 ---
 

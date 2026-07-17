@@ -95,7 +95,7 @@ Base đã có các helper để bắt lỗi UI phổ biến:
 - axe accessibility
 - shadcn design token
 
-Chi tiết: [Semantic UI Assertions](../operational/E2E-SEMANTIC-UI-ASSERTIONS.md).
+Chi tiết: [Semantic UI Assertions](../toolchain/E2E-SEMANTIC-UI-ASSERTIONS.md).
 
 ## Câu Chốt
 

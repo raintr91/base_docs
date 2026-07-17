@@ -1,6 +1,8 @@
 # Feature artifact — lệnh script
 
-> **R2/R3:** Product Code + architecture → [`base-docs`](../../base-docs/) · E2E plans → [`base-tests`](../../base-tests/) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
+> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
+>
+> **Bundle IR MCP:** after `bundlekit init --type=docs`, prefer [BUNDLEKIT](./BUNDLEKIT.md) tools/CLI (`bundlekit split|render|legacy-validate`). `pnpm spec:*` / `pnpm docs:render*` below remain local fallbacks.
 
 
 > Bảng tra cứu · Diagram: [FEATURE-ARTIFACT-FLOWS](./FEATURE-ARTIFACT-FLOWS.md)  
@@ -13,12 +15,12 @@
 
 | Lệnh | Input | Output / hiệu ứng |
 |------|--------|-------------------|
-| `pnpm spec:convert -- <legacy.spec.yaml>` | Spec cũ (one-off) | `yaml/.../{id}.bundle.yaml` |
-| `pnpm spec:normalize-gen -- <bundle> --write` | Bundle trộn spec+gen | Tách `spec` design v1 ↔ `gen` |
-| `pnpm spec:split -- <bundle.yaml>` | Bundle SSOT | `ir/spec.yaml`, `ir/legacy.yaml`, `ir/design.yaml` |
-| `pnpm spec:merge -- <bundle.yaml>` | `ir/*` đã sửa tay | Cập nhật bundle (đặc biệt `gen`) |
-| `pnpm spec:split:check -- <bundle.yaml>` | Bundle + ir | Exit 1 nếu lệch |
-| `pnpm spec:split:all` | Mọi `yaml/**/*.bundle.yaml` | Quét thư mục, split + verify từng bundle |
+| Archived converter (unsupported) | Obsolete `docs/features` migration only | `scripts/legacy/convert-spec-to-bundle.mjs`; do not run on current tree |
+| `pnpm spec:normalize-gen -- <bundle> --write` · `bundlekit normalize` | Bundle trộn spec+gen | Tách `spec` design v1 ↔ `gen` |
+| `pnpm spec:split -- <bundle.yaml>` · `bundlekit split` / `bundle_split` | Bundle SSOT | `ir/spec.yaml`, `ir/legacy.yaml`, `ir/design.yaml` |
+| `pnpm spec:merge -- <bundle.yaml>` · `bundlekit merge` | `ir/*` đã sửa tay | Cập nhật bundle (đặc biệt `gen`) |
+| `pnpm spec:split:check -- <bundle.yaml>` · `bundlekit split --check` | Bundle + ir | Exit 1 nếu lệch |
+| `pnpm spec:split:all` · `bundlekit split-all` | Mọi `yaml/**/*.bundle.yaml` | Quét thư mục, split + verify từng bundle |
 
 ---
 
@@ -60,7 +62,7 @@ Lệnh tổng hợp chạy tuần tự các bước hạt nhân của mỗi phas
 
 ## Codegen — app (`portal:gen`)
 
-**Input ưu tiên:** `pnpm portal:gen --id <W-|CMP-|CTR-…>` → Code trên [`base-docs`](../../base-docs/) (`ir/spec.yaml` sau `/dev-grill-docs`).
+**Input ưu tiên:** `pnpm portal:gen --id <W-|CMP-|CTR-…>` → Code trên [`base-docs`](../..) (`ir/spec.yaml` sau `/dev-grill-docs`).
 
 | Lệnh | Mục đích |
 |------|----------|
@@ -87,7 +89,7 @@ V2 escape: `--spec <path-to-ir/spec.yaml>` vẫn chạy. Output app layers trên
 
 ## E2E (`testcase:gen`)
 
-**Plans SSOT:** [`base-tests`](../../base-tests/). **Output:** `tests/e2e/` trên FE.
+**Plans SSOT:** [`base-tests`](https://github.com/raintr91/base_test). **Output:** `tests/e2e/` trên FE.
 
 | Lệnh | Mục đích |
 |------|----------|
@@ -117,7 +119,7 @@ Member marks common UI + logic — grill hỏi trước khi gắn tag. Hub: [PLA
 |------|----------|
 | `pnpm portal:gen --id <W-\|CMP-\|CTR-…>` | FE codegen from **base-docs** Code (`ir/spec.yaml` required) |
 | `pnpm testcase:gen --id <W-\|TC-\|SC-\|suite\|CMP-…>` | E2E gen from **base-tests** plans → `tests/e2e/` |
-| Root `platform-repos.json` | Cross-repo map — [PROJECT-MAPS](./PROJECT-MAPS.md) |
+| Root `platform-repos.json` | Current docs repo only — [PROJECT-MAPS](./PROJECT-MAPS.md) |
 | `pnpm extracts:validate` | Skill `extractBundle` ⊆ registry |
 
 ---

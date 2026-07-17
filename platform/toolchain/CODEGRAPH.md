@@ -33,15 +33,16 @@ codegraph status
 
 | Checkout | Where to `init` |
 |----------|-----------------|
-| portal, api, legacy under `~/workspace` | WSL |
-| station / WinForms on `D:\` | Windows PowerShell |
+| Repository opened in WSL | WSL |
+| Repository opened on Windows | Windows PowerShell |
 
 Do **not** share one `.codegraph/` across Win + WSL for the same tree (`CODEGRAPH_DIR=.codegraph-win` if needed).
 
 ## Agent usage
 
 1. Structural code → `codegraph_explore` (rule `codegraph.mdc` alwaysApply).
-2. Cross-repo → resolve path from `platform-repos.json` / `legacy-repos.json`, then `projectPath`.
+2. Cross-repo → require an explicit `projectPath` from the user or a machine-local
+   `legacy-repos.local.json`; never infer sibling layout.
 3. Spec/grill/legacy-spec → docs + IR first; CodeGraph only for source evidence.
 
 ## Sync

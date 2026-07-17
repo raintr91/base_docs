@@ -1,6 +1,6 @@
 # Team AI Backend Workflow
 
-> **R2/R3:** Product Code + architecture → [`base-docs`](../../base-docs/) · E2E plans → [`base-tests`](../../base-tests/) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
+> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
 
 
 Progressive disclosure: **một session = một command**. Shared snippets: `.cursor/extracts/`
@@ -72,10 +72,10 @@ Harness: `.harness/progress.md` · `feature_list.json` · `portalRefs` · `pendi
 | Codegen tags | `#gen:*` — grill only; script thực thi |
 | Non-CRUD | export/import/custom → `#manual-service`; mail/payment → `#call-external` |
 
-Alias ngắn — skill giữ tên đầy đủ: [common integration spec](../features/common/generated/common-integration-spec).  
-Chi tiết sync: `.cursor/extracts/api-spec-sync.md`  
-Chi tiết integration: `.cursor/extracts/api-integration-spec.md`  
-Chi tiết hashtag: `.cursor/extracts/api-codegen-tags.md`, `api-codegen-readiness.md`  
+Alias ngắn — skill giữ tên đầy đủ: [INTEGRATION-API-SPEC](./INTEGRATION-API-SPEC.md).
+Chi tiết sync: `.cursor/extracts/api-spec-sync.md`
+Chi tiết integration: `.cursor/extracts/api-integration-spec.md`
+Chi tiết hashtag: `.cursor/extracts/codegen/tags.md` (docs hub) · BE codegen tags live in the BE checkout.
 Scripts: `scripts/docs/` · `codegen/runners/` · `pnpm docs:render` · `pnpm api:gen` / `pnpm api:gen:dry`
 
 ## Commands
@@ -121,7 +121,7 @@ Hashtags in spec (read matching extract):
 | `call-external.md` | `#call-external` — integrations |
 | `cross-entity-service.md` | `#cross-entity-service` — orchestration |
 | `codegen.md` | `/api-code` — `m:*` / `pnpm api:gen` |
-| `api-codegen-tags.md` | `#gen:*`, `#manual-*`, domain tags |
+| `codegen/tags.md` | `#gen:*`, `#manual-*`, domain tags (docs hub copy) |
 | `api-codegen-readiness.md` | Grill exit checklist + `api:gen:dry` gate |
 | `api-integration-spec.md` | Partner/webhook — no Portal FE |
 | `http-layer.md` | Controller/Action/Query/Resource boundaries |
@@ -140,8 +140,8 @@ Không clone vendor Superpowers/Karpathy/Matt Pocock — nội dung đã rút g�
 ## Input from Portal
 
 ```text
-../portal/`docs/features/` (stub only — SSOT on hubs) / {slug}/*.spec.yaml
-../portal/`docs/features/` (stub only — SSOT on hubs) / {slug}/testcases/*.yaml
+`product/components/CMP-*/code/{W-*,API-*}/` trên docs hub
+Test plans: https://github.com/raintr91/base_test
 ```
 
 ## Prompt mẫu

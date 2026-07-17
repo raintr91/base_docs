@@ -17,7 +17,8 @@ Tree + standards: [`platform/guide/SYSTEM-DOC-STRUCTURE.md`](./platform/guide/SY
 | `/decision` | §09 ADR |
 | `/hubdocs` | Optional local arc42/C4 Markdown index |
 | `/spec` · grill · `/legacy-spec` · `/update-spec*` | Feature Code lane |
-| `/flow-trace` | Legacy brownfield alias only |
+| `/business-process-trace` | Brownfield cross-system process trace |
+| `/flow-trace` | Deprecated alias → `/business-process-trace` |
 
 Architecture plan / entry: [`platform/guide/start-now.md`](./platform/guide/start-now.md) · [`SYSTEM-DOC-STRUCTURE.md`](./platform/guide/SYSTEM-DOC-STRUCTURE.md)
 

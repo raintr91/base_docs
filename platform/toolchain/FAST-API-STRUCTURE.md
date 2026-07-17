@@ -1,6 +1,6 @@
 # FastAPI structure — common layer map
 
-> Port từ Laravel `~/workspace/api` và Nest `portal/apps/api` sang `src/app/`.
+> Port từ Laravel `<api-checkout>` và Nest `portal/apps/api` sang `src/app/`.
 
 ## Layer layout
 

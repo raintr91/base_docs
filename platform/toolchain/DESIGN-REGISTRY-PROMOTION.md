@@ -5,7 +5,7 @@
 
 **Registry:** `registries/design.registry.json`  
 **Validate:** `pnpm portal:registry`  
-**Agent extract:** `.cursor/extracts/platform-design-registry.md`
+**Agent extract:** FE design-registry extract (not vendored into docs hub); promotion policy stays here.
 
 ---
 

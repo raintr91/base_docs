@@ -1,6 +1,6 @@
 # Integration structure
 
-> Đối xứng [fast FAST-API-STRUCTURE](~/workspace/fast-api-base/docs/operational/FAST-API-STRUCTURE.md)
+> Đối xứng [fast FAST-API-STRUCTURE](./FAST-API-STRUCTURE.md)
 
 ## Layer map
 

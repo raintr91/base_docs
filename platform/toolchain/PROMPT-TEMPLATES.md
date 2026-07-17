@@ -1,6 +1,6 @@
 # Prompt Templates — Team AI Flow
 
-> **R2/R3:** Product Code + architecture → [`base-docs`](../../base-docs/) · E2E plans → [`base-tests`](../../base-tests/) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
+> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
 
 
 > Copy/paste vào Cursor Agent. Thay placeholder `{...}`. Chi tiết command: [`FEATURE-ARTIFACT-FLOWS.md`](FEATURE-ARTIFACT-FLOWS.md) · Skills: `.cursor/skills/`
@@ -70,7 +70,8 @@ Ràng buộc:
 
 **Khi nào:** Nguồn sự thật là code legacy, chưa có spec.
 
-**Prerequisite:** root `platform-repos.json` / `legacy-repos.json` (nếu cross-repo). See [PROJECT-MAPS](./PROJECT-MAPS.md).
+**Prerequisite:** source path do user cung cấp hoặc `legacy-repos.local.json`
+machine-local khi cần đọc legacy checkout. See [PROJECT-MAPS](./PROJECT-MAPS.md).
 
 ```text
 /legacy-spec
@@ -159,7 +160,7 @@ Style:
 - Sau interview: **codegen readiness** — thêm codegen, ui.filters/columns, tags; gate `pnpm portal:gen:dry --spec <file>`
 - Dừng khi dry-run pass; không implement UI
 
-Extracts: legacy-blade-to-api, agent-discipline, portal-codegen-readiness
+Extracts: legacy-blade-to-api, agent-discipline, codegen/readiness
 
 Handoff: /prototype khi `portal:gen:dry` pass (spec portal-gen-ready)
 ```

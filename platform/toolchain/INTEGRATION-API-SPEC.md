@@ -2,7 +2,7 @@
 
 Contract **không** có Portal FE — partner API, public API, webhook inbound/outbound.
 
-> **Tên ngắn (docs):** `/api-int-spec` · `/grill-int-spec` — cùng skill với command đầy đủ bên dưới. Chi tiết: [common integration spec](../features/common/generated/common-integration-spec).
+> **Tên ngắn (docs):** `/api-int-spec` · `/grill-int-spec` — cùng skill với command đầy đủ bên dưới. Template: [backend-api-integration.yaml](../../templates/api/backend-api-integration.yaml).
 
 ## Commands
 
@@ -24,7 +24,7 @@ Sau grill → `/api-code` (cùng codegen pipeline với portal-backed features).
 
 ## Tài liệu
 
-- Template: [backend-api-integration.yaml](../templates/backend-api-integration.yaml)
+- Template: [backend-api-integration.yaml](../../templates/api/backend-api-integration.yaml)
 - Extract: `.cursor/extracts/api-integration-spec.md`
 - Guide §0b: [Backend API Spec Guide](./BACKEND_API_SPEC_GUIDE.md#0b-integration--partner--webhook-không-portal-fe)
 

@@ -4,7 +4,7 @@
 
 **Registry:** `registries/unit-test.registry.json`  
 **Validate:** `pnpm portal:unit-registry`  
-**Agent extract:** `.cursor/extracts/portal-unit-test-tags.md`, `portal-unit-test-common.md`
+**Agent extract:** FE checkout unit-test extracts (not vendored into docs hub)
 
 ---
 

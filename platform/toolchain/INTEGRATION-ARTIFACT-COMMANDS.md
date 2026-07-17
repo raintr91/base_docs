@@ -1,9 +1,9 @@
 # Integration artifact — lệnh script
 
-> **R2/R3:** Product Code + architecture → [`base-docs`](../../base-docs/) · E2E plans → [`base-tests`](../../base-tests/) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
+> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
 
 
-> Chạy trong `~/workspace/integration`. **.NET-native** — không pnpm / không Node.  
+> Chạy trong `<integration-checkout>`. **.NET-native** — không pnpm / không Node.
 > Spec SSOT: ``docs/features/` (stub only — SSOT on hubs) / yaml/`. Docs site: **DocFX** (`./scripts/docs-dev` `:8082`).
 
 | Lệnh | Mục đích |
@@ -29,6 +29,6 @@
 dotnet test
 ```
 
-Fast chain: `~/workspace/fast-api-base` · `pytest tests/test_mes_integration_chain.py`
+Fast chain: `<fast-api-base-checkout>` · `pytest tests/test_mes_integration_chain.py`
 
-Hub portal: `~/workspace/portal/docs/operational/FEATURE-ARTIFACT-COMMANDS.md`
+Hub portal: [FEATURE-ARTIFACT-COMMANDS](./FEATURE-ARTIFACT-COMMANDS.md)

@@ -1,6 +1,6 @@
 # Backend codegen — `contract:gen` + `nest:gen` + `nest:unit-gen`
 
-> **R2/R3:** Product Code + architecture → [`base-docs`](../../base-docs/) · E2E plans → [`base-tests`](../../base-tests/) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
+> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
 
 
 > **Doc chính backend (đọc file này trước).** Lệnh tra cứu: [FEATURE-ARTIFACT-COMMANDS](./FEATURE-ARTIFACT-COMMANDS.md) · Flow: [BACKEND-PHASE-DIAGRAM](./BACKEND-PHASE-DIAGRAM.md).  
@@ -101,7 +101,7 @@ server/src/modules/{module}/    # nest:gen
 server/prisma/models/           # prisma fragment (optional)
 ```
 
-Layout: [BACKEND-ARTIFACT-LAYOUT](../features/BACKEND-ARTIFACT-LAYOUT.md) · Quickstart: [BACKEND-API-QUICKSTART](./BACKEND-API-QUICKSTART.md)
+Layout: [FEATURE-ARTIFACT-LAYOUT](./FEATURE-ARTIFACT-LAYOUT.md) · Quickstart: [BACKEND-API-QUICKSTART](./BACKEND-API-QUICKSTART.md)
 
 ---
 

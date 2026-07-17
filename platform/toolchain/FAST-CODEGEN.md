@@ -1,6 +1,6 @@
 # Fast codegen
 
-> **R2/R3:** Product Code + architecture → [`base-docs`](../../base-docs/) · E2E plans → [`base-tests`](../../base-tests/) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
+> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
 
 
 > **Python-native repo** — `uv`/`venv` + `./codegen/runners/generate` (Jinja2 + Typer).  
@@ -9,7 +9,7 @@
 ## Commands
 
 ```bash
-cd ~/workspace/fast-api-base
+cd <fast-api-base-checkout>
 python -m venv .venv && .venv/bin/pip install -e ".[dev]"
 
 # Bundle → ir/{spec,legacy,design} + backend/01-backend-spec.yaml
@@ -45,4 +45,4 @@ make test
 
 Contract keys: portal `ir/spec.yaml` · `contractRef.portalIrSpec` in bundle.
 
-Hub: [FEATURE-ARTIFACT-FLOWS](./FEATURE-ARTIFACT-FLOWS.md) · [FAST-ARTIFACT-COMMANDS](./FAST-ARTIFACT-COMMANDS.md) · portal `~/workspace/portal/docs/operational/REPO-SPLIT-MAP.md`
+Hub: [FEATURE-ARTIFACT-FLOWS](./FEATURE-ARTIFACT-FLOWS.md) · [FAST-ARTIFACT-COMMANDS](./FAST-ARTIFACT-COMMANDS.md) · portal [REPO-SPLIT-MAP](./REPO-SPLIT-MAP.md)

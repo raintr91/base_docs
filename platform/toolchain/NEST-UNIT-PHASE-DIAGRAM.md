@@ -1,6 +1,6 @@
 # API unit phase — Dev lane (Jest / Nest)
 
-> **R2/R3:** Product Code + architecture → [`base-docs`](../../base-docs/) · E2E plans → [`base-tests`](../../base-tests/) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
+> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
 
 
 > **Dev-only** — lane Jest cho `server`, **độc lập** Vitest portal ([UNIT-PHASE-DIAGRAM](./UNIT-PHASE-DIAGRAM.md)) và E2E ([TEST-PHASE-DIAGRAM](./TEST-PHASE-DIAGRAM.md)).  
@@ -118,7 +118,7 @@ Contract Zod (`@portal/models`) — test riêng qua Vitest portal `tests/unit/mo
 |-----|-----------|
 | `generated/codegen.manifest.json`, `HANDOFF.md` | Toàn bộ `server` inventory |
 | `backend/01-backend-spec.yaml` `codegen.wire` | FE `pages/` |
-| Handler/resource file vừa gen | Laravel `~/workspace/api` runtime |
+| Handler/resource file vừa gen | Laravel `<api-checkout>` runtime |
 
 ---
 

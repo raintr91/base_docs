@@ -1,6 +1,6 @@
 # Backend / API phase (Nest in-repo)
 
-> **R2/R3:** Product Code + architecture → [`base-docs`](../../base-docs/) · E2E plans → [`base-tests`](../../base-tests/) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
+> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
 
 
 > Hub: [BACKEND-CODEGEN](./BACKEND-CODEGEN.md) · [TEAM-AI-BACKEND-WORKFLOW](./TEAM-AI-BACKEND-WORKFLOW.md) · [FULL-CYCLE-PIPELINE-DIAGRAM](./FULL-CYCLE-PIPELINE-DIAGRAM)
@@ -123,4 +123,4 @@ Pilot: ``base-docs` Product Code (prefer `--id`)`
 | [UNIT-PHASE-DIAGRAM](./UNIT-PHASE-DIAGRAM.md) | Vitest portal (song song) |
 | [TEST-PHASE-DIAGRAM](./TEST-PHASE-DIAGRAM.md) | E2E (song song) |
 
-Legacy Laravel `~/workspace/api` — read-only reference khi port pattern.
+Legacy Laravel `<api-checkout>` — read-only reference khi port pattern.

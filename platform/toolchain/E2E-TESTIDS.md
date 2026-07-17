@@ -2,7 +2,7 @@
 
 Tài liệu quy ước gắn **`data-testid`** trên FE và viết Playwright E2E ổn định. Grill khai báo danh sách trong **`spec.ui.testIds.required`** (+ **`patterns`** khi id động); `portal:gen` emit markup; testcase YAML mirror list trước `/test`.
 
-> **Quick link:** [Docs Home](../index.md) · Template testcase: `docs/templates/testcase.yaml` · Helper: `utils/testId.ts`
+> **Quick link:** [Toolchain index](./index.md) · Template testcase: [base_test templates](https://github.com/raintr91/base_test/tree/main/templates) · Helper: `utils/testId.ts` (FE repo)
 
 ---
 

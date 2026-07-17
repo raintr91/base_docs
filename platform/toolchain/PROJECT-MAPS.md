@@ -1,60 +1,60 @@
-# Shared project maps
+# Project maps
 
-**SSOT at repo root** — không nhét riêng trong `.cursor/`.
+Committed config is repository-local:
 
-| File | Mục đích |
-|------|----------|
-| [`platform-repos.example.json`](../../platform-repos.example.json) | Template — copy → `platform-repos.json` hoặc `platform-repos.local.json` |
-| [`legacy-repos.example.json`](../../legacy-repos.example.json) | Template legacy checkouts |
-| [`platform-repos.json`](../../platform-repos.json) | Live map (committed) — groups + contract FE↔BE |
-| [`legacy-repos.json`](../../legacy-repos.json) | Legacy roots for `/legacy-spec` — **rỗng** trên cụm base |
-| `platform-repos.local.json` | Machine override (gitignored) |
-| `legacy-repos.local.json` | Machine override (gitignored) |
+**SSOT owner:** [Platform DNA](./PLATFORM-DNA.md), which ships schemas and seeds
+or merges these maps during profile init.
 
-## Base cluster
+| File | Purpose |
+|------|---------|
+| [`platform-repos.json`](../../platform-repos.json) | Current `base-docs` checkout only (`root: "."`) |
+| [`platform-repos.example.json`](../../platform-repos.example.json) | Portable local-only example |
+| [`legacy-repos.example.json`](../../legacy-repos.example.json) | Shape for optional legacy evidence configuration |
 
-Mỗi product base + MCP giữ **cùng catalog** `platform-bases`. Root relative tới repo đang mở (từ portal: siblings `../…`). Field `stack` dùng cho artifactgraph MCP (`nuxt4`, `nextjs`, `fastapi`, …).
+No committed map may assume sibling repositories, a fixed workspace directory,
+a user home, or a drive letter. Each code/tests repository owns its own harness.
 
-| Key | Path (từ portal) | Role | stack |
-|-----|------------------|------|-------|
-| `portal` | `.` | Nuxt 4 FE | `nuxt4` |
-| `nextjs` | `../nextjs` | Next.js FE | `nextjs` |
-| `nuxt-nest` | `../nuxt_nest` | Nuxt 4 + NestJS | `nuxt4-nest` |
-| `next-nest` | `../next_nest` | Next.js + NestJS | `nextjs-nest` |
-| `fast-api-base` | `../fast-api-base` | FastAPI BE | `fastapi` |
-| `api` | `../api` | Laravel 12 BE | `laravel` |
-| `integration` | `../integration` | .NET BE | `dotnet-integration` |
-| `line` | `../line` | WinForms (override `D:` trong `.local.json`) | `dotnet-line` |
-| `base-docs` | `../base-docs` | Docs hub (R2 C4 + Code) | `docs-c4` |
-| `base-tests` | `../base-tests` | Tests hub (R3 E2E plans) | `e2e-plans` |
-| `artifactgraph` | `../artifactgraph` | MCP tooling (gaps/tags/gen) | `mcp` |
-| `hubdocs` | `../hubdocs` | Optional MCP tooling (docs index) | `mcp-docs` |
+Project maps exist only in destination product hubs (`docs`, `fe`, `be`,
+`tests`). MCP package repositories do not contain `platform-repos*.json`;
+their local `/platform-ai` skill is for building and releasing that MCP.
 
-**Đồng bộ map:** mỗi repo giữ `platform-repos.json` riêng; chỉnh tại chỗ hoặc theo quy trình team, không dùng script sync cross-base trong hub này.
+External repositories are documentation references, not local path dependencies:
 
-Mỗi base giữ `.cursor/{skills,rules,extracts}` (SSOT).
+- Tests plans: [raintr91/base_test](https://github.com/raintr91/base_test)
+- Portal reference: [raintr91/nuxt_4](https://github.com/raintr91/nuxt_4)
+- Laravel reference: [raintr91/lara12](https://github.com/raintr91/lara12)
+- ArtifactGraph: [raintr91/artifactgraph](https://github.com/raintr91/artifactgraph)
+- Hubdocs: [raintr91/hubdocs](https://github.com/raintr91/hubdocs)
 
-## Resolve order (agents)
+## Machine-local legacy evidence
 
-1. `{workspace}/platform-repos.local.json` / `legacy-repos.local.json`
-2. `{workspace}/platform-repos.json` / `legacy-repos.json`
-3. `{workspace}/platform-repos.example.json` / `legacy-repos.example.json` (template only)
-4. Optional user home: `~/.cursor/platform-repos.json`
-
-Never guess absolute paths. Extract: `.cursor/extracts/legacy/project-config.md` (**progressive read** — defaultGroup / one project / contract pair only; never paste full JSON into chat).
-
-## Rename note (from older layout)
-
-| Cũ | Mới |
-|----|-----|
-| `.cursor/team-projects.example.json` | `platform-repos.example.json` |
-| `.cursor/legacy-projects.example.json` | `legacy-repos.example.json` |
-| `team-projects.json` | `platform-repos.json` |
-| `.kilo/config/team-projects.json` | `platform-repos.json` |
-
-## Local override
+Only `/legacy-spec` may need another checkout. Put that path in
+`legacy-repos.local.json` (gitignored) on the member's machine:
 
 ```bash
-cp platform-repos.example.json platform-repos.local.json
-# edit roots for this machine
+cp legacy-repos.example.json legacy-repos.local.json
+# Set the checkout root explicitly for this machine.
 ```
+
+Agents must not guess paths or infer that repositories are siblings. Read only
+the requested project entry from the local map. ArtifactGraph and Hubdocs are
+installed tools; their `init` commands generate machine-local MCP config.
+
+## Bootstrap and validation
+
+```bash
+platform-dna validate --type=docs --project-root=.
+platform-dna init --type=docs --project-root=. --yes
+```
+
+The resolver:
+
+- rejects `../`, home paths, drive paths and UNC paths in committed maps;
+- seeds `platform-repos.json` + example with current `root: "."` only;
+- seeds empty legacy maps for docs profiles;
+- adds `platform-repos.local.json` and `legacy-repos.local.json` to
+  `.gitignore`;
+- preserves package-owned skill lists by merge rather than replacing the map.
+
+Schemas live in
+<https://github.com/raintr91/platform-dna/tree/main/templates/schemas>.

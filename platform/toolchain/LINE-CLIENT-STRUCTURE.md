@@ -1,6 +1,6 @@
 # Line client structure
 
-> Đối xứng [portal ARCHITECTURE](~/workspace/portal/docs/operational/ARCHITECTURE.md)
+> Đối xứng [portal ARCHITECTURE](https://github.com/raintr91/nuxt_4)
 
 ## Layer map
 

@@ -1,10 +1,10 @@
 # Contract portal ↔ fast-api-base
 
-> **R2/R3:** Product Code + architecture → [`base-docs`](../../base-docs/) · E2E plans → [`base-tests`](../../base-tests/) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
+> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
 
 
-> Hub cho block **CONTRACT** trong [`fast-api-base-todo.txt`](../../fast-api-base-todo.txt) (dòng 195–200).  
-> Rule: [portal-contract-naming](../../.cursor/rules/portal-contract-naming.mdc) · Repo split: [REPO-SPLIT-MAP](./REPO-SPLIT-MAP.md)
+> Hub cho contract Portal ↔ Fast API. Naming SSOT: [CONTRACT-FIELD-REGISTRY](./CONTRACT-FIELD-REGISTRY.md).
+> Repo split: [REPO-SPLIT-MAP](./REPO-SPLIT-MAP.md)
 
 **Cập nhật:** 2026-07-09
 
@@ -122,7 +122,7 @@ OT / external **không** gọi từ portal — chỉ **fast-api-base**:
 | MES | `src/app/clients/mes_client.py` | Stub + mock fallback |
 | CMMS | `src/app/clients/cmms_client.py` | Stub |
 | LLM / RAG | `src/app/clients/llm_client.py` | Stub |
-| Integration gateway | `factory-ai-stack` § OT | Phase sau (`~/workspace/integration`) |
+| Integration gateway | `factory-ai-stack` § OT | Phase sau (`<integration-checkout>`) |
 
 Env: `MES_BASE_URL`, `CMMS_BASE_URL`, … trong fast `.env.example`.
 
@@ -148,7 +148,7 @@ Dùng sau cho line-base NSwag / audit contract — không bắt buộc cho wire 
 curl -s http://127.0.0.1:4000/api/health | jq .
 
 # Knowledge hub contract end-to-end
-cd ~/workspace/portal && pnpm test:e2e tests/e2e/factory/knowledge-hub.spec.ts
+cd <portal-checkout> && pnpm test:e2e tests/e2e/factory/knowledge-hub.spec.ts
 
 # Contract gen
 pnpm contract:gen --spec `base-docs` Product Code (prefer `--id`)

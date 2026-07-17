@@ -1,6 +1,6 @@
 # Feature Artifact Workflow
 
-> **Slide vs operational doc:** Deck training này **cố ý giữ `/design`** làm tên phase “design lane”. Doc vận hành: [`FEATURE-ARTIFACT-FLOWS.md`](../operational/FEATURE-ARTIFACT-FLOWS.md) · [`PROMPT-TEMPLATES.md`](../operational/PROMPT-TEMPLATES.md): `/design` deprecated → **`/spec`** + **`/prototype`**.
+> **Slide vs operational doc:** Deck training này **cố ý giữ `/design`** làm tên phase “design lane”. Doc vận hành: [`FEATURE-ARTIFACT-FLOWS.md`](../toolchain/FEATURE-ARTIFACT-FLOWS.md) · [`PROMPT-TEMPLATES.md`](../toolchain/PROMPT-TEMPLATES.md): `/design` deprecated → **`/spec`** + **`/prototype`**.
 
 ---
 
@@ -243,7 +243,9 @@ Một session chỉ nên theo một command.
 
 Mặc định output docs/spec/testcase/handoff bằng tiếng Việt; giữ nguyên key contract, route, API field, code identifier.
 
-Khi nhắc `legacy`, agent phải đọc config JSON ở **repo root** (`platform-repos.json` / `legacy-repos.json`) để resolve path, không tự đoán. Xem `docs/operational/PROJECT-MAPS.md`.
+Khi cần đọc legacy checkout, agent dùng path user cung cấp hoặc
+`legacy-repos.local.json` machine-local; không suy đoán sibling path. Xem
+[`PROJECT-MAPS`](../toolchain/PROJECT-MAPS.md).
 
 Nếu legacy là Laravel Blade/HTML cũ: route GET render page chỉ là evidence. Chuyển sang API backend + SPA frontend, không sinh API init page như `GET /auth/login` hoặc `GET /{entity}/create`; edit/copy dùng detail API lấy old data.
 

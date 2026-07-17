@@ -5,7 +5,7 @@ status: active
 Curated **journeys** (`FLOW-*`) — ~10–20% of core / hard / cross-system flows.  
 Prefer `sequenceDiagram`. Skill: **`/journey`** (alias `/dynamics` deprecated).
 
-Not product journeys: [`product/legacy-dynamics/`](/product/legacy-dynamics/) · `/flow-trace` · test `SC-*`/`TC-*`.
+Not product journeys: [`product/legacy-dynamics/`](/product/legacy-dynamics/) · `/business-process-trace` · test `SC-*`/`TC-*`.
 
 ## Catalog
 

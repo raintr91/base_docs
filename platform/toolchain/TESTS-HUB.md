@@ -1,6 +1,6 @@
 # Tests hub (R3)
 
-**SSOT plans:** sibling [`base-tests`](../../../base-tests/) — not next to Code bundles, not on FE.
+**SSOT plans:** [`base-tests`](https://github.com/raintr91/base_test) — not next to Code bundles, not on FE.
 
 | Artifact | Path |
 |----------|------|
@@ -10,7 +10,7 @@
 | Suites | `base-tests/suites/` |
 | Vocabulary | `base-tests/catalog/test_case_vocabulary.txt` |
 | Templates | `base-tests/templates/` |
-| Render plan MD | `cd ../base-tests && pnpm cases:render` |
+| Render plan MD | `cd <base-tests-checkout> && pnpm cases:render` |
 | Index | `base-tests/registries/tests-index.json` |
 
 ## Lanes

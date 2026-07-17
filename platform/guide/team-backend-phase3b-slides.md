@@ -69,13 +69,11 @@ Ví dụ `admin quản lý chain` thêm `setting chain` thì update spec `chain`
 
 ## Step 1 Input
 
-Đọc từ portal:
+Đọc từ hai hub, không suy đoán vị trí checkout:
 
 ```text
-../portal/docs/features/{slug}/
-├── spec.yaml
-├── testcases/*.yaml
-└── generated/
+base-docs: product/components/CMP-*/code/{W-*,API-*}/
+base-tests: https://github.com/raintr91/base_test
 ```
 
 Spec cho biết requirement và route. Testcase cho biết expected behavior, mock endpoint, auth, validation, success/error states.

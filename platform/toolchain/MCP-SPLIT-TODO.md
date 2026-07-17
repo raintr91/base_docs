@@ -1,6 +1,6 @@
 # MCP split TODO — independent packages
 
-> **Status:** Phases 0–6 shipped/verified; residual package hardening remains.  
+> **Status:** Phases 0–6 shipped/verified; residual hardening closed; release cutover in progress.  
 > **Goal:** mỗi MCP cài độc lập; skill + script thuộc package owner; MCP phụ chỉ là accelerator (có thì gọi, không thì fallback model/local).  
 > Related: [ARTIFACTGRAPH](./ARTIFACTGRAPH.md) · [HUBDOCS](./HUBDOCS.md) · [BUNDLEKIT](./BUNDLEKIT.md) · [PROCESSKIT](./PROCESSKIT.md) · [CODEGENKIT](./CODEGENKIT.md) · [TESTKIT](./TESTKIT.md) · [MCP-OWNERSHIP](./MCP-OWNERSHIP.md) · [MCP-INSTALL-PROFILES](./MCP-INSTALL-PROFILES.md) · [FEATURE-ARTIFACT-FLOWS](./FEATURE-ARTIFACT-FLOWS.md) · `/platform-ai`
 
@@ -481,8 +481,8 @@ Original sequence (all package phases complete except Phase 6 verify):
 3. ~~Phase 1B (`processkit`)~~  
 4. ~~Phase 2 (AG cleanup)~~  
 5. ~~Phase 3 (`hubdocs`)~~ — architecture ownership merged to `main`  
-6. ~~Phase 4–5 (`codegenkit` / `testkit`)~~ — packages released; residual `TKC.*` / `TKT.*`  
-7. Phase 6 (independence matrix `T6.1–T6.8`)
+6. ~~Phase 4–5 (`codegenkit` / `testkit`)~~ — packages released; residual `TKC.*` / `TKT.*` closed  
+7. ~~Phase 6 (independence matrix `T6.1–T6.8`)~~
 
 **Residual tracks outside the 1–7 package sequence:**
 
@@ -491,9 +491,10 @@ Original sequence (all package phases complete except Phase 6 verify):
 | Platform DNA | Resolver/maps/meta harness released; lifecycle compatibility is verified in Phase 6 | — |
 | Codegenkit harden | All residual source-audit items released/cut over | — |
 | Testkit harden | All residual source-audit items released/cut over | — |
+| Release cutover | Docs hub migration + ArtifactGraph `v2.0.1` tag/merge + FE local freeze | In progress (P0–P3) |
 
-**Next recommended order:** none — all tracked MCP split and residual hardening
-items are closed.
+**Next recommended order:** none for package hardening — remaining work is release
+cutover hygiene only (docs `main`, ArtifactGraph tag, FE local freeze).
 
 When an item is implemented, check it here and note package version / PR when
 published. Local-only completion must be labelled explicitly; it is not a

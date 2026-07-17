@@ -46,6 +46,6 @@ flowchart LR
 | `pnpm spec:merge -- <bundle.yaml>` | `ir/*` → bundle (sau dev-grill sửa ir/spec) |
 | `pnpm spec:split:check -- <bundle.yaml>` | CI: ir sync bundle |
 | `pnpm spec:normalize-gen -- <bundle.yaml> --write` | Tách codegen ra `gen` từ spec cũ |
-| `pnpm spec:convert -- <legacy.spec.yaml>` | Migrate one-off spec cũ → bundle |
+| Archived converter | Historical `docs/features` migration only; unsupported on current `product/components` tree |
 
 Template: `docs/templates/feature.bundle.yaml` · `docs/templates/bundle-authoring.md`

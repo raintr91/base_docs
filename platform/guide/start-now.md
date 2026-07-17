@@ -246,7 +246,7 @@ flowchart LR
 **Đầu vào:** yêu cầu dự án mới hoặc yêu cầu trên hệ thống legacy như maintain, refactor, migration và mở rộng chức năng.
 
 - **Dự án mới:** dùng `/architecture` để route, sau đó `/context`, `/containers`, `/component`, `/journey`; bổ sung `/decision` hoặc `/cross-cutting` khi có quyết định/ràng buộc tương ứng.
-- **Dự án legacy:** dùng `/legacy-spec` để khai thác evidence hiện hữu; `/flow-trace` chỉ áp dụng cho brownfield trace; phần kiến trúc mục tiêu vẫn đi qua `/architecture`.
+- **Dự án legacy:** dùng `/legacy-spec` để khai thác evidence hiện hữu; `/business-process-trace` (alias cũ `/flow-trace`) cho brownfield process trace; phần kiến trúc mục tiêu vẫn đi qua `/architecture`.
 
 <div class="phase-pills">
 <span>Context · scope · actor</span>

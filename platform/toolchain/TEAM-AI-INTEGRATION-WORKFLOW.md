@@ -1,6 +1,6 @@
 # Team AI — integration workflow
 
-> Skills + lệnh trong **`~/workspace/integration`**. Không pnpm.
+> Skills + lệnh trong **`<integration-checkout>`**. Không pnpm.
 
 | # | Skill | Output |
 |---|-------|--------|
