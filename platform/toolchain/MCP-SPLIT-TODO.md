@@ -435,7 +435,7 @@ Captured from [Discover Codegenkit sources](0cee841e-f7ae-4c62-aa02-a0467269bc42
 
 - [x] **TKC.1** Installers pin immutable tag `v0.3.3` and enforce lockfiles (`pnpm --frozen-lockfile` / `npm ci`); override only via `CODEGENKIT_REF` / `-Ref`.
 - [x] **TKC.2** Codegenkit 0.3.1 adds manifest-aware `status` and dry-run-by-default `prune --yes`; adapter/profile stale assets are tracked and locally modified files are preserved.
-- [ ] **TKC.3** Wire product `pnpm portal:*` shims in portal/nextjs to call Codegenkit.
+- [x] **TKC.3** Nuxt `nuxt_v_3@185377e` and Next `nextjs_v3@a346b7d` route `portal:gen*`, registry, unitgen and `gen:id` shims through Codegenkit; legacy hardcoded `portal:*:common` sibling paths were removed.
 - [ ] **TKC.4** Seed FE `artifactgraph.json` allowlists so AG recommend/check can work.
 - [x] **TKC.5** Codegenkit 0.3.3: Nuxt/Next `preferGenSpec()` / `--id` resolution require `ir/spec.yaml`; bundle YAML is refused with an actionable docs-hub IR error.
 - [x] **TKC.6** Codegenkit 0.3.3 ships `schemas/common-registry.schema.json` plus CLI/MCP `common-registry` validation (Zod + alias integrity).
@@ -457,7 +457,7 @@ Captured from [Discover Testkit sources](baa41a12-f3c5-49ce-9801-2de8a79e66f6). 
 - [x] **TKT.3** Testkit 0.2.2 preflights every generated E2E output (including dry-run): only lexical paths under `tests/e2e` are allowed; absolute/`..`/sibling-prefix and symlink ancestors/targets are rejected all-or-nothing.
 - [x] **TKT.4** Testkit 0.2.3 drives `cases:check` through Ajv + package-owned `schemas/testcase.schema.json` (feature/capability/component-or-feature/a11y conditionals live in the schema; schema resolves from package root, not destination cwd).
 - [x] **TKT.5** Testkit 0.2.4 resolves tests-only IDs without docs topology; missing optional docs `ir/spec.yaml` enrichment warns once per run and generation continues. Malformed testcase YAML/output failures remain fatal.
-- [ ] **TKT.6** Wire FE `testcase:gen*` / tests-hub `cases:*` shims to Testkit.
+- [x] **TKT.6** Nuxt `nuxt_v_3@185377e` and Next `nextjs_v3@a346b7d` route testcase/e2e-registry shims through Testkit; tests hub `main@4d6a688` routes render/check/coverage through Testkit.
 - [x] **TKT.7** Testkit 0.2.4 has deterministic goldens for cases render, local coverage happy/gap, generator output and cross-root portability (36 tests total).
 - [x] **TKT.8** Testkit 0.2.4 removes package/runtime `../base-tests` / `../base-docs` assumptions and uses explicit docs/tests hub terminology and environment roots.
 
@@ -489,12 +489,12 @@ Original sequence (all package phases complete except Phase 6 verify):
 | Track | Why it matters | Open items |
 |-------|----------------|------------|
 | Platform DNA | Resolver/maps/meta harness released; lifecycle compatibility is verified in Phase 6 | — |
-| Codegenkit harden | Product shims, AG allowlists, contested FE rules, FastAPI multi-entity/`--force` hash | `TKC.3`, `TKC.4`, `TKC.8`, `TKC.12` |
-| Testkit harden | Product command shims into Testkit | `TKT.6` |
+| Codegenkit harden | AG allowlists, contested FE rules, FastAPI multi-entity/`--force` hash | `TKC.4`, `TKC.8`, `TKC.12` |
+| Testkit harden | All residual source-audit items released/cut over | — |
 
 **Next recommended order:**
 
-1. Residual package hardening that needs product hubs (`TKC.3`, `TKC.4`, `TKT.6`).  
+1. Seed FE ArtifactGraph allowlists (`TKC.4`).  
 2. Contested FE rules (`TKC.8`) and FastAPI multi-entity/`--force` hash (`TKC.12`).
 
 When an item is implemented, check it here and note package version / PR when
