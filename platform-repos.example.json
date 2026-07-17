@@ -15,7 +15,8 @@
         "line",
         "base-docs",
         "base-tests",
-        "artifactgraph"
+        "artifactgraph",
+        "hubdocs"
       ]
     },
     "nuxt-nest-stack": {
@@ -160,6 +161,16 @@
       "skill": "platform-ai",
       "description": "Local MCP artifactgraph — gaps/tags/gen allowlist (raintr91/artifactgraph)",
       "write": true
+    },
+    "hubdocs": {
+      "root": "../hubdocs",
+      "role": "tooling",
+      "stack": "mcp-docs",
+      "repo": "hubdocs",
+      "skill": "platform-ai",
+      "description": "MCP hubdocs — docs index / hub tooling (optional sibling repo)",
+      "write": true,
+      "harnessProfile": "tooling"
     },
     "nuxt-nest-fe": {
       "root": "../nuxt_nest",

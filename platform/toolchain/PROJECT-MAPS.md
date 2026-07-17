@@ -28,6 +28,7 @@ Mỗi product base + MCP giữ **cùng catalog** `platform-bases`. Root relative
 | `base-docs` | `../base-docs` | Docs hub (R2 C4 + Code) | `docs-c4` |
 | `base-tests` | `../base-tests` | Tests hub (R3 E2E plans) | `e2e-plans` |
 | `artifactgraph` | `../artifactgraph` | MCP tooling (gaps/tags/gen) | `mcp` |
+| `hubdocs` | `../hubdocs` | Optional MCP tooling (docs index) | `mcp-docs` |
 
 **Đồng bộ map:** mỗi repo giữ `platform-repos.json` riêng; chỉnh tại chỗ hoặc theo quy trình team, không dùng script sync cross-base trong hub này.
 
