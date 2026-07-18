@@ -121,7 +121,10 @@ testkit init --type=fe --tests-root=/path/to/tests-hub --docs-root=/path/to/docs
 ```
 
 Adds: tests `/testcase` `/grill-testcase`; fe `/test` `/grill-test`. Optional
-accelerator: artifactgraph (local only).
+accelerator: artifactgraph — on the **tests hub** use `--type=common,test`
+(testcase taxonomy + coverage hints on that repo's own plans); it never follows
+`TESTKIT_DOCS_ROOT` / `TESTKIT_TESTS_ROOT` — cross-repo evidence flows through
+the Testkit pointers.
 
 ### artifactgraph — registry tags / gaps (accelerator)
 
@@ -134,8 +137,10 @@ artifactgraph init --target=cursor --type=common,docs --yes
 artifactgraph rebuild
 
 # FE/BE/tests: only if you need local tag/allowlist hints on that repo’s own
-# registries. ArtifactGraph does not follow HUBDOCS_ROOT / CODEGENKIT_DOCS_ROOT.
-artifactgraph init --target=cursor --type=common,fe --yes   # rare
+# registries. ArtifactGraph does not follow HUBDOCS_ROOT / CODEGENKIT_DOCS_ROOT
+# / TESTKIT_DOCS_ROOT.
+artifactgraph init --target=cursor --type=common,fe --yes    # rare
+artifactgraph init --target=cursor --type=common,test --yes  # tests hub (Testkit accelerator)
 ```
 
 Adds: `/artifactgraph` `/docs-mark` + analyze/parity/tag/gap tools. Pure
