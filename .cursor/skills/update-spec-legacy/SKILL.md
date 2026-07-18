@@ -29,11 +29,17 @@ disable-model-invocation: true
 
 ```text
 if CodeGraph available: micro-read symbol evidence for #legacy-recheck
-else: targeted file read only
+else: targeted file read only (local fallback)
 
 if ArtifactGraph available: parity slice
-else: model review from patched legacy evidence
+else: model review from patched legacy evidence (model fallback)
 ```
+
+Missing optionals never block `/update-spec-legacy`. After the existing
+fallback completes, emit exactly one `bundlekit.missing-optional` event per
+`runId` + optional against
+`.cursor/schemas/bundlekit/missing-optional-event.schema.json`. Deduplicate
+retries and report only actual `fileReads` / `contextBytes`.
 
 ## Done
 

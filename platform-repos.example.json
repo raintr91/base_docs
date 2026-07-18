@@ -10,7 +10,9 @@
     },
     "profiles": {
       "docs": {
-        "groups": ["docs"],
+        "groups": [
+          "docs"
+        ],
         "skills": [
           "platform-ai",
           "platform-mark",
@@ -31,9 +33,11 @@
           "dev-grill-docs",
           "grill-with-docs",
           "business-process-trace",
-          "flow-trace"
+          "flow-trace",
+          "business-impact-review",
+          "dynamics"
         ],
-        "note": "Portable docs profile example — skill list is the union of installed MCP packages"
+        "note": "base-docs hub — repository-local docs harness only"
       }
     }
   },
@@ -41,7 +45,9 @@
     "docs": {
       "description": "Docs hub — current repository only",
       "primary": "base-docs",
-      "projects": ["base-docs"]
+      "projects": [
+        "base-docs"
+      ]
     }
   },
   "projects": {
@@ -59,7 +65,12 @@
         "components": "product/components",
         "common": "product/common/code",
         "shared": "product/shared"
+      },
+      "docsSite": {
+        "dev": "pnpm docs:dev",
+        "root": "."
       }
     }
-  }
+  },
+  "$schema": "https://github.com/raintr91/platform-dna/blob/main/templates/schemas/platform-repos.schema.json"
 }

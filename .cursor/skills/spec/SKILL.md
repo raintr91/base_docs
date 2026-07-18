@@ -56,13 +56,16 @@ Prefer MCP/CLI when Bundlekit is installed:
 
 ```text
 if Hubdocs available: resolve CMP/CTR/FLOW IDs → paths
-else: repository conventions / search
+else: repository conventions / search (local fallback)
 
 if ArtifactGraph available: tags/parity slice for touched contracts
-else: model review from scoped bundle evidence
+else: model review from scoped bundle evidence (model fallback)
 ```
 
-Missing accelerators never block `/spec`.
+Missing optionals never block `/spec`. After the existing fallback completes,
+emit exactly one `bundlekit.missing-optional` event per `runId` + optional
+against `.cursor/schemas/bundlekit/missing-optional-event.schema.json`.
+Deduplicate retries and report only actual `fileReads` / `contextBytes`.
 
 ## Done
 

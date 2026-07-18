@@ -21,4 +21,11 @@ Use when authoring or validating design bundles (`*.bundle.yaml`), legacy dynami
 
 - Hubdocs: resolve CMP/CTR/FLOW IDs
 - ArtifactGraph: tags/parity slices
-- Missing accelerator never blocks Bundlekit tools
+- CodeGraph: targeted symbol/call evidence
+- A missing optional never blocks Bundlekit: continue with the existing
+  deterministic, local, or model fallback.
+- After that fallback completes, emit exactly one
+  `bundlekit.missing-optional` event per `runId` + optional, conforming to
+  `.cursor/schemas/bundlekit/missing-optional-event.schema.json`.
+- Deduplicate retries. `metrics.fileReads` and `metrics.contextBytes` must be
+  actual observed counts, never estimates.

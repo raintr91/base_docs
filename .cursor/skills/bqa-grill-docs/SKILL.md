@@ -42,11 +42,17 @@ disable-model-invocation: true
 
 ```text
 if ArtifactGraph available: grill/parity hints
-else: model review from design+legacy slices
+else: model review from design+legacy slices (model fallback)
 
 if Hubdocs available: ID → doc path for referenced CMP/FLOW
-else: search docs tree
+else: search docs tree (local fallback)
 ```
+
+Missing optionals never block `/bqa-grill-docs`. After the existing fallback
+completes, emit exactly one `bundlekit.missing-optional` event per `runId` +
+optional against
+`.cursor/schemas/bundlekit/missing-optional-event.schema.json`. Deduplicate
+retries and report only actual `fileReads` / `contextBytes`.
 
 ## specOrigin branches
 

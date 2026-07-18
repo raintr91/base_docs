@@ -499,21 +499,22 @@ Original sequence (all package phases complete except Phase 6 verify):
 
 | Lane | Evidence |
 |------|----------|
-| Docs hub | Branch `1.0.0`/`main` @ `df67a35`; machine MCP configs untracked; `.bundlekit/`/`.processkit/` ignored; `pnpm docs:build` OK |
-| ArtifactGraph | `main@6dc3810` · annotated tag `v2.0.1` pushed · `npm test` 24/24 · CLI `artifactgraph 2.0.1` |
-| Codegenkit | `main@fe8d1c5` · tag `v0.4.0` · 35/35 tests · adapters `dotnet-line` (FE) + `dotnet-integration` (BE) selectable at init |
-| Integration | Local `v3` cutover: shim `./codegen/runners/generate` → Codegenkit; engines quarantined under `codegen/legacy/` |
-| Line | Local `v3` cutover: shim `./codegen/runners/generate` → Codegenkit; engines quarantined under `codegen/legacy/` |
-| Nuxt FE | Local `nuxt_v_3@af16656` clean; Codegenkit status healthy/`compat:ok`; design/unit/e2e registries OK |
-| Next FE | Local `nextjs_v3@231a57b` clean (discarded sibling `hubdocs` example-map leftover); Codegenkit healthy; registries OK |
-| Tests hub | `cases:check` / `cases:coverage` OK via Testkit 0.2.4 binary; vitepress build OK |
+| Docs hub | Hubdocs harness force-install refreshed architecture-family skills; Bundlekit/Processkit/ArtifactGraph manifests refreshed; `.hubdocs/` ignored with other package state |
+| ArtifactGraph | `main@6dc3810` · annotated tag `v2.0.1` pushed · CLI `artifactgraph 2.0.1`; docs-hub manifest migrated to `2.0.1` |
+| Platform DNA | `v0.1.6` — adapters `dotnet-line` / `dotnet-integration`; `client`→`fe` role; Line drops required Testkit |
+| Codegenkit | tag `v0.4.0` · adapters `dotnet-line` (FE) + `dotnet-integration` (BE) selectable at init |
+| Integration | Portable BE map; DNA+Codegenkit+Processkit harness; pruned Nuxt/Laravel orphan skills (`platform-base`/`platform-mark`/`unit`/`wire`/`grill-unit`) |
+| Line | Portable FE map; DNA+Codegenkit+Processkit harness; pruned orphan `platform-base`/`platform-mark`; managed skills match Codegenkit SSOT |
+| Nuxt FE | Local `nuxt_v_3` clean; Codegenkit status healthy/`compat:ok` |
+| Next FE | Local `nextjs_v3` clean; Codegenkit healthy |
+| Tests hub | `cases:check` / `cases:coverage` OK via Testkit binary |
 
 **Known non-blocking follow-ups (env / pre-existing, not cutover blockers):**
 
-- Installer CLIs (`codegenkit` / `testkit`) not on shell PATH — invoke via package `bin/*.mjs` until installers are on PATH.
-- Docs hub ArtifactGraph install manifest still reports legacy `2.0.0` (compatible; migrate with `artifactgraph init` when ready).
-- Bundlekit/Processkit manifests report older installed package versions vs current CLI (compat warn; refresh with package `init`).
+- Installer CLIs (`codegenkit` / `testkit` / `platform-dna`) not on shell PATH — invoke via package `bin/*.mjs` until installers are on PATH.
+- Portal/Next still keep product-owned `platform-base` / `platform-mark` skill text (Nuxt/Next conventions); not part of Integration/Line.
 - FE `extracts:validate` / some Nuxt unit failures are product-owned debt outside this cutover.
+- `legacy/project-config.md` on docs hub remains modified vs Bundlekit namespaced path (kept for Processkit/CodeGraph progressive reads).
 
 When an item is implemented, check it here and note package version / PR when
 published. Local-only completion must be labelled explicitly; it is not a

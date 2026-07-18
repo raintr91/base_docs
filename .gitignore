@@ -19,6 +19,7 @@ legacy-repos.local.json
 # Package install-state (machine/local; recreated by init/status).
 .bundlekit/
 .processkit/
+.hubdocs/
 
 .codegraph/
 .codegraph-*/

@@ -16,7 +16,7 @@ Template: `product/legacy-dynamics/_template/_legacy.dynamics.yaml`
 
 | Load | Do not load |
 |------|-------------|
-| Legacy source (minimal); `legacy/project-config.md` progressive | Writing under FE `docs/` |
+| Legacy source (minimal); `bundlekit/legacy/project-config.md` progressive | Writing under FE `docs/` |
 | Write `product/legacy-dynamics/{module}/_legacy.dynamics.yaml` + Code `*.bundle.yaml` | Full `platform-repos.json` dump |
 | `legacy/evidence.md` — pointer only | Full repo scan |
 
@@ -34,13 +34,19 @@ Template: `product/legacy-dynamics/_template/_legacy.dynamics.yaml`
 
 ```text
 if CodeGraph available: symbol/call evidence for archaeology
-else: targeted Grep/Read
+else: targeted Grep/Read (local fallback)
 
 if ArtifactGraph available: parity/orphan slices
-else: model review from scoped legacy evidence
+else: model review from scoped legacy evidence (model fallback)
 
 if Hubdocs available: map module → CMP/CTR docs
-else: path conventions
+else: path conventions (deterministic fallback)
 ```
+
+Missing optionals never block `/legacy-spec`. After the existing fallback
+completes, emit exactly one `bundlekit.missing-optional` event per `runId` +
+optional against
+`.cursor/schemas/bundlekit/missing-optional-event.schema.json`. Deduplicate
+retries and report only actual `fileReads` / `contextBytes`.
 
 Hub: docs-hub `platform/toolchain/legacy-dynamics.md` (when present).

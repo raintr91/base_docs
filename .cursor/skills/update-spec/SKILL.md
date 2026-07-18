@@ -41,10 +41,16 @@ Doc hub: `platform/toolchain/UPDATE-SPEC-FLOW.md` · `platform/toolchain/FEATURE
 
 ```text
 if ArtifactGraph available: tag/update suggest slice
-else: apply spec-update extracts only
+else: apply spec-update extracts only (deterministic fallback)
 
 Codegenkit / portal:gen is FE-lane only — never required on docs hub
 ```
+
+Missing optionals never block `/update-spec`. After the existing fallback
+completes, emit exactly one `bundlekit.missing-optional` event per `runId` +
+optional against
+`.cursor/schemas/bundlekit/missing-optional-event.schema.json`. Deduplicate
+retries and report only actual `fileReads` / `contextBytes`.
 
 ## Path examples
 

@@ -1,6 +1,9 @@
 {
-  "version": 1,
-  "packageVersion": "2.0.0",
+  "schemaVersion": 1,
+  "package": "@platform/artifactgraph",
+  "toolApi": 1,
+  "harnessApi": 1,
+  "packageVersion": "2.0.1",
   "types": [
     "common",
     "docs"
@@ -8,7 +11,7 @@
   "files": {
     ".cursor/skills/artifactgraph/SKILL.md": {
       "source": "harness/common/skills/artifactgraph/SKILL.md",
-      "hash": "4a68ba0c153e4c5d8aab9fd62bec776b07f6a2092e59157e2e1195f9d4a28d9e"
+      "hash": "8941e641361c6f9a4d32ea3ced628e2effb2f6ed020da480a71e867888137b63"
     },
     ".cursor/rules/artifactgraph.mdc": {
       "source": "harness/common/rules/artifactgraph.mdc",

@@ -34,7 +34,8 @@
           "grill-with-docs",
           "business-process-trace",
           "flow-trace",
-          "business-impact-review"
+          "business-impact-review",
+          "dynamics"
         ],
         "note": "base-docs hub — repository-local docs harness only"
       }
@@ -70,5 +71,6 @@
         "root": "."
       }
     }
-  }
+  },
+  "$schema": "https://github.com/raintr91/platform-dna/blob/main/templates/schemas/platform-repos.schema.json"
 }

@@ -11,8 +11,8 @@
       ".cursor/extracts/business-process-trace.md"
     ],
     "legacy-spec": [
-      ".cursor/extracts/core/agent-discipline.md",
-      ".cursor/extracts/legacy/project-config.md",
+      ".cursor/extracts/bundlekit/core/agent-discipline.md",
+      ".cursor/extracts/bundlekit/legacy/project-config.md",
       ".cursor/extracts/legacy/legacy-api-migration.md",
       ".cursor/extracts/legacy/evidence.md",
       ".cursor/extracts/legacy/parity.md",
@@ -20,14 +20,14 @@
       ".cursor/extracts/legacy-dynamics.md"
     ],
     "spec-requirement": [
-      ".cursor/extracts/core/agent-discipline.md",
+      ".cursor/extracts/bundlekit/core/agent-discipline.md",
       ".cursor/extracts/spec/split.md",
       ".cursor/extracts/spec-incremental-blocks.md",
       ".cursor/extracts/common-ui-spec.md",
       "templates/bundle-authoring.md"
     ],
     "bqa-grill": [
-      ".cursor/extracts/core/agent-discipline.md",
+      ".cursor/extracts/bundlekit/core/agent-discipline.md",
       ".cursor/extracts/grill/validation.md",
       ".cursor/extracts/grill/roles.md",
       ".cursor/extracts/common-ui-spec.md",
@@ -35,7 +35,7 @@
       ".cursor/extracts/grill-tech-debt.md"
     ],
     "dev-grill": [
-      ".cursor/extracts/core/agent-discipline.md",
+      ".cursor/extracts/bundlekit/core/agent-discipline.md",
       ".cursor/extracts/grill/roles.md",
       ".cursor/extracts/codegen/readiness.md",
       ".cursor/extracts/codegen/tags.md",
@@ -45,7 +45,7 @@
       ".cursor/extracts/spec-update-tags.md"
     ],
     "grill-with-docs": [
-      ".cursor/extracts/core/agent-discipline.md",
+      ".cursor/extracts/bundlekit/core/agent-discipline.md",
       ".cursor/extracts/grill/validation.md",
       ".cursor/extracts/grill/roles.md",
       ".cursor/extracts/codegen/readiness.md",
@@ -56,15 +56,15 @@
       ".cursor/extracts/grill-tech-debt.md"
     ],
     "update-spec": [
-      ".cursor/extracts/core/agent-discipline.md",
+      ".cursor/extracts/bundlekit/core/agent-discipline.md",
       ".cursor/extracts/grill/roles.md",
       ".cursor/extracts/spec-update-delta.md",
       ".cursor/extracts/spec-update-tags.md",
       ".cursor/extracts/feature-lifecycle-status.md"
     ],
     "update-spec-legacy": [
-      ".cursor/extracts/core/agent-discipline.md",
-      ".cursor/extracts/legacy/project-config.md",
+      ".cursor/extracts/bundlekit/core/agent-discipline.md",
+      ".cursor/extracts/bundlekit/legacy/project-config.md",
       ".cursor/extracts/legacy/legacy-api-migration.md",
       ".cursor/extracts/legacy/evidence.md",
       ".cursor/extracts/legacy-dynamics.md",

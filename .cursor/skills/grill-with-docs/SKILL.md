@@ -42,11 +42,17 @@ Doc hub: `platform/toolchain/PORTAL-CODEGEN.md`
 
 ```text
 if ArtifactGraph available: reconcile/parity/tag hints + command recommendation
-else: model reconcile from scoped bundle slices
+else: model reconcile from scoped bundle slices (model fallback)
 
 if Hubdocs available: resolve referenced CMP/FLOW IDs
-else: repository path conventions
+else: repository path conventions (deterministic fallback)
 ```
+
+Missing optionals never block `/grill-with-docs`. After the existing fallback
+completes, emit exactly one `bundlekit.missing-optional` event per `runId` +
+optional against
+`.cursor/schemas/bundlekit/missing-optional-event.schema.json`. Deduplicate
+retries and report only actual `fileReads` / `contextBytes`.
 
 ## Do not
 
