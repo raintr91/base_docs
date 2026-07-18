@@ -519,10 +519,19 @@ Original sequence (all package phases complete except Phase 6 verify):
 the bootstrap entrypoint; it resolves the specialist CLIs (bare command on PATH →
 `PLATFORM_DNA_<PKG>_ROOT` → clone).
 
+**Repo skill cleanup (2026-07-18, local):**
+
+| Repo | Result |
+|------|--------|
+| Laravel API | Portable BE map; DNA 0.2.0 + Codegenkit 0.5.0 + Processkit 0.3.1; skills `api`/`grill-api`/`platform-ai`/`business-impact-review`; removed FE leftovers |
+| Portal / Next | Removed unmanaged `/platform-mark`; Testkit FE init; code-lane extract-registry only; orphan extracts deleted |
+| base-tests | Testkit 0.2.4 owns `/testcase`/`grill-testcase`; kept repo-local `/platform-ai`/`platform-base`; `check:plans` OK |
+| Integration / Line / base-docs | Skill sets verified unchanged and package-owned |
+
 **Known non-blocking follow-ups (env / pre-existing, not cutover blockers):**
 
-- Portal/Next: `/platform-base` DNA-owned (`v0.2.0`); `/model` Codegenkit-owned (`v0.5.0`); `/docs-mark` via ArtifactGraph when AG is inited on FE. Code-lane `/platform-ai` remains product-owned.
-- Portal/Next `platform-repos.json` still non-portable (sibling roots) — blocks full `platform-dna init` until maps are cleaned; harness sync used direct `installHarness --force`.
+- Code-lane `/platform-ai` remains product-owned per repo.
+- Portal/Next `platform-repos.json` still non-portable (sibling roots) — blocks full `platform-dna init` until maps are cleaned.
 - FE `extracts:validate` / some Nuxt unit failures are product-owned debt outside this cutover.
 - `legacy/project-config.md` on docs hub remains modified vs Bundlekit namespaced path (kept for Processkit/CodeGraph progressive reads).
 - Docs-hub `~/.local/bin` symlinks point at the local dev workspace; on a fresh machine run each package `install.sh` (pinned tags) instead.
