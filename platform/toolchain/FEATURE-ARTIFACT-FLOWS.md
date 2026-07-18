@@ -20,7 +20,7 @@
 |-----|----------|
 | [FEATURE-ARTIFACT-LAYOUT](./FEATURE-ARTIFACT-LAYOUT.md) | Cây thư mục `yaml/` · `md/` · `ir/` · `generated/` |
 | [CODEGEN-LAYOUT](./CODEGEN-LAYOUT.md) | Global `codegen/` · `unitgen/` · `registries/` (platform-bases) |
-| [ARTIFACTGRAPH](./ARTIFACTGRAPH.md) | Local MCP gaps/tags/gen allowlist |
+| [ArtifactGraph (git)](https://github.com/raintr91/artifactgraph) | Local MCP gaps/tags/gen allowlist |
 | [FEATURE-ARTIFACT-BUNDLE-IR](./FEATURE-ARTIFACT-BUNDLE-IR.md) | SSOT bundle → split/merge · `spec` vs `gen` |
 
 ## Team commands (AI)

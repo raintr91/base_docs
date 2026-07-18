@@ -22,21 +22,24 @@ product templates and the thin command aliases in `package.json`.
 
 | Doc | Topic |
 |-----|-------|
+| [Toolkits (MCP)](/platform/guide/toolkits) | **Hub** — catalog · install · profiles · ownership · package contract · status |
 | [PROJECT-MAPS](./PROJECT-MAPS.md) | platform-repos / workspace |
 | [DOCS-HUB](./DOCS-HUB.md) | R2 docs hub notes |
 | [FEATURE-ARTIFACT-FLOWS](./FEATURE-ARTIFACT-FLOWS.md) | Artifact flows |
 | [FEATURE-ARTIFACT-COMMANDS](./FEATURE-ARTIFACT-COMMANDS.md) | Commands |
 | [FEATURE-ARTIFACT-LEGACY-DYNAMICS](./FEATURE-ARTIFACT-LEGACY-DYNAMICS.md) | Archaeology pointer |
 | [legacy-dynamics](./legacy-dynamics.md) | Archaeology how-to |
-| [ARTIFACTGRAPH](./ARTIFACTGRAPH.md) | MCP / graph |
-| [HUBDOCS](./HUBDOCS.md) | Docs ID index MCP |
-| [BUNDLEKIT](./BUNDLEKIT.md) | Bundle IR MCP (Phase 1) |
-| [Processkit (git)](https://github.com/raintr91/Processkit) | Business process trace + impact review MCP |
-| [CODEGENKIT](./CODEGENKIT.md) | FE portal/unit codegen MCP |
-| [Testkit (git)](https://github.com/raintr91/Testkit) | Plans render + Playwright gen MCP |
-| [PLATFORM-DNA](./PLATFORM-DNA.md) | Profile resolver + portable harness/maps bootstrap |
-| [Toolkits (MCP)](/platform/guide/toolkits) | **Gộp** install · profiles · ownership · package contract · status |
-| [CODEGRAPH](./CODEGRAPH.md) | CodeGraph |
+
+Per-toolkit deep docs live in each toolkit's own git repo (base-docs chỉ giữ
+[Toolkits (MCP)](/platform/guide/toolkits) làm hub):
+[Hubdocs](https://github.com/raintr91/hubdocs) ·
+[Bundlekit](https://github.com/raintr91/Bundlekit) ·
+[Processkit](https://github.com/raintr91/Processkit) ·
+[Codegenkit](https://github.com/raintr91/codegenkit) ·
+[Testkit](https://github.com/raintr91/Testkit) ·
+[ArtifactGraph](https://github.com/raintr91/artifactgraph) ·
+[Platform DNA](https://github.com/raintr91/platform-dna) ·
+[CodeGraph](https://github.com/colbymchenry/codegraph).
 
 ### Stack bases (moved from code repos R2 sync)
 

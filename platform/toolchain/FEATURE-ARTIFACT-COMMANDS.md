@@ -2,7 +2,7 @@
 
 > **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
 >
-> **Bundle IR MCP:** after `bundlekit init --type=docs`, use [BUNDLEKIT](./BUNDLEKIT.md) tools/CLI (`bundlekit split|render|legacy-validate`). `pnpm spec:*` / `pnpm docs:render*` below are thin aliases, not vendored fallback engines.
+> **Bundle IR MCP:** after `bundlekit init --type=docs`, use [Bundlekit](https://github.com/raintr91/Bundlekit) tools/CLI (`bundlekit split|render|legacy-validate`). `pnpm spec:*` / `pnpm docs:render*` below are thin aliases, not vendored fallback engines. Install: [Toolkits (MCP)](/platform/guide/toolkits).
 
 
 > Bảng tra cứu · Diagram: [FEATURE-ARTIFACT-FLOWS](./FEATURE-ARTIFACT-FLOWS.md)  

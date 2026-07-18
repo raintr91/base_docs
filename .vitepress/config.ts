@@ -157,9 +157,9 @@ export default withMermaid(
               collapsed: true,
               items: [
                 { text: 'Index', link: '/platform/toolchain/' },
+                { text: 'Toolkits (MCP)', link: '/platform/guide/toolkits' },
                 { text: 'Full cycle', link: '/platform/toolchain/FULL-CYCLE-PIPELINE-DIAGRAM' },
                 { text: 'Design phase', link: '/platform/toolchain/DESIGN-PHASE-DIAGRAM' },
-                { text: 'Hubdocs MCP', link: '/platform/toolchain/HUBDOCS' },
                 { text: 'Repo split map', link: '/platform/toolchain/REPO-SPLIT-MAP' },
               ],
             },

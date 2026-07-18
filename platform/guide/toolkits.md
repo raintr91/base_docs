@@ -265,4 +265,6 @@ Quy ước đã chốt: một skill → một owner; MCP phụ chỉ accelerator
 
 ---
 
-Đọc tiếp: [Start now](./start-now.md) · [System doc structure](./SYSTEM-DOC-STRUCTURE.md) · [Toolchain index](/platform/toolchain/) · từng toolkit: [Hubdocs](/platform/toolchain/HUBDOCS) · [Bundlekit](/platform/toolchain/BUNDLEKIT) · [Codegenkit](/platform/toolchain/CODEGENKIT) · [ArtifactGraph](/platform/toolchain/ARTIFACTGRAPH) · [Platform DNA](/platform/toolchain/PLATFORM-DNA) · [CodeGraph](/platform/toolchain/CODEGRAPH) · git-only: [Processkit](https://github.com/raintr91/Processkit) · [Testkit](https://github.com/raintr91/Testkit).
+Đọc tiếp: [Start now](./start-now.md) · [System doc structure](./SYSTEM-DOC-STRUCTURE.md) · [Toolchain index](/platform/toolchain/).
+
+Deep docs của từng toolkit sống trong git repo riêng: [Hubdocs](https://github.com/raintr91/hubdocs) · [Bundlekit](https://github.com/raintr91/Bundlekit) · [Processkit](https://github.com/raintr91/Processkit) · [Codegenkit](https://github.com/raintr91/codegenkit) · [Testkit](https://github.com/raintr91/Testkit) · [ArtifactGraph](https://github.com/raintr91/artifactgraph) · [Platform DNA](https://github.com/raintr91/platform-dna) · [CodeGraph](https://github.com/colbymchenry/codegraph).
