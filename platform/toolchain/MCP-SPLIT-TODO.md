@@ -526,14 +526,19 @@ the bootstrap entrypoint; it resolves the specialist CLIs (bare command on PATH 
 | Laravel API | Portable BE map; DNA 0.2.0 + Codegenkit 0.5.0 + Processkit 0.3.1; skills `api`/`grill-api`/`platform-ai`/`business-impact-review`; removed FE leftovers |
 | Portal / Next | Removed unmanaged `/platform-mark`; Testkit FE init; code-lane extract-registry only; orphan extracts deleted |
 | base-tests | Testkit 0.2.4 owns `/testcase`/`grill-testcase`; kept repo-local `/platform-ai`/`platform-base`; `check:plans` OK |
-| Integration / Line / base-docs | Skill sets verified unchanged and package-owned |
+| Integration / Line | Skill sets verified unchanged and package-owned |
+
+**base-docs clone cleanup (2026-07-18, local):** package-synced `.cursor/`
+skills/rules/extracts/schemas, install manifests, ArtifactGraph runtime data and
+Bundlekit-synced templates were removed from Git. All generated harness and MCP
+state is ignored. A fresh clone intentionally has no installed skills; run the
+docs profile before using package commands.
 
 **Known non-blocking follow-ups (env / pre-existing, not cutover blockers):**
 
 - Code-lane `/platform-ai` remains product-owned per repo.
 - Portal/Next `platform-repos.json` still non-portable (sibling roots) — blocks full `platform-dna init` until maps are cleaned.
 - FE `extracts:validate` / some Nuxt unit failures are product-owned debt outside this cutover.
-- `legacy/project-config.md` on docs hub remains modified vs Bundlekit namespaced path (kept for Processkit/CodeGraph progressive reads).
 - Docs-hub `~/.local/bin` symlinks point at the local dev workspace; on a fresh machine run each package `install.sh` (pinned tags) instead.
 
 When an item is implemented, check it here and note package version / PR when

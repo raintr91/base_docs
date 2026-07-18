@@ -2,6 +2,11 @@
 
 ## Docs lane (this repo)
 
+The repository does not vendor package-owned Cursor skills. On a fresh clone,
+run the docs install profile in
+[`platform/toolchain/MCP-INSTALL-PROFILES.md`](./platform/toolchain/MCP-INSTALL-PROFILES.md);
+package `init` commands then materialize `.cursor/` and local MCP wiring.
+
 People entry: [`platform/guide/start-now.md`](./platform/guide/start-now.md)  
 Tree + standards: [`platform/guide/SYSTEM-DOC-STRUCTURE.md`](./platform/guide/SYSTEM-DOC-STRUCTURE.md)
 
@@ -24,4 +29,4 @@ Architecture plan / entry: [`platform/guide/start-now.md`](./platform/guide/star
 
 Implementation (`/prototype` `/api` `/wire` `/test` `/unit`) → **code** repos (portal, api, …).
 
-Handbook: `platform/toolchain/` · Skills: `.cursor/skills/`
+Handbook: `platform/toolchain/` · Installed skills (local/generated): `.cursor/skills/`

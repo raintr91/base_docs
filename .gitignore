@@ -5,24 +5,32 @@ node_modules/
 .harness/feature_list.json
 platform-repos.local.json
 legacy-repos.local.json
-.cursor/platform-repos.local.json
-.cursor/legacy-repos.local.json
 
-# Generated per machine by `artifactgraph init` / `hubdocs init` / `bundlekit init`.
-# These files contain local executable and workspace paths.
-.cursor/mcp.json
+# AI/MCP harness is materialized per machine by package `init`.
+# A fresh clone intentionally has no synced skills, rules, extracts, schemas,
+# local MCP wiring, or package install manifests.
+/.cursor/
 .mcp.json
 .kilocode/mcp.json
 .gemini/settings.json
 .claude.json
 
-# Package install-state (machine/local; recreated by init/status).
-.bundlekit/
-.processkit/
-.hubdocs/
+# Package install-state (machine-local; recreated by init/status).
+/.artifactgraph/
+/.platform-dna/
+/.bundlekit/
+/.processkit/
+/.hubdocs/
+/.codegenkit/
+/.testkit/
 
 .codegraph/
 .codegraph-*/
+
+# Package-synced non-Cursor assets.
+/artifactgraph/
+/templates/bundle-authoring.md
+/templates/feature.bundle.yaml
 
 # Local/private architecture notes (not part of base-docs)
 docs/factory-ai-stack.md
