@@ -3,12 +3,12 @@ node_modules/
 .vitepress/cache/
 .harness/progress.md
 .harness/feature_list.json
-platform-repos.local.json
-legacy-repos.local.json
 
 # AI/MCP harness is materialized per machine by package `init`.
 # A fresh clone intentionally has no synced skills, rules, extracts, schemas,
 # local MCP wiring, or package install manifests.
+platform-repos*.json
+legacy-repos*.json
 /.cursor/
 /.agents/
 .mcp.json

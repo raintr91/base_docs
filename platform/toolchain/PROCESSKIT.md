@@ -25,9 +25,9 @@ processkit init --type=docs --target=cursor --yes
 
 `init` merges Processkit into machine-local `.cursor/mcp.json`, syncs only the
 selected profile, and merges package-owned skill IDs into
-`platform-repos.json`. Docs init seeds empty portable `legacy-repos.json` and
-example files only when missing. Machine roots remain in ignored
-`legacy-repos.local.json`; Processkit never writes local maps.
+the ignored local `platform-repos.json`. Docs init seeds ignored empty portable
+legacy maps when missing. Machine roots remain local; Processkit never commits
+destination maps.
 
 ## Tools
 

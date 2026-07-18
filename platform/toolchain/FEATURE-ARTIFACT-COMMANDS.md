@@ -120,7 +120,7 @@ Member marks common UI + logic — grill hỏi trước khi gắn tag. Hub: [PLA
 |------|----------|
 | `pnpm portal:gen --id <W-\|CMP-\|CTR-…>` | FE codegen from **base-docs** Code (`ir/spec.yaml` required) |
 | `pnpm testcase:gen --id <W-\|TC-\|SC-\|suite\|CMP-…>` | E2E gen from **base-tests** plans → `tests/e2e/` |
-| Root `platform-repos.json` | Current docs repo only — [PROJECT-MAPS](./PROJECT-MAPS.md) |
+| Local generated project maps | Profile/tool inventory — [PROJECT-MAPS](./PROJECT-MAPS.md) |
 | `pnpm extracts:validate` | Skill `extractBundle` ⊆ registry |
 
 ---

@@ -126,16 +126,16 @@ Cùng pattern skill/script: **SSOT template trong MCP**, `init` sync ra repo. Kh
 
 | File | Role | Owner (package) | Sync on `init` | Commit? |
 |------|------|-----------------|----------------|---------|
-| `platform-repos.example.json` | Portable template (docs / FE / BE profile) | Docs DNA: **Hubdocs** `init --type=docs` (seed); FE/BE: **codegenkit** / **testkit** theo lane | Seed if missing; `--force` overwrite template only | Yes (example) |
-| `platform-repos.json` | Live map = **current repo only** (`root: "."` + `url`) | Seeded by lane `init`; harness `profiles.*.skills` **merged** by each MCP that syncs skills | Create if missing; merge skills list by package owner ids; never invent sibling `../` roots | Yes (portable) |
-| `legacy-repos.example.json` | Empty shape for optional legacy evidence | **processkit** (+ Bundlekit consumers of `/legacy-spec`) | Seed if missing | Yes (example, empty projects) |
-| `legacy-repos.json` | Committed empty / greenfield default | Same | Seed empty if missing | Yes (empty OK) |
+| `platform-repos.example.json` | Portable generated baseline (docs / FE / BE profile) | **Platform DNA** | Seed if missing; `--force` overwrite template only | **No** (generated/ignored) |
+| `platform-repos.json` | Local live map = **current repo only** | Platform DNA seeds; each initialized MCP merges its owned skill IDs | Create if missing; never invent sibling `../` roots | **No** (generated/ignored) |
+| `legacy-repos.example.json` | Empty generated shape for optional legacy evidence | **Platform DNA** / Processkit | Seed if missing | **No** (generated/ignored) |
+| `legacy-repos.json` | Local empty / greenfield default | Same | Seed empty if missing | **No** (generated/ignored) |
 | `legacy-repos.local.json` | Machine checkout roots | Member only | **Never** sync absolute paths from package | **No** (gitignore) |
 | `platform-repos.local.json` | Machine override if ever needed | Member only | Never from package | **No** (gitignore) |
 
 ### Rules
 
-1. Committed `platform-repos.json` **chỉ** mô tả repo đang mở (`root: "."`) + optional public `url`. Không `../portal`, `~/workspace`, `/home/...`, ổ đĩa.
+1. Generated `platform-repos.json` **chỉ** mô tả repo đang mở (`root: "."`). Không `../portal`, `~/workspace`, `/home/...`, ổ đĩa.
 2. `harness.profiles.<lane>.skills` là **union** các skill do MCP đã init trên repo đó (mỗi package append owned skills; không một file hardcode cả FE gen trong docs hub).
 3. Legacy evidence path: user điền `legacy-repos.local.json`; skill `/legacy-spec` / `/business-process-trace` / `/business-impact-review` đọc local trước, example sau; **không đoán** sibling.
 4. ArtifactGraph / Hubdocs / Processkit `init` **không** ghi đè `*.local.json`.
@@ -147,7 +147,7 @@ Cùng pattern skill/script: **SSOT template trong MCP**, `init` sync ra repo. Kh
 - [x] **TC.2** Platform DNA docs bootstrap seeds portable `platform-repos.json` + example before specialist package merges.
 - [x] **TC.3** Platform DNA/Processkit seed legacy example + empty map; `.local.json` paths are documented and gitignored.
 - [x] **TC.4** End-to-end profile fixtures prove each MCP merges only owned skill IDs.
-- [x] **TC.5** Platform DNA rejects sibling/home/drive/UNC paths in committed maps; local override files are excluded.
+- [x] **TC.5** Platform DNA rejects sibling/home/drive/UNC paths in generated portable maps; local override files are excluded.
 - [x] **TC.6** [PROJECT-MAPS](./PROJECT-MAPS.md) points to Platform DNA schemas/templates and executable validation/init.
 
 ---
