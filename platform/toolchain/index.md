@@ -35,10 +35,7 @@ product templates and the thin command aliases in `package.json`.
 | [CODEGENKIT](./CODEGENKIT.md) | FE portal/unit codegen MCP |
 | [TESTKIT](./TESTKIT.md) | Plans render + Playwright gen MCP |
 | [PLATFORM-DNA](./PLATFORM-DNA.md) | Profile resolver + portable harness/maps bootstrap |
-| [MCP-OWNERSHIP](./MCP-OWNERSHIP.md) | Package ownership freeze |
-| [MCP-INSTALL](./MCP-INSTALL.md) | Per-kit independent install catalog (start here) |
-| [MCP-INSTALL-PROFILES](./MCP-INSTALL-PROFILES.md) | `--type` convenience bundles |
-| [MCP-SPLIT-TODO](./MCP-SPLIT-TODO.md) | Plan + checklist for independent MCP packages |
+| [Toolkits (MCP)](/platform/guide/toolkits) | **Gộp** install · profiles · ownership · package contract · status |
 | [CODEGRAPH](./CODEGRAPH.md) | CodeGraph |
 
 ### Stack bases (moved from code repos R2 sync)
@@ -46,12 +43,14 @@ product templates and the thin command aliases in `package.json`.
 | Doc | Base |
 |-----|------|
 | [FAST-API-*](./FAST-API-QUICKSTART.md) · [FAST-CODEGEN](./FAST-CODEGEN.md) | `fast-api-base` |
-| [INTEGRATION-*](./INTEGRATION-STRUCTURE.md) · [TEAM-AI-INTEGRATION](./TEAM-AI-INTEGRATION-WORKFLOW.md) | `integration` |
 | [NEST-API-STRUCTURE](./NEST-API-STRUCTURE.md) · [BACKEND-CODEGEN](./BACKEND-CODEGEN.md) | `nuxt_nest` / `next_nest` BE |
-| [LINE-*](./LINE-CLIENT-STRUCTURE.md) · [TEAM-AI-LINE](./TEAM-AI-LINE-WORKFLOW.md) | `line` |
 | [REPO-SPLIT-MAP](./REPO-SPLIT-MAP.md) · [CONTRACT-PORTAL-FAST](./CONTRACT-PORTAL-FAST.md) | cross-stack |
 
-Templates: `templates/api/` · `templates/integration/` · `templates/line/` · `templates/clients/`.  
+`integration` và `line` không còn tài liệu trong docs hub — mỗi repo tự giữ
+handbook/skill của mình. Xem git: [integration](https://github.com/raintr91/integration) ·
+[line](https://github.com/raintr91/winform).
+
+Templates: `templates/api/` · `templates/clients/`.  
 Schemas: `schemas/backend-api.schema.json`.
 
 Full list: browse this directory. FE/BE **codegen runners** stay in code repos (`portal:gen`, etc.).

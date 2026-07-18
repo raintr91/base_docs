@@ -146,6 +146,7 @@ export default withMermaid(
               items: [
                 { text: 'Index', link: '/platform/guide/' },
                 { text: 'Overview', link: '/platform/guide/platform-base-overview' },
+                { text: 'Toolkits (MCP)', link: '/platform/guide/toolkits' },
                 { text: 'Team AI workflow', link: '/platform/guide/team-ai-workflow-slides' },
                 { text: 'YAML ↔ MD workflow', link: '/platform/guide/yaml-markdown-ai-workflow' },
                 { text: 'E2E Playwright', link: '/platform/guide/e2e-automation-playwright' },
@@ -167,9 +168,9 @@ export default withMermaid(
               collapsed: true,
               items: [
                 { text: 'FastAPI', link: '/platform/toolchain/FAST-API-QUICKSTART' },
-                { text: 'Integration', link: '/platform/toolchain/INTEGRATION-STRUCTURE' },
                 { text: 'Nest BE', link: '/platform/toolchain/NEST-API-STRUCTURE' },
-                { text: 'Line client', link: '/platform/toolchain/LINE-CLIENT-STRUCTURE' },
+                { text: 'Integration (git)', link: 'https://github.com/raintr91/integration' },
+                { text: 'Line client (git)', link: 'https://github.com/raintr91/winform' },
               ],
             },
           ],

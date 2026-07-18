@@ -6,7 +6,7 @@ docs skills on init.
 
 - Intended GitHub: [raintr91/bundlekit](https://github.com/raintr91/bundlekit)
 - Dev: sibling checkout named `bundlekit` next to the docs hub (layout not assumed by portable docs)
-- Plan SSOT: [MCP-SPLIT-TODO](./MCP-SPLIT-TODO.md)
+- Toolkit catalog + status: [Toolkits (MCP)](/platform/guide/toolkits)
 
 | | ArtifactGraph | Hubdocs | Bundlekit |
 |--|---------------|---------|-----------|

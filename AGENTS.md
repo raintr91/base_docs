@@ -13,11 +13,11 @@ has its own Git repository for package source). “Repo” = artifact hubs
 
 ## Docs lane (this repo)
 
-The repository does not vendor package-owned Cursor skills. On a fresh clone,
+The repository does not vendor toolkit-owned Cursor skills. On a fresh clone,
 install only the toolkits your lane needs — each toolkit is independent. Read
-the per-toolkit catalog in
-[`platform/toolchain/MCP-INSTALL.md`](./platform/toolchain/MCP-INSTALL.md)
-(convenience lane bundles: [`MCP-INSTALL-PROFILES.md`](./platform/toolchain/MCP-INSTALL-PROFILES.md)).
+the consolidated catalog in
+[`platform/guide/toolkits.md`](./platform/guide/toolkits.md) (capability menu,
+per-toolkit install, lane bootstrap, ownership, package contract).
 Each toolkit's `init` then materializes its own `.cursor/` skills and local MCP wiring.
 
 People entry: [`platform/guide/start-now.md`](./platform/guide/start-now.md)  

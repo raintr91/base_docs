@@ -110,7 +110,6 @@ dotnet test
 | Doc | Repo |
 |-----|------|
 | [FEATURE-ARTIFACT-COMMANDS](./FEATURE-ARTIFACT-COMMANDS.md) | portal (hub) |
-| [LINE-INTEGRATION-ARTIFACT-LAYOUT](./LINE-INTEGRATION-ARTIFACT-LAYOUT.md) | portal |
-| `LINE-ARTIFACT-COMMANDS.md` · skills `.cursor/skills/` | **line** |
-| `INTEGRATION-ARTIFACT-COMMANDS.md` · skills `.cursor/skills/` | **integration** |
+| artifact layout · commands · skills `.cursor/skills/` | **line** → [git](https://github.com/raintr91/winform) |
+| artifact layout · commands · skills `.cursor/skills/` | **integration** → [git](https://github.com/raintr91/integration) |
 | `FAST-CODEGEN.md` · MkDocs `./scripts/docs-dev` · skills | **fast-api-base** |

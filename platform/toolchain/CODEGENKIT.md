@@ -34,7 +34,7 @@ pnpm install && pnpm test
 Set `CODEGENKIT_DOCS_ROOT` or `--docs-root` for FE generation. No sibling docs
 hub is assumed. That pointer is how FE reaches the docs **registry hub**; do
 not install ArtifactGraph on FE just to read docs registries — see
-[MCP-INSTALL](./MCP-INSTALL.md) §1.
+[Toolkits (MCP)](/platform/guide/toolkits) §2.
 
 ArtifactGraph is optional for allowlist recommendation only. Executable gen
 belongs to Codegenkit.

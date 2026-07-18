@@ -20,7 +20,7 @@ FE/BE/tests may install ArtifactGraph only for **local** tag/allowlist hints on
 that repo’s own data. ArtifactGraph is standalone: it does **not** follow
 `HUBDOCS_ROOT` or `CODEGENKIT_DOCS_ROOT`. For FE codegen that needs the full
 docs registry, use Codegenkit’s docs pointer instead — see
-[MCP-INSTALL](./MCP-INSTALL.md) §1.
+[Toolkits (MCP)](/platform/guide/toolkits) §2 (docs = registry hub).
 
 ## Bootstrap
 

@@ -72,7 +72,7 @@ Harness: `.harness/progress.md` · `feature_list.json` · `portalRefs` · `pendi
 | Codegen tags | `#gen:*` — grill only; script thực thi |
 | Non-CRUD | export/import/custom → `#manual-service`; mail/payment → `#call-external` |
 
-Alias ngắn — skill giữ tên đầy đủ: [INTEGRATION-API-SPEC](./INTEGRATION-API-SPEC.md).
+Alias ngắn — skill giữ tên đầy đủ; integration spec ở repo [integration](https://github.com/raintr91/integration).
 Chi tiết sync: `.cursor/extracts/api-spec-sync.md`
 Chi tiết integration: `.cursor/extracts/api-integration-spec.md`
 Chi tiết hashtag: `.cursor/extracts/codegen/tags.md` (docs hub) · BE codegen tags live in the BE checkout.

@@ -194,5 +194,5 @@ flow                     → FLOW-login
 ## 8. Related
 
 - [Start now](./start-now.md) — onboarding and responsibility matrix
-- Skills are package-owned and generated locally under `.cursor/skills/` after
-  running the [docs MCP install profile](../toolchain/MCP-INSTALL-PROFILES.md).
+- Skills are toolkit-owned and generated locally under `.cursor/skills/` after
+  installing the docs toolkits — see [Toolkits (MCP)](./toolkits.md).

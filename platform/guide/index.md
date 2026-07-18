@@ -4,6 +4,8 @@
 
 **Cấu trúc hệ:** [System doc structure](./SYSTEM-DOC-STRUCTURE.md)
 
+**Toolkit (MCP):** [Toolkits](./toolkits.md) — cài gì, cung cấp skill/rule/config gì, bootstrap theo lane.
+
 Onboarding sâu / slides (đọc sau):
 
 1. Architecture views + product Code = MD (+ yaml dưới `CMP-*/code/`).

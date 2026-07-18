@@ -47,7 +47,7 @@ authoring skills remain in the docs repo.
 
 MCP config do `hubdocs init` sinh chứa path của máy hiện tại, vì vậy được
 gitignore và phải tạo lại sau khi clone; không copy config từ máy khác.
-Policy: [MCP-INSTALL](./MCP-INSTALL.md) §1 (docs = registry hub).
+Policy: [Toolkits (MCP)](/platform/guide/toolkits) §2 (docs = registry hub).
 
 Docs: package [`docs/INIT.md`](https://github.com/raintr91/hubdocs/blob/main/docs/INIT.md) · [`docs/INSTALL.md`](https://github.com/raintr91/hubdocs/blob/main/docs/INSTALL.md)
 
