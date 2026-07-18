@@ -14,9 +14,10 @@
 | **codegenkit** | FE: `/prototype` `/wire` `/unit` `/grill-prototype` `/grill-unit` `/model` (web FE only) · BE: `/api` (+ grill-api) | FE portal/unit gen · BE api gen · registry validate | `fe`, `be` (adapter-selected) |
 | **testkit** | `/testcase` `/grill-testcase` `/test` `/grill-test` | cases:render · testcase:gen* | `tests`, `fe` |
 | **codegraph** | *(no skill sync)* | explore/call graph | any (accelerator) |
-| **platform-dna** | `/platform-ai` (docs only) · FE `/platform-base` (`nuxt4`/`nextjs` adapters) · lane router rules | executable profile resolver + portable map bootstrap | `docs`, `fe`, `be`, `tests` (never MCP tooling repos) |
+| **platform-dna** | FE `/platform-base` (`nuxt4`/`nextjs` adapters) | executable profile resolver + repo-only `platform-repos` bootstrap | `docs`, `fe`, `be`, `tests` (never toolkit source repos) |
 
-Product-owned (not MCP-synced): code-lane `/platform-ai` (per-repo harness meta).
+Toolkit-local (never synced to destination repos): each toolkit source owns its
+own `/platform-ai` for building, testing, and releasing that toolkit.
 
 ## Hard rules
 
@@ -30,10 +31,6 @@ Product-owned (not MCP-synced): code-lane `/platform-ai` (per-repo harness meta)
 
 | Rule | Owner | Notes |
 |------|-------|-------|
-| `platform-ai.mdc` | **Platform DNA** | Profile-specific lane boundary + portability |
-| `team-flow-router.mdc` | **Platform DNA** | Routes to installed skills only |
-| `team-flow-harness-state.mdc` | **Platform DNA** | Shared harness protocol |
-| `platform-contract-naming.mdc` | **Platform DNA** | Cross-package naming contract |
 | `team-flow-spec.mdc` | **Bundlekit** | Spec + all docs grill orchestration |
 | `team-flow-grill.mdc` | **Bundlekit** | Grill metadata shared by all three grill skills |
 | `platform-code-size.mdc` | **Codegenkit** | Adapter-neutral FE code-generation concern; never installed in docs |
@@ -46,9 +43,10 @@ Product-owned (not MCP-synced): code-lane `/platform-ai` (per-repo harness meta)
 | `artifactgraph.mdc` | ArtifactGraph | Opt-in accelerator rule |
 | `codegraph.mdc` | CodeGraph integration/bootstrap | Opt-in accelerator rule |
 
-Platform DNA and Codegenkit destinations are install-manifest managed. Product
-repos may commit the installed copies, but must not hand-fork package-owned
-content. Product-owned rules are deliberately excluded from package harnesses.
+Platform DNA `/platform-base` and Codegenkit destinations are install-manifest
+managed. Product repos may commit installed copies, but must not hand-fork
+toolkit-owned content. Product-owned rules are deliberately excluded from
+toolkit harnesses.
 
 ## Extract ownership
 
@@ -58,7 +56,7 @@ content. Product-owned rules are deliberately excluded from package harnesses.
 | `spec/*`, `spec-update-*`, `spec-incremental-*`, `grill/*`, `grill-tech-debt.md`, `common-ui-spec.md`, `legacy-dynamics.md` | **Bundlekit** |
 | `business-process-trace.md`, Processkit risk/process templates | Processkit |
 | `artifactgraph-*`, `docs-mark*`, codegen readiness/tag analysis used by `/docs-mark` | ArtifactGraph |
-| `core/agent-discipline.md`, portable repo-map policy/schemas | **Platform DNA** |
+| Portable `platform-repos` policy/schema | **Platform DNA** |
 
 Existing package namespaced snapshots remain compatibility assets; Platform DNA
 now owns the shared destination and must not overwrite a locally customized

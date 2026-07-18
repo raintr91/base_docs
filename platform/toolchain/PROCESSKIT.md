@@ -25,8 +25,8 @@ processkit init --type=docs --target=cursor --yes
 
 `init` merges Processkit into machine-local `.cursor/mcp.json` and syncs only
 the selected profile. Processkit never writes project maps
-(`platform-repos*.json`, `legacy-repos*.json`) — they are Platform DNA-owned
-and optional. Legacy evidence roots stay in member-owned
+(`platform-repos*.json`, `legacy-repos*.json`)—Platform DNA owns the former,
+Bundlekit the latter, and both are optional. Legacy evidence roots stay in member-owned
 `legacy-repos.local.json`.
 
 ## Tools

@@ -102,13 +102,15 @@ Rules:
 | **testkit** ★ NEW | `/testcase` `/grill-testcase` `/test` `/grill-test` | cases:render · testcase:gen* | AG coverage gaps |
 | **codegraph** | *(no docs skill sync)* | `codegraph_explore` | — |
 
-`/platform-ai` = meta docs-hub harness — **không** thuộc tool package chuyên môn.
+> **Superseded 2026-07-18:** `/platform-ai` chỉ tồn tại local trong source của
+> từng toolkit để cải tiến chính toolkit đó; không toolkit nào sync skill này
+> sang repo đích.
 
 ### Ownership gaps to close before moving files
 
 Skills-only ownership is insufficient: an install also syncs rules, extracts, templates and thin command shims. Freeze these before implementation:
 
-- [x] **TG.1 Bootstrap/DNA owner:** **Platform DNA** owns `/platform-ai` (docs), profile lane routers, portability invariant, profile resolver and common agent discipline.
+- [x] **TG.1 Bootstrap/DNA owner:** superseded 2026-07-18 — Platform DNA chỉ sync FE `/platform-base`; `/platform-ai` và lane/meta rules không còn được sync sang repo.
 - [x] **TG.2 Rules inventory:** one-owner map frozen in [MCP-OWNERSHIP](./MCP-OWNERSHIP.md).
 - [x] **TG.3 Shared extracts inventory:** owner families + namespaced-snapshot rule frozen in [MCP-OWNERSHIP](./MCP-OWNERSHIP.md).
 - [x] **TG.4 Grill-family boundary:** all three docs grill skills belong to Bundlekit; AG is optional accelerator.
@@ -128,27 +130,27 @@ Cùng pattern skill/script: **SSOT template trong MCP**, `init` sync ra repo. Kh
 |------|------|-----------------|----------------|---------|
 | `platform-repos.example.json` | Portable generated baseline (docs / FE / BE profile) | **Platform DNA** (sole writer) | Seed if missing; `--force` overwrite template only | **No** (generated/ignored) |
 | `platform-repos.json` | Local live map = **current repo only** (identity, not a skill registry) | **Platform DNA** (sole writer) | Create if missing; never invent sibling `../` roots | **No** (generated/ignored) |
-| `legacy-repos.example.json` | Empty generated shape for optional legacy evidence | **Platform DNA** (sole writer) | Seed if missing (docs profile) | **No** (generated/ignored) |
-| `legacy-repos.json` | Local empty / greenfield default | Same | Seed empty if missing | **No** (generated/ignored) |
+| `legacy-repos.example.json` | Empty generated shape for optional legacy evidence repos | **Bundlekit** (sole writer) | Seed if missing on Bundlekit init | **No** (generated/ignored) |
+| `legacy-repos.json` | Portable legacy repo catalog (no toolkit/install inventory) | **Bundlekit** | Seed empty if missing | **No** (generated/ignored) |
 | `legacy-repos.local.json` | Machine checkout roots | Member only | **Never** sync absolute paths from package | **No** (gitignore) |
 | `platform-repos.local.json` | Machine override if ever needed | Member only | Never from package | **No** (gitignore) |
 
 ### Rules
 
 1. Generated `platform-repos.json` **chỉ** mô tả repo đang mở (`root: "."`). Không `../portal`, `~/workspace`, `/home/...`, ổ đĩa.
-2. Specialist kits (Hubdocs, Bundlekit, Processkit, Codegenkit, Testkit) **không ghi map**. Installed skills/adapters nằm trong `install-manifest.json` của từng kit; map chỉ giữ repo identity do Platform DNA seed.
+2. Platform DNA chỉ ghi `platform-repos*`; Bundlekit chỉ ghi `legacy-repos*`; các toolkit khác không ghi map. Cả hai map chỉ chứa repo, không chứa toolkit/skill/adapter/install state.
 3. Legacy evidence path: user điền `legacy-repos.local.json`; skill `/legacy-spec` / `/business-process-trace` / `/business-impact-review` đọc local trước, example sau; **không đoán** sibling.
 4. Không package nào ghi đè `*.local.json`.
-5. Khi nâng cấp Platform DNA: cập nhật example/schema; giữ `projects.*` / product roots trừ `--force`.
+5. Mỗi owner cập nhật example/schema của config mình; giữ `projects.*` / product roots trừ `--force`.
 
 ### Init checklist (add to Phase 0 / 1 / 1B)
 
-- [x] **TC.1** Platform DNA publishes JSON Schemas + package docs for `platform-repos` and `legacy-repos`.
-- [x] **TC.2** Platform DNA docs bootstrap seeds portable `platform-repos.json` + example; it is the sole map writer.
-- [x] **TC.3** Platform DNA seeds legacy example + empty map; `.local.json` paths are documented and gitignored.
-- [x] **TC.4** Kit-independence cutover (2026-07-18): Hubdocs/Bundlekit/Processkit/Codegenkit/Testkit no longer seed or merge into any project map; fixtures assert init leaves no `platform-repos.json` behind.
+- [x] **TC.1** Platform DNA publishes `platform-repos` schema; Bundlekit publishes `legacy-repos` schema.
+- [x] **TC.2** Platform DNA docs bootstrap seeds portable repo-only `platform-repos.json` + example.
+- [x] **TC.3** Bundlekit seeds legacy example + empty map; `.local.json` paths are documented and gitignored.
+- [x] **TC.4** Toolkit-independence cutover (2026-07-18): only Platform DNA writes `platform-repos*`; only Bundlekit writes `legacy-repos*`; neither config carries toolkit inventory.
 - [x] **TC.5** Platform DNA rejects sibling/home/drive/UNC paths in generated portable maps; local override files are excluded.
-- [x] **TC.6** [PROJECT-MAPS](./PROJECT-MAPS.md) points to Platform DNA schemas/templates and executable validation/init.
+- [x] **TC.6** [PROJECT-MAPS](./PROJECT-MAPS.md) points to each config owner's schema/init.
 
 ---
 
@@ -324,7 +326,7 @@ Optional accelerators:
 - [x] Complete **TP.1–TP.6** in the decision section above.
 - [x] Rename to `/business-process-trace`; keep `/flow-trace` redirect; document that `/dynamics` → `/journey` only and is not a Processkit alias.
 - [x] Port the existing shared impact-review vertical/horizontal/risk checklist into package SSOT.
-- [x] **TC.3–TC.4** for processkit: ~~seed legacy-repos example/empty + merge processkit skill ids~~ — superseded 2026-07-18: Processkit writes no maps; Platform DNA seeds legacy maps for docs profiles.
+- [x] **TC.3–TC.4** for processkit: ~~seed legacy-repos example/empty + merge processkit skill ids~~ — superseded 2026-07-18: Processkit writes no maps; Bundlekit owns legacy config.
 
 **Exit:** processkit alone can sync both skills and run model/search fallback; optional MCPs only accelerate.
 
@@ -400,7 +402,7 @@ to <https://github.com/raintr91/Testkit>; hardening debt tracked as `TKT.*`.
 - [x] **T6.2** Each matrix: skill smoke does not require optional MCPs. Hubdocs 1.0.2, Bundlekit 0.1.3, Processkit 0.3.1, Codegenkit 0.3.4 and Testkit 0.2.4 ship package-owned namespaced event schemas/rules; fallback completes first, then emits once per run+optional with retry dedup and measured reads/bytes.
 - [x] **T6.3** Measured context smoke: fixed Processkit CodeGraph fixture reads `2 files / 162 bytes` with accelerator vs `6 / 638` full fallback (74.61% fewer bytes); targeted fallback is `2 / 377` (57.03% fewer bytes). No estimated token claims.
 - [x] **T6.4** Portability: committed maps contain current repo/lane only; sibling topology is member-local and ignored. `api@db925e6` and `base-tests@3f733d8` pass Platform DNA validation; Platform DNA 0.1.2 removes `tooling` from the map schema.
-- [x] **T6.5** Platform DNA 0.1.5 and docs-hub `/platform-ai` Done checklists record ownership, lane isolation, portable maps, safe lifecycle and namespaced measured fallback contracts.
+- [x] **T6.5** ~~Platform DNA 0.1.5 and docs-hub `/platform-ai` ownership~~ — historical; superseded by toolkit-local `/platform-ai` on 2026-07-18.
 - [x] **T6.6** Lifecycle matrix: all owning packages now track managed hashes/stale assets and expose status + dry-run-by-default prune; `--yes` removes only unmodified stale assets. Shared maps/registries, product state, unmanaged files and local modifications are preserved. Covered by package lifecycle tests across Bundlekit, Hubdocs 1.0.1, Processkit 0.2.0, ArtifactGraph 2.0.0, Codegenkit 0.3.1, Testkit 0.2.0 and Platform DNA 0.1.3.
 - [x] **T6.7** Compatibility tests cover every managed package manifest: supported `toolApi`/`harnessApi` pass; version drift warns; incompatible APIs fail before writes/deletes with actionable upgrade/re-init guidance. ArtifactGraph 2.0.1 also migrates its 2.0.0 legacy manifest; Bundlekit 0.1.2 adds fail-safe status/init/prune regression coverage.
 - [x] **T6.8** Processkit 0.3.0 ships `missing-optional-event.schema.json`, run/optional dedup, exact `fileReads`/`contextBytes` measurement and a deterministic CodeGraph accelerator/fallback fixture.
@@ -525,7 +527,7 @@ the bootstrap entrypoint; it resolves the specialist CLIs (bare command on PATH 
 |------|--------|
 | Laravel API | Portable BE map; DNA 0.2.0 + Codegenkit 0.5.0 + Processkit 0.3.1; skills `api`/`grill-api`/`platform-ai`/`business-impact-review`; removed FE leftovers |
 | Portal / Next | Removed unmanaged `/platform-mark`; Testkit FE init; code-lane extract-registry only; orphan extracts deleted |
-| base-tests | Testkit 0.2.4 owns `/testcase`/`grill-testcase`; kept repo-local `/platform-ai`/`platform-base`; `check:plans` OK |
+| base-tests | Historical cleanup evidence: Testkit owns `/testcase`/`grill-testcase`; repo-local `/platform-ai` is now obsolete and should be removed on the base-tests repo pass |
 | Integration / Line | Skill sets verified unchanged and package-owned |
 
 **base-docs clone cleanup (2026-07-18, local):** package-synced `.cursor/`
@@ -536,17 +538,16 @@ package dirs. All generated harness and MCP state is ignored. A fresh clone
 intentionally has no installed skills or `.mdc` rules; run the docs profile
 before using package commands.
 
-**Kit-independence cutover (2026-07-18, local):** Hubdocs 1.0.2, Bundlekit
-0.1.3, Processkit 0.3.1, Codegenkit 0.5.0 and Testkit 0.2.4 no longer create,
-seed, or merge into `platform-repos*.json` / `legacy-repos*.json`; Platform DNA
-0.2.0 is the sole map writer and its `profiles.json` now declares
-`recommended` (convenience bundle) instead of `required` kit sets. Installed
-skills/adapters are tracked per kit in `install-manifest.json`. All five kit
-test suites plus Platform DNA pass after the cutover.
+**Toolkit-independence cutover (2026-07-18, local):** Hubdocs, Processkit,
+Codegenkit and Testkit write no repo config; Platform DNA solely writes
+repo-only `platform-repos*`, while Bundlekit solely writes repo-only
+`legacy-repos*`. Neither map carries toolkit/skill inventory. `/platform-ai`
+stays in each toolkit source and is never synced to destination repos; Platform
+DNA syncs only FE `/platform-base`. Installed skills/adapters are tracked per
+toolkit in `install-manifest.json`.
 
 **Known non-blocking follow-ups (env / pre-existing, not cutover blockers):**
 
-- Code-lane `/platform-ai` remains product-owned per repo.
 - Portal/Next `platform-repos.json` still non-portable (sibling roots) — blocks full `platform-dna init` until maps are cleaned.
 - FE `extracts:validate` / some Nuxt unit failures are product-owned debt outside this cutover.
 - Docs-hub `~/.local/bin` symlinks point at the local dev workspace; on a fresh machine run each package `install.sh` (pinned tags) instead.

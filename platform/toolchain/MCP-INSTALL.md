@@ -51,7 +51,7 @@ checklist.
 | Author test plans / generate Playwright E2E | **testkit** | tests · fe |
 | Suggest registry tags / gaps / gen allowlist | **artifactgraph** | **docs first**; fe/be/tests only if local hints needed |
 | Explore code structure / call graph | **codegraph** | any (accelerator) |
-| Seed repo identity + lane router meta | **platform-dna** | any (bootstrap) |
+| Seed repo identity + optional lane bootstrap | **platform-dna** | any repo |
 
 ## 3. Per-toolkit install (independent)
 
@@ -86,8 +86,9 @@ bundlekit init --type=docs --target=cursor --yes
 Adds: `/spec` `/update-spec` `/update-spec-legacy` `/legacy-spec`
 `/bqa-grill-docs` `/dev-grill-docs` `/grill-with-docs` + split/merge/check/
 render/legacy-validate tools. Owns the `pnpm spec:*` / `pnpm docs:render*`
-aliases. Optional accelerators: artifactgraph (tags), hubdocs (ID→path),
-codegraph (evidence) — all degrade gracefully.
+aliases and seeds repo-only `legacy-repos.json` + example (machine paths remain
+in ignored `legacy-repos.local.json`). Optional accelerators: artifactgraph
+(tags), hubdocs (ID→path), codegraph (evidence)—all degrade gracefully.
 
 ### processkit — process trace + impact review
 
@@ -158,16 +159,16 @@ codegraph init
 Adds: `codegraph_explore`. Local `.codegraph/` index, gitignored. Pure
 accelerator.
 
-### platform-dna — repo identity + lane router (bootstrap)
+### platform-dna — repo identity + profile bootstrap
 
 ```bash
 platform-dna init --type=docs --project-root=. --yes   # or fe | be | tests
 ```
 
-Seeds portable `platform-repos.json` (repo identity), lane router meta, and
-`/platform-ai`. Also the optional one-shot bootstrap for a whole lane — see
-below. Use `--with=artifactgraph` on docs when you want the accelerator in the
-bundle; do not treat that as a reason to install AG on every FE/BE checkout.
+Seeds portable, repo-only `platform-repos.json`; Nuxt/Next FE additionally gets
+`/platform-base`. It never syncs `/platform-ai`: that skill stays in each
+toolkit source for maintaining the toolkit itself. Platform DNA is also the
+optional one-shot bootstrap for a whole lane—see below.
 
 ## 4. Independence contract
 
@@ -179,6 +180,7 @@ bundle; do not treat that as a reason to install AG on every FE/BE checkout.
    `install-manifest.json`. Nothing is shared through a common map.
 4. `platform-repos.json` carries repo identity only (Platform DNA owned); it is
    **not** a skill registry and is not read to decide what to install.
+   Bundlekit's `legacy-repos.json` similarly contains legacy repos only.
 5. Cross-repo data access uses **explicit machine-local pointers**
    (`HUBDOCS_ROOT`, `CODEGENKIT_DOCS_ROOT`, …), never sibling inference.
 6. Uninstalling a toolkit removes only its owned files (`<toolkit> prune`).

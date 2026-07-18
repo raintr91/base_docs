@@ -32,8 +32,8 @@ platform-dna init --type=tests --project-root=/path/to/base-tests --yes
 > docs by default (`--with=artifactgraph`); on FE/BE only when local tag hints
 > are needed — AG does not follow the docs pointer.
 
-> Platform DNA does **not** install into MCP tooling repos. Specialist packages
-> keep their own `init` / harness.
+> Platform DNA does **not** install into toolkit source checkouts. Specialist
+> toolkits keep their own `init` / harness and toolkit-local `/platform-ai`.
 
 ## Codegenkit (FE + BE)
 
@@ -57,13 +57,13 @@ Only `--type=docs` is implemented in Bundlekit 0.1.0.
 
 ## Resolver contract
 
-- `profiles.json` is the executable recommended/optional package manifest.
-- Recommended packages are installed from canonical Git repositories into
+- `profiles.json` is the executable recommended/optional toolkit manifest.
+- Recommended toolkits are installed from canonical Git sources into
   `~/.platform-dna/packages`; `--no-install` requires preinstalled binaries.
-- `--package-root packageId=/path` supports local package development.
+- `--package-root toolkitId=/path` supports local toolkit development.
 - FE/BE adapters are explicit and target markers are checked before mutation.
-- DNA syncs only meta rules/identity map; each specialist package syncs its own
-  profile subset independently.
+- DNA syncs only repo identity plus FE `/platform-base` for Nuxt/Next; each
+  specialist toolkit syncs its own profile subset independently.
 - `--dry-run` prints all package invocations without writing or cloning.
 - Uninstall/prune and cross-version compatibility remain Phase 6 lifecycle
   verification (`T6.6`, `T6.7`), not resolver ownership gaps.

@@ -69,9 +69,10 @@ Project-local state lives in `.<package>/install-manifest.json`:
 - Update only files still matching their previous installed hash.
 - Report locally modified managed files as conflicts.
 - `--force` may replace conflicts explicitly.
-- Never write project maps (`platform-repos*.json`, `legacy-repos*.json`);
-  Platform DNA is the sole map writer, and installed skills/adapters are
-  recorded in the package's own install manifest.
+- Never write another toolkit's repo config. Platform DNA alone writes
+  `platform-repos*.json`; Bundlekit alone writes `legacy-repos*.json`.
+  Neither config contains toolkit/install inventory; installed skills/adapters
+  are recorded in each toolkit's own install manifest.
 - Never write or overwrite `*.local.json`.
 
 ### Upgrade
