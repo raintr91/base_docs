@@ -509,12 +509,19 @@ Original sequence (all package phases complete except Phase 6 verify):
 | Next FE | Local `nextjs_v3` clean; Codegenkit healthy |
 | Tests hub | `cases:check` / `cases:coverage` OK via Testkit binary |
 
+**Toolchain on PATH (2026-07-18):** all seven CLIs symlinked in `~/.local/bin`
+(`platform-dna` 0.1.6 · `codegenkit` 0.4.0 · `testkit` 0.2.4 · `bundlekit` 0.1.3 ·
+`processkit` 0.3.1 · `hubdocs` 1.0.2 · `artifactgraph` 2.0.1). `platform-dna` is
+the bootstrap entrypoint; it resolves the specialist CLIs (bare command on PATH →
+`PLATFORM_DNA_<PKG>_ROOT` → clone). Stale `hubdocs`/`artifactgraph` symlinks
+(0.1.0 / 2.0.0) were repointed to the current builds.
+
 **Known non-blocking follow-ups (env / pre-existing, not cutover blockers):**
 
-- Installer CLIs (`codegenkit` / `testkit` / `platform-dna`) not on shell PATH — invoke via package `bin/*.mjs` until installers are on PATH.
 - Portal/Next still keep product-owned `platform-base` / `platform-mark` skill text (Nuxt/Next conventions); not part of Integration/Line.
 - FE `extracts:validate` / some Nuxt unit failures are product-owned debt outside this cutover.
 - `legacy/project-config.md` on docs hub remains modified vs Bundlekit namespaced path (kept for Processkit/CodeGraph progressive reads).
+- Docs-hub `~/.local/bin` symlinks point at the local dev workspace; on a fresh machine run each package `install.sh` (pinned tags) instead.
 
 When an item is implemented, check it here and note package version / PR when
 published. Local-only completion must be labelled explicitly; it is not a
