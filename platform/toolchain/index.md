@@ -36,7 +36,8 @@ product templates and the thin command aliases in `package.json`.
 | [TESTKIT](./TESTKIT.md) | Plans render + Playwright gen MCP |
 | [PLATFORM-DNA](./PLATFORM-DNA.md) | Profile resolver + portable harness/maps bootstrap |
 | [MCP-OWNERSHIP](./MCP-OWNERSHIP.md) | Package ownership freeze |
-| [MCP-INSTALL-PROFILES](./MCP-INSTALL-PROFILES.md) | `--type` install matrix |
+| [MCP-INSTALL](./MCP-INSTALL.md) | Per-kit independent install catalog (start here) |
+| [MCP-INSTALL-PROFILES](./MCP-INSTALL-PROFILES.md) | `--type` convenience bundles |
 | [MCP-SPLIT-TODO](./MCP-SPLIT-TODO.md) | Plan + checklist for independent MCP packages |
 | [CODEGRAPH](./CODEGRAPH.md) | CodeGraph |
 

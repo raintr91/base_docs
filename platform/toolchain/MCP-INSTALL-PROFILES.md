@@ -1,7 +1,11 @@
 # MCP install profiles
 
-`--type` selects a **required package set** for the current repository. Packages
-remain independently installable; the profile only coordinates defaults.
+A profile is a **recommended capability bundle** per lane — a convenience over
+installing kits one by one. Every kit stays independently installable and works
+standalone; the profile only automates typing several `init` commands.
+
+- Per-kit independent install: [MCP-INSTALL](./MCP-INSTALL.md) (start here)
+- Kit ownership: [MCP-OWNERSHIP](./MCP-OWNERSHIP.md)
 
 **Resolver owner:** [Platform DNA](./PLATFORM-DNA.md).
 
@@ -12,12 +16,16 @@ platform-dna init --type=be --adapter=laravel --project-root=/path/to/api --yes
 platform-dna init --type=tests --project-root=/path/to/base-tests --yes
 ```
 
-| `--type` | Required | Optional accelerators | Notes |
-|----------|----------|-----------------------|-------|
-| `docs` | hubdocs · **bundlekit** · processkit | artifactgraph · codegraph | No FE/BE gen skills |
+| `--type` | Recommended kits | Optional accelerators | Notes |
+|----------|------------------|-----------------------|-------|
+| `docs` | hubdocs · bundlekit · processkit | artifactgraph · codegraph | No FE/BE gen skills |
 | `fe` | codegenkit · testkit · processkit (impact subset) | artifactgraph · codegraph · hubdocs | `--adapter=nuxt4\|nextjs` |
 | `be` | codegenkit · processkit (impact) | artifactgraph · codegraph · hubdocs | `--adapter=fastapi\|laravel\|…` |
 | `tests` | testkit | artifactgraph | cases authoring |
+
+> "Recommended kits" are capabilities a typical lane wants — not runtime
+> dependencies. Install any subset directly (see [MCP-INSTALL](./MCP-INSTALL.md));
+> each kit runs without the others.
 
 > Platform DNA does **not** install into MCP tooling repos. Specialist packages
 > keep their own `init` / harness.
@@ -44,13 +52,13 @@ Only `--type=docs` is implemented in Bundlekit 0.1.0.
 
 ## Resolver contract
 
-- `profiles.json` is the executable required/optional package manifest.
-- Missing required packages are installed from canonical Git repositories into
+- `profiles.json` is the executable recommended/optional package manifest.
+- Recommended packages are installed from canonical Git repositories into
   `~/.platform-dna/packages`; `--no-install` requires preinstalled binaries.
 - `--package-root packageId=/path` supports local package development.
 - FE/BE adapters are explicit and target markers are checked before mutation.
-- DNA syncs only meta rules/maps; each specialist package syncs its own profile
-  subset.
+- DNA syncs only meta rules/identity map; each specialist package syncs its own
+  profile subset independently.
 - `--dry-run` prints all package invocations without writing or cloning.
 - Uninstall/prune and cross-version compatibility remain Phase 6 lifecycle
   verification (`T6.6`, `T6.7`), not resolver ownership gaps.

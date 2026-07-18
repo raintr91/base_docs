@@ -69,7 +69,9 @@ Project-local state lives in `.<package>/install-manifest.json`:
 - Update only files still matching their previous installed hash.
 - Report locally modified managed files as conflicts.
 - `--force` may replace conflicts explicitly.
-- Merge only package-owned skill IDs into portable project maps.
+- Never write project maps (`platform-repos*.json`, `legacy-repos*.json`);
+  Platform DNA is the sole map writer, and installed skills/adapters are
+  recorded in the package's own install manifest.
 - Never write or overwrite `*.local.json`.
 
 ### Upgrade
@@ -83,7 +85,8 @@ Project-local state lives in `.<package>/install-manifest.json`:
 
 - Delete only stale files whose current hash equals the old installed hash.
 - Never delete modified files.
-- Remove only this package's skill IDs/config entries.
+- Remove only this package's managed files/config entries; project maps are
+  never prune targets.
 - `--dry-run` is mandatory and default; deletion requires `--yes`.
 
 ### Uninstall

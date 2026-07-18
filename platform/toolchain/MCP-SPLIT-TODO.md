@@ -60,8 +60,8 @@ preservation; idempotent fresh docs init passes. Initial `main` published to
 
 `--type` là **profile resolver**, không phải ánh xạ một-một package ↔ lane. Một package có thể hợp lệ ở nhiều base type; resolver chỉ cài/sync tập package và asset đúng repo đang mở.
 
-| `init --type` | Required package set | Optional accelerators | Skills/lane |
-|---------------|----------------------|-----------------------|-------------|
+| `init --type` | Recommended kit set | Optional accelerators | Skills/lane |
+|---------------|---------------------|-----------------------|-------------|
 | `docs` | Hubdocs · Bundlekit · Processkit | ArtifactGraph · CodeGraph | Docs hub |
 | `fe` | Codegenkit · Testkit · Processkit | ArtifactGraph · CodeGraph · Hubdocs | FE code |
 | `be` | Codegenkit · Processkit | ArtifactGraph · CodeGraph · Hubdocs | BE code |
@@ -72,7 +72,7 @@ preservation; idempotent fresh docs init passes. Initial `main` published to
 Rules:
 
 1. Resolver phát hiện/nhận explicit `--type`; không suy diễn từ sibling checkout.
-2. Mỗi package vẫn hỗ trợ init độc lập. Profile resolver chỉ điều phối required set, không tạo runtime dependency giữa các MCP.
+2. Mỗi package vẫn hỗ trợ init độc lập. Profile resolver chỉ điều phối recommended set, không tạo runtime dependency giữa các MCP.
 3. `init --type=docs` không sync FE/BE/tests skills; `fe`/`be` không sync docs authoring family trừ skill shared được profile khai báo rõ.
 4. Processkit là multi-lane: docs nhận `/business-process-trace` (+ deprecated `/flow-trace` redirect); FE/BE có thể nhận `/business-impact-review`; không bắt buộc sync cả hai skill vào mọi profile.
 5. Testkit phải tách asset theo `tests` (`cases:render`, testcase authoring) và `fe` (E2E consumption/gen); không sync nguyên gói skill cho cả hai.
@@ -126,9 +126,9 @@ Cùng pattern skill/script: **SSOT template trong MCP**, `init` sync ra repo. Kh
 
 | File | Role | Owner (package) | Sync on `init` | Commit? |
 |------|------|-----------------|----------------|---------|
-| `platform-repos.example.json` | Portable generated baseline (docs / FE / BE profile) | **Platform DNA** | Seed if missing; `--force` overwrite template only | **No** (generated/ignored) |
-| `platform-repos.json` | Local live map = **current repo only** | Platform DNA seeds; each initialized MCP merges its owned skill IDs | Create if missing; never invent sibling `../` roots | **No** (generated/ignored) |
-| `legacy-repos.example.json` | Empty generated shape for optional legacy evidence | **Platform DNA** / Processkit | Seed if missing | **No** (generated/ignored) |
+| `platform-repos.example.json` | Portable generated baseline (docs / FE / BE profile) | **Platform DNA** (sole writer) | Seed if missing; `--force` overwrite template only | **No** (generated/ignored) |
+| `platform-repos.json` | Local live map = **current repo only** (identity, not a skill registry) | **Platform DNA** (sole writer) | Create if missing; never invent sibling `../` roots | **No** (generated/ignored) |
+| `legacy-repos.example.json` | Empty generated shape for optional legacy evidence | **Platform DNA** (sole writer) | Seed if missing (docs profile) | **No** (generated/ignored) |
 | `legacy-repos.json` | Local empty / greenfield default | Same | Seed empty if missing | **No** (generated/ignored) |
 | `legacy-repos.local.json` | Machine checkout roots | Member only | **Never** sync absolute paths from package | **No** (gitignore) |
 | `platform-repos.local.json` | Machine override if ever needed | Member only | Never from package | **No** (gitignore) |
@@ -136,17 +136,17 @@ Cùng pattern skill/script: **SSOT template trong MCP**, `init` sync ra repo. Kh
 ### Rules
 
 1. Generated `platform-repos.json` **chỉ** mô tả repo đang mở (`root: "."`). Không `../portal`, `~/workspace`, `/home/...`, ổ đĩa.
-2. `harness.profiles.<lane>.skills` là **union** các skill do MCP đã init trên repo đó (mỗi package append owned skills; không một file hardcode cả FE gen trong docs hub).
+2. Specialist kits (Hubdocs, Bundlekit, Processkit, Codegenkit, Testkit) **không ghi map**. Installed skills/adapters nằm trong `install-manifest.json` của từng kit; map chỉ giữ repo identity do Platform DNA seed.
 3. Legacy evidence path: user điền `legacy-repos.local.json`; skill `/legacy-spec` / `/business-process-trace` / `/business-impact-review` đọc local trước, example sau; **không đoán** sibling.
-4. ArtifactGraph / Hubdocs / Processkit `init` **không** ghi đè `*.local.json`.
-5. Khi nâng cấp package: cập nhật example/schema; merge skill ids; giữ `projects.base-docs` / product roots trừ `--force`.
+4. Không package nào ghi đè `*.local.json`.
+5. Khi nâng cấp Platform DNA: cập nhật example/schema; giữ `projects.*` / product roots trừ `--force`.
 
 ### Init checklist (add to Phase 0 / 1 / 1B)
 
 - [x] **TC.1** Platform DNA publishes JSON Schemas + package docs for `platform-repos` and `legacy-repos`.
-- [x] **TC.2** Platform DNA docs bootstrap seeds portable `platform-repos.json` + example before specialist package merges.
-- [x] **TC.3** Platform DNA/Processkit seed legacy example + empty map; `.local.json` paths are documented and gitignored.
-- [x] **TC.4** End-to-end profile fixtures prove each MCP merges only owned skill IDs.
+- [x] **TC.2** Platform DNA docs bootstrap seeds portable `platform-repos.json` + example; it is the sole map writer.
+- [x] **TC.3** Platform DNA seeds legacy example + empty map; `.local.json` paths are documented and gitignored.
+- [x] **TC.4** Kit-independence cutover (2026-07-18): Hubdocs/Bundlekit/Processkit/Codegenkit/Testkit no longer seed or merge into any project map; fixtures assert init leaves no `platform-repos.json` behind.
 - [x] **TC.5** Platform DNA rejects sibling/home/drive/UNC paths in generated portable maps; local override files are excluded.
 - [x] **TC.6** [PROJECT-MAPS](./PROJECT-MAPS.md) points to Platform DNA schemas/templates and executable validation/init.
 
@@ -310,7 +310,7 @@ Optional accelerators:
 - [x] **T1.4a** Bundlekit does **not** own business-process tracing or code-impact review; those belong to processkit.
 - [x] **T1.5** Rewrite those skills: Bundlekit tools **required after bundlekit init**; Hubdocs/AG/CodeGraph **optional**.
 - [x] **T1.6** `bundlekit init --type=docs`: wire Cursor MCP + sync harness.
-- [x] **T1.6b** Merge Bundlekit-owned skill ids into `platform-repos.json` harness profile; do not rewrite project roots.
+- [x] **T1.6b** ~~Merge Bundlekit-owned skill ids into `platform-repos.json`~~ — superseded 2026-07-18: kits never write maps; installed skills live in the kit's install manifest.
 - [x] **T1.7** Machine-local MCP config via init; handbook states gitignore (no `/home/...` committed in package sources).
 - [x] **T1.8** Handbook: [BUNDLEKIT](./BUNDLEKIT.md) + toolchain index / commands pointers.
 
@@ -324,7 +324,7 @@ Optional accelerators:
 - [x] Complete **TP.1–TP.6** in the decision section above.
 - [x] Rename to `/business-process-trace`; keep `/flow-trace` redirect; document that `/dynamics` → `/journey` only and is not a Processkit alias.
 - [x] Port the existing shared impact-review vertical/horizontal/risk checklist into package SSOT.
-- [x] **TC.3–TC.4** for processkit: seed legacy-repos example/empty + merge processkit skill ids; never touch `*.local.json`.
+- [x] **TC.3–TC.4** for processkit: ~~seed legacy-repos example/empty + merge processkit skill ids~~ — superseded 2026-07-18: Processkit writes no maps; Platform DNA seeds legacy maps for docs profiles.
 
 **Exit:** processkit alone can sync both skills and run model/search fallback; optional MCPs only accelerate.
 
@@ -535,6 +535,14 @@ wiring (`.claude/`, `.kiro/`, `opencode.jsonc`, `artifactgraph.json`) and empty
 package dirs. All generated harness and MCP state is ignored. A fresh clone
 intentionally has no installed skills or `.mdc` rules; run the docs profile
 before using package commands.
+
+**Kit-independence cutover (2026-07-18, local):** Hubdocs 1.0.2, Bundlekit
+0.1.3, Processkit 0.3.1, Codegenkit 0.5.0 and Testkit 0.2.4 no longer create,
+seed, or merge into `platform-repos*.json` / `legacy-repos*.json`; Platform DNA
+0.2.0 is the sole map writer and its `profiles.json` now declares
+`recommended` (convenience bundle) instead of `required` kit sets. Installed
+skills/adapters are tracked per kit in `install-manifest.json`. All five kit
+test suites plus Platform DNA pass after the cutover.
 
 **Known non-blocking follow-ups (env / pre-existing, not cutover blockers):**
 
