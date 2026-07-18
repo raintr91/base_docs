@@ -112,4 +112,4 @@ Xem [FEATURE-ARTIFACT-COMMANDS](./FEATURE-ARTIFACT-COMMANDS.md).
 
 Grill step 0 (nhẹ): CMP gắn `CTR-*` nào? Missing → Phase 0 `/containers` · `/component`, không bịa hierarchy trong bqa.
 
-Sau `portal:gen:dry` pass → [PORTAL-CODEGEN](./PORTAL-CODEGEN.md) · [NEEDS-COMPONENT-FLOW](./NEEDS-COMPONENT-FLOW.md) (`#needs-component` trong `/prototype`).
+Sau `portal:gen:dry` pass → [Portal reference](https://github.com/raintr91/nuxt_4/blob/nuxt_v_3/docs/operational/PORTAL-CODEGEN.md) · [NEEDS-COMPONENT-FLOW](./NEEDS-COMPONENT-FLOW.md) (`#needs-component` trong `/prototype`).

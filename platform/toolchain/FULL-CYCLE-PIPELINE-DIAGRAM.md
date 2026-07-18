@@ -106,7 +106,7 @@ Detail Design (node trong gam emerald): [DESIGN-PHASE-DIAGRAM](./DESIGN-PHASE-DI
 |-------|----------|--------|
 | **0** Architecture | Boundary group/module+ · CTX/CTR · curated `FLOW-*` | Skills `/architecture` … `/journey` · [HUBDOCS](./HUBDOCS) |
 | 1 Design | bundle yaml → ir/spec → prototype | [DESIGN-PHASE-DIAGRAM](./DESIGN-PHASE-DIAGRAM) · [FEATURE-ARTIFACT-FLOWS](./FEATURE-ARTIFACT-FLOWS) |
-| 2a Scaffold | `portal:gen` · `portal:unit-gen` · HANDOFF / manifests | [PORTAL-CODEGEN](./PORTAL-CODEGEN) |
+| 2a Scaffold | `portal:gen` · `portal:unit-gen` · HANDOFF / manifests | [Portal reference](https://github.com/raintr91/nuxt_4/blob/nuxt_v_3/docs/operational/PORTAL-CODEGEN.md) |
 | 2b Tests | `*.test.yaml` · `testcase:gen` · grill-test | [TEST-PHASE-DIAGRAM](./TEST-PHASE-DIAGRAM) |
 | 2c API | api-spec · grill-api · api-code | [BACKEND-PHASE-DIAGRAM](./BACKEND-PHASE-DIAGRAM) |
 | 3 Wire | wire · grill-wire | [WIRE-PHASE-DIAGRAM](./WIRE-PHASE-DIAGRAM) |
@@ -134,8 +134,8 @@ Detail Design (node trong gam emerald): [DESIGN-PHASE-DIAGRAM](./DESIGN-PHASE-DI
 |-----|----------|
 | [TEST-PHASE-DIAGRAM](./TEST-PHASE-DIAGRAM.md) | E2E lane · testcase:gen · grill-test |
 | [UNIT-PHASE-DIAGRAM](./UNIT-PHASE-DIAGRAM.md) | Vitest lane · portal:unit-gen |
-| [PORTAL-CODEGEN](./PORTAL-CODEGEN.md) | portal:gen + portal:unit-gen |
-| [PORTAL-UNIT-GEN-ROADMAP](./PORTAL-UNIT-GEN-ROADMAP.md) | Roadmap smoke / registry / PRs |
+| [Portal reference](https://github.com/raintr91/nuxt_4/blob/nuxt_v_3/docs/operational/PORTAL-CODEGEN.md) | portal:gen + portal:unit-gen |
+| [Portal unit-gen roadmap](https://github.com/raintr91/nuxt_4/blob/nuxt_v_3/docs/operational/PORTAL-UNIT-GEN-ROADMAP.md) | Roadmap smoke / registry / PRs |
 | [DESIGN-PHASE-DIAGRAM](./DESIGN-PHASE-DIAGRAM.md) | Spec → grill → prototype (+ Architecture gate) |
 | [BACKEND-PHASE-DIAGRAM](./BACKEND-PHASE-DIAGRAM.md) | API repo |
 | [WIRE-PHASE-DIAGRAM](./WIRE-PHASE-DIAGRAM.md) | Integration |

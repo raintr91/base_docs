@@ -566,4 +566,4 @@ Session mới: *"Đọc .harness/progress.md, tiếp tục /wire create cho admi
 | Scaffold | `pnpm portal:gen --spec ...` trước `/prototype`; agent chỉ HANDOFF + diff |
 | Registry | Sau prototype: promote reusable UI → `registries/design.registry.json` — [DESIGN-REGISTRY-PROMOTION.md](./DESIGN-REGISTRY-PROMOTION.md) |
 
-Chi tiết codegen: [`PORTAL-CODEGEN.md`](./PORTAL-CODEGEN.md) · `.cursor/extracts/codegen/tags.md` · token budget: `.cursor/extracts/artifact-graph.md`.
+Chi tiết codegen: [Portal reference](https://github.com/raintr91/nuxt_4/blob/nuxt_v_3/docs/operational/PORTAL-CODEGEN.md) · `.cursor/extracts/codegen/tags.md` · token budget: `.cursor/extracts/artifact-graph.md`.

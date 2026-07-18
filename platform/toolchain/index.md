@@ -45,7 +45,9 @@ Per-toolkit deep docs live in each toolkit's own git repo (base-docs chỉ giữ
 
 | Doc | Base |
 |-----|------|
-| [FAST-API-*](./FAST-API-QUICKSTART.md) · [FAST-CODEGEN](./FAST-CODEGEN.md) | `fast-api-base` |
+| [Portal codegen git](https://github.com/raintr91/nuxt_4/blob/nuxt_v_3/docs/operational/PORTAL-CODEGEN.md) · [Portal unit-gen roadmap](https://github.com/raintr91/nuxt_4/blob/nuxt_v_3/docs/operational/PORTAL-UNIT-GEN-ROADMAP.md) | `portal` reference; duplicated to `nextjs`, `next_nest`, `nuxt_nest` |
+| [FastAPI quickstart git](https://github.com/raintr91/fast-api/blob/v3/docs/operational/FAST-API-QUICKSTART.md) · [FastAPI codegen git](https://github.com/raintr91/fast-api/blob/v3/docs/operational/FAST-CODEGEN.md) | `fast-api-base` |
+| [Laravel API quickstart git](https://github.com/raintr91/lara12/blob/v3/docs/operational/BACKEND-API-QUICKSTART.md) · [Laravel API spec guide](https://github.com/raintr91/lara12/blob/v3/docs/operational/BACKEND_API_SPEC_GUIDE.md) | `api` reference |
 | [NEST-API-STRUCTURE](./NEST-API-STRUCTURE.md) · [BACKEND-CODEGEN](./BACKEND-CODEGEN.md) | `nuxt_nest` / `next_nest` BE |
 | [REPO-SPLIT-MAP](./REPO-SPLIT-MAP.md) · [CONTRACT-PORTAL-FAST](./CONTRACT-PORTAL-FAST.md) | cross-stack |
 

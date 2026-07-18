@@ -41,7 +41,7 @@ pnpm --filter @portal/api test   — [NEST-UNIT-PHASE-DIAGRAM](./NEST-UNIT-PHASE
 /wire  — [WIRE-PHASE-DIAGRAM](./WIRE-PHASE-DIAGRAM.md)
 ```
 
-**Prerequisite:** `portal:gen` **không** sinh models — luôn `contract:gen` trước ([PORTAL-CODEGEN](./PORTAL-CODEGEN.md)).
+**Prerequisite:** `portal:gen` **không** sinh models — luôn `contract:gen` trước ([Portal reference](https://github.com/raintr91/nuxt_4/blob/nuxt_v_3/docs/operational/PORTAL-CODEGEN.md)).
 
 ---
 
@@ -101,7 +101,7 @@ server/src/modules/{module}/    # nest:gen
 server/prisma/models/           # prisma fragment (optional)
 ```
 
-Layout: [FEATURE-ARTIFACT-LAYOUT](./FEATURE-ARTIFACT-LAYOUT.md) · Quickstart: [BACKEND-API-QUICKSTART](./BACKEND-API-QUICKSTART.md)
+Layout: [FEATURE-ARTIFACT-LAYOUT](./FEATURE-ARTIFACT-LAYOUT.md) · Laravel API git: [quickstart](https://github.com/raintr91/lara12/blob/v3/docs/operational/BACKEND-API-QUICKSTART.md)
 
 ---
 
@@ -113,4 +113,4 @@ Layout: [FEATURE-ARTIFACT-LAYOUT](./FEATURE-ARTIFACT-LAYOUT.md) · Quickstart: [
 | [CONTRACT-FIELD-REGISTRY](./CONTRACT-FIELD-REGISTRY.md) | `entities.fields` SSOT |
 | [NEST-API-STRUCTURE](./NEST-API-STRUCTURE.md) | CQRS + common layer |
 | [NEST-UNIT-PHASE-DIAGRAM](./NEST-UNIT-PHASE-DIAGRAM.md) | Jest lane chi tiết |
-| [PORTAL-CODEGEN](./PORTAL-CODEGEN.md) | FE scaffold (song song) |
+| [Portal reference](https://github.com/raintr91/nuxt_4/blob/nuxt_v_3/docs/operational/PORTAL-CODEGEN.md) | FE scaffold (song song) |

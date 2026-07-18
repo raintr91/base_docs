@@ -70,7 +70,7 @@ flowchart TD
   NG --> MAN
 ```
 
-Cấu trúc module CQRS: [NEST-API-STRUCTURE](./NEST-API-STRUCTURE.md) · Dev local: [BACKEND-API-QUICKSTART](./BACKEND-API-QUICKSTART.md).
+Cấu trúc module CQRS: [NEST-API-STRUCTURE](./NEST-API-STRUCTURE.md) · Laravel API git: [quickstart](https://github.com/raintr91/lara12/blob/v3/docs/operational/BACKEND-API-QUICKSTART.md).
 
 ---
 
@@ -119,7 +119,7 @@ Pilot: ``base-docs` Product Code (prefer `--id`)`
 | [CONTRACT-FIELD-REGISTRY](./CONTRACT-FIELD-REGISTRY.md) | Field registry |
 | [NEST-API-STRUCTURE](./NEST-API-STRUCTURE.md) | Common layer |
 | [WIRE-PHASE-DIAGRAM](./WIRE-PHASE-DIAGRAM.md) | Sau `/api-code` |
-| [PORTAL-CODEGEN](./PORTAL-CODEGEN.md) | `portal:gen` (FE, không models) |
+| [Portal reference](https://github.com/raintr91/nuxt_4/blob/nuxt_v_3/docs/operational/PORTAL-CODEGEN.md) | `portal:gen` (FE, không models) |
 | [UNIT-PHASE-DIAGRAM](./UNIT-PHASE-DIAGRAM.md) | Vitest portal (song song) |
 | [TEST-PHASE-DIAGRAM](./TEST-PHASE-DIAGRAM.md) | E2E (song song) |
 
