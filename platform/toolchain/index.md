@@ -2,24 +2,21 @@
 
 Handbook + how-to for Code IR (split/render/validate). **SSOT: this hub** (`base-docs`).
 
-## Scripts (this repo)
+## Bundle IR commands
 
-Local fallback (still in-repo). Prefer **Bundlekit** after `bundlekit init --type=docs`:
+Run the docs install profile first. These `pnpm` commands are aliases to the
+installed **Bundlekit** CLI:
 
 ```bash
 pnpm spec:split -- product/components/…/code/W-*/….bundle.yaml
 pnpm docs:render -- --yaml-root product/components --md-root product/components   # adjust flags as needed
 pnpm docs:render:common
 pnpm legacy-dynamics:validate -- product/legacy-dynamics/…/_legacy.dynamics.yaml
-# or: bundlekit split|render|legacy-validate …
+# direct CLI: bundlekit split|render|legacy-validate …
 ```
 
-| Script | Path |
-|--------|------|
-| spec split/merge/normalize | `scripts/spec/` (fallback) · Bundlekit `engines/spec/` (SSOT package) |
-| docs render | `scripts/docs/` (fallback) · Bundlekit `engines/docs/` |
-| legacy-dynamics validate | `scripts/spec/legacy-dynamics-validate.mjs` |
-| Templates | `templates/` |
+Engines and generated skills are owned by Bundlekit; this repository keeps only
+product templates and the thin command aliases in `package.json`.
 
 ## Handbook (this folder)
 

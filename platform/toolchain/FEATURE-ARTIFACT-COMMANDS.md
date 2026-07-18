@@ -2,7 +2,7 @@
 
 > **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
 >
-> **Bundle IR MCP:** after `bundlekit init --type=docs`, prefer [BUNDLEKIT](./BUNDLEKIT.md) tools/CLI (`bundlekit split|render|legacy-validate`). `pnpm spec:*` / `pnpm docs:render*` below remain local fallbacks.
+> **Bundle IR MCP:** after `bundlekit init --type=docs`, use [BUNDLEKIT](./BUNDLEKIT.md) tools/CLI (`bundlekit split|render|legacy-validate`). `pnpm spec:*` / `pnpm docs:render*` below are thin aliases, not vendored fallback engines.
 
 
 > Bảng tra cứu · Diagram: [FEATURE-ARTIFACT-FLOWS](./FEATURE-ARTIFACT-FLOWS.md)  
@@ -15,7 +15,6 @@
 
 | Lệnh | Input | Output / hiệu ứng |
 |------|--------|-------------------|
-| Archived converter (unsupported) | Obsolete `docs/features` migration only | `scripts/legacy/convert-spec-to-bundle.mjs`; do not run on current tree |
 | `pnpm spec:normalize-gen -- <bundle> --write` · `bundlekit normalize` | Bundle trộn spec+gen | Tách `spec` design v1 ↔ `gen` |
 | `pnpm spec:split -- <bundle.yaml>` · `bundlekit split` / `bundle_split` | Bundle SSOT | `ir/spec.yaml`, `ir/legacy.yaml`, `ir/design.yaml` |
 | `pnpm spec:merge -- <bundle.yaml>` · `bundlekit merge` | `ir/*` đã sửa tay | Cập nhật bundle (đặc biệt `gen`) |

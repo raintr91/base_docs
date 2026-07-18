@@ -43,11 +43,11 @@ paths.
 `bundle_normalize` · `docs_render` · `docs_render_common` ·
 `legacy_dynamics_validate`
 
-## Transition in this repo
+## Destination policy
 
-Until members install Bundlekit, `package.json` scripts under `scripts/spec` and
-`scripts/docs` remain as local fallback. After `bundlekit init`, prefer MCP/CLI
-tools; engines in the package are SSOT.
+This repository does not vendor Bundlekit engines. Its `pnpm spec:*`,
+`pnpm docs:render*`, and `pnpm legacy-dynamics:validate` commands are thin
+aliases to the installed `bundlekit` CLI. Run the docs install profile first.
 
 ## Docs
 

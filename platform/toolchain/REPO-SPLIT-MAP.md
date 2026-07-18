@@ -56,7 +56,7 @@ Các repo runtime được checkout độc lập; docs hub không resolve chúng
   md/                        # pnpm docs:render
 ```
 
-Line + integration: **cùng bundle schema** với portal (`scripts/spec/lib/bundle-ir.mjs`).
+Line + integration use the same bundle schema owned by Bundlekit.
 
 ---
 

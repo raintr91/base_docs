@@ -304,7 +304,7 @@ Optional accelerators:
 ## Phase 1 — `bundlekit` (docs hub, first implementation)
 
 - [x] **T1.1** Create package repo/scaffold (`bundlekit`) mirroring hubdocs/AG install+init UX — local package sibling `bundlekit` (publish GitHub later).
-- [x] **T1.2** Move engines from base-docs: copied into package `engines/` (`scripts/spec/*`, `scripts/docs/render*`, `legacy-dynamics-validate`). Hub keeps local fallback scripts until cutover.
+- [x] **T1.2** Move engines from base-docs into Bundlekit `engines/` (`spec/*`, `docs/render*`, `legacy-dynamics-validate`); destination copies removed after cutover.
 - [x] **T1.3** MCP tools: `bundle_split` · `bundle_merge` · `bundle_check` · `bundle_normalize` · `bundle_split_all` · `docs_render` · `docs_render_common` · `legacy_dynamics_validate`.
 - [x] **T1.4** Package owns + syncs skills: `/spec` `/update-spec*` `/legacy-spec` + all docs grill (`/bqa-grill-docs` `/dev-grill-docs` `/grill-with-docs`) + related extracts/rules.
 - [x] **T1.4a** Bundlekit does **not** own business-process tracing or code-impact review; those belong to processkit.
@@ -414,14 +414,14 @@ to <https://github.com/raintr91/Testkit>; hardening debt tracked as `TKT.*`.
 Captured from independence audit after Phase 1 scaffold. Track here; do not treat Phase 1 as fully closed until these are cleared or explicitly deferred.
 
 - [x] **TB.1** Remove corrupted `base-docs Code / --id` placeholders from Bundlekit-owned `/update-spec` + `spec/split` + `common-ui-spec`.
-- [x] **TB.2** `split-all` default root: `docs/features/yaml` → `product` (package + docs-hub fallback scripts).
+- [x] **TB.2** Bundlekit `split-all` default root: `docs/features/yaml` → `product`.
 - [x] **TB.3** Design-render testcase footer: no sibling `base-tests/` path; point to GitHub tests hub URL.
 - [x] **TB.4** Drop `convert-spec-to-bundle` from Bundlekit package (legacy `docs/features` coupled; not in initial portable surface).
 - [x] **TB.5** Remove hard reference to non-existent `artifactgraph_projects` from Bundlekit `legacy/project-config`.
 - [x] **TB.6** Bundlekit copies classify `portal:gen` / testcase generation as FE/tests lifecycle handoffs; docs skills never execute them.
 - [x] **TB.7** Bundlekit does not sync `team-flow-spec.mdc` / `team-flow-grill.mdc` wholesale; both remain out of package until TG.2/TG.4 resolves final ownership.
-- [x] **TB.8** Obsolete converter quarantined at `scripts/legacy/convert-spec-to-bundle.mjs` and documented unsupported.
-- [x] **TB.9** `yaml` promoted to docs-hub runtime dependency while fallback scripts remain.
+- [x] **TB.8** Obsolete converter removed from the destination repository.
+- [x] **TB.9** Bundlekit owns the `yaml` runtime dependency; docs hub aliases invoke the installed CLI.
 - [x] **TB.10** Engine/install tests added: split/check/merge, legacy validate, managed-file conflict and extract-registry merge (7 tests total).
 - [x] **TB.11** Publish `raintr91/Bundlekit` + install.sh from GitHub (`main` initial release).
 - [x] **TB.12** Bundlekit init merges only owned bundle IDs into shared `extract-registry.json`; non-Bundlekit bundles are preserved and tested.
