@@ -10,10 +10,15 @@ legacy-repos.local.json
 # A fresh clone intentionally has no synced skills, rules, extracts, schemas,
 # local MCP wiring, or package install manifests.
 /.cursor/
+/.agents/
 .mcp.json
-.kilocode/mcp.json
+.kilocode/
 .gemini/settings.json
 .claude.json
+/.claude/
+/.kiro/
+/opencode.jsonc
+/artifactgraph.json
 
 # Package install-state (machine-local; recreated by init/status).
 /.artifactgraph/

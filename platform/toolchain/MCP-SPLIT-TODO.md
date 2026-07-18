@@ -530,9 +530,11 @@ the bootstrap entrypoint; it resolves the specialist CLIs (bare command on PATH 
 
 **base-docs clone cleanup (2026-07-18, local):** package-synced `.cursor/`
 skills/rules/extracts/schemas, install manifests, ArtifactGraph runtime data and
-Bundlekit-synced templates were removed from Git. All generated harness and MCP
-state is ignored. A fresh clone intentionally has no installed skills; run the
-docs profile before using package commands.
+Bundlekit-synced templates were removed from Git. Also removed tracked local MCP
+wiring (`.claude/`, `.kiro/`, `opencode.jsonc`, `artifactgraph.json`) and empty
+package dirs. All generated harness and MCP state is ignored. A fresh clone
+intentionally has no installed skills or `.mdc` rules; run the docs profile
+before using package commands.
 
 **Known non-blocking follow-ups (env / pre-existing, not cutover blockers):**
 
