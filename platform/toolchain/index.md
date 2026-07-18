@@ -31,9 +31,9 @@ product templates and the thin command aliases in `package.json`.
 | [ARTIFACTGRAPH](./ARTIFACTGRAPH.md) | MCP / graph |
 | [HUBDOCS](./HUBDOCS.md) | Docs ID index MCP |
 | [BUNDLEKIT](./BUNDLEKIT.md) | Bundle IR MCP (Phase 1) |
-| [PROCESSKIT](./PROCESSKIT.md) | Business process trace + impact review MCP |
+| [Processkit (git)](https://github.com/raintr91/Processkit) | Business process trace + impact review MCP |
 | [CODEGENKIT](./CODEGENKIT.md) | FE portal/unit codegen MCP |
-| [TESTKIT](./TESTKIT.md) | Plans render + Playwright gen MCP |
+| [Testkit (git)](https://github.com/raintr91/Testkit) | Plans render + Playwright gen MCP |
 | [PLATFORM-DNA](./PLATFORM-DNA.md) | Profile resolver + portable harness/maps bootstrap |
 | [Toolkits (MCP)](/platform/guide/toolkits) | **Gộp** install · profiles · ownership · package contract · status |
 | [CODEGRAPH](./CODEGRAPH.md) | CodeGraph |
