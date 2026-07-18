@@ -83,6 +83,8 @@ Mỗi block tự đủ. Chạy tại thư mục gốc repo đích. `Node ≥ 22`
 
 ### hubdocs — index architecture/C4 ID
 
+<img class="toolkit-illus" src="./assets/toolkit-hubdocs.png" alt="Hubdocs index arc42 + C4, resolve ID → path" />
+
 ```bash
 # Trên repo docs (home khuyến nghị):
 curl -fsSL https://raw.githubusercontent.com/raintr91/hubdocs/main/install.sh | bash
@@ -98,6 +100,8 @@ MCP env `HUBDOCS_ROOT` (hoặc per-tool `docsRoot`) trỏ tới docs hub; không
 
 ### bundlekit — bundle IR + docs grill + legacy
 
+<img class="toolkit-illus" src="./assets/toolkit-bundlekit.png" alt="Bundlekit split/merge/render bundle IR" />
+
 ```bash
 curl -fsSL https://raw.githubusercontent.com/raintr91/bundlekit/main/install.sh | bash
 bundlekit init --type=docs --target=cursor --yes
@@ -107,6 +111,8 @@ Sở hữu alias `pnpm spec:*` / `pnpm docs:render*` và seed repo-only `legacy-
 
 ### processkit — process trace + impact review
 
+<img class="toolkit-illus" src="./assets/toolkit-processkit.png" alt="Processkit trace business process + review impact" />
+
 ```bash
 processkit init --type=docs --target=cursor --yes   # hoặc --type=fe | --type=be
 ```
@@ -114,6 +120,8 @@ processkit init --type=docs --target=cursor --yes   # hoặc --type=fe | --type=
 Accelerator optional: codegraph, hubdocs, artifactgraph.
 
 ### codegenkit — sinh code FE/BE
+
+<img class="toolkit-illus" src="./assets/toolkit-codegenkit.png" alt="Codegenkit sinh code FE/BE từ IR" />
 
 ```bash
 # FE luôn cần pointer docs machine-local:
@@ -125,6 +133,8 @@ Adapter: FE `nuxt4` `nextjs` `dotnet-line`; BE `fastapi` `laravel` `dotnet-integ
 
 ### testkit — plan + sinh Playwright
 
+<img class="toolkit-illus" src="./assets/toolkit-testkit.png" alt="Testkit author test plan + sinh Playwright E2E" />
+
 ```bash
 testkit init --type=tests --yes
 testkit init --type=fe --tests-root=/path/to/tests-hub --docs-root=/path/to/docs-hub --yes
@@ -133,6 +143,8 @@ testkit init --type=fe --tests-root=/path/to/tests-hub --docs-root=/path/to/docs
 Accelerator optional: artifactgraph — trên **tests hub** dùng `--type=common,test` (testcase taxonomy + coverage hint trên plan của chính repo đó); nó không đi theo `TESTKIT_DOCS_ROOT` / `TESTKIT_TESTS_ROOT` — evidence cross-repo đi qua pointer Testkit.
 
 ### artifactgraph — tag / gap registry (accelerator)
+
+<img class="toolkit-illus" src="./assets/toolkit-artifactgraph.png" alt="ArtifactGraph gợi ý tag / gap / parity" />
 
 **Ưu tiên repo docs** — nơi có registry và parity đầy đủ.
 
@@ -152,6 +164,8 @@ Accelerator thuần: không toolkit nào bắt buộc nó. Trên repo non-docs, 
 
 ### codegraph — code intelligence (accelerator)
 
+<img class="toolkit-illus" src="./assets/toolkit-codegraph.png" alt="CodeGraph explore cấu trúc code / call graph" />
+
 ```bash
 curl -fsSL https://raw.githubusercontent.com/colbymchenry/codegraph/main/install.sh | sh
 codegraph init
@@ -160,6 +174,8 @@ codegraph init
 Index local `.codegraph/`, gitignore. Accelerator thuần.
 
 ### platform-dna — repo identity + bootstrap
+
+<img class="toolkit-illus" src="./assets/toolkit-platform-dna.png" alt="Platform DNA seed repo identity + bootstrap lane" />
 
 ```bash
 platform-dna init --type=docs --project-root=. --yes   # hoặc fe | be | tests
