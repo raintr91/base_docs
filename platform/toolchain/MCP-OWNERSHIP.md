@@ -10,11 +10,13 @@
 | **hubdocs** | architecture family + `/hubdocs` + `/dynamics`→`/journey` redirect | docs ID/graph tools | `docs` |
 | **bundlekit** | `/spec` `/update-spec` `/update-spec-legacy` `/legacy-spec` **all docs grill:** `/bqa-grill-docs` `/dev-grill-docs` `/grill-with-docs` | split/merge/check/render/legacy-validate + grill orchestration | `docs` |
 | **processkit** | `/business-process-trace` `/business-impact-review` (`/flow-trace` deprecated alias) | process validate / impact report schema | `docs`, `fe`, `be` (subset) |
-| **artifactgraph** | `/platform-mark` `/artifactgraph` | analyze/grill/parity/gaps/tags + command recommendation/allowlist check | `docs`, `fe`, `be`, `test` |
+| **artifactgraph** | `/docs-mark` `/artifactgraph` (`/platform-mark` deprecated alias one cycle) | analyze/grill/parity/gaps/tags + command recommendation/allowlist check | `docs`, `fe`, `be`, `test` |
 | **codegenkit** | FE: `/prototype` `/wire` `/unit` `/grill-prototype` `/grill-unit` · BE: `/api` (+ grill-api) | FE portal/unit gen · BE api gen · registry validate | `fe`, `be` (adapter-selected) |
 | **testkit** | `/testcase` `/grill-testcase` `/test` `/grill-test` | cases:render · testcase:gen* | `tests`, `fe` |
 | **codegraph** | *(no skill sync)* | explore/call graph | any (accelerator) |
-| **platform-dna** | `/platform-ai` (docs), lane router rules, portability invariant | executable profile resolver + portable map bootstrap | `docs`, `fe`, `be`, `tests` (never MCP tooling repos) |
+| **platform-dna** | `/platform-ai` (docs only) · FE `/platform-base` (`nuxt4`/`nextjs` adapters) · lane router rules | executable profile resolver + portable map bootstrap | `docs`, `fe`, `be`, `tests` (never MCP tooling repos) |
+
+Product-owned (not MCP-synced): code-lane `/platform-ai` (per-repo harness meta), `/model` (FE Zod/models — candidate Codegenkit later).
 
 ## Hard rules
 
@@ -55,7 +57,7 @@ content. Product-owned rules are deliberately excluded from package harnesses.
 | `architecture-core.md`, `tpl-arc42-*`, `tpl-{component,journey,deployment,adr,cross-cutting}.md` | Hubdocs |
 | `spec/*`, `spec-update-*`, `spec-incremental-*`, `grill/*`, `grill-tech-debt.md`, `common-ui-spec.md`, `legacy-dynamics.md` | **Bundlekit** |
 | `business-process-trace.md`, Processkit risk/process templates | Processkit |
-| `artifactgraph-*`, `platform-mark*`, codegen readiness/tag analysis used by `/platform-mark` | ArtifactGraph |
+| `artifactgraph-*`, `docs-mark*`, codegen readiness/tag analysis used by `/docs-mark` | ArtifactGraph |
 | `core/agent-discipline.md`, portable repo-map policy/schemas | **Platform DNA** |
 
 Existing package namespaced snapshots remain compatibility assets; Platform DNA

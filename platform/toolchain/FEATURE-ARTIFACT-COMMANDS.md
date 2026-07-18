@@ -101,15 +101,16 @@ V2 escape: `--spec <path-to-ir/spec.yaml>` vẫn chạy. Output app layers trên
 
 V2 escape: `--testcase <path>` / `--feature …`.
 
-## Platform mark (`/platform-mark`)
+## Docs-mark (`/docs-mark`)
 
-Member marks common UI + logic — grill hỏi trước khi gắn tag. Hub: [PLATFORM-MARK](./PLATFORM-MARK.md)
+Member marks common UI + logic — grill hỏi trước khi gắn tag. Hub: [PLATFORM-MARK](./PLATFORM-MARK.md) (policy; skill id = docs-mark). Owner: ArtifactGraph.
 
 | Lệnh / skill | Mục đích |
 |--------------|----------|
-| `/platform-mark` | Gắn `#needs-component`, `#common:*`, … vào `ir/spec.yaml` + registry |
+| `/docs-mark` | Gắn `#needs-component`, `#common:*`, … vào `ir/spec.yaml` + registry |
+| `/platform-mark` | Deprecated alias → `/docs-mark` |
 | `/dev-grill-docs` | In bảng **Common candidates** — member A/B/C |
-| `pnpm platform-common:registry` | Validate `registries/common.registry.json` |
+| FE Codegenkit registry validate | Validate `registries/*.registry.json` on FE checkout |
 
 ---
 

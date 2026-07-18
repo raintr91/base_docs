@@ -97,7 +97,7 @@ Rules:
 | **hubdocs** | `/architecture` `/context` `/containers` `/component` `/journey` `/deployment` `/decision` `/cross-cutting` `/hubdocs` | list/get/deps/orphans/links/route/journeys/layout | AG: tag hint nếu có |
 | **bundlekit** ★ NEW | `/spec` `/update-spec` `/update-spec-legacy` `/legacy-spec` `/bqa-grill-docs` `/dev-grill-docs` `/grill-with-docs` | split/merge/check/normalize/render/legacy-validate + docs grill orchestration | Hubdocs · AG · CodeGraph |
 | **processkit** ★ NEW | **`/business-process-trace`** · **`/business-impact-review`** (+ deprecated `/flow-trace`) | process-step validate · diff/symbol scope · review report schema | CodeGraph · Hubdocs · AG |
-| **artifactgraph** | `/platform-mark` `/artifactgraph` | analyze/grill/parity/remember/gaps/tags + command recommend/allowlist check | Bundlekit · Codegenkit |
+| **artifactgraph** | `/docs-mark` `/artifactgraph` (`/platform-mark` deprecated alias) | analyze/grill/parity/remember/gaps/tags + command recommend/allowlist check | Bundlekit · Codegenkit |
 | **codegenkit** ★ NEW | FE: `/prototype` `/wire` `/unit` `/grill-*` · BE: `/api` (+ grill-api khi có) | FE portal/unit gen · BE api gen · registry validate | AG allowlist/tags |
 | **testkit** ★ NEW | `/testcase` `/grill-testcase` `/test` `/grill-test` | cases:render · testcase:gen* | AG coverage gaps |
 | **codegraph** | *(no docs skill sync)* | `codegraph_explore` | — |
@@ -334,7 +334,7 @@ Optional accelerators:
 
 - [x] **T2.1** Executable `artifactgraph_gen` deprecated as 2.x shim; recommend/check APIs implemented and tested.
 - [x] **T2.2** Bundlekit-owned `/dev-grill-docs` `/grill-with-docs`: AG optional analyze/recommend; executable dry-gen is FE Codegenkit handoff only.
-- [x] **T2.3** `/platform-mark`: AG suggest/remember + allowlist recommend; registry validate is FE Codegenkit handoff only.
+- [x] **T2.3** `/docs-mark` (was `/platform-mark`): AG suggest/remember + allowlist recommend; registry validate is FE Codegenkit handoff only. Shipped in ArtifactGraph `v2.1.0`.
 - [x] **T2.4** Architecture Markdown graph stays Hubdocs; AG indexes registries/lexicon only (documented in [ARTIFACTGRAPH](./ARTIFACTGRAPH.md)).
 - [x] **T2.5** Docs-hub handbook + `/artifactgraph` skill updated for thinner AG role (recommend/check; deprecated `artifactgraph_gen` shim).
 - [x] **T2.6** Generator allowlist SSOT = current product `artifactgraph.json` `commands` (docs hub keeps `{}`); AG recommends, owning kit executes.
@@ -510,15 +510,19 @@ Original sequence (all package phases complete except Phase 6 verify):
 | Tests hub | `cases:check` / `cases:coverage` OK via Testkit binary |
 
 **Toolchain on PATH (2026-07-18):** all seven CLIs symlinked in `~/.local/bin`
-(`platform-dna` 0.1.6 · `codegenkit` 0.4.0 · `testkit` 0.2.4 · `bundlekit` 0.1.3 ·
-`processkit` 0.3.1 · `hubdocs` 1.0.2 · `artifactgraph` 2.0.1). `platform-dna` is
+(`platform-dna` 0.2.0 · `codegenkit` 0.4.0 · `testkit` 0.2.4 · `bundlekit` 0.1.3 ·
+`processkit` 0.3.1 · `hubdocs` 1.0.2 · `artifactgraph` 2.1.0). `platform-dna` is
 the bootstrap entrypoint; it resolves the specialist CLIs (bare command on PATH →
-`PLATFORM_DNA_<PKG>_ROOT` → clone). Stale `hubdocs`/`artifactgraph` symlinks
-(0.1.0 / 2.0.0) were repointed to the current builds.
+`PLATFORM_DNA_<PKG>_ROOT` → clone).
+
+**Skill ownership cutover (2026-07-18):** ArtifactGraph ships `/docs-mark`
+(+ deprecated `/platform-mark` stub); Platform DNA ships FE `/platform-base` for
+`nuxt4`/`nextjs` adapters.
 
 **Known non-blocking follow-ups (env / pre-existing, not cutover blockers):**
 
-- Portal/Next still keep product-owned `platform-base` / `platform-mark` skill text (Nuxt/Next conventions); not part of Integration/Line.
+- Portal/Next: `/platform-base` now DNA-owned (`v0.2.0`, adapter overlays); `/docs-mark` via ArtifactGraph when AG is inited on FE. Code-lane `/platform-ai` and `/model` remain product-owned.
+- Portal/Next `platform-repos.json` still non-portable (sibling roots) — blocks full `platform-dna init` until maps are cleaned; harness sync used direct `installHarness --force`.
 - FE `extracts:validate` / some Nuxt unit failures are product-owned debt outside this cutover.
 - `legacy/project-config.md` on docs hub remains modified vs Bundlekit namespaced path (kept for Processkit/CodeGraph progressive reads).
 - Docs-hub `~/.local/bin` symlinks point at the local dev workspace; on a fresh machine run each package `install.sh` (pinned tags) instead.
