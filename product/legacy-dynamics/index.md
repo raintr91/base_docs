@@ -8,7 +8,7 @@ Observed sequences / collaboration from legacy systems — **`_legacy.dynamics.y
 |----------|------|
 | Module dynamics | `product/legacy-dynamics/{module}/_legacy.dynamics.yaml` |
 | Template | [`_template/_legacy.dynamics.yaml`](./_template/_legacy.dynamics.yaml) |
-| How-to | [`platform/toolchain/legacy-dynamics.md`](../../platform/toolchain/legacy-dynamics.md) |
+| How-to | [`https://github.com/raintr91/Bundlekit/blob/main/docs/LEGACY-DYNAMICS.md`](../../https://github.com/raintr91/Bundlekit/blob/main/docs/LEGACY-DYNAMICS.md) |
 
 | vs | Path | Skill |
 |----|------|-------|

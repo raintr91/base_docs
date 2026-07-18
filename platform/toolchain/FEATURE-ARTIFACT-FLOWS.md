@@ -1,9 +1,9 @@
 # Feature artifact — flow index
 
-> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
+> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [Hub split](https://github.com/raintr91/base_test/blob/main/docs/HUBS.md) / [Docs hub](https://github.com/raintr91/base_docs) / [Tests hub](https://github.com/raintr91/base_test/blob/main/docs/TESTS-HUB.md)
 
 
-> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
+> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [Hub split](https://github.com/raintr91/base_test/blob/main/docs/HUBS.md) / [Docs hub](https://github.com/raintr91/base_docs) / [Tests hub](https://github.com/raintr91/base_test/blob/main/docs/TESTS-HUB.md)
 
 
 > Hub diagram + lệnh script cho layout **yaml/md** mới.  
@@ -19,7 +19,7 @@
 | Doc | Nội dung |
 |-----|----------|
 | [FEATURE-ARTIFACT-LAYOUT](./FEATURE-ARTIFACT-LAYOUT.md) | Cây thư mục `yaml/` · `md/` · `ir/` · `generated/` |
-| [CODEGEN-LAYOUT](./CODEGEN-LAYOUT.md) | Global `codegen/` · `unitgen/` · `registries/` (platform-bases) |
+| [CODEGEN-LAYOUT](https://github.com/raintr91/codegenkit/blob/main/docs/CODEGEN-LAYOUT.md) | Global `codegen/` · `unitgen/` · `registries/` (platform-bases) |
 | [ArtifactGraph (git)](https://github.com/raintr91/artifactgraph) | Local MCP gaps/tags/gen allowlist |
 | [FEATURE-ARTIFACT-BUNDLE-IR](./FEATURE-ARTIFACT-BUNDLE-IR.md) | SSOT bundle → split/merge · `spec` vs `gen` |
 
@@ -69,6 +69,6 @@ pnpm portal:gen:dry:common
 pnpm extracts:validate
 ```
 
-Pointers: [DOCS-HUB](./DOCS-HUB.md) · [TESTS-HUB](./TESTS-HUB.md) · [HUBS](./HUBS.md)
+Pointers: [Docs hub](https://github.com/raintr91/base_docs) · [Tests hub](https://github.com/raintr91/base_test/blob/main/docs/TESTS-HUB.md) · [Hub split](https://github.com/raintr91/base_test/blob/main/docs/HUBS.md)
 
 Chi tiết từng lệnh: [FEATURE-ARTIFACT-COMMANDS](./FEATURE-ARTIFACT-COMMANDS.md)

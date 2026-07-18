@@ -1,6 +1,6 @@
 # Contract portal ↔ fast-api-base
 
-> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
+> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [Hub split](https://github.com/raintr91/base_test/blob/main/docs/HUBS.md) / [Docs hub](https://github.com/raintr91/base_docs) / [Tests hub](https://github.com/raintr91/base_test/blob/main/docs/TESTS-HUB.md)
 
 
 > Hub cho contract Portal ↔ Fast API. Naming SSOT: [CONTRACT-FIELD-REGISTRY](./CONTRACT-FIELD-REGISTRY.md).
@@ -15,7 +15,7 @@
 | Mục | Code / pilot | Doc / diagram | Ghi chú |
 |-----|--------------|---------------|---------|
 | **SSOT field keys** | ✅ `ir/spec.yaml` + pilots (`contract-pilot`, `knowledge-hub`) | [CONTRACT-FIELD-REGISTRY](./CONTRACT-FIELD-REGISTRY.md) | `kind: array` / relation — `contract:gen` cần registry đủ (citations pilot: dùng `knowledge-hub.schema.ts` tay) |
-| **contract:gen → Zod** | ✅ `pnpm contract:gen` → `packages/models` | [BACKEND-CODEGEN](./BACKEND-CODEGEN.md) sub-lane Contract | HANDOFF: `{function}/generated/CONTRACT-HANDOFF.md` |
+| **contract:gen → Zod** | ✅ `pnpm contract:gen` → `packages/models` | [BACKEND-CODEGEN](https://github.com/raintr91/lara12/blob/v3/docs/operational/BACKEND-CODEGEN.md) sub-lane Contract | HANDOFF: `{function}/generated/CONTRACT-HANDOFF.md` |
 | **fast Pydantic / OpenAPI** | ✅ Pydantic stub modules; ⚠️ OpenAPI chỉ `contract-pilot` | [FastAPI structure git](https://github.com/raintr91/fast-api/blob/v3/docs/operational/FAST-API-STRUCTURE.md) · [FastAPI codegen git](https://github.com/raintr91/fast-api/blob/v3/docs/operational/FAST-CODEGEN.md) | `fast-gen openapi` → `backend/02-openapi.yaml` — chưa chạy cho `knowledge-hub` |
 | **Envelope** | ✅ `api_response.success/error` ↔ `assertApiSuccess` + `parseApiData` | [FastAPI structure § Envelope](https://github.com/raintr91/fast-api/blob/v3/docs/operational/FAST-API-STRUCTURE.md) · [WIRE-PHASE-DIAGRAM](./WIRE-PHASE-DIAGRAM.md) `/grill-api` | FE type gọn hơn BE (`code`, `trace_id` optional phía FE) |
 | **List `{ items, total }`** | ✅ `PaginatedResult` + `SampleItemListResponseSchema` | Chưa E2E list qua fast (sample-items mock) | `meta.pagination` có helper `to_envelope_meta()` — dùng khi cần |

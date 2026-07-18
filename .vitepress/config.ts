@@ -179,7 +179,7 @@ export default withMermaid(
                   text: 'Laravel API git',
                   link: 'https://github.com/raintr91/lara12/blob/v3/docs/operational/BACKEND-API-QUICKSTART.md',
                 },
-                { text: 'Nest BE', link: '/platform/toolchain/NEST-API-STRUCTURE' },
+                { text: 'Nest BE', link: 'https://github.com/raintr91/next_nest/blob/next_nest_v3/docs/operational/NEST-API-STRUCTURE.md' },
                 { text: 'Integration (git)', link: 'https://github.com/raintr91/integration' },
                 { text: 'Line client (git)', link: 'https://github.com/raintr91/winform' },
               ],
