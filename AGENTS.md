@@ -1,13 +1,24 @@
 # Docs hub — agent instructions
 
+## Terminology (speak this way)
+
+| Say | Means | Examples |
+|-----|-------|----------|
+| **Repo** | Destination product checkout the team shares and updates | `base-docs`, `base-tests`, `portal`, `api`, `nextjs`, … |
+| **Toolkit** | Independent MCP package / CLI that installs skills into a repo | Hubdocs, Bundlekit, Processkit, Codegenkit, Testkit, ArtifactGraph, Platform DNA, CodeGraph |
+
+Do **not** call a toolkit a “repo” in conversation (even though each toolkit also
+has its own Git repository for package source). “Repo” = artifact hubs
+(docs / tests / code). “Toolkit” = the tools members install onto those hubs.
+
 ## Docs lane (this repo)
 
 The repository does not vendor package-owned Cursor skills. On a fresh clone,
-install only the kits your lane needs — each kit is independent. Read the
-per-kit catalog in
+install only the toolkits your lane needs — each toolkit is independent. Read
+the per-toolkit catalog in
 [`platform/toolchain/MCP-INSTALL.md`](./platform/toolchain/MCP-INSTALL.md)
 (convenience lane bundles: [`MCP-INSTALL-PROFILES.md`](./platform/toolchain/MCP-INSTALL-PROFILES.md)).
-Each kit's `init` then materializes its own `.cursor/` skills and local MCP wiring.
+Each toolkit's `init` then materializes its own `.cursor/` skills and local MCP wiring.
 
 People entry: [`platform/guide/start-now.md`](./platform/guide/start-now.md)  
 Tree + standards: [`platform/guide/SYSTEM-DOC-STRUCTURE.md`](./platform/guide/SYSTEM-DOC-STRUCTURE.md)

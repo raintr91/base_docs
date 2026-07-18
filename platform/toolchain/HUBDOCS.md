@@ -21,6 +21,7 @@ skill family (`/architecture` … `/dynamics`) via `hubdocs harness install`.
 curl -fsSL https://raw.githubusercontent.com/raintr91/hubdocs/main/install.sh | bash
 cd /path/to/a/docs-project
 hubdocs init --yes
+hubdocs harness install --type=docs
 # interactive: hubdocs init
 ```
 
@@ -29,8 +30,24 @@ Windows: `irm https://raw.githubusercontent.com/raintr91/hubdocs/main/install.ps
 Requires **Node ≥ 22**. Project-local `hubdocs init` selects the current docs
 project; Hubdocs does not default to `base-docs`.
 
+### Optional: wire from FE/BE → docs hub
+
+Architecture IDs live only in the docs repo. From another repo, pass an explicit
+docs checkout (machine-local; never invent siblings):
+
+```bash
+cd /path/to/portal
+hubdocs init --docs-root=/absolute/path/to/docs-hub --yes
+hubdocs harness install --type=consumer
+# MCP env HUBDOCS_ROOT → that path; tools also accept docsRoot per call
+```
+
+Consumer mode syncs only the `/hubdocs` lookup skill/rule/schema/hook; docs
+authoring skills remain in the docs repo.
+
 MCP config do `hubdocs init` sinh chứa path của máy hiện tại, vì vậy được
 gitignore và phải tạo lại sau khi clone; không copy config từ máy khác.
+Policy: [MCP-INSTALL](./MCP-INSTALL.md) §1 (docs = registry hub).
 
 Docs: package [`docs/INIT.md`](https://github.com/raintr91/hubdocs/blob/main/docs/INIT.md) · [`docs/INSTALL.md`](https://github.com/raintr91/hubdocs/blob/main/docs/INSTALL.md)
 

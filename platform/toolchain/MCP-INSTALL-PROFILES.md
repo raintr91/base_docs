@@ -16,16 +16,21 @@ platform-dna init --type=be --adapter=laravel --project-root=/path/to/api --yes
 platform-dna init --type=tests --project-root=/path/to/base-tests --yes
 ```
 
-| `--type` | Recommended kits | Optional accelerators | Notes |
-|----------|------------------|-----------------------|-------|
-| `docs` | hubdocs · bundlekit · processkit | artifactgraph · codegraph | No FE/BE gen skills |
-| `fe` | codegenkit · testkit · processkit (impact subset) | artifactgraph · codegraph · hubdocs | `--adapter=nuxt4\|nextjs` |
-| `be` | codegenkit · processkit (impact) | artifactgraph · codegraph · hubdocs | `--adapter=fastapi\|laravel\|…` |
-| `tests` | testkit | artifactgraph | cases authoring |
+| `--type` | Recommended toolkits | Optional accelerators | Notes |
+|----------|----------------------|-----------------------|-------|
+| `docs` | hubdocs · bundlekit · processkit | **artifactgraph** (home) · codegraph | Registry / architecture hub |
+| `fe` | codegenkit · testkit · processkit (impact subset) | codegraph · hubdocs (`HUBDOCS_ROOT`→docs) · artifactgraph (rare) | Set `CODEGENKIT_DOCS_ROOT`; AG stays on docs for full registries |
+| `be` | codegenkit · processkit (impact) | codegraph · hubdocs · artifactgraph (rare) | Same pointer rule as FE |
+| `tests` | testkit | artifactgraph (rare) | cases authoring |
 
-> "Recommended kits" are capabilities a typical lane wants — not runtime
+> "Recommended toolkits" are capabilities a typical lane wants — not runtime
 > dependencies. Install any subset directly (see [MCP-INSTALL](./MCP-INSTALL.md));
-> each kit runs without the others.
+> each toolkit runs without the others.
+>
+> **Docs is the registry hub.** FE/BE use machine-local docs pointers
+> (`CODEGENKIT_DOCS_ROOT`, optional `HUBDOCS_ROOT`). Install ArtifactGraph on
+> docs by default (`--with=artifactgraph`); on FE/BE only when local tag hints
+> are needed — AG does not follow the docs pointer.
 
 > Platform DNA does **not** install into MCP tooling repos. Specialist packages
 > keep their own `init` / harness.

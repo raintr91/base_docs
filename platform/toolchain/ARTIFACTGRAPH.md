@@ -5,6 +5,23 @@ Package / GitHub: **[raintr91/artifactgraph](https://github.com/raintr91/artifac
 **Chi tiết lệnh:** [ArtifactGraph `docs/INIT.md`](https://github.com/raintr91/artifactgraph/blob/main/docs/INIT.md).  
 **Internals:** [ArtifactGraph `docs/INTERNALS.md`](https://github.com/raintr91/artifactgraph/blob/main/docs/INTERNALS.md).
 
+## Where to install
+
+**Home = docs repo.** Full product registries, parity, and tag lexicons live
+there. Prefer:
+
+```bash
+cd /path/to/docs-hub
+artifactgraph init --target=cursor --type=common,docs --yes
+artifactgraph rebuild
+```
+
+FE/BE/tests may install ArtifactGraph only for **local** tag/allowlist hints on
+that repo’s own data. ArtifactGraph is standalone: it does **not** follow
+`HUBDOCS_ROOT` or `CODEGENKIT_DOCS_ROOT`. For FE codegen that needs the full
+docs registry, use Codegenkit’s docs pointer instead — see
+[MCP-INSTALL](./MCP-INSTALL.md) §1.
+
 ## Bootstrap
 
 | OS | Command |
