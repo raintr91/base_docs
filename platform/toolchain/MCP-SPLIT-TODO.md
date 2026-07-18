@@ -509,19 +509,19 @@ Original sequence (all package phases complete except Phase 6 verify):
 | Next FE | Local `nextjs_v3` clean; Codegenkit healthy |
 | Tests hub | `cases:check` / `cases:coverage` OK via Testkit binary |
 
+**Skill ownership cutover (2026-07-18):** ArtifactGraph ships `/docs-mark`
+(+ deprecated `/platform-mark` stub); Platform DNA ships FE `/platform-base` for
+`nuxt4`/`nextjs` adapters; Codegenkit `v0.5.0` ships FE `/model` (nuxt4/nextjs only).
+
 **Toolchain on PATH (2026-07-18):** all seven CLIs symlinked in `~/.local/bin`
-(`platform-dna` 0.2.0 · `codegenkit` 0.4.0 · `testkit` 0.2.4 · `bundlekit` 0.1.3 ·
+(`platform-dna` 0.2.0 · `codegenkit` 0.5.0 · `testkit` 0.2.4 · `bundlekit` 0.1.3 ·
 `processkit` 0.3.1 · `hubdocs` 1.0.2 · `artifactgraph` 2.1.0). `platform-dna` is
 the bootstrap entrypoint; it resolves the specialist CLIs (bare command on PATH →
 `PLATFORM_DNA_<PKG>_ROOT` → clone).
 
-**Skill ownership cutover (2026-07-18):** ArtifactGraph ships `/docs-mark`
-(+ deprecated `/platform-mark` stub); Platform DNA ships FE `/platform-base` for
-`nuxt4`/`nextjs` adapters.
-
 **Known non-blocking follow-ups (env / pre-existing, not cutover blockers):**
 
-- Portal/Next: `/platform-base` now DNA-owned (`v0.2.0`, adapter overlays); `/docs-mark` via ArtifactGraph when AG is inited on FE. Code-lane `/platform-ai` and `/model` remain product-owned.
+- Portal/Next: `/platform-base` DNA-owned (`v0.2.0`); `/model` Codegenkit-owned (`v0.5.0`); `/docs-mark` via ArtifactGraph when AG is inited on FE. Code-lane `/platform-ai` remains product-owned.
 - Portal/Next `platform-repos.json` still non-portable (sibling roots) — blocks full `platform-dna init` until maps are cleaned; harness sync used direct `installHarness --force`.
 - FE `extracts:validate` / some Nuxt unit failures are product-owned debt outside this cutover.
 - `legacy/project-config.md` on docs hub remains modified vs Bundlekit namespaced path (kept for Processkit/CodeGraph progressive reads).
