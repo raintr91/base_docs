@@ -1,8 +1,5 @@
 # Test phase — E2E lane (Playwright)
 
-> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [Hub split](https://github.com/raintr91/base_test/blob/main/docs/HUBS.md) / [Docs hub](https://github.com/raintr91/base_docs) / [Tests hub](https://github.com/raintr91/base_test/blob/main/docs/TESTS-HUB.md)
-
-
 > **QA + Dev** — lane Playwright từ testcase YAML, **độc lập** unit lane ([UNIT-PHASE-DIAGRAM](./UNIT-PHASE-DIAGRAM.md)).  
 > Nằm trong [FULL-CYCLE-PIPELINE-DIAGRAM](./FULL-CYCLE-PIPELINE-DIAGRAM) phase **2a Tests**.  
 > Hub: [Portal reference](https://github.com/raintr91/nuxt_4/blob/nuxt_v_3/docs/operational/PORTAL-CODEGEN.md) · Skills: `/test` · `/grill-test` · `testcase:gen`

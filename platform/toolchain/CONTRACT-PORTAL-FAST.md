@@ -1,8 +1,5 @@
 # Contract portal ↔ fast-api-base
 
-> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [Hub split](https://github.com/raintr91/base_test/blob/main/docs/HUBS.md) / [Docs hub](https://github.com/raintr91/base_docs) / [Tests hub](https://github.com/raintr91/base_test/blob/main/docs/TESTS-HUB.md)
-
-
 > Hub cho contract Portal ↔ Fast API. Naming SSOT: [CONTRACT-FIELD-REGISTRY](./CONTRACT-FIELD-REGISTRY.md).
 > Repo split: [REPO-SPLIT-MAP](./REPO-SPLIT-MAP.md)
 

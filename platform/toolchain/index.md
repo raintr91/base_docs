@@ -2,6 +2,8 @@
 
 Handbook + how-to for Code IR (split/render/validate). **SSOT: this hub** (`base-docs`).
 
+> **R2/R3 hub layout:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [Hub split](https://github.com/raintr91/base_test/blob/main/docs/HUBS.md) · [Docs hub](https://github.com/raintr91/base_docs) · [Tests hub](https://github.com/raintr91/base_test/blob/main/docs/TESTS-HUB.md).
+
 ## Bundle IR commands
 
 Run the docs install profile first. These `pnpm` commands are aliases to the
@@ -25,9 +27,45 @@ product templates and the thin command aliases in `package.json`.
 | [Hub split](https://github.com/raintr91/base_test/blob/main/docs/HUBS.md) · [Tests hub handbook](https://github.com/raintr91/base_test/blob/main/docs/TESTS-HUB.md) | Docs/tests/code lane ownership |
 | [Toolkits (MCP)](/platform/guide/toolkits) | **Hub** — catalog · install · profiles · ownership · package contract · status |
 | [PROJECT-MAPS](./PROJECT-MAPS.md) | platform-repos / workspace |
-| [FEATURE-ARTIFACT-FLOWS](./FEATURE-ARTIFACT-FLOWS.md) | Artifact flows |
 | [FEATURE-ARTIFACT-COMMANDS](./FEATURE-ARTIFACT-COMMANDS.md) | Commands |
 | [FEATURE-ARTIFACT-LEGACY-DYNAMICS](./FEATURE-ARTIFACT-LEGACY-DYNAMICS.md) | Archaeology pointer |
+
+## Feature artifact flows
+
+Mỗi file một concern, một Mermaid ngắn — không gộp toàn pipeline vào một diagram.
+Overview màu: [FULL-CYCLE-PIPELINE-DIAGRAM](./FULL-CYCLE-PIPELINE-DIAGRAM.md) · Design + Architecture gate: [DESIGN-PHASE-DIAGRAM](./DESIGN-PHASE-DIAGRAM.md).
+
+### Layout & IR
+
+| Doc | Nội dung |
+|-----|----------|
+| [FEATURE-ARTIFACT-LAYOUT](./FEATURE-ARTIFACT-LAYOUT.md) | Cây thư mục `yaml/` · `md/` · `ir/` · `generated/` |
+| [CODEGEN-LAYOUT](https://github.com/raintr91/codegenkit/blob/main/docs/CODEGEN-LAYOUT.md) | Global `codegen/` · `unitgen/` · `registries/` (platform-bases) |
+| [ArtifactGraph (git)](https://github.com/raintr91/artifactgraph) | Local MCP gaps/tags/gen allowlist |
+| [FEATURE-ARTIFACT-BUNDLE-IR](./FEATURE-ARTIFACT-BUNDLE-IR.md) | SSOT bundle → split/merge · `spec` vs `gen` |
+
+### Team commands (AI)
+
+| Doc | Nội dung |
+|-----|----------|
+| [FEATURE-ARTIFACT-LEGACY-DYNAMICS](./FEATURE-ARTIFACT-LEGACY-DYNAMICS.md) | `/legacy-spec` → trace + bundle.legacy |
+| [FEATURE-ARTIFACT-GRILL](./FEATURE-ARTIFACT-GRILL.md) | `/bqa-grill-docs` → `/dev-grill-docs` → `/grill-with-docs` |
+| [DESIGN-PHASE-DIAGRAM](./DESIGN-PHASE-DIAGRAM.md) | Design lane đến `/prototype` (+ Phase 0 Architecture gate) |
+| [FEATURE-ARTIFACT-COMMANDS](./FEATURE-ARTIFACT-COMMANDS.md) | Lệnh `pnpm portal:*`, `spec:*`, `docs:render` |
+
+### Pipeline theo phase
+
+| Doc | Nội dung |
+|-----|----------|
+| [FULL-CYCLE-PIPELINE-DIAGRAM](./FULL-CYCLE-PIPELINE-DIAGRAM.md) | Overview màu Phase 0…4 |
+| [TEST-PHASE-DIAGRAM](./TEST-PHASE-DIAGRAM.md) | E2E · `testcase:gen` |
+| [UNIT-PHASE-DIAGRAM](./UNIT-PHASE-DIAGRAM.md) | Vitest · `portal:unit-gen` |
+| [NEEDS-COMPONENT-FLOW](./NEEDS-COMPONENT-FLOW.md) | `#needs-component` gap loop |
+| [NEEDS-TEST-FLOW](./NEEDS-TEST-FLOW.md) | needs-test gap loop |
+| [NEEDS-UNIT-FLOW](./NEEDS-UNIT-FLOW.md) | `#needs-unit-test` gap loop |
+| [BACKEND-PHASE-DIAGRAM](./BACKEND-PHASE-DIAGRAM.md) | API repo |
+| [WIRE-PHASE-DIAGRAM](./WIRE-PHASE-DIAGRAM.md) | Integration |
+| [UPDATE-SPEC-FLOW](./UPDATE-SPEC-FLOW.md) | Gap loop |
 
 Per-toolkit deep docs live in each toolkit's own git repo (base-docs chỉ giữ
 [Toolkits (MCP)](/platform/guide/toolkits) làm hub):

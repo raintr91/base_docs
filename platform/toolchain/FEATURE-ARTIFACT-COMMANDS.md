@@ -1,11 +1,8 @@
 # Feature artifact — lệnh script
 
-> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [Hub split](https://github.com/raintr91/base_test/blob/main/docs/HUBS.md) / [Docs hub](https://github.com/raintr91/base_docs) / [Tests hub](https://github.com/raintr91/base_test/blob/main/docs/TESTS-HUB.md)
->
 > **Bundle IR MCP:** after `bundlekit init --type=docs`, use [Bundlekit](https://github.com/raintr91/Bundlekit) tools/CLI (`bundlekit split|render|legacy-validate`). `pnpm spec:*` / `pnpm docs:render*` below are thin aliases, not vendored fallback engines. Install: [Toolkits (MCP)](/platform/guide/toolkits).
 
-
-> Bảng tra cứu · Diagram: [FEATURE-ARTIFACT-FLOWS](./FEATURE-ARTIFACT-FLOWS.md)  
+> Bảng tra cứu · Diagram: [Toolchain index](./index.md)  
 > **Layout folder gen/registry (global):** [CODEGEN-LAYOUT](https://github.com/raintr91/codegenkit/blob/main/docs/CODEGEN-LAYOUT.md)
 > Codegen chi tiết tag/registry: [Portal reference](https://github.com/raintr91/nuxt_4/blob/nuxt_v_3/docs/operational/PORTAL-CODEGEN.md)
 
@@ -33,8 +30,6 @@ Common component specs nằm ở `docs/common/yaml/{function}/`, dùng lại và
 | `pnpm docs:render:common` | Render `common/yaml` → `common/md` (không ghi index features) |
 | `pnpm portal:gen:dry:common` | Dry gen common (cần `codegen.profile` trong mỗi spec) |
 | `pnpm portal:gen:common` | Gen common (cần `codegen.profile`) |
-
-
 
 ## Phase aggregates (1 lệnh/phase)
 
@@ -137,4 +132,4 @@ pnpm portal:unit-gen --id W-AD-AUTH-001
 pnpm testcase:gen --id W-AD-AUTH-001
 ```
 
-Thứ tự team command: [DESIGN-PHASE-DIAGRAM](./DESIGN-PHASE-DIAGRAM.md) · [FEATURE-ARTIFACT-FLOWS](./FEATURE-ARTIFACT-FLOWS.md)
+Thứ tự team command: [DESIGN-PHASE-DIAGRAM](./DESIGN-PHASE-DIAGRAM.md) · [Toolchain index](./index.md)

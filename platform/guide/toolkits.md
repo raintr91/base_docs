@@ -20,7 +20,7 @@
 </div>
 </div>
 
-<div class="base-note"><span class="base-note-mark">(*)</span><em>Tài liệu này gộp toàn bộ nội dung MCP trước đây (install, profiles, ownership, package contract, migration log). Thuật ngữ chuẩn: “repo” = artifact hub, “toolkit” = package MCP. Xem <a href="../../AGENTS.md">AGENTS.md</a>.</em></div>
+<div class="base-note"><span class="base-note-mark">(*)</span><em>Tài liệu này gộp toàn bộ nội dung MCP trước đây (install, profiles, ownership, package contract, migration log) cùng bảng lệnh docs-lane. Thuật ngữ chuẩn: “repo” = artifact hub, “toolkit” = package MCP.</em></div>
 
 ---
 
@@ -40,6 +40,27 @@ Mỗi toolkit hỗ trợ gì, cung cấp skill/rule nào, và sở hữu config 
 | **Platform DNA** | Seed repo identity + bootstrap lane | FE `/platform-base` (Nuxt/Next) | **owner `platform-repos.json`**; resolver `profiles.json` | any repo (không cài vào source của toolkit) |
 
 > `/platform-ai` **không** nằm trong bảng: nó chỉ tồn tại local trong source của từng toolkit để bảo trì chính toolkit đó, không bao giờ sync sang repo đích.
+
+### Lệnh docs-lane (command → nội dung)
+
+Trên repo **docs**, các skill do toolkit cài map sang đúng chapter/section arc42 × C4:
+
+| Command | Trỏ tới | Toolkit |
+|---------|---------|---------|
+| `/architecture` | arc42 router → chapter / business layer | Hubdocs |
+| `/context` | §03 LND/CTX (overview, actors, operational areas) | Hubdocs |
+| `/containers` | §05 C4 runtime containers (`CTR-*`) + CMP index | Hubdocs |
+| `/component` | `product/components/CMP-*` (module) | Hubdocs |
+| `/journey` | §06 `FLOW-*` (`/dynamics` = deprecated alias) | Hubdocs |
+| `/deployment` | §07 stub-first DEP | Hubdocs |
+| `/cross-cutting` | §08 | Hubdocs |
+| `/decision` | §09 ADR | Hubdocs |
+| `/hubdocs` | Index arc42/C4 Markdown local (optional) | Hubdocs |
+| `/spec` · grill · `/legacy-spec` · `/update-spec*` | Feature Code lane (bundle IR) | Bundlekit |
+| `/business-process-trace` | Brownfield cross-system process trace | Processkit |
+| `/flow-trace` | Deprecated alias → `/business-process-trace` | Processkit |
+
+Lệnh triển khai code (`/prototype` `/api` `/wire` `/test` `/unit`) chạy ở **code repo** (portal, api, …), không ở docs — xem Codegenkit/Testkit ở §4.
 
 ---
 

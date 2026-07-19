@@ -1,6 +1,6 @@
 # Grill — Spec Validation + Decision Resolution
 
-> Một diagram · [FEATURE-ARTIFACT-FLOWS](./FEATURE-ARTIFACT-FLOWS.md)
+> Một diagram · [Toolchain index](./index.md)
 
 ```mermaid
 flowchart TD
