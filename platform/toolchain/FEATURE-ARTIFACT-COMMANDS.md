@@ -1,6 +1,6 @@
 # Feature artifact — lệnh script
 
-> **Bundle IR MCP:** after `bundlekit init --type=docs`, use [Bundlekit](https://github.com/raintr91/Bundlekit) tools/CLI (`bundlekit split|render|legacy-validate`). `pnpm spec:*` / `pnpm docs:render*` below are thin aliases, not vendored fallback engines. Install: [Toolkits (MCP)](/platform/guide/toolkits).
+> **Bundle IR MCP:** after `bundlekit init`, use [Bundlekit](https://github.com/raintr91/Bundlekit) tools/CLI (`bundlekit split|render|legacy-validate`). `pnpm spec:*` / `pnpm docs:render*` below are thin aliases, not vendored fallback engines. Install: [Toolkits (MCP)](/platform/guide/toolkits).
 
 > Bảng tra cứu · Diagram: [Toolchain index](./index.md)  
 > **Layout folder gen/registry (global):** [CODEGEN-LAYOUT](https://github.com/raintr91/codegenkit/blob/main/docs/CODEGEN-LAYOUT.md)

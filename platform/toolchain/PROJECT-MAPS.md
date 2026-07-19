@@ -43,9 +43,11 @@ installed tools; their `init` commands generate machine-local MCP config.
 ## Bootstrap and validation
 
 ```bash
-platform-dna validate --type=docs --project-root=.
-platform-dna init --type=docs --project-root=. --yes
+platform-dna init      # wizard: agents → lane → adapter (khi cần)
 ```
+
+CI/non-interactive giữ cờ dài: `platform-dna validate --type=docs --project-root=.`
+rồi `platform-dna init --type=docs --project-root=. --yes`.
 
 Platform DNA:
 
