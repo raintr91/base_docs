@@ -2,41 +2,10 @@ node_modules/
 pnpm-lock.yaml
 .vitepress/dist/
 .vitepress/cache/
-.harness/progress.md
-.harness/feature_list.json
 
-# AI/MCP harness is materialized per machine by package `init`.
-# A fresh clone intentionally has no synced skills, rules, extracts, schemas,
-# local MCP wiring, or package install manifests.
-platform-repos*.json
-legacy-repos*.json
-/.cursor/
-/.agents/
-.mcp.json
-.kilocode/
-.gemini/settings.json
-.claude.json
-/.claude/
-/.kiro/
-/opencode.jsonc
-/artifactgraph.json
-
-# Package install-state (machine-local; recreated by init/status).
-/.artifactgraph/
-/.platform-dna/
-/.bundlekit/
-/.processkit/
-/.hubdocs/
-/.codegenkit/
-/.testkit/
-
+# CodeGraph is outside the toolkit-managed ignore contract.
 .codegraph/
 .codegraph-*/
-
-# Package-synced non-Cursor assets.
-/artifactgraph/
-/templates/bundle-authoring.md
-/templates/feature.bundle.yaml
 
 # Local/private architecture notes (not part of base-docs)
 docs/factory-ai-stack.md

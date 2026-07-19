@@ -100,24 +100,27 @@ Repo **docs** là nơi duy nhất sở hữu registry sản phẩm đầy đủ,
 
 ## 4. Cài từng toolkit (độc lập)
 
-Mỗi block tự đủ. Chạy tại thư mục gốc repo đích. `Node ≥ 22`.
+Mọi toolkit dùng chung **4 lệnh member**. Chạy tại thư mục gốc repo đích, `Node ≥ 22`:
+
+| Lệnh | Việc |
+|------|------|
+| `curl -fsSL …/install.sh \| bash` | Cài / update package (Windows: `irm …/install.ps1 \| iex`) |
+| `<toolkit> init` | Wizard tương tác: **agent → lane → tech** (khi có); ghi MCP local + harness cho repo đang mở |
+| `<toolkit> deinit` | Gỡ harness + MCP local của **repo hiện tại** |
+| `<toolkit> uninstall` | Gỡ **toàn bộ** global: mọi repo đã cài + MCP + CLI |
+
+`init` không cần cờ — agent được auto-detect và pre-select. Cờ dài (`--target`, `--type`, `--adapter`, `--yes`, …) chỉ dành cho CI/non-interactive. `deinit` / `uninstall` preview và hỏi xác nhận trong TTY (thêm `--yes` cho automation), luôn giữ + báo file member đã sửa. Dưới đây mỗi block chỉ liệt kê install + `init`; `deinit` / `uninstall` giống hệt bảng trên.
 
 ### hubdocs — index architecture/C4 ID
 
 <img class="toolkit-illus" src="./assets/toolkit-hubdocs.png" alt="Hubdocs index arc42 + C4, resolve ID → path" />
 
 ```bash
-# Trên repo docs (home khuyến nghị):
 curl -fsSL https://raw.githubusercontent.com/raintr91/hubdocs/main/install.sh | bash
-hubdocs init --yes
-hubdocs harness install --type=docs
-
-# Từ FE/BE (optional): trỏ tool tới một checkout docs do member chọn
-hubdocs init --docs-root=/absolute/path/to/docs-hub --yes
-hubdocs harness install --type=consumer
+hubdocs init      # agents → lane (docs home / consumer) → optional toolkits → MCP + harness
 ```
 
-MCP env `HUBDOCS_ROOT` (hoặc per-tool `docsRoot`) trỏ tới docs hub; không giả định sibling. Consumer mode chỉ sync `/hubdocs` + rule/schema/hook nhẹ — không sync nhóm skill authoring architecture.
+`init` ghi MCP local trong repo đang chạy. Consumer (FE/BE) resolve docs hub qua `HUBDOCS_ROOT`, không đoán sibling; consumer mode chỉ nhận `/hubdocs` + rule/schema/hook nhẹ, không nhận nhóm skill authoring architecture.
 
 ### bundlekit — bundle IR + docs grill + legacy
 
@@ -125,17 +128,18 @@ MCP env `HUBDOCS_ROOT` (hoặc per-tool `docsRoot`) trỏ tới docs hub; không
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/raintr91/bundlekit/main/install.sh | bash
-bundlekit init --type=docs --target=cursor --yes
+bundlekit init    # agents → optional Hubdocs/ArtifactGraph → cross-repo CodeGraph
 ```
 
-Sở hữu alias `pnpm spec:*` / `pnpm docs:render*` và seed repo-only `legacy-repos.json` + example (đường dẫn máy ở `legacy-repos.local.json` bị gitignore). Accelerator optional: artifactgraph (tags), hubdocs (ID→path), codegraph (evidence) — đều fallback êm.
+Chạy trên repo docs. Sở hữu alias `pnpm spec:*` / `pnpm docs:render*` và seed repo-only `legacy-repos.json` + example (đường dẫn máy ở `legacy-repos.local.json` bị gitignore). Accelerator optional: artifactgraph (tags), hubdocs (ID→path), codegraph (evidence) — đều fallback êm.
 
 ### processkit — process trace + impact review
 
 <img class="toolkit-illus" src="./assets/toolkit-processkit.png" alt="Processkit trace business process + review impact" />
 
 ```bash
-processkit init --type=docs --target=cursor --yes   # hoặc --type=fe | --type=be
+curl -fsSL https://raw.githubusercontent.com/raintr91/Processkit/main/install.sh | bash
+processkit init   # agents → lane (docs | fe | be)
 ```
 
 Accelerator optional: codegraph, hubdocs, artifactgraph.
@@ -145,23 +149,22 @@ Accelerator optional: codegraph, hubdocs, artifactgraph.
 <img class="toolkit-illus" src="./assets/toolkit-codegenkit.png" alt="Codegenkit sinh code FE/BE từ IR" />
 
 ```bash
-# FE luôn cần pointer docs machine-local:
-codegenkit init --type=fe --adapter=nuxt4 --docs-root=/absolute/path/to/docs-hub --yes
-codegenkit init --type=be --adapter=fastapi --yes
+curl -fsSL https://raw.githubusercontent.com/raintr91/codegenkit/main/install.sh | bash
+codegenkit init   # agents → lane (fe | be) → adapter/stack
 ```
 
-Adapter: FE `nuxt4` `nextjs` `dotnet-line`; BE `fastapi` `laravel` `dotnet-integration`. Runtime đọc IR/registry qua `CODEGENKIT_DOCS_ROOT` (đặt khi init). Không cài ArtifactGraph trên FE chỉ để với tới docs registry — đó là việc của pointer Codegenkit. Không cài vào docs/tests.
+Adapter: FE `nuxt4` `nextjs` `dotnet-line`; BE `fastapi` `laravel` `dotnet-integration`. Init docs/tests bị cấm. Runtime đọc IR/registry qua `CODEGENKIT_DOCS_ROOT` (wizard hỏi khi lane cần); cross-repo CodeGraph do Platform DNA wire, không phải Codegenkit.
 
 ### testkit — plan + sinh Playwright
 
 <img class="toolkit-illus" src="./assets/toolkit-testkit.png" alt="Testkit author test plan + sinh Playwright E2E" />
 
 ```bash
-testkit init --type=tests --yes
-testkit init --type=fe --tests-root=/path/to/tests-hub --docs-root=/path/to/docs-hub --yes
+curl -fsSL https://raw.githubusercontent.com/raintr91/testkit/main/install.sh | bash
+testkit init      # agents → lane (tests | fe) → MCP + harness
 ```
 
-Accelerator optional: artifactgraph — trên **tests hub** dùng `--type=common,test` (testcase taxonomy + coverage hint trên plan của chính repo đó); nó không đi theo `TESTKIT_DOCS_ROOT` / `TESTKIT_TESTS_ROOT` — evidence cross-repo đi qua pointer Testkit.
+Evidence cross-repo đi qua pointer `TESTKIT_DOCS_ROOT` / `TESTKIT_TESTS_ROOT`. ArtifactGraph trên tests hub chỉ index chính repo đó (testcase taxonomy + coverage hint), không đi theo pointer Testkit.
 
 ### artifactgraph — tag / gap registry (accelerator)
 
@@ -170,18 +173,12 @@ Accelerator optional: artifactgraph — trên **tests hub** dùng `--type=common
 **Ưu tiên repo docs** — nơi có registry và parity đầy đủ.
 
 ```bash
-# Khuyến nghị: docs hub
-cd /path/to/docs-hub
-artifactgraph init --target=cursor --type=common,docs --yes
+curl -fsSL https://raw.githubusercontent.com/raintr91/artifactgraph/main/install.sh | bash
+artifactgraph init      # agents → types (common / docs / fe / be / test)
 artifactgraph rebuild
-
-# FE/BE/tests: chỉ khi cần hint tag/allowlist local trên registry của chính repo đó.
-# AG không đi theo HUBDOCS_ROOT / CODEGENKIT_DOCS_ROOT / TESTKIT_DOCS_ROOT.
-artifactgraph init --target=cursor --type=common,fe --yes    # hiếm
-artifactgraph init --target=cursor --type=common,test --yes  # tests hub (accelerator cho Testkit)
 ```
 
-Accelerator thuần: không toolkit nào bắt buộc nó. Trên repo non-docs, nó chỉ index **repo đó** (lexicon baseline đóng gói + `registries/` local); không tự mở docs hub.
+Accelerator thuần: không toolkit nào bắt buộc nó. Trên repo non-docs nó chỉ index **repo đó** (lexicon baseline đóng gói + `registries/` local), không tự mở docs hub và không đi theo `HUBDOCS_ROOT` / `CODEGENKIT_DOCS_ROOT` / `TESTKIT_DOCS_ROOT`.
 
 ### codegraph — code intelligence (accelerator)
 
@@ -192,14 +189,15 @@ curl -fsSL https://raw.githubusercontent.com/colbymchenry/codegraph/main/install
 codegraph init
 ```
 
-Index local `.codegraph/`, gitignore. Accelerator thuần.
+Index local `.codegraph/`, gitignore. Accelerator thuần — toolkit ngoài, giữ CLI riêng (không theo lifecycle `deinit` / `uninstall` ở trên).
 
 ### platform-dna — repo identity + bootstrap
 
 <img class="toolkit-illus" src="./assets/toolkit-platform-dna.png" alt="Platform DNA seed repo identity + bootstrap lane" />
 
 ```bash
-platform-dna init --type=docs --project-root=. --yes   # hoặc fe | be | tests
+curl -fsSL https://raw.githubusercontent.com/raintr91/platform-dna/main/install.sh | bash
+platform-dna init       # agents → lane → adapter (khi lane yêu cầu)
 ```
 
 Seed `platform-repos.json` (repo identity, portable); FE Nuxt/Next thêm `/platform-base`. Không sync `/platform-ai`. Cũng là bootstrap một-phát cho cả lane — xem §5.
@@ -208,23 +206,23 @@ Seed `platform-repos.json` (repo identity, portable); FE Nuxt/Next thêm `/platf
 
 ## 5. Bootstrap theo lane (tiện lợi)
 
-`platform-dna init --type=<lane>` chạy các toolkit khuyến nghị cho lane đó trong một lệnh. Đây chỉ là wrapper tiện lợi trên cùng các toolkit độc lập — không tạo coupling runtime.
+`platform-dna init` chạy các toolkit khuyến nghị cho lane đó trong một lệnh. Đây chỉ là wrapper tiện lợi trên cùng các toolkit độc lập — không tạo coupling runtime.
 
 ```bash
-platform-dna init --type=docs  --project-root=/path/to/docs --yes
-platform-dna init --type=fe    --adapter=nuxt4  --docs-root=/absolute/path/to/docs-hub --project-root=/path/to/portal --yes
-platform-dna init --type=be    --adapter=laravel --project-root=/path/to/api --yes
-platform-dna init --type=tests --project-root=/path/to/base-tests --yes
+cd /path/to/repo
+platform-dna init      # wizard: agents → lane (docs|fe|be|tests) → adapter (khi cần)
 ```
 
-| `--type` | Toolkit khuyến nghị | Accelerator optional | Ghi chú |
-|----------|---------------------|----------------------|---------|
+Wizard tự chạy các toolkit dưới đây cho lane đã chọn; lane khai sẵn trong `platform-repos.json` sẽ bị khóa.
+
+| Lane | Toolkit khuyến nghị | Accelerator optional | Ghi chú |
+|------|---------------------|----------------------|---------|
 | `docs` | hubdocs · bundlekit · processkit | **artifactgraph** (home) · codegraph | Registry / architecture hub |
 | `fe` | codegenkit · testkit · processkit (impact) | codegraph · hubdocs (`HUBDOCS_ROOT`→docs) · artifactgraph (hiếm) | Đặt `CODEGENKIT_DOCS_ROOT` |
 | `be` | codegenkit · processkit (impact) | codegraph · hubdocs · artifactgraph (hiếm) | Cùng quy tắc pointer với FE |
 | `tests` | testkit | artifactgraph (hiếm) | cases authoring |
 
-Cờ hữu ích: `--dry-run` xem trước, `--with=<toolkit>` thêm accelerator, `--no-install` yêu cầu binary đã cài sẵn, `--package-root toolkitId=/path` cho dev local.
+CI/non-interactive giữ cờ dài: `platform-dna init --type=<lane> --adapter=<stack> --project-root=<path> --yes` (FE thêm `--docs-root`); cùng các cờ advanced `--dry-run`, `--with=<toolkit>`, `--no-install`, `--package-root toolkitId=/path`.
 
 > "Toolkit khuyến nghị" là capability một lane điển hình cần — không phải runtime dependency. Cài subset tùy ý; mỗi toolkit chạy độc lập. Platform DNA **không** cài vào source checkout của toolkit.
 
