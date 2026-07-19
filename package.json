@@ -1,20 +1,12 @@
 {
   "name": "base-docs",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
     "docs:dev": "vitepress dev . --host 0.0.0.0",
     "docs:build": "vitepress build .",
-    "docs:preview": "vitepress preview . --host 0.0.0.0",
-    "docs:render": "bundlekit render --yaml-root product --md-root product --legacy-root product --no-index",
-    "docs:render:common": "bundlekit render-common",
-    "spec:normalize-gen": "bundlekit normalize",
-    "spec:split": "bundlekit split",
-    "spec:merge": "bundlekit merge",
-    "spec:split:check": "bundlekit split --check",
-    "spec:split:all": "bundlekit split-all",
-    "spec:split:common": "bundlekit split-all --root product/common/yaml",
-    "legacy-dynamics:validate": "bundlekit legacy-validate"
+    "docs:preview": "vitepress preview . --host 0.0.0.0"
   },
   "devDependencies": {
     "@braintree/sanitize-url": "^7.1.2",
