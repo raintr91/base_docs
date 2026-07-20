@@ -30,14 +30,14 @@ Mỗi toolkit hỗ trợ gì, cung cấp skill/rule nào, và sở hữu config 
 
 | Toolkit | Hỗ trợ (capability) | Skill cung cấp | Rule / config sở hữu | Lane |
 |---------|---------------------|----------------|----------------------|------|
-| **Hubdocs** | Index arc42 + C4, resolve ID → path, dependency/orphan | `/architecture` `/context` `/containers` `/component` `/journey` `/deployment` `/cross-cutting` `/decision` `/hubdocs` (+ `/dynamics`→`/journey` redirect) | `hubdocs.mdc`; pointer `HUBDOCS_ROOT` cho consumer | docs (home); fe/be optional (consumer) |
+| **Hubdocs** | Index arc42 + C4, resolve ID → path, dependency/orphan, chapter routing | `/architecture` `/context` `/containers` `/component` `/journey` `/deployment` `/cross-cutting` `/decision` `/hubdocs` (+ `/dynamics`→`/journey` redirect) | `hubdocs.mdc`; pointer `HUBDOCS_ROOT` cho consumer | docs (home); **consumer** = fe/be/tests lookup |
 | **Bundlekit** | Bundle IR split/merge/check/render + docs grill + legacy-spec | `/spec` `/update-spec` `/update-spec-legacy` `/legacy-spec` `/bqa-grill-docs` `/dev-grill-docs` `/grill-with-docs` | `team-flow-spec.mdc` `team-flow-grill.mdc` `bundlekit.mdc`; **owner `legacy-repos.json`**; alias `pnpm spec:*` / `docs:render*` | docs |
-| **Processkit** | Trace business process + review impact thay đổi | `/business-process-trace` `/business-impact-review` (+ `/flow-trace` redirect) | `processkit.mdc`; không ghi map | docs · fe · be |
-| **Codegenkit** | Sinh code FE/BE từ IR đã grill | FE `/prototype` `/wire` `/unit` `/model` `/grill-prototype` `/grill-unit`; BE `/api` (+ grill) | `platform-code-size` `platform-design-vocabulary` `team-flow-prototype` `team-flow-unit` `codegenkit-optional-integrations`; đọc `CODEGENKIT_DOCS_ROOT` | fe · be |
+| **Processkit** | Brownfield process evidence + blast-radius / impact review (dọc × ngang) | `/business-process-trace` `/business-impact-review` (+ `/flow-trace` redirect); tools `business_process_validate` `business_impact_validate` `business_diff_scope` | `processkit.mdc`; không ghi map | docs (trace + impact); fe · be (**impact only**) |
+| **Codegenkit** | Sinh code FE/BE từ IR đã grill | FE `/prototype` `/wire` `/unit` `/model` `/grill-prototype` `/grill-unit`; BE `/api` `/grill-api` (Nest `02-openapi` qua adapter `nestjs`) | `platform-code-size` `platform-design-vocabulary` `team-flow-prototype` `team-flow-unit` `codegenkit-optional-integrations`; đọc `CODEGENKIT_DOCS_ROOT` | fe · be · **fullstack** |
 | **Testkit** | Author test plan + sinh Playwright E2E | tests `/testcase` `/grill-testcase`; fe `/test` `/grill-test` | `testkit-optional-accelerators`; pointer `TESTKIT_DOCS_ROOT` / `TESTKIT_TESTS_ROOT` | tests · fe |
 | **ArtifactGraph** | Gợi ý tag / gap / parity / gen allowlist | `/artifactgraph` `/docs-mark` (+ `/platform-mark` deprecated) | `artifactgraph.mdc`; index local `.artifactgraph/` | **docs-first**; fe/be/tests chỉ khi cần hint local |
 | **CodeGraph** | Explore cấu trúc code / call graph | *(không sync skill)* tool `codegraph_explore` | `codegraph.mdc`; index local `.codegraph/` | any (accelerator) |
-| **Platform DNA** | Seed repo identity + bootstrap lane | FE `/platform-base` (Nuxt/Next) | **owner `platform-repos.json`**; resolver `profiles.json` | any repo (không cài vào source của toolkit) |
+| **Platform DNA** | Seed repo identity + bootstrap lane + wire cross-repo CodeGraph | FE `/platform-base` (Nuxt/Next) | **owner `platform-repos.json`**; resolver `profiles.json`; lệnh `codegraph:wire` | any repo (không cài vào source của toolkit) |
 
 > `/platform-ai` **không** nằm trong bảng: nó chỉ tồn tại local trong source của từng toolkit để bảo trì chính toolkit đó, không bao giờ sync sang repo đích.
 
@@ -57,10 +57,11 @@ Trên repo **docs**, các skill do toolkit cài map sang đúng chapter/section 
 | `/decision` | §09 ADR | Hubdocs |
 | `/hubdocs` | Index arc42/C4 Markdown local (optional) | Hubdocs |
 | `/spec` · grill · `/legacy-spec` · `/update-spec*` | Feature Code lane (bundle IR) | Bundlekit |
-| `/business-process-trace` | Brownfield cross-system process trace | Processkit |
+| `/business-process-trace` | Brownfield cross-system process evidence (không invent hop; `FLOW-*` vẫn dùng `/journey`) | Processkit |
+| `/business-impact-review` | Blast-radius / ảnh hưởng thay đổi code (dọc request·job + ngang callers) | Processkit |
 | `/flow-trace` | Deprecated alias → `/business-process-trace` | Processkit |
 
-Lệnh triển khai code (`/prototype` `/api` `/wire` `/test` `/unit`) chạy ở **code repo** (portal, api, …), không ở docs — xem Codegenkit/Testkit ở §4.
+Lệnh triển khai code (`/prototype` `/api` `/wire` `/test` `/unit`) chạy ở **code repo** (portal, api, …), không ở docs — xem Codegenkit/Testkit ở §4. `/business-impact-review` cũng sync trên fe/be; docs lane nhận cả pair process + impact.
 
 ---
 
@@ -87,10 +88,10 @@ Repo **docs** là nơi duy nhất sở hữu registry sản phẩm đầy đủ,
 
 | Tôi muốn… | Cài toolkit | Lane |
 |-----------|-------------|------|
-| Author/index arc42 + C4 ID | **hubdocs** | docs (home); fe/be optional với `HUBDOCS_ROOT`→docs |
+| Author/index arc42 + C4 ID | **hubdocs** | docs (home); fe/be/tests consumer với `HUBDOCS_ROOT`→docs |
 | Split/merge/render bundle IR + docs grill + legacy-spec | **bundlekit** | docs |
-| Trace business process / review impact | **processkit** | docs · fe · be |
-| Sinh code FE hoặc BE | **codegenkit** | fe · be (FE cần `CODEGENKIT_DOCS_ROOT`) |
+| Trace process brownfield (`/business-process-trace`) hoặc check ảnh hưởng thay đổi (`/business-impact-review`) | **processkit** | docs (cả hai); fe · be (impact) |
+| Sinh code FE hoặc BE | **codegenkit** | fe · be · fullstack (FE cần `CODEGENKIT_DOCS_ROOT`) |
 | Author test plan / sinh Playwright E2E | **testkit** | tests · fe |
 | Gợi ý tag / gap / gen allowlist | **artifactgraph** | docs-first; fe/be/tests chỉ khi cần hint local |
 | Explore cấu trúc code / call graph | **codegraph** | any (accelerator) |
@@ -120,7 +121,7 @@ curl -fsSL https://raw.githubusercontent.com/raintr91/hubdocs/main/install.sh | 
 hubdocs init      # agents → lane (docs home / consumer) → optional toolkits → MCP + harness
 ```
 
-`init` ghi MCP local trong repo đang chạy. Consumer (FE/BE) resolve docs hub qua `HUBDOCS_ROOT`, không đoán sibling; consumer mode chỉ nhận `/hubdocs` + rule/schema/hook nhẹ, không nhận nhóm skill authoring architecture.
+`init` ghi MCP local trong repo đang chạy. Consumer (FE/BE/tests) resolve docs hub qua `HUBDOCS_ROOT`, không đoán sibling; consumer mode chỉ nhận `/hubdocs` + rule/schema/hook nhẹ, không nhận nhóm skill authoring architecture.
 
 ### bundlekit — bundle IR + docs grill + legacy
 
@@ -131,7 +132,7 @@ curl -fsSL https://raw.githubusercontent.com/raintr91/bundlekit/main/install.sh 
 bundlekit init    # agents → optional Hubdocs/ArtifactGraph → cross-repo CodeGraph
 ```
 
-Chạy trên repo docs. Sở hữu alias `pnpm spec:*` / `pnpm docs:render*` và seed repo-only `legacy-repos.json` + example (đường dẫn máy ở `legacy-repos.local.json` bị gitignore). Accelerator optional: artifactgraph (tags), hubdocs (ID→path), codegraph (evidence) — đều fallback êm.
+Chạy trên repo docs. Skill owned: `/spec` · `/update-spec` · `/update-spec-legacy` · `/legacy-spec` · `/bqa-grill-docs` · `/dev-grill-docs` · `/grill-with-docs` (không sở hữu process/impact — đó là Processkit). Sở hữu alias `pnpm spec:*` / `pnpm docs:render*` và seed repo-only `legacy-repos.json` + example (đường dẫn máy ở `legacy-repos.local.json` bị gitignore). Accelerator optional: artifactgraph (tags), hubdocs (ID→path), codegraph (evidence) — đều fallback êm.
 
 ### processkit — process trace + impact review
 
@@ -142,7 +143,12 @@ curl -fsSL https://raw.githubusercontent.com/raintr91/Processkit/main/install.sh
 processkit init   # agents → lane (docs | fe | be)
 ```
 
-Accelerator optional: codegraph, hubdocs, artifactgraph.
+| Lane | Skill sync |
+|------|------------|
+| `docs` | `/business-process-trace` + `/business-impact-review` (+ `/flow-trace` redirect) |
+| `fe` / `be` | `/business-impact-review` only |
+
+`/business-process-trace` = evidence process brownfield qua code/legacy (không invent hop; product `FLOW-*` vẫn đi `/journey`). `/business-impact-review` = review ảnh hưởng thay đổi (dọc client→route/job→service + ngang mọi caller). MCP tools: `business_process_validate`, `business_impact_validate`, `business_diff_scope`. Accelerator optional: codegraph, hubdocs, artifactgraph.
 
 ### codegenkit — sinh code FE/BE
 
@@ -150,10 +156,10 @@ Accelerator optional: codegraph, hubdocs, artifactgraph.
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/raintr91/codegenkit/main/install.sh | bash
-codegenkit init   # agents → lane (fe | be) → adapter/stack
+codegenkit init   # agents → lane (fe | be | fullstack) → adapter/stack
 ```
 
-Adapter: FE `nuxt4` `nextjs` `dotnet-line`; BE `fastapi` `laravel` `dotnet-integration`. Init docs/tests bị cấm. Runtime đọc IR/registry qua `CODEGENKIT_DOCS_ROOT` (wizard hỏi khi lane cần); cross-repo CodeGraph do Platform DNA wire, không phải Codegenkit.
+Adapter: FE `nuxt4` `nextjs` `dotnet-line`; BE `fastapi` `laravel` `nestjs` `dotnet-integration`. Lane `fullstack` chọn cả FE + BE adapter. Init docs/tests bị cấm. Runtime đọc IR/registry qua `CODEGENKIT_DOCS_ROOT` (wizard hỏi khi lane cần); cross-repo CodeGraph do Platform DNA wire, không phải Codegenkit.
 
 ### testkit — plan + sinh Playwright
 
@@ -200,7 +206,7 @@ curl -fsSL https://raw.githubusercontent.com/raintr91/platform-dna/main/install.
 platform-dna init       # agents → lane → adapter (khi lane yêu cầu)
 ```
 
-Seed `platform-repos.json` (repo identity, portable); FE Nuxt/Next thêm `/platform-base`. Không sync `/platform-ai`. Cũng là bootstrap một-phát cho cả lane — xem §5.
+Seed `platform-repos.json` (repo identity, portable); FE Nuxt/Next thêm `/platform-base`. Wire cross-repo CodeGraph qua `platform-dna codegraph:wire` (đọc `platform-repos.local.json` / `legacy-repos.local.json`). Không sync `/platform-ai`. Cũng là bootstrap một-phát cho cả lane — xem §5.
 
 ---
 
@@ -234,7 +240,7 @@ CI/non-interactive giữ cờ dài: `platform-dna init --type=<lane> --adapter=<
 
 1. Một `SKILL.md` / rule / extract → đúng **một** toolkit owner. Hai toolkit không cùng sync một file.
 2. Bước deterministic liên-toolkit → `requires`. Lookup/token helper → `optional`.
-3. Canonical process skill là `/business-process-trace`; `/flow-trace` là redirect deprecated một chu kỳ. `/dynamics` là Hubdocs→`/journey`, không gộp với process trace.
+3. Canonical process skills thuộc **Processkit**: `/business-process-trace` (brownfield evidence) và `/business-impact-review` (blast-radius). `/flow-trace` là redirect deprecated một chu kỳ. `/dynamics` là Hubdocs→`/journey`, không gộp với process trace. Bundlekit không sở hữu hai skill này.
 4. Docs hub không init codegenkit/testkit mặc định.
 5. Docs grill (`/bqa-grill-docs` → `/dev-grill-docs` → `/grill-with-docs`) thuộc Bundlekit; ArtifactGraph/Codegenkit chỉ là accelerator/handoff, không hard-require.
 
@@ -288,11 +294,11 @@ Việc tách MCP thành các toolkit độc lập đã hoàn tất (cutover 2026
 
 | Toolkit | Trạng thái |
 |---------|-----------|
-| Platform DNA | Resolver + repo-only `platform-repos` + FE `/platform-base`; là owner map duy nhất cho `platform-repos*` |
-| Bundlekit | Docs engine + grill + legacy; owner `legacy-repos*`; alias `pnpm spec:*` |
-| Processkit | Process trace + impact; không ghi map |
-| Hubdocs | Architecture/C4 ID; docs-home + consumer mode |
-| Codegenkit | FE+BE codegen (gồm `dotnet-line` / `dotnet-integration`) |
+| Platform DNA | Resolver + repo-only `platform-repos` + FE `/platform-base` + `codegraph:wire`; owner map duy nhất cho `platform-repos*` |
+| Bundlekit | Docs engine + grill + legacy (`/spec` family); owner `legacy-repos*`; alias `pnpm spec:*` |
+| Processkit | `/business-process-trace` + `/business-impact-review`; docs sync cả hai, fe/be chỉ impact; không ghi map |
+| Hubdocs | Architecture/C4 ID; docs-home + consumer (fe/be/tests) |
+| Codegenkit | FE+BE+fullstack codegen (gồm `dotnet-line` / `dotnet-integration`) |
 | Testkit | Tests/FE profile + Playwright gen |
 | ArtifactGraph | Accelerator docs-first; local-only trên repo khác |
 

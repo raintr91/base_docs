@@ -49,7 +49,7 @@ Chi tiết field `kind`, scopes, relation: [CONTRACT-FIELD-REGISTRY](./CONTRACT-
 
 ---
 
-## Sub-lane: Codegen (`nest:gen` + `openapi:gen`)
+## Sub-lane: Codegen (`openapi:gen`)
 
 ```mermaid
 flowchart TD
@@ -68,6 +68,8 @@ flowchart TD
 ```
 
 Cấu trúc module CQRS: [NEST-API-STRUCTURE](https://github.com/raintr91/next_nest/blob/next_nest_v3/docs/operational/NEST-API-STRUCTURE.md) · Laravel API git: [quickstart](https://github.com/raintr91/lara12/blob/v3/docs/operational/BACKEND-API-QUICKSTART.md).
+
+> **Lưu ý:** `openapi:gen` là lệnh chung của Codegenkit cho mọi BE adapter (Nest, FastAPI, …). FastAPI export OpenAPI tách biệt khỏi Nest.
 
 ---
 
