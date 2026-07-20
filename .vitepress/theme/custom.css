@@ -398,3 +398,21 @@
   width: 100%;
   min-height: 280px;
 }
+
+/* Per-toolkit illustration in the install catalog */
+.vp-doc .toolkit-illus {
+  display: block;
+  width: 100%;
+  max-width: 460px;
+  margin: 14px 0 18px;
+  border-radius: 16px;
+  border: 1px solid rgb(58 154 140 / 22%);
+  box-shadow:
+    0 10px 26px rgb(31 104 94 / 12%),
+    inset 0 1px 0 rgb(255 255 255 / 45%);
+}
+
+.dark .vp-doc .toolkit-illus {
+  border-color: rgb(94 190 173 / 28%);
+  box-shadow: 0 10px 26px rgb(0 0 0 / 35%);
+}

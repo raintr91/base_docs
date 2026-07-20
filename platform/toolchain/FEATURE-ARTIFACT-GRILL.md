@@ -1,6 +1,6 @@
 # Grill — Spec Validation + Decision Resolution
 
-> Một diagram · [FEATURE-ARTIFACT-FLOWS](./FEATURE-ARTIFACT-FLOWS.md)
+> Một diagram · [Toolchain index](./index.md)
 
 ```mermaid
 flowchart TD
@@ -45,5 +45,5 @@ Extract: `grill/validation.md` · Skills: `bqa-grill-docs`, `dev-grill-docs`, `g
 | [TECH-DEBT-FLOW](./TECH-DEBT-FLOW.md) | `#tech-debt:{id}` · `openQuestions.deferTo` |
 | [UPDATE-SPEC-FLOW](./UPDATE-SPEC-FLOW.md) | `#update:*` khi gap spec |
 | [DESIGN-PHASE-DIAGRAM](./DESIGN-PHASE-DIAGRAM.md) | Toàn cycle design → prototype |
-| [PORTAL-CODEGEN](./PORTAL-CODEGEN.md) | Gate sau `portal:gen:dry` |
+| [Portal reference](https://github.com/raintr91/nuxt_4/blob/nuxt_v_3/docs/operational/PORTAL-CODEGEN.md) | Gate sau `portal:gen:dry` |
 | [NEEDS-COMPONENT-FLOW](./NEEDS-COMPONENT-FLOW.md) | `#needs-component` · `#wire-only` |

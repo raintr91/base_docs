@@ -1,13 +1,10 @@
 # Feature artifact — lệnh script
 
-> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
->
-> **Bundle IR MCP:** after `bundlekit init --type=docs`, prefer [BUNDLEKIT](./BUNDLEKIT.md) tools/CLI (`bundlekit split|render|legacy-validate`). `pnpm spec:*` / `pnpm docs:render*` below remain local fallbacks.
+> **Bundle IR MCP:** after `bundlekit init`, use [Bundlekit](https://github.com/raintr91/Bundlekit) tools/CLI (`bundlekit split|render|legacy-validate`). `pnpm spec:*` / `pnpm docs:render*` below are thin aliases, not vendored fallback engines. Install: [Toolkits (MCP)](/platform/guide/toolkits).
 
-
-> Bảng tra cứu · Diagram: [FEATURE-ARTIFACT-FLOWS](./FEATURE-ARTIFACT-FLOWS.md)  
-> **Layout folder gen/registry (global):** [CODEGEN-LAYOUT](./CODEGEN-LAYOUT.md)  
-> Codegen chi tiết tag/registry: [PORTAL-CODEGEN](./PORTAL-CODEGEN.md)
+> Bảng tra cứu · Diagram: [Toolchain index](./index.md)  
+> **Layout folder gen/registry (global):** [CODEGEN-LAYOUT](https://github.com/raintr91/codegenkit/blob/main/docs/CODEGEN-LAYOUT.md)
+> Codegen chi tiết tag/registry: [Portal reference](https://github.com/raintr91/nuxt_4/blob/nuxt_v_3/docs/operational/PORTAL-CODEGEN.md)
 
 ---
 
@@ -15,7 +12,6 @@
 
 | Lệnh | Input | Output / hiệu ứng |
 |------|--------|-------------------|
-| Archived converter (unsupported) | Obsolete `docs/features` migration only | `scripts/legacy/convert-spec-to-bundle.mjs`; do not run on current tree |
 | `pnpm spec:normalize-gen -- <bundle> --write` · `bundlekit normalize` | Bundle trộn spec+gen | Tách `spec` design v1 ↔ `gen` |
 | `pnpm spec:split -- <bundle.yaml>` · `bundlekit split` / `bundle_split` | Bundle SSOT | `ir/spec.yaml`, `ir/legacy.yaml`, `ir/design.yaml` |
 | `pnpm spec:merge -- <bundle.yaml>` · `bundlekit merge` | `ir/*` đã sửa tay | Cập nhật bundle (đặc biệt `gen`) |
@@ -34,8 +30,6 @@ Common component specs nằm ở `docs/common/yaml/{function}/`, dùng lại và
 | `pnpm docs:render:common` | Render `common/yaml` → `common/md` (không ghi index features) |
 | `pnpm portal:gen:dry:common` | Dry gen common (cần `codegen.profile` trong mỗi spec) |
 | `pnpm portal:gen:common` | Gen common (cần `codegen.profile`) |
-
-
 
 ## Phase aggregates (1 lệnh/phase)
 
@@ -101,15 +95,16 @@ V2 escape: `--spec <path-to-ir/spec.yaml>` vẫn chạy. Output app layers trên
 
 V2 escape: `--testcase <path>` / `--feature …`.
 
-## Platform mark (`/platform-mark`)
+## Docs-mark (`/docs-mark`)
 
-Member marks common UI + logic — grill hỏi trước khi gắn tag. Hub: [PLATFORM-MARK](./PLATFORM-MARK.md)
+Member marks common UI + logic — grill hỏi trước khi gắn tag. Hub: [PLATFORM-MARK](./PLATFORM-MARK.md) (policy; skill id = docs-mark). Owner: ArtifactGraph.
 
 | Lệnh / skill | Mục đích |
 |--------------|----------|
-| `/platform-mark` | Gắn `#needs-component`, `#common:*`, … vào `ir/spec.yaml` + registry |
+| `/docs-mark` | Gắn `#needs-component`, `#common:*`, … vào `ir/spec.yaml` + registry |
+| `/platform-mark` | Deprecated alias → `/docs-mark` |
 | `/dev-grill-docs` | In bảng **Common candidates** — member A/B/C |
-| `pnpm platform-common:registry` | Validate `registries/common.registry.json` |
+| FE Codegenkit registry validate | Validate `registries/*.registry.json` on FE checkout |
 
 ---
 
@@ -119,7 +114,7 @@ Member marks common UI + logic — grill hỏi trước khi gắn tag. Hub: [PLA
 |------|----------|
 | `pnpm portal:gen --id <W-\|CMP-\|CTR-…>` | FE codegen from **base-docs** Code (`ir/spec.yaml` required) |
 | `pnpm testcase:gen --id <W-\|TC-\|SC-\|suite\|CMP-…>` | E2E gen from **base-tests** plans → `tests/e2e/` |
-| Root `platform-repos.json` | Current docs repo only — [PROJECT-MAPS](./PROJECT-MAPS.md) |
+| Local generated project maps | Profile/tool inventory — [PROJECT-MAPS](./PROJECT-MAPS.md) |
 | `pnpm extracts:validate` | Skill `extractBundle` ⊆ registry |
 
 ---
@@ -137,4 +132,4 @@ pnpm portal:unit-gen --id W-AD-AUTH-001
 pnpm testcase:gen --id W-AD-AUTH-001
 ```
 
-Thứ tự team command: [DESIGN-PHASE-DIAGRAM](./DESIGN-PHASE-DIAGRAM.md) · [FEATURE-ARTIFACT-FLOWS](./FEATURE-ARTIFACT-FLOWS.md)
+Thứ tự team command: [DESIGN-PHASE-DIAGRAM](./DESIGN-PHASE-DIAGRAM.md) · [Toolchain index](./index.md)

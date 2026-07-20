@@ -1,6 +1,6 @@
 # Bundle ↔ IR split
 
-> Một diagram · [FEATURE-ARTIFACT-FLOWS](./FEATURE-ARTIFACT-FLOWS.md)
+> Một diagram · [Toolchain index](./index.md)
 
 ```mermaid
 flowchart LR
@@ -38,7 +38,7 @@ flowchart LR
   2. `pnpm spec:split -- <bundle.yaml>` (hoặc `pnpm spec:split:all` quét toàn bộ) để tái sinh `ir/*`.
 - `ir/*` chỉ được sửa bởi **công cụ grill** (`/dev-grill-docs`, `/bqa-grill-docs`) — sau đó chạy `pnpm spec:merge` đẩy ngược `gen`/tags về bundle. Giữa grill và merge **không** re-split.
 
-## Scripts
+## Bundlekit aliases
 
 | Lệnh | Mục đích |
 |------|----------|
@@ -46,6 +46,5 @@ flowchart LR
 | `pnpm spec:merge -- <bundle.yaml>` | `ir/*` → bundle (sau dev-grill sửa ir/spec) |
 | `pnpm spec:split:check -- <bundle.yaml>` | CI: ir sync bundle |
 | `pnpm spec:normalize-gen -- <bundle.yaml> --write` | Tách codegen ra `gen` từ spec cũ |
-| Archived converter | Historical `docs/features` migration only; unsupported on current `product/components` tree |
 
-Template: `docs/templates/feature.bundle.yaml` · `docs/templates/bundle-authoring.md`
+Bundlekit init generates local templates under `templates/`.

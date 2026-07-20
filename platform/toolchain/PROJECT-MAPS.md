@@ -1,22 +1,22 @@
 # Project maps
 
-Committed config is repository-local:
+Project maps are local generated config, not repository content.
 
-**SSOT owner:** [Platform DNA](./PLATFORM-DNA.md), which ships schemas and seeds
-or merges these maps during profile init.
+There are two independent repo-only configs:
 
-| File | Purpose |
-|------|---------|
-| [`platform-repos.json`](../../platform-repos.json) | Current `base-docs` checkout only (`root: "."`) |
-| [`platform-repos.example.json`](../../platform-repos.example.json) | Portable local-only example |
-| [`legacy-repos.example.json`](../../legacy-repos.example.json) | Shape for optional legacy evidence configuration |
+| Generated file | Owner | Purpose |
+|----------------|-------|---------|
+| `platform-repos.json` | Platform DNA | Current checkout identity (lane/role) |
+| `platform-repos.example.json` | Platform DNA | Portable current-repo baseline |
+| `legacy-repos.json` | Bundlekit | Optional legacy evidence repo catalog |
+| `legacy-repos.example.json` | Bundlekit | Empty portable legacy baseline |
 
-No committed map may assume sibling repositories, a fixed workspace directory,
-a user home, or a drive letter. Each code/tests repository owns its own harness.
+Both configs contain **repos only**—never toolkits, skills, adapters, harness
+profiles, or install state. Toolkit installation truth belongs in each
+toolkit's `install-manifest.json`.
 
-Project maps exist only in destination product hubs (`docs`, `fe`, `be`,
-`tests`). MCP package repositories do not contain `platform-repos*.json`;
-their local `/platform-ai` skill is for building and releasing that MCP.
+Platform DNA never writes `legacy-repos*`; Bundlekit never writes
+`platform-repos*`. Other toolkits write neither.
 
 External repositories are documentation references, not local path dependencies:
 
@@ -43,18 +43,22 @@ installed tools; their `init` commands generate machine-local MCP config.
 ## Bootstrap and validation
 
 ```bash
-platform-dna validate --type=docs --project-root=.
-platform-dna init --type=docs --project-root=. --yes
+platform-dna init      # wizard: agents → lane → adapter (khi cần)
 ```
 
-The resolver:
+CI/non-interactive giữ cờ dài: `platform-dna validate --type=docs --project-root=.`
+rồi `platform-dna init --type=docs --project-root=. --yes`.
 
-- rejects `../`, home paths, drive paths and UNC paths in committed maps;
+Platform DNA:
+
+- rejects `../`, home paths, drive paths and UNC paths in generated portable maps;
 - seeds `platform-repos.json` + example with current `root: "."` only;
-- seeds empty legacy maps for docs profiles;
-- adds `platform-repos.local.json` and `legacy-repos.local.json` to
-  `.gitignore`;
-- preserves package-owned skill lists by merge rather than replacing the map.
+- removes obsolete `harness` inventory from an existing platform map.
 
-Schemas live in
-<https://github.com/raintr91/platform-dna/tree/main/templates/schemas>.
+Bundlekit init seeds the empty portable legacy maps. Machine checkout roots stay
+in ignored `legacy-repos.local.json`.
+
+Schemas live with their owners: Platform DNA
+[`platform-repos`](https://github.com/raintr91/platform-dna/tree/main/templates/schemas)
+and Bundlekit
+[`legacy-repos`](https://github.com/raintr91/bundlekit/tree/main/templates/schemas).

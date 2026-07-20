@@ -24,4 +24,5 @@ pnpm install
 pnpm docs:dev
 ```
 
-Maps: `platform-repos.json` (`role: docs`, `specRoots`). Skill journeys: **`/journey`**.
+After the docs install profile generates the local harness, use **`/journey`**
+for runtime journeys.

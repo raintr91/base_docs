@@ -1,6 +1,6 @@
-# Platform mark — member annotation (portal)
+# Docs-mark — member annotation (tags / registries)
 
-> Skill: `/platform-mark` · Cross-repo hashtag schema aligned with fast-api-base  
+> Canonical skill: **`/docs-mark`** (ArtifactGraph) · Deprecated alias: `/platform-mark` (one cycle)  
 > Registries: `registries/common.registry.json` (logic) · `registries/design.registry.json` (UI)
 
 ## Mục đích
@@ -11,7 +11,7 @@ Member đánh dấu spec hoặc code cho:
 2. **Logic common** — `#common:*`, `#needs-common:*` → platform-common registry
 3. **Technical** — `#call-external`, `#cross-entity-service`, `#derived-data`
 
-**Không** nằm trong round-1 `/spec` — lane riêng `/platform-mark`, hoặc sau grill member chọn B.
+**Không** nằm trong round-1 `/spec` — lane riêng `/docs-mark`, hoặc sau grill member chọn B.
 
 ## Lệnh
 
@@ -57,34 +57,34 @@ marks:
     tag: "#common:export-csv"
     registryId: export.csv
     reason: "Toolbar export lặp ở 2 list"
-    source: platform-mark
+    source: docs-mark
 ```
 
 ## Grill hỏi member
 
 `/dev-grill-docs` in bảng **Common candidates** — custom column, widget, composable lặp.  
-Template: `.cursor/extracts/platform-mark-detect.md`
+Template: `.cursor/extracts/docs-mark-detect.md`
 
 ```text
 [GRILL-MARK] Phát hiện: ...
 Chọn: A) local  B) mark + registry  C) defer
 ```
 
-Chọn B → agent chạy `/platform-mark` trong cùng session.
+Chọn B → agent chạy `/docs-mark` trong cùng session.
 
 ## Lane order
 
 ```text
 /spec → bqa-grill-docs → dev-grill-docs (+ common candidates)
-     → portal:gen:dry → /prototype (Mo*, composables)
-     → /platform-mark (promote common)
+     → codegenkit gen:dry → /prototype (Mo*, composables)
+     → /docs-mark (promote common)
      → grill-prototype
 ```
 
-## portal-gen HANDOFF
+## Codegen handoff
 
-`portal:gen` **không** emit Mo* — chỉ placeholder + `generated/HANDOFF.md` cho `#needs-component` / `#needs-ui`.  
-Sau `/prototype` implement file → `portal:gen --force`.
+Codegenkit FE gen **không** emit Mo* — chỉ placeholder + HANDOFF cho `#needs-component` / `#needs-ui`.  
+Sau `/prototype` implement file → re-run gen with `--force` when needed.
 
-Extracts: `.cursor/extracts/platform-mark.md`, `platform-mark-detect.md`  
-Skill: `.cursor/skills/platform-mark/SKILL.md`
+Extracts: `.cursor/extracts/docs-mark.md`, `docs-mark-detect.md`  
+Skill: `.cursor/skills/docs-mark/SKILL.md` · deprecated stub: `.cursor/skills/platform-mark/SKILL.md`

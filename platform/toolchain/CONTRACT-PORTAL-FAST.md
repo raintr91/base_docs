@@ -1,8 +1,5 @@
 # Contract portal ↔ fast-api-base
 
-> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
-
-
 > Hub cho contract Portal ↔ Fast API. Naming SSOT: [CONTRACT-FIELD-REGISTRY](./CONTRACT-FIELD-REGISTRY.md).
 > Repo split: [REPO-SPLIT-MAP](./REPO-SPLIT-MAP.md)
 
@@ -15,9 +12,9 @@
 | Mục | Code / pilot | Doc / diagram | Ghi chú |
 |-----|--------------|---------------|---------|
 | **SSOT field keys** | ✅ `ir/spec.yaml` + pilots (`contract-pilot`, `knowledge-hub`) | [CONTRACT-FIELD-REGISTRY](./CONTRACT-FIELD-REGISTRY.md) | `kind: array` / relation — `contract:gen` cần registry đủ (citations pilot: dùng `knowledge-hub.schema.ts` tay) |
-| **contract:gen → Zod** | ✅ `pnpm contract:gen` → `packages/models` | [BACKEND-CODEGEN](./BACKEND-CODEGEN.md) sub-lane Contract | HANDOFF: `{function}/generated/CONTRACT-HANDOFF.md` |
-| **fast Pydantic / OpenAPI** | ✅ Pydantic stub modules; ⚠️ OpenAPI chỉ `contract-pilot` | `fast-api-base/docs/operational/FAST-API-STRUCTURE.md` · `FAST-CODEGEN.md` | `fast-gen openapi` → `backend/02-openapi.yaml` — chưa chạy cho `knowledge-hub` |
-| **Envelope** | ✅ `api_response.success/error` ↔ `assertApiSuccess` + `parseApiData` | fast FAST-API-STRUCTURE § Envelope · [WIRE-PHASE-DIAGRAM](./WIRE-PHASE-DIAGRAM.md) `/grill-api` | FE type gọn hơn BE (`code`, `trace_id` optional phía FE) |
+| **contract:gen → Zod** | ✅ `pnpm contract:gen` → `packages/models` | [BACKEND-CODEGEN](https://github.com/raintr91/lara12/blob/v3/docs/operational/BACKEND-CODEGEN.md) sub-lane Contract | HANDOFF: `{function}/generated/CONTRACT-HANDOFF.md` |
+| **fast Pydantic / OpenAPI** | ✅ Pydantic stub modules; ⚠️ OpenAPI chỉ `contract-pilot` | [FastAPI structure git](https://github.com/raintr91/fast-api/blob/v3/docs/operational/FAST-API-STRUCTURE.md) · [FastAPI codegen git](https://github.com/raintr91/fast-api/blob/v3/docs/operational/FAST-CODEGEN.md) | `fast-gen openapi` → `backend/02-openapi.yaml` — chưa chạy cho `knowledge-hub` |
+| **Envelope** | ✅ `api_response.success/error` ↔ `assertApiSuccess` + `parseApiData` | [FastAPI structure § Envelope](https://github.com/raintr91/fast-api/blob/v3/docs/operational/FAST-API-STRUCTURE.md) · [WIRE-PHASE-DIAGRAM](./WIRE-PHASE-DIAGRAM.md) `/grill-api` | FE type gọn hơn BE (`code`, `trace_id` optional phía FE) |
 | **List `{ items, total }`** | ✅ `PaginatedResult` + `SampleItemListResponseSchema` | Chưa E2E list qua fast (sample-items mock) | `meta.pagination` có helper `to_envelope_meta()` — dùng khi cần |
 | **Auth cookie/header** | ⚠️ Stub: `auth_token` cookie → `Bearer` · fast `get_current_user` stub | [PAGE-LIFECYCLE](./PAGE-LIFECYCLE.md) `wire` | Chưa JWT thật / refresh — đủ cho pilot E2E |
 
@@ -49,7 +46,7 @@ flowchart TD
 | Phase | Doc diagram |
 |-------|-------------|
 | Contract Zod | [BACKEND-PHASE-DIAGRAM](./BACKEND-PHASE-DIAGRAM.md) sub-lane Contract |
-| Fast backend | `fast-api-base/docs/operational/FAST-BACKEND-PHASE-DIAGRAM.md` |
+| Fast backend | [FastAPI phase diagram git](https://github.com/raintr91/fast-api/blob/v3/docs/operational/FAST-BACKEND-PHASE-DIAGRAM.md) |
 | Wire + audit | [WIRE-PHASE-DIAGRAM](./WIRE-PHASE-DIAGRAM.md) |
 | Full stack | [factory-ai-stack](./factory-ai-stack.md) |
 

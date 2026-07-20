@@ -1,9 +1,6 @@
 # Prompt Templates — Team AI Flow
 
-> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
-
-
-> Copy/paste vào Cursor Agent. Thay placeholder `{...}`. Chi tiết command: [`FEATURE-ARTIFACT-FLOWS.md`](FEATURE-ARTIFACT-FLOWS.md) · Skills: `.cursor/skills/`
+> Copy/paste vào Cursor Agent. Thay placeholder `{...}`. Chi tiết command: [Toolchain index](./index.md) · Skills: `.cursor/skills/`
 
 **Quy tắc:** một session = một command · chat mới khi đổi phase · cập nhật `.harness/progress.md` trước khi đóng session.
 
@@ -566,4 +563,4 @@ Session mới: *"Đọc .harness/progress.md, tiếp tục /wire create cho admi
 | Scaffold | `pnpm portal:gen --spec ...` trước `/prototype`; agent chỉ HANDOFF + diff |
 | Registry | Sau prototype: promote reusable UI → `registries/design.registry.json` — [DESIGN-REGISTRY-PROMOTION.md](./DESIGN-REGISTRY-PROMOTION.md) |
 
-Chi tiết codegen: [`PORTAL-CODEGEN.md`](./PORTAL-CODEGEN.md) · `.cursor/extracts/codegen/tags.md` · token budget: `.cursor/extracts/artifact-graph.md`.
+Chi tiết codegen: [Portal reference](https://github.com/raintr91/nuxt_4/blob/nuxt_v_3/docs/operational/PORTAL-CODEGEN.md) · `.cursor/extracts/codegen/tags.md` · token budget: `.cursor/extracts/artifact-graph.md`.

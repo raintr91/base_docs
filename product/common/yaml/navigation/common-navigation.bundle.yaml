@@ -65,5 +65,5 @@ review:
   layoutNotes: []
 openQuestions: []
 _meta:
-  generatedBy: scripts/spec/convert-spec-to-bundle.mjs
+  generatedBy: archived-legacy-converter
   sourceRevision: null

@@ -146,6 +146,7 @@ export default withMermaid(
               items: [
                 { text: 'Index', link: '/platform/guide/' },
                 { text: 'Overview', link: '/platform/guide/platform-base-overview' },
+                { text: 'Toolkits (MCP)', link: '/platform/guide/toolkits' },
                 { text: 'Team AI workflow', link: '/platform/guide/team-ai-workflow-slides' },
                 { text: 'YAML ↔ MD workflow', link: '/platform/guide/yaml-markdown-ai-workflow' },
                 { text: 'E2E Playwright', link: '/platform/guide/e2e-automation-playwright' },
@@ -156,9 +157,9 @@ export default withMermaid(
               collapsed: true,
               items: [
                 { text: 'Index', link: '/platform/toolchain/' },
+                { text: 'Toolkits (MCP)', link: '/platform/guide/toolkits' },
                 { text: 'Full cycle', link: '/platform/toolchain/FULL-CYCLE-PIPELINE-DIAGRAM' },
                 { text: 'Design phase', link: '/platform/toolchain/DESIGN-PHASE-DIAGRAM' },
-                { text: 'Hubdocs MCP', link: '/platform/toolchain/HUBDOCS' },
                 { text: 'Repo split map', link: '/platform/toolchain/REPO-SPLIT-MAP' },
               ],
             },
@@ -166,10 +167,21 @@ export default withMermaid(
               text: 'Bases',
               collapsed: true,
               items: [
-                { text: 'FastAPI', link: '/platform/toolchain/FAST-API-QUICKSTART' },
-                { text: 'Integration', link: '/platform/toolchain/INTEGRATION-STRUCTURE' },
-                { text: 'Nest BE', link: '/platform/toolchain/NEST-API-STRUCTURE' },
-                { text: 'Line client', link: '/platform/toolchain/LINE-CLIENT-STRUCTURE' },
+                {
+                  text: 'Portal git',
+                  link: 'https://github.com/raintr91/nuxt_4/blob/nuxt_v_3/docs/operational/PORTAL-CODEGEN.md',
+                },
+                {
+                  text: 'FastAPI git',
+                  link: 'https://github.com/raintr91/fast-api/blob/v3/docs/operational/FAST-API-QUICKSTART.md',
+                },
+                {
+                  text: 'Laravel API git',
+                  link: 'https://github.com/raintr91/lara12/blob/v3/docs/operational/BACKEND-API-QUICKSTART.md',
+                },
+                { text: 'Nest BE', link: 'https://github.com/raintr91/next_nest/blob/next_nest_v3/docs/operational/NEST-API-STRUCTURE.md' },
+                { text: 'Integration (git)', link: 'https://github.com/raintr91/integration' },
+                { text: 'Line client (git)', link: 'https://github.com/raintr91/winform' },
               ],
             },
           ],

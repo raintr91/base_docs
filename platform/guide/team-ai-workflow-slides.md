@@ -1,6 +1,6 @@
 # Feature Artifact Workflow
 
-> **Slide vs operational doc:** Deck training này **cố ý giữ `/design`** làm tên phase “design lane”. Doc vận hành: [`FEATURE-ARTIFACT-FLOWS.md`](../toolchain/FEATURE-ARTIFACT-FLOWS.md) · [`PROMPT-TEMPLATES.md`](../toolchain/PROMPT-TEMPLATES.md): `/design` deprecated → **`/spec`** + **`/prototype`**.
+> **Slide vs operational doc:** Deck training này **cố ý giữ `/design`** làm tên phase “design lane”. Doc vận hành: [Toolchain index](../toolchain/index.md) · [`PROMPT-TEMPLATES.md`](../toolchain/PROMPT-TEMPLATES.md): `/design` deprecated → **`/spec`** + **`/prototype`**.
 
 ---
 

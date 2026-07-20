@@ -29,4 +29,4 @@ flowchart TD
 |-----|----------|
 | [UNIT-PHASE-DIAGRAM](./UNIT-PHASE-DIAGRAM.md) | Unit lane chi tiết |
 | [UNIT-REGISTRY-PROMOTION](./UNIT-REGISTRY-PROMOTION.md) | Promote pattern/tag |
-| [PORTAL-UNIT-GEN-ROADMAP](./PORTAL-UNIT-GEN-ROADMAP.md) | Roadmap + pattern status |
+| [Portal unit-gen roadmap](https://github.com/raintr91/nuxt_4/blob/nuxt_v_3/docs/operational/PORTAL-UNIT-GEN-ROADMAP.md) | Roadmap + pattern status |

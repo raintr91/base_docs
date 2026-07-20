@@ -387,7 +387,7 @@ Dev, QA, PM/Leader và stakeholder hợp nhất các đầu ra thành một lu�
 | **ArtifactGraph** | Gap analysis, parity, tag và codegen allowlist |
 | **VitePress + Mermaid** | Trình bày docs và diagrams |
 
-Setup: [Hubdocs](/platform/toolchain/HUBDOCS) · [ArtifactGraph](/platform/toolchain/ARTIFACTGRAPH).
+Setup: [Toolkits (MCP)](./toolkits.md) — cài Hubdocs, ArtifactGraph và các toolkit khác.
 
 ---
 

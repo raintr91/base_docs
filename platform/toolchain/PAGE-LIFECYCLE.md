@@ -1,8 +1,5 @@
 # Page lifecycle registry
 
-> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
-
-
 Nguồn máy đọc: `registries/page-lifecycle.registry.json`.
 
 **Tự cập nhật:** `portal:gen` → `prototype`; `portal:remove` → `design-spec`; `pnpm portal:lifecycle sync` quét manifest + page trên disk.

@@ -14,7 +14,7 @@ Grill gap → `/update-spec` (xem overview).
 |-----|----------|
 | [UPDATE-SPEC-FLOW](./UPDATE-SPEC-FLOW.md) | Clear `#update:*` · `wireCount++` |
 | [TECH-DEBT-FLOW](./TECH-DEBT-FLOW.md) | `deferTo: wire` |
-| [PORTAL-CODEGEN](./PORTAL-CODEGEN.md) | `portal:unit-gen --phase wire` |
+| [Portal reference](https://github.com/raintr91/nuxt_4/blob/nuxt_v_3/docs/operational/PORTAL-CODEGEN.md) | `portal:unit-gen --phase wire` |
 | [UNIT-PHASE-DIAGRAM](./UNIT-PHASE-DIAGRAM.md) | Vitest sau wire delta |
 | [TEST-PHASE-DIAGRAM](./TEST-PHASE-DIAGRAM.md) | E2E sau integration |
 | [BACKEND-PHASE-DIAGRAM](./BACKEND-PHASE-DIAGRAM.md) | API track trước wire |

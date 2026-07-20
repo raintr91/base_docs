@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "mcp__artifactgraph__*",
-      "mcp__hubdocs__*"
-    ]
-  }
-}

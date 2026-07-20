@@ -194,4 +194,5 @@ flow                     → FLOW-login
 ## 8. Related
 
 - [Start now](./start-now.md) — onboarding and responsibility matrix
-- Skills: `.cursor/skills/{architecture,context,containers,component,journey,spec,deployment}/`
+- Skills are toolkit-owned and generated locally under `.cursor/skills/` after
+  installing the docs toolkits — see [Toolkits (MCP)](./toolkits.md).

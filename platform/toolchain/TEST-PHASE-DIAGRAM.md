@@ -1,11 +1,8 @@
 # Test phase — E2E lane (Playwright)
 
-> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
-
-
 > **QA + Dev** — lane Playwright từ testcase YAML, **độc lập** unit lane ([UNIT-PHASE-DIAGRAM](./UNIT-PHASE-DIAGRAM.md)).  
 > Nằm trong [FULL-CYCLE-PIPELINE-DIAGRAM](./FULL-CYCLE-PIPELINE-DIAGRAM) phase **2a Tests**.  
-> Hub: [PORTAL-CODEGEN](./PORTAL-CODEGEN.md) · Skills: `/test` · `/grill-test` · `testcase:gen`
+> Hub: [Portal reference](https://github.com/raintr91/nuxt_4/blob/nuxt_v_3/docs/operational/PORTAL-CODEGEN.md) · Skills: `/test` · `/grill-test` · `testcase:gen`
 
 Trạng thái codegen E2E (portal repo):
 
@@ -298,8 +295,8 @@ Chưa implement — hiện delete/confirm chỉ có spec design + `.test.yaml` d
 
 | Doc | Mục đích |
 |-----|----------|
-| [PORTAL-CODEGEN](./PORTAL-CODEGEN.md) | `testcase:gen` · `ui.testIds` · registry E2E |
-| [PORTAL-UNIT-GEN-ROADMAP](./PORTAL-UNIT-GEN-ROADMAP.md) PR12–13 | Roadmap codegen E2E |
+| [Portal reference](https://github.com/raintr91/nuxt_4/blob/nuxt_v_3/docs/operational/PORTAL-CODEGEN.md) | `testcase:gen` · `ui.testIds` · registry E2E |
+| [Portal unit-gen roadmap](https://github.com/raintr91/nuxt_4/blob/nuxt_v_3/docs/operational/PORTAL-UNIT-GEN-ROADMAP.md) PR12–13 | Roadmap codegen E2E |
 | [E2E-TESTIDS](./E2E-TESTIDS.md) | Contract `data-testid` |
 | `testgen/runners/README.md` | CLI + steps supported |
 | `registries/e2e-test.registry.json` | Bundle + matcher registry |

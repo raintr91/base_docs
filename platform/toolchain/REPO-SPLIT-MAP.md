@@ -1,8 +1,5 @@
 # Repo split map — Factory AI (4 repo)
 
-> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
-
-
 > Mỗi runtime repo **sở hữu** spec bundle + ir + codegen + test của mình. Portal chỉ giữ **FE contract** (`ir/spec.yaml` entities) + app layers + E2E.
 
 **Cập nhật:** 2026-07-10
@@ -56,7 +53,7 @@ Các repo runtime được checkout độc lập; docs hub không resolve chúng
   md/                        # pnpm docs:render
 ```
 
-Line + integration: **cùng bundle schema** với portal (`scripts/spec/lib/bundle-ir.mjs`).
+Line + integration use the same bundle schema owned by Bundlekit.
 
 ---
 
@@ -110,7 +107,6 @@ dotnet test
 | Doc | Repo |
 |-----|------|
 | [FEATURE-ARTIFACT-COMMANDS](./FEATURE-ARTIFACT-COMMANDS.md) | portal (hub) |
-| [LINE-INTEGRATION-ARTIFACT-LAYOUT](./LINE-INTEGRATION-ARTIFACT-LAYOUT.md) | portal |
-| `LINE-ARTIFACT-COMMANDS.md` · skills `.cursor/skills/` | **line** |
-| `INTEGRATION-ARTIFACT-COMMANDS.md` · skills `.cursor/skills/` | **integration** |
-| `FAST-CODEGEN.md` · MkDocs `./scripts/docs-dev` · skills | **fast-api-base** |
+| artifact layout · commands · skills `.cursor/skills/` | **line** → [git](https://github.com/raintr91/winform) |
+| artifact layout · commands · skills `.cursor/skills/` | **integration** → [git](https://github.com/raintr91/integration) |
+| [FastAPI codegen git](https://github.com/raintr91/fast-api/blob/v3/docs/operational/FAST-CODEGEN.md) · MkDocs `./scripts/docs-dev` · skills | **fast-api-base** |

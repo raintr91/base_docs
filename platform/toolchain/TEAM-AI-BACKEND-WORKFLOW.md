@@ -1,8 +1,5 @@
 # Team AI Backend Workflow
 
-> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
-
-
 Progressive disclosure: **một session = một command**. Shared snippets: `.cursor/extracts/`
 
 Session mới: đọc `.harness/progress.md` trước khi tiếp tục cùng feature slug.
@@ -72,7 +69,7 @@ Harness: `.harness/progress.md` · `feature_list.json` · `portalRefs` · `pendi
 | Codegen tags | `#gen:*` — grill only; script thực thi |
 | Non-CRUD | export/import/custom → `#manual-service`; mail/payment → `#call-external` |
 
-Alias ngắn — skill giữ tên đầy đủ: [INTEGRATION-API-SPEC](./INTEGRATION-API-SPEC.md).
+Alias ngắn — skill giữ tên đầy đủ; integration spec ở repo [integration](https://github.com/raintr91/integration).
 Chi tiết sync: `.cursor/extracts/api-spec-sync.md`
 Chi tiết integration: `.cursor/extracts/api-integration-spec.md`
 Chi tiết hashtag: `.cursor/extracts/codegen/tags.md` (docs hub) · BE codegen tags live in the BE checkout.

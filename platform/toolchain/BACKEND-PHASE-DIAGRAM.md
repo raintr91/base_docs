@@ -1,9 +1,6 @@
 # Backend / API phase (Nest in-repo)
 
-> **R2/R3:** Product Code + architecture → [`base-docs`](../..) · E2E plans → [`base-tests`](https://github.com/raintr91/base_test) · gen: `pnpm portal:gen --id …` / `pnpm testcase:gen --id …` · [HUBS](./HUBS.md) / [DOCS-HUB](./DOCS-HUB.md) / [TESTS-HUB](./TESTS-HUB.md)
-
-
-> Hub: [BACKEND-CODEGEN](./BACKEND-CODEGEN.md) · [TEAM-AI-BACKEND-WORKFLOW](./TEAM-AI-BACKEND-WORKFLOW.md) · [FULL-CYCLE-PIPELINE-DIAGRAM](./FULL-CYCLE-PIPELINE-DIAGRAM)
+> Hub: [BACKEND-CODEGEN](https://github.com/raintr91/lara12/blob/v3/docs/operational/BACKEND-CODEGEN.md) · [TEAM-AI-BACKEND-WORKFLOW](./TEAM-AI-BACKEND-WORKFLOW.md) · [FULL-CYCLE-PIPELINE-DIAGRAM](./FULL-CYCLE-PIPELINE-DIAGRAM)
 
 Phase **2c API** — chạy **song song** portal scaffold (2a) và E2E prep (2b); converge tại **Wire** (phase 3).
 
@@ -52,7 +49,7 @@ Chi tiết field `kind`, scopes, relation: [CONTRACT-FIELD-REGISTRY](./CONTRACT-
 
 ---
 
-## Sub-lane: Codegen (`nest:gen` + `openapi:gen`)
+## Sub-lane: Codegen (`openapi:gen`)
 
 ```mermaid
 flowchart TD
@@ -70,13 +67,15 @@ flowchart TD
   NG --> MAN
 ```
 
-Cấu trúc module CQRS: [NEST-API-STRUCTURE](./NEST-API-STRUCTURE.md) · Dev local: [BACKEND-API-QUICKSTART](./BACKEND-API-QUICKSTART.md).
+Cấu trúc module CQRS: [NEST-API-STRUCTURE](https://github.com/raintr91/next_nest/blob/next_nest_v3/docs/operational/NEST-API-STRUCTURE.md) · Laravel API git: [quickstart](https://github.com/raintr91/lara12/blob/v3/docs/operational/BACKEND-API-QUICKSTART.md).
+
+> **Lưu ý:** `openapi:gen` là lệnh chung của Codegenkit cho mọi BE adapter (Nest, FastAPI, …). FastAPI export OpenAPI tách biệt khỏi Nest.
 
 ---
 
 ## Sub-lane: API unit (Jest)
 
-**Không gộp diagram này** — xem file riêng: [NEST-UNIT-PHASE-DIAGRAM](./NEST-UNIT-PHASE-DIAGRAM.md).
+**Không gộp diagram này** — xem file riêng: [NEST-UNIT-PHASE-DIAGRAM](https://github.com/raintr91/next_nest/blob/next_nest_v3/docs/operational/NEST-UNIT-PHASE-DIAGRAM.md).
 
 Tóm tắt: `nest:gen` → `nest:unit-gen` → `pnpm --filter @portal/api test` → `/grill-api` → `/wire`.
 
@@ -114,12 +113,12 @@ Pilot: ``base-docs` Product Code (prefer `--id`)`
 
 | Doc | Nội dung |
 |-----|----------|
-| [BACKEND-CODEGEN](./BACKEND-CODEGEN.md) | Hub script backend |
-| [NEST-UNIT-PHASE-DIAGRAM](./NEST-UNIT-PHASE-DIAGRAM.md) | Jest lane chi tiết |
+| [BACKEND-CODEGEN](https://github.com/raintr91/lara12/blob/v3/docs/operational/BACKEND-CODEGEN.md) | Hub script backend |
+| [NEST-UNIT-PHASE-DIAGRAM](https://github.com/raintr91/next_nest/blob/next_nest_v3/docs/operational/NEST-UNIT-PHASE-DIAGRAM.md) | Jest lane chi tiết |
 | [CONTRACT-FIELD-REGISTRY](./CONTRACT-FIELD-REGISTRY.md) | Field registry |
-| [NEST-API-STRUCTURE](./NEST-API-STRUCTURE.md) | Common layer |
+| [NEST-API-STRUCTURE](https://github.com/raintr91/next_nest/blob/next_nest_v3/docs/operational/NEST-API-STRUCTURE.md) | Common layer |
 | [WIRE-PHASE-DIAGRAM](./WIRE-PHASE-DIAGRAM.md) | Sau `/api-code` |
-| [PORTAL-CODEGEN](./PORTAL-CODEGEN.md) | `portal:gen` (FE, không models) |
+| [Portal reference](https://github.com/raintr91/nuxt_4/blob/nuxt_v_3/docs/operational/PORTAL-CODEGEN.md) | `portal:gen` (FE, không models) |
 | [UNIT-PHASE-DIAGRAM](./UNIT-PHASE-DIAGRAM.md) | Vitest portal (song song) |
 | [TEST-PHASE-DIAGRAM](./TEST-PHASE-DIAGRAM.md) | E2E (song song) |
 
