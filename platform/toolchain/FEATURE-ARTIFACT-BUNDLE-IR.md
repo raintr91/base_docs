@@ -38,7 +38,7 @@ flowchart LR
   2. `pnpm spec:split -- <bundle.yaml>` (hoặc `pnpm spec:split:all` quét toàn bộ) để tái sinh `ir/*`.
 - `ir/*` chỉ được sửa bởi **công cụ grill** (`/dev-grill-docs`, `/bqa-grill-docs`) — sau đó chạy `pnpm spec:merge` đẩy ngược `gen`/tags về bundle. Giữa grill và merge **không** re-split.
 
-## Bundlekit aliases
+## Docskit aliases
 
 | Lệnh | Mục đích |
 |------|----------|
@@ -47,4 +47,4 @@ flowchart LR
 | `pnpm spec:split:check -- <bundle.yaml>` | CI: ir sync bundle |
 | `pnpm spec:normalize-gen -- <bundle.yaml> --write` | Tách codegen ra `gen` từ spec cũ |
 
-Bundlekit init generates local templates under `templates/`.
+Docskit init generates local templates under `templates/`.

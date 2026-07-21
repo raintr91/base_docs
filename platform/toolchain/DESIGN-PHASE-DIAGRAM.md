@@ -29,7 +29,7 @@ flowchart LR
   class NEED,ARC,C4,FLOW,SKIP p0
 ```
 
-Skills: `/architecture` · `/hubdocs` (optional validate IDs). Journeys: `architecture/06-runtime/journeys/FLOW-*`.
+Skills: `/architecture` · `/docskit` (optional validate IDs). Journeys: `architecture/06-runtime/journeys/FLOW-*`.
 
 ---
 

@@ -7,17 +7,17 @@ Handbook + how-to for Code IR (split/render/validate). **SSOT: this hub** (`base
 ## Bundle IR commands
 
 Run the docs install profile first. These `pnpm` commands are aliases to the
-installed **Bundlekit** CLI:
+installed **Docskit** CLI:
 
 ```bash
 pnpm spec:split -- product/components/…/code/W-*/….bundle.yaml
 pnpm docs:render -- --yaml-root product/components --md-root product/components   # adjust flags as needed
 pnpm docs:render:common
 pnpm legacy-dynamics:validate -- product/legacy-dynamics/…/_legacy.dynamics.yaml
-# direct CLI: bundlekit split|render|legacy-validate …
+# direct CLI: docskit split|render|legacy-validate …
 ```
 
-Engines and generated skills are owned by Bundlekit; this repository keeps only
+Engines and generated skills are owned by Docskit; this repository keeps only
 product templates and the thin command aliases in `package.json`.
 
 ## Handbook (this folder)
@@ -69,8 +69,7 @@ Overview màu: [FULL-CYCLE-PIPELINE-DIAGRAM](./FULL-CYCLE-PIPELINE-DIAGRAM.md) �
 
 Per-toolkit deep docs live in each toolkit's own git repo (base-docs chỉ giữ
 [Toolkits (MCP)](/platform/guide/toolkits) làm hub):
-[Hubdocs](https://github.com/raintr91/hubdocs) ·
-[Bundlekit](https://github.com/raintr91/Bundlekit) ·
+[Docskit](https://github.com/raintr91/docskit) ·
 [Processkit](https://github.com/raintr91/Processkit) ·
 [Codegenkit](https://github.com/raintr91/codegenkit) ·
 [Testkit](https://github.com/raintr91/Testkit) ·

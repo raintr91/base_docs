@@ -104,7 +104,7 @@ Detail Design (node trong gam emerald): [DESIGN-PHASE-DIAGRAM](./DESIGN-PHASE-DI
 
 | Phase | Đại diện | Detail |
 |-------|----------|--------|
-| **0** Architecture | Boundary group/module+ · CTX/CTR · curated `FLOW-*` | Skills `/architecture` … `/journey` · [HUBDOCS](./HUBDOCS) |
+| **0** Architecture | Boundary group/module+ · CTX/CTR · curated `FLOW-*` | Skills `/architecture` … `/journey` · [DOCSKIT](./DOCSKIT) |
 | 1 Design | bundle yaml → ir/spec → prototype | [DESIGN-PHASE-DIAGRAM](./DESIGN-PHASE-DIAGRAM) · [Toolchain index](./index.md) |
 | 2a Scaffold | `portal:gen` · `portal:unit-gen` · HANDOFF / manifests | [Portal reference](https://github.com/raintr91/nuxt_4/blob/nuxt_v_3/docs/operational/PORTAL-CODEGEN.md) |
 | 2b Tests | `*.test.yaml` · `testcase:gen` · grill-test | [TEST-PHASE-DIAGRAM](./TEST-PHASE-DIAGRAM) |

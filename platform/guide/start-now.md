@@ -378,16 +378,16 @@ Dev, QA, PM/Leader và stakeholder hợp nhất các đầu ra thành một lu�
 
 ## 5. Trợ lý và công cụ
 
-![Skill, ArtifactGraph và Hubdocs](./assets/start-here-helpers.png)
+![Skill, ArtifactGraph và Docskit](./assets/start-here-helpers.png)
 
 | Công cụ | Trách nhiệm |
 |---------|-------------|
 | **Skill `/…`** | Workflow theo đúng tầng và vai trò |
-| **Hubdocs** | Tìm ID, dependency, orphan và link |
+| **Docskit** | Tìm ID, dependency, orphan và link |
 | **ArtifactGraph** | Gap analysis, parity, tag và codegen allowlist |
 | **VitePress + Mermaid** | Trình bày docs và diagrams |
 
-Setup: [Toolkits (MCP)](./toolkits.md) — cài Hubdocs, ArtifactGraph và các toolkit khác.
+Setup: [Toolkits (MCP)](./toolkits.md) — cài Docskit, ArtifactGraph và các toolkit khác.
 
 ---
 

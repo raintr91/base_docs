@@ -147,7 +147,7 @@ Prefer `flowchart` / `sequenceDiagram`. Avoid Mermaid `C4Context` in VitePress.
 | Common / DB | `product/common/` · `product/shared/data-model/` | as needed |
 | Deployment | `architecture/07-deployment/` | `/deployment` |
 
-Nav uses business labels; **git paths and IDs stay** for codegen, grill, and hubdocs. Do not create physical `operational-areas/` folders unless the product needs dedicated area pages.
+Nav uses business labels; **git paths and IDs stay** for codegen, grill, and docskit. Do not create physical `operational-areas/` folders unless the product needs dedicated area pages.
 
 ---
 

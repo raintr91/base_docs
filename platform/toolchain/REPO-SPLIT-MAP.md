@@ -53,7 +53,7 @@ Các repo runtime được checkout độc lập; docs hub không resolve chúng
   md/                        # pnpm docs:render
 ```
 
-Line + integration use the same bundle schema owned by Bundlekit.
+Line + integration use the same bundle schema owned by Docskit.
 
 ---
 

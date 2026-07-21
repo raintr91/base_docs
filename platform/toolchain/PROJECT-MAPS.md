@@ -8,14 +8,14 @@ There are two independent repo-only configs:
 |----------------|-------|---------|
 | `platform-repos.json` | Platform DNA | Current checkout identity (lane/role) |
 | `platform-repos.example.json` | Platform DNA | Portable current-repo baseline |
-| `legacy-repos.json` | Bundlekit | Optional legacy evidence repo catalog |
-| `legacy-repos.example.json` | Bundlekit | Empty portable legacy baseline |
+| `legacy-repos.json` | Docskit | Optional legacy evidence repo catalog |
+| `legacy-repos.example.json` | Docskit | Empty portable legacy baseline |
 
 Both configs contain **repos only**—never toolkits, skills, adapters, harness
 profiles, or install state. Toolkit installation truth belongs in each
 toolkit's `install-manifest.json`.
 
-Platform DNA never writes `legacy-repos*`; Bundlekit never writes
+Platform DNA never writes `legacy-repos*`; Docskit never writes
 `platform-repos*`. Other toolkits write neither.
 
 External repositories are documentation references, not local path dependencies:
@@ -24,7 +24,7 @@ External repositories are documentation references, not local path dependencies:
 - Portal reference: [raintr91/nuxt_4](https://github.com/raintr91/nuxt_4)
 - Laravel reference: [raintr91/lara12](https://github.com/raintr91/lara12)
 - ArtifactGraph: [raintr91/artifactgraph](https://github.com/raintr91/artifactgraph)
-- Hubdocs: [raintr91/hubdocs](https://github.com/raintr91/hubdocs)
+- Docskit: [raintr91/docskit](https://github.com/raintr91/docskit)
 
 ## Machine-local legacy evidence
 
@@ -37,7 +37,7 @@ cp legacy-repos.example.json legacy-repos.local.json
 ```
 
 Agents must not guess paths or infer that repositories are siblings. Read only
-the requested project entry from the local map. ArtifactGraph and Hubdocs are
+the requested project entry from the local map. ArtifactGraph and Docskit are
 installed tools; their `init` commands generate machine-local MCP config.
 
 ## Bootstrap and validation
@@ -55,10 +55,10 @@ Platform DNA:
 - seeds `platform-repos.json` + example with current `root: "."` only;
 - removes obsolete `harness` inventory from an existing platform map.
 
-Bundlekit init seeds the empty portable legacy maps. Machine checkout roots stay
+Docskit init seeds the empty portable legacy maps. Machine checkout roots stay
 in ignored `legacy-repos.local.json`.
 
 Schemas live with their owners: Platform DNA
 [`platform-repos`](https://github.com/raintr91/platform-dna/tree/main/templates/schemas)
-and Bundlekit
-[`legacy-repos`](https://github.com/raintr91/bundlekit/tree/main/templates/schemas).
+and Docskit
+[`legacy-repos`](https://github.com/raintr91/docskit/tree/main/templates/schemas).

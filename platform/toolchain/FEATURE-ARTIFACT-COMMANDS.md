@@ -1,6 +1,6 @@
 # Feature artifact — lệnh script
 
-> **Bundle IR MCP:** after `bundlekit init`, use [Bundlekit](https://github.com/raintr91/Bundlekit) tools/CLI (`bundlekit split|render|legacy-validate`). `pnpm spec:*` / `pnpm docs:render*` below are thin aliases, not vendored fallback engines. Install: [Toolkits (MCP)](/platform/guide/toolkits).
+> **Bundle IR MCP:** after `docskit init`, use [Docskit](https://github.com/raintr91/docskit) tools/CLI (`docskit split|render|legacy-validate`). `pnpm spec:*` / `pnpm docs:render*` below are thin aliases, not vendored fallback engines. Install: [Toolkits (MCP)](/platform/guide/toolkits).
 
 > Bảng tra cứu · Diagram: [Toolchain index](./index.md)  
 > **Layout folder gen/registry (global):** [CODEGEN-LAYOUT](https://github.com/raintr91/codegenkit/blob/main/docs/CODEGEN-LAYOUT.md)
@@ -12,11 +12,11 @@
 
 | Lệnh | Input | Output / hiệu ứng |
 |------|--------|-------------------|
-| `pnpm spec:normalize-gen -- <bundle> --write` · `bundlekit normalize` | Bundle trộn spec+gen | Tách `spec` design v1 ↔ `gen` |
-| `pnpm spec:split -- <bundle.yaml>` · `bundlekit split` / `bundle_split` | Bundle SSOT | `ir/spec.yaml`, `ir/legacy.yaml`, `ir/design.yaml` |
-| `pnpm spec:merge -- <bundle.yaml>` · `bundlekit merge` | `ir/*` đã sửa tay | Cập nhật bundle (đặc biệt `gen`) |
-| `pnpm spec:split:check -- <bundle.yaml>` · `bundlekit split --check` | Bundle + ir | Exit 1 nếu lệch |
-| `pnpm spec:split:all` · `bundlekit split-all` | Mọi `yaml/**/*.bundle.yaml` | Quét thư mục, split + verify từng bundle |
+| `pnpm spec:normalize-gen -- <bundle> --write` · `docskit normalize` | Bundle trộn spec+gen | Tách `spec` design v1 ↔ `gen` |
+| `pnpm spec:split -- <bundle.yaml>` · `docskit split` / `docskit_bundle_split` | Bundle SSOT | `ir/spec.yaml`, `ir/legacy.yaml`, `ir/design.yaml` |
+| `pnpm spec:merge -- <bundle.yaml>` · `docskit merge` | `ir/*` đã sửa tay | Cập nhật bundle (đặc biệt `gen`) |
+| `pnpm spec:split:check -- <bundle.yaml>` · `docskit split --check` | Bundle + ir | Exit 1 nếu lệch |
+| `pnpm spec:split:all` · `docskit split-all` | Mọi `yaml/**/*.bundle.yaml` | Quét thư mục, split + verify từng bundle |
 
 ---
 
