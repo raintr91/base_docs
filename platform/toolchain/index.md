@@ -41,6 +41,7 @@ Overview màu: [FULL-CYCLE-PIPELINE-DIAGRAM](./FULL-CYCLE-PIPELINE-DIAGRAM.md) �
 |-----|----------|
 | [FEATURE-ARTIFACT-LAYOUT](./FEATURE-ARTIFACT-LAYOUT.md) | Cây thư mục `yaml/` · `md/` · `ir/` · `generated/` |
 | [CODEGEN-LAYOUT](https://github.com/raintr91/codegenkit/blob/main/docs/CODEGEN-LAYOUT.md) | Global `codegen/` · `unitgen/` · `registries/` (platform-bases) |
+| [CUSTOMIZE-TEMPLATES](https://github.com/raintr91/codegenkit/blob/main/docs/CUSTOMIZE-TEMPLATES.md) | Hướng dẫn tùy chỉnh Templates và Rules (Ghi đè, Override, Extend) |
 | [ArtifactGraph (git)](https://github.com/raintr91/artifactgraph) | Local MCP gaps/tags/gen allowlist |
 | [FEATURE-ARTIFACT-BUNDLE-IR](./FEATURE-ARTIFACT-BUNDLE-IR.md) | SSOT bundle → split/merge · `spec` vs `gen` |
 
