@@ -121,7 +121,7 @@ docskit init      # agents → lane (docs home / consumer) → optional toolkits
 ```
 
 `docskit` đóng vai trò là "Single Source of Truth" cho toàn bộ Phase Spec/Grill/Design.
-Chạy trên repo docs. Skill owned: `/architecture` `/spec` `/bqa-grill-docs` v.v. (không sở hữu process/impact — đó là Processkit). Sở hữu alias `pnpm spec:*` / `pnpm docs:render*`. Hỗ trợ khảo cổ hệ thống bằng cách gọi kèm modifier `/legacy` (được cung cấp bởi `platform-dna`). Cài đặt sẽ tự động gọi `platform-dna init` nếu thiếu.
+Chạy trên repo docs. Skill owned: `/architecture` `/spec` `/bqa-grill-docs` v.v. (không sở hữu process/impact — đó là Processkit). Sở hữu alias `pnpm spec:*` / `pnpm docs:render*`. Hỗ trợ khảo cổ hệ thống bằng cách gọi kèm modifier `/legacy` (được cung cấp bởi `platform-dna`). Cài đặt sẽ thông báo nếu thiếu `platform-dna` chứ không còn tự động cài.
 `init` ghi MCP local trong repo đang chạy. Consumer (FE/BE/tests) resolve docs hub qua `DOCSKIT_ROOT`, không đoán sibling; consumer mode chỉ nhận `/docskit` + rule/schema/hook nhẹ, không nhận nhóm skill authoring architecture/spec. Accelerator optional: artifactgraph (tags), codegraph (evidence) — đều fallback êm.
 
 ### processkit — process trace + impact review
@@ -138,7 +138,7 @@ processkit init   # agents → lane (docs | fe | be)
 | `docs` | `/business-process-trace` + `/business-impact-review` (+ `/flow-trace` redirect) |
 | `fe` / `be` | `/business-impact-review` only |
 
-`/business-process-trace` = evidence process brownfield qua code/legacy (không invent hop; product `FLOW-*` vẫn đi `/journey`). Dùng chung với modifier `/legacy` để trace luồng cũ. `/business-impact-review` = review ảnh hưởng thay đổi (dọc client→route/job→service + ngang mọi caller). MCP tools: `business_process_validate`, `business_impact_validate`, `business_diff_scope`. Accelerator optional: codegraph, docskit, artifactgraph. Cài đặt tự động gọi `platform-dna init` nếu thiếu.
+`/business-process-trace` = evidence process brownfield qua code/legacy (không invent hop; product `FLOW-*` vẫn đi `/journey`). Dùng chung với modifier `/legacy` để trace luồng cũ. `/business-impact-review` = review ảnh hưởng thay đổi (dọc client→route/job→service + ngang mọi caller). MCP tools: `business_process_validate`, `business_impact_validate`, `business_diff_scope`. Accelerator optional: codegraph, docskit, artifactgraph. Cài đặt sẽ thông báo nếu thiếu `platform-dna` chứ không còn tự động cài.
 
 ### codegenkit — sinh code FE/BE
 
