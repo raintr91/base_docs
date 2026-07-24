@@ -1,0 +1,2 @@
+overrides:
+  '@platform/docskit': link:../docskit
